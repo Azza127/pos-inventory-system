@@ -1,0 +1,23 @@
+<div class="order-filters">
+    <div class="search-wrapper">
+      <i class="bi bi-search search-icon"></i>
+      <input type="text" class="search-input" placeholder="Search by ticket number or product..." [ngModel]="searchTerm" (ngModelChange)="onSearchInput($event)">
+    </div>
+  
+    <div class="filters-right">
+      <div class="date-wrapper">
+        <i class="bi bi-calendar3 date-icon"></i>
+        <input type="date" class="date-input" [ngModel]="dateFilter" (ngModelChange)="onDateInput($event)" aria-label="Filter orders by date">
+        @if (dateFilter) {
+          <button type="button" class="date-clear-btn" (click)="clearDateFilter()" aria-label="Clear date filter">
+            <i class="bi bi-x"></i>
+          </button>
+        }
+      </div>
+  
+      <button type="button" class="export-btn" (click)="exportClick.emit()">
+        <i class="bi bi-download"></i>
+        Export
+      </button>
+    </div>
+  </div>

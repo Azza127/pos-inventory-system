@@ -1,0 +1,316 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #FFFFFF;
+  color: #0F172A;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 15px 18px;
+  z-index: 1000;
+  border-right: 1px solid #E5E7EB;
+}
+
+/* Brand */
+.brand {
+  padding: 8px 10px 25px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #159F98;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(15, 23, 42, 0.12);
+}
+
+.brand-logo {
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand-title {
+  margin: 0;
+  color: #0F172A;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.brand-subtitle {
+  color: #94A3B8;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+}
+
+
+/* Navigation */
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 28px;
+}
+
+.navigation a,
+.bottom-navigation a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 46px;
+  padding: 0 13px;
+  border-radius: 8px;
+  color: #64748B;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navigation a i,
+.bottom-navigation a i {
+  width: 20px;
+  font-size: 17px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+
+/* Hover */
+.navigation a:hover,
+.bottom-navigation a:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+  transform: translateX(2px);
+}
+
+/* Active */
+.navigation a.active,
+.bottom-navigation a.active {
+  background: #E8F0FF;
+  color: #0F172A;
+  box-shadow: 0 5px 13px rgba(15, 23, 42, 0.06);
+}
+
+.navigation a.active::before,
+.bottom-navigation a.active::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 10px;
+  width: 3px;
+  height: 26px;
+  background: #159F98;
+  border-radius: 0 4px 4px 0;
+}
+
+/* New Sale */
+.new-sale {
+  margin-top: auto;
+  padding: 18px 0;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.new-sale a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  background: #159F98;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.new-sale a i {
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.new-sale a:hover {
+  background: #0F817B;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.new-sale a:hover i {
+  color: #FFFFFF;
+}
+
+
+/* Bottom Navigation */
+.bottom-navigation {
+  padding-top: 12px;
+}
+
+.bottom-navigation a {
+  margin-bottom: 3px;
+}
+
+/* Tablet */
+@media (max-width: 800px) {
+  .sidebar {
+    width: 76px;
+    padding: 22px 9px 16px;
+  }
+
+  .brand {
+    padding: 6px 0 22px;
+  }
+
+  .brand-header {
+    justify-content: center;
+  }
+
+  .brand-text {
+    display: none;
+  }
+
+  .brand-mark {
+    width: 44px;
+    height: 44px;
+  }
+
+  .navigation {
+    margin-top: 22px;
+  }
+
+  .navigation a,
+  .bottom-navigation a {
+    justify-content: center;
+    padding: 0;
+    min-height: 48px;
+  }
+
+  .navigation a span,
+  .bottom-navigation a span {
+    display: none;
+  }
+
+  .navigation a i,
+  .bottom-navigation a i {
+    font-size: 19px;
+  }
+
+  .navigation a.active::before,
+  .bottom-navigation a.active::before {
+    left: -9px;
+  }
+
+  .new-sale {
+    padding: 16px 0;
+  }
+
+  .new-sale a {
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    margin: auto;
+    padding: 0;
+  }
+
+  .new-sale span {
+    display: none;
+  }
+
+  .new-sale i {
+    font-size: 19px;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: 68px;
+    padding: 10px 13px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .brand {
+    border: none;
+    padding: 0;
+    margin-right: 10px;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .navigation {
+    flex-direction: row;
+    margin: 0;
+    gap: 4px;
+    flex: 1;
+    overflow-x: auto;
+  }
+
+  .navigation a {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+  }
+
+  .navigation a.active::before {
+    left: 8px;
+    top: auto;
+    bottom: -9px;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+  }
+
+  .new-sale {
+    border: none;
+    padding: 0;
+    margin: 0 0 0 5px;
+  }
+
+  .new-sale a {
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+  }
+
+  .bottom-navigation {
+    display: none;
+  }
+}

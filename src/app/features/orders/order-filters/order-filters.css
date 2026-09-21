@@ -1,0 +1,136 @@
+.order-filters {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+    padding: 18px 0;
+    box-sizing: border-box;
+  }
+  
+  /* Search */
+  .search-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #737A7D;
+    font-size: 0.9rem;
+    pointer-events: none;
+  }
+  
+  .search-input {
+    width: 100%;
+    height: 42px;
+    padding: 0 14px 0 38px;
+    border: 1px solid #E3E7E7;
+    border-radius: 8px;
+    font-size: 0.87rem;
+    color: #15191C;
+    background: #F7F8F8;
+    box-sizing: border-box;
+  }
+  
+  .search-input::placeholder {
+    color: #9AA1A3;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #159C92;
+    box-shadow: 0 0 0 3px rgba(21, 156, 146, 0.12);
+  }
+  
+  /*  Right Controls */
+  .filters-right {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 10px;
+  }
+  
+  /*  Date */
+.date-wrapper {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.date-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #737A7D;
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.date-input {
+  width: 170px;
+  height: 42px;
+  padding: 0 40px 0 38px;
+  border: 1px solid #E3E7E7;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #15191C;
+  background: #F7F8F8;
+  box-sizing: border-box;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #159C92;
+  box-shadow: 0 0 0 3px rgba(21, 156, 146, 0.12);
+}
+
+/* Clear Date */
+.date-clear-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 50%;
+  background: #E8F5F4;
+  color: #11847F;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.date-clear-btn:hover {
+  background: #159C92;
+  color: #FFFFFF;
+}
+  
+/* Export */
+.export-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  background: #159C92;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.export-btn:hover {
+  background: #087F78;
+}

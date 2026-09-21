@@ -1,0 +1,368 @@
+<div *ngIf="!loading(); else loadingTpl" class="dashboard">
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <div>
+      <span class="eyebrow">STORE OVERVIEW</span>
+      <h2> {{ getPeriodLabel() }} activity </h2>
+      <p>  A quick look at your sales, orders and inventory. </p>
+    </div>
+  
+    <div class="dashboard-header-actions">
+      <!-- Period Dropdown -->
+      <div class="period-dropdown">
+        <button
+          type="button" class="period-dropdown-button" (click)="togglePeriodDropdown()" >
+          <span class="period-dropdown-label">
+            <i class="bi bi-calendar3"></i>
+            {{ getPeriodLabel() }}
+          </span>
+          <span class="dropdown-arrow" [class.open]="showPeriodDropdown"></span>
+        </button>
+
+        <div class="period-dropdown-menu" *ngIf="showPeriodDropdown" >
+          <button type="button" class="period-dropdown-option" [class.active]="period() === 'daily'" (click)="selectPeriod('daily')">
+            Daily
+          </button>
+
+          <button type="button" class="period-dropdown-option" [class.active]="period() === 'weekly'" (click)="selectPeriod('weekly')">
+            Weekly
+          </button>
+
+          <button type="button" class="period-dropdown-option" [class.active]="period() === 'monthly'" (click)="selectPeriod('monthly')" >
+            Monthly
+          </button>
+
+          <button type="button" class="period-dropdown-option" [class.active]="period() === 'yearly'" (click)="selectPeriod('yearly')" >
+            Yearly
+          </button>
+        </div>
+      </div>
+  
+      <a routerLink="/pos" class="new-sale-btn">
+        <i class="bi bi-plus-lg"></i>
+        New Sale
+      </a>
+    </div>
+  </header>
+
+  <!-- KPI Strip -->
+  <section class="kpi-strip">
+    <div class="kpi-item">
+      <span class="kpi-label">TOTAL SALES</span>
+      <strong class="kpi-value">
+        {{ totalSales() | number:'1.2-2' }}
+        {{ currencySymbol() }}
+      </strong>
+
+      <span class="kpi-note positive">
+        <i class="bi bi-arrow-up-right"></i>
+        From orders
+      </span>
+    </div>
+
+    <div class="kpi-item">
+      <span class="kpi-label">ORDERS</span>
+      <strong class="kpi-value"> {{ totalOrders() }} </strong>
+      <span class="kpi-note"> Transactions </span>
+    </div>
+
+    <div class="kpi-item">
+      <span class="kpi-label">RETURNS</span>
+      <strong class="kpi-value"> {{ totalReturns() }} </strong>
+      <span class="kpi-note"> {{ returnValueRate() | number:'1.0-2' }}% return rate </span>
+    </div>
+
+    <div class="kpi-item">
+      <span class="kpi-label">INVENTORY</span>
+      <strong class="kpi-value"> {{ totalProducts() }} </strong>
+      <span class="kpi-note"> Products in stock </span>
+    </div>
+
+    <div class="kpi-item attention">
+      <span class="kpi-label">ATTENTION</span>
+      <strong class="kpi-value danger"> {{ lowStockCount() }} </strong>
+      <span class="kpi-note danger"> Need restocking </span>
+    </div>
+  </section>
+
+  <!-- Main Dashboard Area -->
+  <div class="dashboard-grid">
+    <!-- Sales Activity -->
+    <section class="activity-panel">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker"> SALES </span>
+          <h3> {{ getPeriodLabel() }} activity </h3>
+          <p> Sales and orders for the selected period. </p>
+        </div>
+
+        <div class="activity-total">
+          <span>Total</span>
+          <strong>
+            {{ totalSales() | number:'1.2-2' }}
+            {{ currencySymbol() }}
+          </strong>
+        </div>
+      </div>
+
+      <!-- Sales Trend + Order Count -->
+      <div class="sales-trend-chart">
+        <!-- Chart Header -->
+        <div class="chart-meta">
+          <div class="chart-legend">
+            <span class="legend-item">
+              <span class="legend-line sales-legend"></span>
+              Sales
+            </span>
+
+            <span class="legend-item">
+              <span class="legend-line orders-legend"></span>
+              Orders
+            </span>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart-area">
+          <!-- Y Axis -->
+          <div class="chart-y-axis">
+            <span>
+              {{ chartSalesLabels()[3] | number:'1.0-0' }}
+              {{ currencySymbol() }}
+            </span>
+
+            <span>
+              {{ chartSalesLabels()[2] | number:'1.0-0' }}
+              {{ currencySymbol() }}
+            </span>
+
+            <span>
+              {{ chartSalesLabels()[1] | number:'1.0-0' }}
+              {{ currencySymbol() }}
+            </span>
+
+            <span>
+              {{ chartSalesLabels()[0] | number:'1.0-0' }}
+              {{ currencySymbol() }}
+            </span>
+          </div>
+
+          <div class="chart-main">
+            <!-- Grid -->
+            <div class="chart-grid-lines">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <!-- SVG -->
+            <svg class="sales-svg" viewBox="0 0 760 220" preserveAspectRatio="none">
+              <path class="sales-area" [attr.d]="salesAreaPath()" ></path>
+              <path class="sales-path" [attr.d]="salesPath()"></path>
+              <path class="orders-path"[attr.d]="ordersPath()"></path>
+
+              <!-- Sales points -->
+              <ng-container *ngFor="let point of chartPoints()">
+                <circle class="sales-point" [attr.cx]="point.x" [attr.cy]="point.salesY" r="4" >
+                  <title>
+                    {{ point.label }}
+                    ·
+                    {{ point.sales | number:'1.2-2' }}
+                    {{ currencySymbol() }}
+                  </title>
+                </circle>
+
+                <circle class="orders-point" [attr.cx]="point.x" [attr.cy]="point.ordersY" r="3" >
+                  <title>
+                    {{ point.label }}
+                    ·
+                    {{ point.orders }}
+                    {{ point.orders === 1 ? 'order' : 'orders' }}
+                  </title>
+                </circle>
+              </ng-container>
+            </svg>
+
+            <!-- X Axis -->
+            <div class="chart-x-axis">
+              <span *ngFor="let point of chartPoints()"> {{ point.label }} </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <a routerLink="/pos" class="quick-action primary-action" >
+          <i class="bi bi-plus-lg"></i>
+          <span>
+            <strong>New sale</strong>
+            <small>Create a transaction</small>
+          </span>
+          <i class="bi bi-arrow-up-right action-arrow"></i>
+        </a>
+
+        <a  routerLink="/products" class="quick-action" >
+          <i class="bi bi-box-seam"></i>
+          <span>
+            <strong>Products</strong>
+            <small>Manage inventory</small>
+          </span>
+          <i class="bi bi-arrow-up-right action-arrow"></i>
+        </a>
+
+        <a routerLink="/reports" class="quick-action" >
+          <i class="bi bi-bar-chart"></i>
+          <span>
+            <strong>Reports</strong>
+            <small>View performance</small>
+          </span>
+          <i class="bi bi-arrow-up-right action-arrow"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Inventory Attention -->
+    <section class="inventory-panel">
+      <div class="section-heading inventory-heading">
+        <div>
+          <span class="section-kicker warning-kicker"> INVENTORY </span>
+          <h3>Attention needed</h3>
+          <p> Items running low.</p>
+        </div>
+
+        <div class="attention-number"> {{ lowStockCount() }} </div>
+      </div>
+
+      <div class="inventory-list">
+        <div class="inventory-item" *ngFor="let product of lowStockProducts()" >
+          <div class="inventory-item-main">
+            <div
+            class="inventory-icon"
+            [class.out-of-stock]="product.stock === 0"
+          >
+            @if (product.image) {
+              <img [src]="product.image" [alt]="product.name" />
+            } @else {
+              <i class="bi bi-box2"></i>
+            }
+          
+            @if (product.stock === 0) {
+              <span class="out-of-stock-badge">
+                OUT OF STOCK
+              </span>
+            }
+          </div>
+
+            <div>
+              <strong> {{ product.name }} </strong>
+              <span> SKU: {{ product.sku }} </span>
+            </div>
+          </div>
+
+          <div class="inventory-stock">
+            <strong [class.stock-danger]="product.stock === 0" [class.stock-warning]="product.stock > 0" >
+              {{ product.stock }}
+            </strong>
+            <span> left </span>
+          </div>
+        </div>
+
+        <div *ngIf="!lowStockProducts().length" class="empty-inventory" >
+          <i class="bi bi-check-circle"></i>
+          <span> Inventory looks good. </span>
+        </div>
+      </div>
+
+      <a routerLink="/products" class="inventory-link" >
+        View inventory
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    </section>
+  </div>
+
+  <!-- Recent Orders -->
+  <section class="orders-section">
+    <!-- Orders Header -->
+    <div class="orders-header">
+      <div>
+        <h3> Recent orders </h3>
+        <p> Latest transactions from your POS. </p>
+      </div>
+
+      <a routerLink="/orders" class="view-all" >
+        View all
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Orders Table -->
+    <div class="orders-table-wrapper">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>TICKET</th>
+            <th>DATE</th>
+            <th>ITEMS</th>
+            <th>TOTAL</th>
+            <th>PAYMENT</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Order Row -->
+          <tr *ngFor="let order of recentOrders()">
+            <!-- Ticket -->
+            <td><span class="order-id"> {{ getTicketNumber(order) }} </span></td>
+
+            <!-- Date + Time -->
+            <td><span class="order-date"> {{ order.createdAt | date:'medium' }} </span></td>
+
+            <!-- Items -->
+            <td><span class="order-items"> {{ getOrderItemCount(order) }} items </span></td>
+
+            <!-- Total -->
+            <td>
+              <strong class="order-amount">
+                {{ getOrderDisplayTotal(order) | number:'1.2-2' }}
+                {{ currencySymbol() }}
+              </strong>
+            </td>
+
+            <!-- Payment -->
+            <td>
+              <span class="order-payment" [class.cash]="getPaymentMethod(order).toLowerCase() === 'cash'" [class.payment-card]="getPaymentMethod(order).toLowerCase() === 'card'">
+                <i class="bi" [class.bi-cash-stack]="getPaymentMethod(order).toLowerCase() === 'cash'" [class.bi-credit-card]="getPaymentMethod(order).toLowerCase() === 'card'" ></i>
+                {{ getPaymentMethod(order) }}
+              </span>
+            </td>
+
+            <!-- Status -->
+            <td>
+              <span class="order-status" [class.completed]="order.status === 'Completed'" [class.pending]="order.status === 'Pending'" [class.cancelled]="order.status === 'Cancelled'" >
+                <span class="status-dot"></span>
+                {{ order.status }}
+              </span>
+            </td>
+          </tr>
+
+          <!-- Empty Orders -->
+          <tr *ngIf="!recentOrders().length">
+            <td colspan="6">
+              <div class="empty-orders"> No orders found. </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- Loading -->
+<ng-template #loadingTpl>
+  <div class="dashboard-loading">
+    <div class="spinner-border text-primary" role="status" ></div>
+  </div>
+</ng-template>

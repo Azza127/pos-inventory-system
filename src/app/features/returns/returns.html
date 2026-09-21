@@ -1,0 +1,229 @@
+<!-- PAGE HEADER -->
+    <div class="returns-page-header">
+        <div class="returns-page-title">
+          <h1>Returns</h1>
+          <p> Select an invoice to process a return.</p>
+        </div>
+      
+        <div class="return-type-switcher">
+          <button type="button" class="return-type-option" [class.active]="returnType === 'sale'" (click)="selectReturnType('sale')" >
+            <i class="bi bi-arrow-return-left"></i>
+            <span>Sales Return</span>
+          </button>
+      
+          <button type="button" class="return-type-option" [class.active]="returnType === 'purchase'" (click)="selectReturnType('purchase')" >
+            <i class="bi bi-arrow-return-right"></i>
+            <span>Purchase Return</span>
+          </button>
+        </div>
+      </div>
+      
+<!-- RETURNS WORKSPACE -->
+      <div class="returns-workspace">
+
+        <!--INVOICES PANEL -->
+        <section class="invoices-panel"> 
+          <div class="panel-header">
+            <div>
+              <h2> {{ returnType === 'sale' ? 'Sales Invoices'  : 'Purchase Invoices' }} </h2>
+            </div>
+            <span class="results-count"> {{ filteredReferences.length }} </span>
+          </div>
+      
+          <!-- Invoice List -->
+          <div class="reference-list">
+            @if (isLoading) {
+              <div class="empty-state">
+                <i class="bi bi-arrow-repeat loading-icon"></i>
+                <strong>Loading invoices...</strong>
+              </div>
+            } 
+            @else if (loadError) {
+              <div class="empty-state error-state">
+                <i class="bi bi-exclamation-circle"></i>
+                <strong> Unable to load invoices </strong>
+                <span> Please try again. </span>
+                <button type="button" class="retry-btn" (click)="loadData()" >
+                  Try Again
+                </button>
+              </div>
+            } 
+            @else if (filteredReferences.length === 0) {
+              <div class="empty-state">
+                <i class="bi bi-receipt"></i>
+                <strong>  No invoices found </strong>
+                <span> Try changing your search or date filters. </span>
+              </div>
+            }
+            @else {
+              @for (reference of filteredReferences; track reference.id) {
+                <button type="button" class="reference-item" [class.selected]="selectedReference?.id === reference.id"
+                  [class.reference-cancelled]="isFullyReturned(reference)" (click)="selectReference(reference)">
+                  <div class="reference-main">
+                    <div class="reference-icon">
+                      <i class="bi bi-receipt"></i>
+                    </div>
+      
+                    <div class="reference-info">
+                        <div class="reference-title-row">
+                          <strong> {{ reference.referenceNumber }} </strong>
+                          @if (isFullyReturned(reference)) {
+                            <span class="reference-cancelled-badge"> Cancelled </span>
+                          }
+                        </div>
+                        <span> {{ reference.date | date:'mediumDate' }} </span>
+                      </div>
+                  </div>
+      
+                  <div class="reference-meta">
+                    <span> {{ reference.itemCount }} items </span>
+                    <strong>
+                      {{ reference.total | number:'1.2-2' }}
+                      {{ currencySymbol }}
+                    </strong>
+                  </div>
+      
+                  <i class="bi bi-chevron-right reference-arrow"></i>
+                </button>
+              }
+            }
+          </div>
+        </section>
+      
+        <!-- DETAILS PANEL -->
+        <section class="details-panel"> 
+          @if (!selectedReference) {
+            <div class="details-empty">
+              <div class="details-empty-icon">
+                <i class="bi bi-arrow-return-left"></i>
+              </div>
+              <h2> Select an invoice </h2>
+              <p> Choose an invoice from the list to view its products and process a return. </p>
+            </div>
+          } @else {
+            <!-- Details Header -->
+            <div class="details-header">
+              <div>
+                <h2> {{ selectedReference.referenceNumber }} </h2>
+                <p> {{ selectedReference.date | date:'mediumDate' }} </p>
+              </div>
+              <button type="button" class="close-details-btn" (click)="closeDetails()" aria-label="Close" >
+                <i class="bi bi-x-lg"></i>
+              </button>
+            </div>   
+                  
+            <!-- PRODUCTS -->
+            <div class="return-items">
+                @for (item of selectedItems; track item.productId) {
+                  <div class="return-item">
+                    <!-- Product Info -->
+                    <div class="product-info">
+                      <div class="product-image">
+                        @if (item.image) {
+                          <img [src]="item.image" [alt]="item.productName" />
+                        } @else {
+                          <i class="bi bi-box"></i>
+                        }
+                      </div>
+              
+                      <div class="product-details">
+                        <strong> {{ item.productName }} </strong>
+                        <span> SKU: {{ item.sku }} </span>
+                      </div>
+                    </div>
+              
+            <!-- Return Metrics -->
+            <div class="product-return-meta">
+                <div class="return-stat original-stat">
+                  <i class="bi bi-box-seam"></i>
+                  <span>Original</span>
+                  <strong> {{ item.originalQuantity }} </strong>
+                </div>
+              
+                <span class="return-stat-divider"></span>
+                <div class="return-stat returned-stat">
+                  <i class="bi bi-arrow-return-left"></i>
+                  <span>Returned</span>
+                  <strong> {{ item.alreadyReturnedQuantity + item.returnQuantity }} </strong>
+                </div>
+              
+                <span class="return-stat-divider"></span>
+                <div class="return-stat available-stat">
+                  <i class="bi bi-check-circle"></i>
+                  <span>Available</span>
+                  <strong> {{ item.returnableQuantity - item.returnQuantity }}</strong>
+                </div>
+              </div>
+              
+              
+              <!-- Return Quantity -->
+              <div class="quantity-control">
+                <button type="button" class="quantity-btn minus" [disabled]="item.returnQuantity <= 0" (click)="decreaseReturnQuantity(item)">
+                  <i class="bi bi-dash"></i>
+                </button>
+                <span class="quantity-value"> {{ item.returnQuantity }} </span>
+                <button type="button" class="quantity-btn plus" [disabled]="item.returnQuantity >= item.returnableQuantity" (click)="increaseReturnQuantity(item)">
+                  <i class="bi bi-plus"></i>
+                </button>
+              </div> 
+            </div>
+                }
+              </div>
+                  
+            <!-- Return Reason -->
+            <div class="return-reason">
+              <div class="reason-header">
+                <label>
+                  Return Reason
+                  <span>(Optional)</span>
+                </label>
+
+                <button type="button" class="reason-toggle-btn" (click)="toggleReasonInput()">
+                  <i class="bi" [class.bi-plus-lg]="!showReasonInput" [class.bi-x-lg]="showReasonInput" ></i>
+                  {{
+                    showReasonInput
+                      ? 'Close Return Reason'
+                      : 'Add Return Reason'
+                  }}
+                </button>
+              </div>
+      
+              @if (showReasonInput) {
+                <textarea [(ngModel)]="returnReason" placeholder="Add a reason for this return..." ></textarea>
+              }
+      
+              @if (!showReasonInput && returnReason) {
+                <div class="saved-reason"> {{ returnReason }} </div>
+              }
+            </div>
+      
+            <!-- Summary -->
+            <div class="return-summary">
+              <div class="summary-row">
+                <span> Selected items </span>
+                <strong> {{ selectedItemsCount }} </strong>
+              </div>
+
+              <div class="summary-row total-row">
+                <span> Return total</span>
+                <strong>
+                  {{ returnTotal | number:'1.2-2' }}
+                  {{ currencySymbol }}
+                </strong>
+              </div>
+            </div>
+      
+            <!-- Actions -->
+            <div class="return-actions">
+              <button type="button" class="cancel-return-btn" (click)="closeDetails()" >
+                Cancel
+              </button>
+      
+              <button type="button" class="confirm-return-btn" [disabled]="selectedItemsCount === 0" (click)="confirmReturn()" >
+                <i class="bi bi-check2"></i>
+                Confirm Return
+              </button>
+            </div>
+          }
+        </section>
+      </div>

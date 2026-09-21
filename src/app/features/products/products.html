@@ -1,0 +1,348 @@
+<div class="products-page">
+  <!-- Page Header= -->
+  <div class="page-header">
+      <div class="page-title-area">
+        <span class="eyebrow">INVENTORY</span>
+        <h1>Products</h1>
+        <p> Manage your products, stock levels, and pricing.</p>
+      </div>
+
+      <div class="header-actions">
+        @if (!isEmployee) {
+          <button type="button" class="manage-category-btn" [routerLink]="['/categories']" >
+            <i class="bi bi-folder-plus"></i>
+            Manage Categories
+          </button>
+
+          <button type="button" class="purchase-invoice-btn" [routerLink]="['/purchase-invoices']" >
+            <i class="bi bi-receipt"></i>
+            Purchase Invoice
+          </button>
+
+          <button type="button" class="add-product-btn" (click)="showAddProductForm()">
+            <i class="bi bi-plus-lg"></i>
+            Add Product
+          </button>
+        }
+      </div>
+  </div>
+
+<!-- Products Table & Filters Card -->
+<section class="products-card">
+  <!-- Filters inside the card -->
+  <div class="filters-section">
+    <div class="search-box">
+      <i class="bi bi-search"></i>
+      <input type="text" placeholder="Search products..." [(ngModel)]="searchTerm" (ngModelChange)="searchProducts($event)" />
+    </div>
+
+    <div class="search-mode">
+      <button type="button" [class.active]="searchMode === 'name'" (click)="changeSearchMode('name')">
+        Name
+      </button>
+
+      <button type="button" [class.active]="searchMode === 'sku'" (click)="changeSearchMode('sku')">
+        SKU
+      </button>
+    </div>
+
+    <div class="category-filter">
+      <button type="button" class="category-dropdown-trigger" (click)="toggleCategoryDropdown()" >
+        <span> {{ getSelectedCategoryLabel() }} </span>
+        <i class="bi bi-chevron-down"></i>
+      </button>
+
+      @if (isCategoryDropdownOpen) {
+        <div class="category-options">
+          <button type="button" class="category-option" [class.selected]="selectedCategoryId === null" (click)="selectCategory(null)" >
+            All Categories
+          </button>
+
+          @for (category of categories; track category.id) {
+            <button type="button" class="category-option" [class.selected]="selectedCategoryId === category.id" (click)="selectCategory(category.id)">
+              {{ category.name }}
+            </button>
+          }
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <table>
+        <thead>
+          <tr>
+            <th>PRODUCT</th>
+            <th>SKU</th>
+            <th>CATEGORY</th>
+            <th>PRICE</th>
+            <th>STOCK</th>
+            <th>STATUS</th>
+
+            @if (!isEmployee) {
+              <th class="actions-header">
+                ACTIONS
+              </th>
+            }
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (product of filteredProducts; track product.id) {
+            <tr>
+              <!-- Product -->
+              <td>
+                <div class="product-info">
+                  <div class="product-image">
+                    @if (product.image) {
+                      <img [src]="product.image" [alt]="product.name" />
+
+                    } @else {
+                      <i class="bi bi-box-seam"></i>
+                    }
+                  </div>
+
+                  <div class="product-details">
+                    <strong> {{ product.name }} </strong>
+                    <span> {{ product.description || 'No description available' }} </span>
+                  </div>
+                </div>
+              </td>
+
+              <!-- SKU -->
+              <td>
+                <span class="product-sku"> {{ product.sku }}</span>
+              </td>
+
+              <!-- Category -->
+              <td>
+                <span class="category-name"> {{ getCategoryName(product.categoryId) }} </span>
+              </td>
+
+              <!-- Price -->
+              <td>
+                <span class="product-price">  {{ currencySymbol }} {{ product.price | number:'1.2-2' }} </span>
+              </td>
+
+              <!-- Stock -->
+              <td>
+                <div class="stock-cell">
+                  <div class="stock-top">
+                    <strong> {{ product.stock }} </strong>
+                    <span> / {{ product.maxStock }} </span>
+                  </div>
+
+                  <div class="stock-bar">
+                    <div
+                      class="stock-progress"
+                      [class.low]="getStockStatus(product) === 'low'"
+                      [class.out]="getStockStatus(product) === 'out'"
+                      [style.width.%]="getStockPercentage(product)">
+                    </div>
+                  </div>
+                </div>
+              </td>
+
+              <!-- Status -->
+              <td>
+                @if (getStockStatus(product) === 'optimal') {
+                  <span class="status-badge optimal">
+                    <span class="status-dot"></span>
+                    Optimal
+                  </span>
+
+                } @else if (getStockStatus(product) === 'low') {
+                  <span class="status-badge low">
+                    <span class="status-dot"></span>
+                    Low Stock
+                  </span>
+
+                } @else {
+                  <span class="status-badge out">
+                    <span class="status-dot"></span>
+                    Out of Stock
+                  </span>
+                }
+              </td>
+
+              <!-- Actions -->
+              @if (!isEmployee) {
+              <td>
+                  <div class="actions">
+                    <button type="button" class="action-btn edit" title="Edit product" (click)="startEdit(product)">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+
+                    <button type="button" class="action-btn delete" title="Delete product" (click)="deleteProduct(product)">
+                      <i class="bi bi-trash3"></i>
+                    </button>
+                  </div>
+                </td>
+                }
+            </tr>
+          }
+
+          <!-- Empty State -->
+          @if (filteredProducts.length === 0) {
+            <tr>
+              <td colspan="7">
+                <div class="empty-state">
+                  <div class="empty-icon">
+                    <i class="bi bi-box-seam"></i>
+                  </div>
+                  <h3>No products found</h3>
+                  <p> Try changing your search or category filter.</p>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </table>
+  </div>
+</section>
+
+<!--  ADD / EDIT PRODUCT MODAL -->
+@if (showAddForm) {
+<div class="modal-backdrop">
+  <div class="product-modal">
+    <div class="modal-header">
+      <div>
+        <span class="modal-eyebrow"> {{ editingProductId ? 'EDIT PRODUCT' : 'NEW PRODUCT' }} </span>
+        <h2> {{ editingProductId ? 'Edit Product' : 'Add Product' }} </h2>
+      </div>
+
+      <button type="button" class="close-btn" (click)="editingProductId ? cancelEdit() : cancelAddProduct()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="form-grid">
+        <!-- Product Name -->
+        <div class="form-group full">
+          <label>Product Name</label>
+          <input type="text" [(ngModel)]="newProduct.name" placeholder="e.g. Premium Coffee" />
+        </div>
+
+        <!-- SKU -->
+        <div class="form-group">
+          <label>SKU</label>
+          <input type="text" [(ngModel)]="newProduct.sku" placeholder="e.g. CF-001" />
+        </div>
+
+        <!-- Category -->
+        <div class="form-group product-category-form-group">
+          <label>Category</label>
+          <div class="select-with-action">
+            <div class="product-category-dropdown">
+              <button type="button" class="product-category-trigger" [class.open]="isProductCategoryDropdownOpen" (click)="toggleProductCategoryDropdown($event)">
+                <span class="product-category-selected-text" [class.placeholder]="!newProduct.categoryId">
+                  {{ getSelectedProductCategoryLabel() }}
+                </span>
+                <i class="bi bi-chevron-down" [class.rotated]="isProductCategoryDropdownOpen"></i>
+              </button>
+
+              @if (isProductCategoryDropdownOpen) {
+                <div class="product-category-options" role="listbox" >
+                  <!-- Placeholder -->
+                  <button type="button" class="product-category-option placeholder-option" [class.selected]="!newProduct.categoryId" (click)="selectProductCategory('', $event)">
+                    <span> Select category </span>
+                  </button>
+
+                  @for (category of categories; track category.id) {
+                    <button type="button" class="product-category-option" [class.selected]="newProduct.categoryId === category.id" (click)="selectProductCategory(category.id, $event)" >
+                      <span> {{ category.name }} </span>
+                      @if (newProduct.categoryId === category.id) {
+                        <i class="bi bi-check2"></i>
+                      }
+                    </button>
+                  }
+                </div>
+              }
+            </div>
+
+            @if (!isEmployee) {
+              <button type="button" class="add-category-btn" title="Add category" (click)="openAddCategoryModal()">
+                <i class="bi bi-plus"></i>
+              </button>
+            }
+          </div>
+        </div>
+
+        <!-- Minimum Stock -->
+        <div class="form-group">
+          <label>Minimum Stock</label>
+          <input type="number" [(ngModel)]="newProduct.minStock" min="0" placeholder="0" />
+        </div>
+
+        <!-- Maximum Stock -->
+        <div class="form-group">
+          <label>Maximum Stock</label>
+          <input type="number" [(ngModel)]="newProduct.maxStock" min="1" placeholder="0" />
+        </div>
+
+        <!-- Price -->
+        <div class="form-group full">
+          <label>Price</label>
+          <input type="number" [(ngModel)]="newProduct.price" min="0" placeholder="0.00" />
+        </div>
+
+        <!-- Image -->
+        <div class="form-group full">
+          <label>Image URL</label>
+          <input type="text" [(ngModel)]="newProduct.image" placeholder="https://..."  />
+        </div>
+
+        <!-- Description -->
+        <div class="form-group full">
+          <label>Description</label>
+          <textarea [(ngModel)]="newProduct.description"  rows="3"  placeholder="Add a short description..."> </textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="cancel-btn" (click)="editingProductId ? cancelEdit() : cancelAddProduct()">
+        Cancel
+      </button>
+
+      <button type="button" class="save-btn" (click)="addProduct()">
+        <i class="bi" [class.bi-check-lg]="editingProductId" [class.bi-plus-lg]="!editingProductId"> </i>
+        {{ editingProductId ? 'Save Changes' : 'Add Product' }}
+      </button>
+    </div>
+  </div>
+</div>
+}
+
+<!-- ADD CATEGORY MODAL -->
+@if (showAddCategoryModal) {
+<div class="modal-backdrop category-backdrop">
+  <div class="category-modal">
+    <div class="category-modal-icon">
+      <i class="bi bi-folder-plus"></i>
+    </div>
+
+    <h2>Add Category</h2>
+    <p> Create a new category for your products. </p>
+
+    <div class="form-group">
+      <label>Category Name</label>
+      <input type="text" [(ngModel)]="newCategoryName" placeholder="e.g. Beverages" />
+    </div>
+
+    <div class="category-actions">
+      <button type="button" class="cancel-btn" (click)="closeAddCategoryModal()">
+        Cancel
+      </button>
+
+      <button type="button" class="save-btn" (click)="saveNewCategory()">
+        Add Category
+      </button>
+    </div>
+  </div>
+</div>
+}
+

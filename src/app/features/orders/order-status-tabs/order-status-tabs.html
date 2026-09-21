@@ -1,0 +1,18 @@
+<div class="status-tabs">
+    <button type="button" class="tab-btn" [class.active]="activeStatus === 'all'" (click)="select('all')" >
+      All Orders <span class="tab-count">{{ allCount }}</span>
+    </button>
+
+    <button type="button" class="tab-btn" [class.active]="activeStatus === 'Pending'" (click)="select('Pending')" >
+      Pending <span class="tab-count">{{ pendingCount }}</span>
+    </button>
+  
+    <button type="button" class="tab-btn" [class.active]="activeStatus === 'Completed'" (click)="select('Completed')" >
+      Completed <span class="tab-count">{{ completedCount }}</span>
+    </button>
+
+    <button type="button" class="tab-btn" [class.active]="activeStatus === 'Cancelled'" (click)="select('Cancelled')" >
+      Cancelled <span class="tab-count">{{ cancelledCount }}</span>
+    </button>
+  </div>
+

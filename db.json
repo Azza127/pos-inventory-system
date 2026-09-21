@@ -1,0 +1,2602 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "owner",
+      "password": "123456",
+      "name": "Store Owner",
+      "role": "Owner",
+      "status": "Active"
+    },
+    {
+      "id": "3",
+      "username": "employee",
+      "password": "123456",
+      "name": "Store Employee",
+      "role": "Employee",
+      "status": "Active"
+    },
+    {
+      "username": "samir123",
+      "password": "123456",
+      "name": "samir",
+      "role": "Employee",
+      "status": "Active",
+      "id": "MXuHU1OJu0k"
+    },
+    {
+      "username": "azzaEzzat",
+      "password": "123456789",
+      "name": "Azza Ezzat",
+      "role": "Manager",
+      "status": "Active",
+      "id": "4cUzSLen0a0"
+    },
+    {
+      "id": "iWwIZZIbbTo",
+      "username": "zouza",
+      "password": "654321",
+      "name": "azza",
+      "role": "Manager",
+      "status": "Inactive"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Electronics"
+    },
+    {
+      "id": "2",
+      "name": "Accessories"
+    },
+    {
+      "id": "3",
+      "name": "Stationery"
+    },
+    {
+      "id": "4",
+      "name": "Beauty"
+    },
+    {
+      "id": "5",
+      "name": "Foods"
+    },
+    {
+      "id": "6",
+      "name": "Clothes"
+    },
+    {
+      "id": "w-UYvx6E5OA",
+      "name": "Drinks"
+    },
+    {
+      "id": "cT8bmadytzM",
+      "name": "Perfumes"
+    },
+    {
+      "id": "ddA-8yD6-ss",
+      "name": "Cleaning Supplies"
+    },
+    {
+      "name": "Housewares",
+      "id": "k8ka5rF59Ms"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Wireless Mouse",
+      "sku": "MOU-001",
+      "categoryId": "1",
+      "price": 500,
+      "costPrice": 120,
+      "stock": 45,
+      "minStock": 10,
+      "maxStock": 50,
+      "description": "Black / Wireless",
+      "image": "https://i.pinimg.com/1200x/cd/73/5c/cd735c5fdb152ac2fb7ddb558a85a214.jpg"
+    },
+    {
+      "id": "2",
+      "name": "USB-C Cable",
+      "sku": "USB-001",
+      "categoryId": "1",
+      "price": 360,
+      "costPrice": 260,
+      "stock": 63,
+      "minStock": 10,
+      "maxStock": 40,
+      "description": "Black / 256G",
+      "image": "https://images.unsplash.com/photo-1551818014-7c8ace9c1b5c?q=80&w=1170&auto=format&fit=crop"
+    },
+    {
+      "id": "3",
+      "name": "Notebook",
+      "sku": "NOT-001",
+      "categoryId": "3",
+      "price": 75,
+      "costPrice": 25,
+      "stock": 6,
+      "minStock": 10,
+      "maxStock": 40,
+      "description": "A5 / Ruled Pages",
+      "image": "https://images.unsplash.com/photo-1743760521201-ddb298df18cd?q=80&w=735&auto=format&fit=crop"
+    },
+    {
+      "id": "4",
+      "name": "Lip Gloss",
+      "sku": "BEA-001",
+      "categoryId": "4",
+      "price": 220,
+      "costPrice": 95,
+      "stock": 32,
+      "minStock": 5,
+      "maxStock": 20,
+      "description": "Pink / Glossy Finish",
+      "image": "https://images.unsplash.com/photo-1640317372997-b76e600ee5ef?q=80&w=764&auto=format&fit=crop"
+    },
+    {
+      "id": "5",
+      "name": "Wireless Keyboard",
+      "sku": "KEY-001",
+      "categoryId": "1",
+      "price": 650,
+      "costPrice": 450,
+      "stock": 31,
+      "minStock": 5,
+      "maxStock": 30,
+      "description": "Black / Wireless",
+      "image": "https://i.pinimg.com/1200x/65/62/94/656294e921c95d7bd8061517375d1554.jpg"
+    },
+    {
+      "id": "9d0eSH2RgoQ",
+      "name": "Novel",
+      "sku": "NON-001",
+      "categoryId": "3",
+      "price": 220,
+      "costPrice": 100,
+      "stock": 13,
+      "minStock": 3,
+      "maxStock": 10,
+      "description": "Paperback / Arabic",
+      "image": "https://plus.unsplash.com/premium_photo-1725075087236-e32a71552098?q=80&w=1170&auto=format&fit=crop"
+    },
+    {
+      "id": "TEQYUx5ka1I",
+      "name": "Pencil",
+      "sku": "TOT-001",
+      "categoryId": "3",
+      "price": 10,
+      "costPrice": 7,
+      "stock": 96,
+      "minStock": 6,
+      "maxStock": 35,
+      "description": "HB / Graphite",
+      "image": "https://plus.unsplash.com/premium_photo-1757682619700-475cd4c62668?q=80&w=1170&auto=format&fit=crop"
+    },
+    {
+      "id": "JL_OrD8YdJo",
+      "name": "Eraser",
+      "sku": "REA-001",
+      "categoryId": "3",
+      "price": 12,
+      "costPrice": 9,
+      "stock": 25,
+      "minStock": 5,
+      "maxStock": 20,
+      "description": "White / Soft Rubber",
+      "image": "https://images.unsplash.com/photo-1667532447990-51c6704ef358?q=80&w=880&auto=format&fit=crop"
+    },
+    {
+      "id": "L68yt065cXs",
+      "name": "Ruler",
+      "sku": "ROR-001",
+      "categoryId": "3",
+      "price": 20,
+      "costPrice": 14,
+      "stock": 0,
+      "minStock": 7,
+      "maxStock": 35,
+      "description": "30cm / Clear",
+      "image": "https://i.pinimg.com/1200x/d3/33/12/d33312dc0b60f2af8feef186e021e1f5.jpg"
+    },
+    {
+      "id": "UTjQXLaZTHE",
+      "name": "Blouse",
+      "sku": "BOB-001",
+      "categoryId": "6",
+      "price": 550,
+      "costPrice": 350,
+      "stock": 30,
+      "minStock": 2,
+      "maxStock": 10,
+      "description": "White / Cotton",
+      "image": "https://i.pinimg.com/736x/b1/bd/a8/b1bda84cbe8143fd629e7c6f22571478.jpg"
+    },
+    {
+      "id": "MxLTWca2omI",
+      "name": "Bracelet",
+      "sku": "MOM-001",
+      "categoryId": "2",
+      "price": 250,
+      "costPrice": 110,
+      "stock": 30,
+      "minStock": 2,
+      "maxStock": 6,
+      "description": "Gold / Stainless Steel",
+      "image": "https://magchic.com/cdn/shop/products/product-image-1117626692.jpg?v=1680068991"
+    },
+    {
+      "id": "pzQDVud1YWA",
+      "name": "Pepsi",
+      "sku": "DOD-220",
+      "categoryId": "w-UYvx6E5OA",
+      "price": 15,
+      "costPrice": 10,
+      "stock": 6,
+      "minStock": 15,
+      "maxStock": 60,
+      "description": "Can 280ml",
+      "image": "https://images.unsplash.com/photo-1651000877908-18e19a5d4ceb?q=80&w=735&auto=format&fit=crop"
+    },
+    {
+      "id": "g-Zfpr16690",
+      "name": "Pasta",
+      "sku": "FOF-220",
+      "categoryId": "5",
+      "price": 15,
+      "costPrice": 12,
+      "stock": 68,
+      "minStock": 15,
+      "maxStock": 60,
+      "description": "400g",
+      "image": "https://i.pinimg.com/736x/9e/c1/15/9ec115cad9800016f853c080ccfe6578.jpg"
+    },
+    {
+      "id": "ILEoSyI_Fn8",
+      "name": "Olympia",
+      "sku": "TOT-002",
+      "categoryId": "cT8bmadytzM",
+      "price": 550,
+      "costPrice": 200,
+      "stock": 14,
+      "minStock": 5,
+      "maxStock": 20,
+      "description": "Black / perfume",
+      "image": "https://i.pinimg.com/736x/ae/bb/dd/aebbddd4f940d485bc2e8a5c8be8a51e.jpg"
+    },
+    {
+      "id": "Xh9JRv8y1Sg",
+      "name": "Oxi",
+      "sku": "OUO-300",
+      "categoryId": "ddA-8yD6-ss",
+      "price": 160,
+      "costPrice": 105,
+      "stock": 0,
+      "minStock": 4,
+      "maxStock": 20,
+      "description": "Outomatic / 8KG",
+      "image": "https://i.pinimg.com/736x/95/15/72/951572e3f7f64e4a1016078a043bf3fb.jpg"
+    },
+    {
+      "id": "kfqlTVnPeZ0",
+      "name": "Dettol",
+      "sku": "ZOZ-004",
+      "categoryId": "ddA-8yD6-ss",
+      "price": 250,
+      "costPrice": 120,
+      "stock": 0,
+      "minStock": 6,
+      "maxStock": 20,
+      "description": "liquid , 750ml",
+      "image": "https://i.pinimg.com/736x/22/66/21/226621fc4cada955ee8f19ddb3f4ba88.jpg"
+    },
+    {
+      "id": "HOy_74MXcMk",
+      "name": "Carolina Rice",
+      "sku": "FDD-220",
+      "categoryId": "5",
+      "price": 75,
+      "costPrice": 55,
+      "stock": 37,
+      "minStock": 15,
+      "maxStock": 50,
+      "description": "2 Kg",
+      "image": "https://i.pinimg.com/736x/8e/f1/f5/8ef1f52fbbf3c7ea9ad5a8518e542f1d.jpg"
+    },
+    {
+      "id": "UExSrVT0Ex8",
+      "name": "RedBull",
+      "description": "Energy drink",
+      "sku": "Red-212",
+      "categoryId": "w-UYvx6E5OA",
+      "price": 200,
+      "costPrice": 55,
+      "stock": 28,
+      "maxStock": 50,
+      "minStock": 5,
+      "image": "https://i.pinimg.com/736x/a2/25/78/a2257896c64ea8a85b46d28930266d16.jpg"
+    },
+    {
+      "id": "8mgaOCZTySg",
+      "name": "V Cola",
+      "description": "Lemon Soda",
+      "sku": "sku005",
+      "categoryId": "w-UYvx6E5OA",
+      "price": 20,
+      "costPrice": 15,
+      "stock": 18,
+      "maxStock": 50,
+      "minStock": 10,
+      "image": "https://i.pinimg.com/736x/31/25/08/31250865271f68ea920c5191a2c6d91d.jpg"
+    },
+    {
+      "id": "KQKfHlIDRQs",
+      "name": "pants",
+      "description": "Black / White / Gray / Beige / Brown",
+      "sku": "pip-009",
+      "categoryId": "6",
+      "price": 650,
+      "costPrice": 350,
+      "stock": 48,
+      "maxStock": 100,
+      "minStock": 0,
+      "image": "https://i.pinimg.com/736x/0a/4c/09/0a4c09fad4a49a0519b43f69de6befda.jpg"
+    },
+    {
+      "id": "W605lG_8obY",
+      "name": "Turkish dinner set",
+      "description": "multiple color",
+      "sku": "UOU-008",
+      "categoryId": "k8ka5rF59Ms",
+      "price": 4350,
+      "costPrice": 2200,
+      "stock": 9,
+      "maxStock": 50,
+      "minStock": 4,
+      "image": "https://i.pinimg.com/736x/ca/dc/8c/cadc8c1d17a2cd894fe4b40d65a64543.jpg"
+    }
+  ],
+  "purchaseInvoices": [
+    {
+      "id": "YuxOGIXq88g",
+      "supplierName": "شركة الهدى لتوزيع المواد الغذائية",
+      "invoiceNumber": "123654",
+      "invoiceDate": "2026-08-31",
+      "warehouseId": "مخزن هايبر وان بالجيزة",
+      "notes": "",
+      "subtotal": 4090,
+      "taxTotal": 111.2,
+      "total": 4201.2,
+      "items": [
+        {
+          "id": "1788180959305y7ic0s",
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "sku": "NON-001",
+          "quantity": 15,
+          "expiryDate": "",
+          "purchasePrice": 150,
+          "sellingPrice": 220,
+          "taxRate": 4,
+          "taxAmount": 90,
+          "subtotal": 2250,
+          "total": 2340
+        },
+        {
+          "id": "1788181005168sdj7sx",
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "sku": "DOD-220",
+          "quantity": 60,
+          "expiryDate": "2029-01-01",
+          "purchasePrice": 10,
+          "sellingPrice": 15,
+          "taxRate": 0.2,
+          "taxAmount": 1.2,
+          "subtotal": 600,
+          "total": 601.2
+        },
+        {
+          "id": "1788181051129bz33jq",
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "sku": "Red-212",
+          "quantity": 20,
+          "expiryDate": "2029-09-01",
+          "purchasePrice": 20,
+          "sellingPrice": 35,
+          "taxRate": 5,
+          "taxAmount": 20,
+          "subtotal": 400,
+          "total": 420
+        },
+        {
+          "id": "1788181087736jw7pu3",
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "sku": "FDD-220",
+          "quantity": 40,
+          "expiryDate": "2028-11-10",
+          "purchasePrice": 21,
+          "sellingPrice": 75,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 840,
+          "total": 840
+        }
+      ]
+    },
+    {
+      "id": "ZTT0jCiskG8",
+      "supplierName": "شركة كايرو إسنس",
+      "invoiceNumber": "254630",
+      "invoiceDate": "2026-08-31",
+      "warehouseId": "هايبر وان",
+      "notes": "",
+      "subtotal": 5000,
+      "taxTotal": 150,
+      "total": 5150,
+      "items": [
+        {
+          "id": "17881813960179psor7",
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "sku": "TOT-002",
+          "quantity": 20,
+          "expiryDate": "",
+          "purchasePrice": 250,
+          "sellingPrice": 550,
+          "taxRate": 3,
+          "taxAmount": 150,
+          "subtotal": 5000,
+          "total": 5150
+        }
+      ]
+    },
+    {
+      "id": "KFCYawF5DE8",
+      "supplierName": "شركة زارا للملابس",
+      "invoiceNumber": "126478",
+      "invoiceDate": "2026-08-31",
+      "warehouseId": "هايبر وان",
+      "notes": "",
+      "subtotal": 18000,
+      "taxTotal": 360,
+      "total": 18360,
+      "items": [
+        {
+          "id": "1788183539196oblwh4",
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "sku": "BOB-001",
+          "quantity": 40,
+          "expiryDate": "",
+          "purchasePrice": 450,
+          "sellingPrice": 850,
+          "taxRate": 2,
+          "taxAmount": 360,
+          "subtotal": 18000,
+          "total": 18360
+        }
+      ]
+    },
+    {
+      "id": "3VSUKlS_6tQ",
+      "supplierName": "Egypt Fashion Center",
+      "invoiceNumber": "212635",
+      "invoiceDate": "2026-08-31",
+      "warehouseId": "هايبر وان",
+      "notes": "",
+      "subtotal": 20250,
+      "taxTotal": 60.75,
+      "total": 20310.75,
+      "items": [
+        {
+          "id": "1788185077439drmry1",
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "sku": "pip-009",
+          "quantity": 45,
+          "expiryDate": "",
+          "purchasePrice": 450,
+          "sellingPrice": 750,
+          "taxRate": 0.3,
+          "taxAmount": 60.75,
+          "subtotal": 20250,
+          "total": 20310.75
+        }
+      ]
+    },
+    {
+      "id": "FmM1OhlGbQM",
+      "supplierName": "Hin ox Company",
+      "invoiceNumber": "236850",
+      "invoiceDate": "2026-08-31",
+      "warehouseId": "هايبر وان",
+      "notes": "",
+      "subtotal": 27000,
+      "taxTotal": 0,
+      "total": 27000,
+      "items": [
+        {
+          "id": "1788185732494dklgbe",
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "sku": "UOU-008",
+          "quantity": 12,
+          "expiryDate": "",
+          "purchasePrice": 2250,
+          "sellingPrice": 4350,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 27000,
+          "total": 27000
+        }
+      ]
+    },
+    {
+      "id": "i5ivqz7a0ss",
+      "supplierName": "CompuSafe",
+      "invoiceNumber": "63257",
+      "invoiceDate": "2026-08-31",
+      "warehouseId": "hyper 1",
+      "notes": "",
+      "subtotal": 37700,
+      "taxTotal": 1885,
+      "total": 39585,
+      "items": [
+        {
+          "id": "17881858848860e6vfs",
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "sku": "USB-001",
+          "quantity": 70,
+          "expiryDate": "",
+          "purchasePrice": 260,
+          "sellingPrice": 360,
+          "taxRate": 5,
+          "taxAmount": 910,
+          "subtotal": 18200,
+          "total": 19110
+        },
+        {
+          "id": "1788186769567i0idx8",
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "sku": "KEY-001",
+          "quantity": 30,
+          "expiryDate": "",
+          "purchasePrice": 650,
+          "sellingPrice": 850,
+          "taxRate": 5,
+          "taxAmount": 975,
+          "subtotal": 19500,
+          "total": 20475
+        }
+      ]
+    },
+    {
+      "id": "Ayo5Uza8DwY",
+      "supplierName": "CompuSafe",
+      "invoiceNumber": "236780",
+      "invoiceDate": "2026-08-31",
+      "warehouseId": "Hyper 1",
+      "notes": "",
+      "subtotal": 6000,
+      "taxTotal": 120,
+      "total": 6120,
+      "items": [
+        {
+          "id": "1788186835558u5bbkx",
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "sku": "MOU-001",
+          "quantity": 50,
+          "expiryDate": "",
+          "purchasePrice": 120,
+          "sellingPrice": 230,
+          "taxRate": 2,
+          "taxAmount": 120,
+          "subtotal": 6000,
+          "total": 6120
+        }
+      ]
+    },
+    {
+      "id": "of6MEeYalis",
+      "supplierName": "شركة الأوائل للتوريدات المكتبية",
+      "invoiceNumber": "4573820",
+      "invoiceDate": "2026-08-31",
+      "warehouseId": "هايبر وان",
+      "notes": "",
+      "subtotal": 1750,
+      "taxTotal": 0,
+      "total": 1750,
+      "items": [
+        {
+          "id": "1788186973358i0ppzm",
+          "productId": "JL_OrD8YdJo",
+          "productName": "Eraser",
+          "sku": "REA-001",
+          "quantity": 30,
+          "expiryDate": "",
+          "purchasePrice": 15,
+          "sellingPrice": 20,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 450,
+          "total": 450
+        },
+        {
+          "id": "1788186997206bin0fi",
+          "productId": "L68yt065cXs",
+          "productName": "Ruler",
+          "sku": "ROR-001",
+          "quantity": 30,
+          "expiryDate": "",
+          "purchasePrice": 20,
+          "sellingPrice": 30,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 600,
+          "total": 600
+        },
+        {
+          "id": "1788187021767gaj5i7",
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "sku": "TOT-001",
+          "quantity": 100,
+          "expiryDate": "",
+          "purchasePrice": 7,
+          "sellingPrice": 10,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 700,
+          "total": 700
+        }
+      ]
+    },
+    {
+      "id": "xvQFmr7rXoA",
+      "supplierName": "شركة العبور للمواد الغذائية",
+      "invoiceNumber": "964785",
+      "invoiceDate": "2026-09-01",
+      "warehouseId": "هايبر وان",
+      "notes": "",
+      "subtotal": 1330,
+      "taxTotal": 0,
+      "total": 1330,
+      "items": [
+        {
+          "id": "1788267717522x8xain",
+          "productId": "-1wpRIoloUU",
+          "productName": "V-Cola",
+          "sku": "EOE-002",
+          "quantity": 40,
+          "expiryDate": "2028-12-05",
+          "purchasePrice": 17,
+          "sellingPrice": 25,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 680,
+          "total": 680
+        },
+        {
+          "id": "1788267755608jhodj3",
+          "productId": "g-Zfpr16690",
+          "productName": "Pasta",
+          "sku": "FOF-220",
+          "quantity": 50,
+          "expiryDate": "2029-01-09",
+          "purchasePrice": 13,
+          "sellingPrice": 20,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 650,
+          "total": 650
+        }
+      ]
+    },
+    {
+      "id": "-txV7i3yZ1w",
+      "supplierName": "شركة العبور للمواد الغذائية",
+      "invoiceNumber": "213650",
+      "invoiceDate": "2026-09-02",
+      "warehouseId": "مخزن محلات متجيش تاني",
+      "notes": "",
+      "subtotal": 600,
+      "taxTotal": 2.1,
+      "total": 602.1,
+      "items": [
+        {
+          "id": "17883657163990twkkx",
+          "productId": "g-Zfpr16690",
+          "productName": "Pasta",
+          "sku": "FOF-220",
+          "quantity": 20,
+          "expiryDate": "0028-02-28",
+          "purchasePrice": 15,
+          "sellingPrice": 20,
+          "taxRate": 0.5,
+          "taxAmount": 1.5,
+          "subtotal": 300,
+          "total": 301.5
+        },
+        {
+          "id": "1788365788677d1zoy4",
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "sku": "Red-212",
+          "quantity": 20,
+          "expiryDate": "2029-04-30",
+          "purchasePrice": 15,
+          "sellingPrice": 25,
+          "taxRate": 0.2,
+          "taxAmount": 0.6,
+          "subtotal": 300,
+          "total": 300.6
+        }
+      ]
+    },
+    {
+      "id": "nK8RypkYYEQ",
+      "supplierName": "Azza Fahmy",
+      "invoiceNumber": "21546",
+      "invoiceDate": "2026-09-14",
+      "warehouseId": "المحل",
+      "notes": "",
+      "subtotal": 3150,
+      "taxTotal": 94.5,
+      "total": 3244.5,
+      "items": [
+        {
+          "id": "1789348647620odhl52",
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "sku": "MOM-001",
+          "quantity": 30,
+          "expiryDate": "",
+          "purchasePrice": 105,
+          "sellingPrice": 200,
+          "taxRate": 3,
+          "taxAmount": 94.5,
+          "subtotal": 3150,
+          "total": 3244.5
+        }
+      ]
+    },
+    {
+      "id": "A2axphcw_so",
+      "supplierName": "Huda Beauty",
+      "invoiceNumber": "2365",
+      "invoiceDate": "2026-09-14",
+      "warehouseId": "المحل",
+      "notes": "",
+      "subtotal": 1000,
+      "taxTotal": 20,
+      "total": 1020,
+      "items": [
+        {
+          "id": "178934879655695p2zd",
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "sku": "BEA-001",
+          "quantity": 40,
+          "expiryDate": "",
+          "purchasePrice": 25,
+          "sellingPrice": 65,
+          "taxRate": 2,
+          "taxAmount": 20,
+          "subtotal": 1000,
+          "total": 1020
+        }
+      ]
+    },
+    {
+      "id": "A-4v2RlDdfk",
+      "supplierName": "مصنع المصطفي للمنظفات",
+      "invoiceNumber": "36752",
+      "invoiceDate": "2026-09-14",
+      "warehouseId": "المحل",
+      "notes": "",
+      "subtotal": 4200,
+      "taxTotal": 8.4,
+      "total": 4208.4,
+      "items": [
+        {
+          "id": "1789421799357kxbzcp",
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "sku": "OUO-300",
+          "quantity": 40,
+          "expiryDate": "",
+          "purchasePrice": 105,
+          "sellingPrice": 160,
+          "taxRate": 0.2,
+          "taxAmount": 8.4,
+          "subtotal": 4200,
+          "total": 4208.4
+        }
+      ]
+    },
+    {
+      "id": "n56mWhgVAuw",
+      "supplierName": "H&M",
+      "invoiceNumber": "21546",
+      "invoiceDate": "2026-09-20",
+      "warehouseId": "المخزن",
+      "notes": "",
+      "subtotal": 6100,
+      "taxTotal": 178,
+      "total": 6278,
+      "items": [
+        {
+          "id": "1789937280061arkr0x",
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "sku": "MOM-001",
+          "quantity": 30,
+          "expiryDate": "",
+          "purchasePrice": 110,
+          "sellingPrice": 250,
+          "taxRate": 2,
+          "taxAmount": 66,
+          "subtotal": 3300,
+          "total": 3366
+        },
+        {
+          "id": "17899373623631dngj8",
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "sku": "pip-009",
+          "quantity": 8,
+          "expiryDate": "",
+          "purchasePrice": 350,
+          "sellingPrice": 650,
+          "taxRate": 4,
+          "taxAmount": 112,
+          "subtotal": 2800,
+          "total": 2912
+        }
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "ticketNumber": "#7884-A",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C",
+          "price": 360,
+          "quantity": 3,
+          "total": 1080
+        }
+      ],
+      "subtotal": 1080,
+      "tax": 151.2,
+      "total": 1231.2,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-20T09:54:25.435Z",
+      "id": "-MrdpEDNXkQ"
+    },
+    {
+      "ticketNumber": "#3098-M",
+      "items": [
+        {
+          "productId": "3",
+          "productName": "Notebook",
+          "price": 75,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "quantity": 1,
+          "total": 250
+        },
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "quantity": 1,
+          "total": 10
+        },
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        }
+      ],
+      "subtotal": 915,
+      "tax": 128.1,
+      "total": 1043.1,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-27T01:03:57.957Z",
+      "id": "2ekNAzk8iPk"
+    },
+    {
+      "ticketNumber": "#5122-M",
+      "items": [
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "quantity": 1,
+          "total": 15
+        },
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "price": 160,
+          "quantity": 1,
+          "total": 160
+        }
+      ],
+      "subtotal": 725,
+      "tax": 101.5,
+      "total": 826.5,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-27T01:04:58.134Z",
+      "id": "LH9iI10gYvQ"
+    },
+    {
+      "ticketNumber": "#6293-A",
+      "items": [
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "price": 75,
+          "quantity": 3,
+          "total": 225
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "quantity": 1,
+          "total": 200
+        }
+      ],
+      "subtotal": 425,
+      "tax": 59.5,
+      "total": 484.5,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-27T01:08:13.589Z",
+      "id": "yvxpsSJ2hJM"
+    },
+    {
+      "ticketNumber": "#1184-X",
+      "items": [
+        {
+          "productId": "8mgaOCZTySg",
+          "productName": "V Cola",
+          "price": 20,
+          "quantity": 1,
+          "total": 20
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "quantity": 3,
+          "total": 600
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "quantity": 2,
+          "total": 30
+        }
+      ],
+      "subtotal": 650,
+      "tax": 91,
+      "total": 741,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-29T01:00:49.684Z",
+      "id": "grFnqWriB0g"
+    },
+    {
+      "ticketNumber": "#2239-K",
+      "items": [
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "3",
+          "productName": "Notebook",
+          "price": 75,
+          "quantity": 2,
+          "total": 150
+        },
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "price": 160,
+          "quantity": 1,
+          "total": 160
+        },
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "price": 75,
+          "quantity": 1,
+          "total": 75
+        }
+      ],
+      "subtotal": 235,
+      "tax": 32.9,
+      "total": 267.9,
+      "paymentMethod": "Card",
+      "status": "Completed",
+      "createdAt": "2026-08-29T01:01:18.536Z",
+      "id": "FLvTlAJzR0c"
+    },
+    {
+      "ticketNumber": "#9116-J",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "quantity": 2,
+          "total": 500
+        }
+      ],
+      "subtotal": 2270,
+      "tax": 317.8,
+      "total": 2587.8,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-27T22:18:57.048Z",
+      "id": "tHPXVpEdQ-Y"
+    },
+    {
+      "ticketNumber": "#3169-E",
+      "items": [
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "quantity": 2,
+          "total": 400
+        },
+        {
+          "productId": "L68yt065cXs",
+          "productName": "Ruler",
+          "price": 20,
+          "quantity": 2,
+          "total": 40
+        },
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "price": 650,
+          "quantity": 1,
+          "total": 650
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "quantity": 1,
+          "total": 10
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "quantity": 3,
+          "total": 45
+        },
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "price": 160,
+          "quantity": 2,
+          "total": 320
+        },
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "price": 75,
+          "quantity": 3,
+          "total": 225
+        }
+      ],
+      "subtotal": 1910,
+      "tax": 267.4,
+      "total": 2177.4,
+      "paymentMethod": "Card",
+      "status": "Completed",
+      "createdAt": "2026-08-27T22:41:40.456Z",
+      "id": "rWIXYFFdwoE"
+    },
+    {
+      "ticketNumber": "#3021-K",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "quantity": 2,
+          "total": 1100
+        }
+      ],
+      "subtotal": 1100,
+      "tax": 154,
+      "total": 1254,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-27T22:43:06.712Z",
+      "id": "T08R548Qqyc"
+    },
+    {
+      "ticketNumber": "#3913-V",
+      "items": [
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "quantity": 2,
+          "total": 30
+        }
+      ],
+      "subtotal": 30,
+      "tax": 4.2,
+      "total": 34.2,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-27T22:43:26.528Z",
+      "id": "x4jfA8TdqEI"
+    },
+    {
+      "ticketNumber": "#9840-E",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 2,
+          "total": 720
+        },
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "price": 650,
+          "quantity": 1,
+          "total": 650
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "quantity": 1,
+          "total": 200
+        }
+      ],
+      "subtotal": 1570,
+      "tax": 219.8,
+      "total": 1789.8,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-27T22:44:56.575Z",
+      "id": "kd_rhVCxeps"
+    },
+    {
+      "ticketNumber": "#3891-U",
+      "items": [
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "quantity": 1,
+          "total": 250
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "quantity": 2,
+          "total": 30
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 500,
+      "tax": 70,
+      "total": 570,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-27T22:46:08.712Z",
+      "id": "mLZxrxdNQ1Q"
+    },
+    {
+      "ticketNumber": "#5388-P",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 2,
+          "total": 720
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "quantity": 2,
+          "total": 440
+        },
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "price": 650,
+          "quantity": 1,
+          "total": 650
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "quantity": 1,
+          "total": 200
+        }
+      ],
+      "subtotal": 2560,
+      "tax": 358.4,
+      "total": 2918.4,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-30T16:24:30.216Z",
+      "id": "Fh9Wa1i93VA"
+    },
+    {
+      "ticketNumber": "#2080-R",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        }
+      ],
+      "subtotal": 360,
+      "tax": 50.4,
+      "total": 410.4,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-30T21:26:56.612Z",
+      "id": "A6koUZJWAAs"
+    },
+    {
+      "ticketNumber": "#3758-G",
+      "items": [
+        {
+          "productId": "L68yt065cXs",
+          "productName": "Ruler",
+          "price": 20,
+          "quantity": 1,
+          "total": 20
+        }
+      ],
+      "subtotal": 390,
+      "tax": 54.6,
+      "total": 444.6,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-29T01:25:07.974Z",
+      "id": "zDiBm8yybh4"
+    },
+    {
+      "subtotal": 20,
+      "tax": 2.8,
+      "total": 22.8,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-30T21:27:02.708Z",
+      "id": "ZhPrZUtP0Yg"
+    },
+    {
+      "ticketNumber": "#9056-K",
+      "items": [
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "quantity": 1,
+          "total": 15
+        }
+      ],
+      "subtotal": 15,
+      "tax": 2.1,
+      "total": 17.1,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-30T21:27:05.884Z",
+      "id": "nulS2lGObX0"
+    },
+    {
+      "ticketNumber": "#3028-M",
+      "items": [
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "price": 75,
+          "quantity": 1,
+          "total": 75
+        }
+      ],
+      "subtotal": 75,
+      "tax": 10.5,
+      "total": 85.5,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-30T21:27:10.524Z",
+      "id": "szKkJIL3q8I"
+    },
+    {
+      "ticketNumber": "#5941-U",
+      "items": [
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        }
+      ],
+      "subtotal": 550,
+      "tax": 77,
+      "total": 627,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-30T21:28:37.372Z",
+      "id": "vsE92sqEXhw"
+    },
+    {
+      "ticketNumber": "#2148-D",
+      "items": [
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "price": 650,
+          "quantity": 1,
+          "total": 650
+        },
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "quantity": 1,
+          "total": 200
+        },
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "price": 75,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "price": 160,
+          "quantity": 1,
+          "total": 160
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "quantity": 1,
+          "total": 15
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 2230,
+      "tax": 312.2,
+      "total": 2542.2,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-30T21:29:55.364Z",
+      "id": "7WoqFX6fidw"
+    },
+    {
+      "ticketNumber": "#3695-C",
+      "items": [
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "quantity": 5,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "tax": 140,
+      "total": 1140,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-30T21:45:05.061Z",
+      "id": "FjPzMAIh7t8"
+    },
+    {
+      "ticketNumber": "#4819-R",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "price": 650,
+          "quantity": 1,
+          "total": 650
+        },
+        {
+          "productId": "L68yt065cXs",
+          "productName": "Ruler",
+          "price": 20,
+          "quantity": 1,
+          "total": 20
+        },
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "quantity": 1,
+          "total": 10
+        },
+        {
+          "productId": "JL_OrD8YdJo",
+          "productName": "Eraser",
+          "price": 12,
+          "quantity": 1,
+          "total": 12
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "quantity": 1,
+          "total": 200
+        }
+      ],
+      "subtotal": 1252,
+      "tax": 175.28,
+      "total": 1427.28,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-31T14:41:04.111Z",
+      "id": "CPe8oRBuhQI"
+    },
+    {
+      "ticketNumber": "#4293-S",
+      "items": [
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "quantity": 1,
+          "total": 500
+        },
+        {
+          "productId": "3",
+          "productName": "Notebook",
+          "price": 75,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "JL_OrD8YdJo",
+          "productName": "Eraser",
+          "price": 12,
+          "quantity": 1,
+          "total": 12
+        }
+      ],
+      "subtotal": 1167,
+      "tax": 163.38,
+      "total": 1330.38,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-31T16:55:52.758Z",
+      "id": "ojWI9stQdh8"
+    },
+    {
+      "ticketNumber": "#7521-U",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "quantity": 1,
+          "total": 500
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "price": 650,
+          "quantity": 1,
+          "total": 650
+        }
+      ],
+      "subtotal": 1730,
+      "tax": 242.2,
+      "total": 1972.2,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-08-31T18:47:04.310Z",
+      "id": "bs3stmcADdI"
+    },
+    {
+      "ticketNumber": "#2523-E",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "price": 160,
+          "quantity": 1,
+          "total": 160
+        },
+        {
+          "productId": "-1wpRIoloUU",
+          "productName": "V-Cola",
+          "price": 25,
+          "quantity": 1,
+          "total": 25
+        },
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "price": 4350,
+          "quantity": 1,
+          "total": 4350
+        }
+      ],
+      "subtotal": 5635,
+      "tax": 788.9,
+      "total": 6423.9,
+      "paymentMethod": "Card",
+      "status": "Completed",
+      "createdAt": "2026-08-31T21:59:03.908Z",
+      "id": "apGQ_jMkBEY"
+    },
+    {
+      "ticketNumber": "#8951-H",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "quantity": 1,
+          "total": 500
+        },
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "3",
+          "productName": "Notebook",
+          "price": 75,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "quantity": 1,
+          "total": 10
+        },
+        {
+          "productId": "JL_OrD8YdJo",
+          "productName": "Eraser",
+          "price": 12,
+          "quantity": 1,
+          "total": 12
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "price": 650,
+          "quantity": 1,
+          "total": 650
+        }
+      ],
+      "subtotal": 1827,
+      "tax": 255.78,
+      "total": 2082.78,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-01T02:24:54.683Z",
+      "id": "_9pESSKyvA0"
+    },
+    {
+      "ticketNumber": "#2315-H",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "quantity": 1,
+          "total": 500
+        }
+      ],
+      "subtotal": 500,
+      "tax": 70,
+      "total": 570,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-01T03:01:15.038Z",
+      "id": "UcMMVimsM9Q"
+    },
+    {
+      "ticketNumber": "#8118-G",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        }
+      ],
+      "subtotal": 360,
+      "tax": 50.4,
+      "total": 410.4,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-01T20:57:06.760Z",
+      "id": "ijm9zR-9Btg"
+    },
+    {
+      "ticketNumber": "#2511-H",
+      "items": [
+        {
+          "productId": "JL_OrD8YdJo",
+          "productName": "Eraser",
+          "price": 12,
+          "quantity": 1,
+          "total": 12
+        },
+        {
+          "productId": "8mgaOCZTySg",
+          "productName": "V Cola",
+          "price": 20,
+          "quantity": 1,
+          "total": 20
+        },
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "price": 4350,
+          "quantity": 1,
+          "total": 4350
+        },
+        {
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "price": 650,
+          "quantity": 1,
+          "total": 650
+        },
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "3",
+          "productName": "Notebook",
+          "price": 75,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "quantity": 1,
+          "total": 10
+        }
+      ],
+      "subtotal": 6217,
+      "tax": 932.55,
+      "total": 7149.55,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-09T20:56:50.344Z",
+      "id": "T5rvUknuXwo"
+    },
+    {
+      "ticketNumber": "#5335-J",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "quantity": 1,
+          "total": 500
+        },
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "price": 650,
+          "quantity": 1,
+          "total": 650
+        }
+      ],
+      "subtotal": 1150,
+      "tax": 172.5,
+      "total": 1322.5,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-11T01:27:46.440Z",
+      "id": "ciQwBBr8hmI"
+    },
+    {
+      "ticketNumber": "#2219-K",
+      "items": [
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "price": 160,
+          "quantity": 1,
+          "total": 160
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "8mgaOCZTySg",
+          "productName": "V Cola",
+          "price": 20,
+          "quantity": 1,
+          "total": 20
+        }
+      ],
+      "subtotal": 1280,
+      "tax": 192,
+      "total": 1472,
+      "paymentMethod": "Card",
+      "status": "Completed",
+      "createdAt": "2026-09-11T01:29:27.232Z",
+      "id": "ug-JQ7-idSc"
+    },
+    {
+      "ticketNumber": "#4449-X",
+      "items": [
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "price": 75,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "g-Zfpr16690",
+          "productName": "Pasta",
+          "price": 15,
+          "quantity": 1,
+          "total": 15
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "quantity": 1,
+          "total": 200
+        }
+      ],
+      "subtotal": 290,
+      "tax": 43.5,
+      "total": 333.5,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-12T23:57:42.901Z",
+      "id": "puvgMh01uAU"
+    },
+    {
+      "ticketNumber": "#7119-D",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "quantity": 1,
+          "total": 500
+        },
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        }
+      ],
+      "subtotal": 860,
+      "tax": 129,
+      "total": 989,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-13T11:25:08.412Z",
+      "id": "hMyvPMLUz5A"
+    },
+    {
+      "ticketNumber": "#8072-W",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "quantity": 2,
+          "total": 1100
+        },
+        {
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "price": 650,
+          "quantity": 2,
+          "total": 1300
+        }
+      ],
+      "subtotal": 2950,
+      "tax": 413,
+      "total": 3363,
+      "paymentMethod": "Card",
+      "status": "Completed",
+      "createdAt": "2026-09-14T00:51:29.131Z",
+      "id": "-kOfZMyv5EE"
+    },
+    {
+      "ticketNumber": "#2581-R",
+      "items": [
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "quantity": 1,
+          "total": 200
+        },
+        {
+          "productId": "8mgaOCZTySg",
+          "productName": "V Cola",
+          "price": 20,
+          "quantity": 1,
+          "total": 20
+        },
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "price": 4350,
+          "quantity": 1,
+          "total": 4350
+        },
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "price": 75,
+          "quantity": 1,
+          "total": 75
+        }
+      ],
+      "subtotal": 4645,
+      "tax": 650.3,
+      "total": 5295.3,
+      "paymentMethod": "Card",
+      "status": "Completed",
+      "createdAt": "2026-09-14T01:09:08.349Z",
+      "id": "2gJjUIUysVo"
+    },
+    {
+      "ticketNumber": "#7680-L",
+      "items": [
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "quantity": 2,
+          "total": 500
+        },
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "quantity": 2,
+          "total": 440
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "quantity": 1,
+          "total": 15
+        },
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "quantity": 1,
+          "total": 360
+        }
+      ],
+      "subtotal": 1315,
+      "tax": 184.1,
+      "total": 1499.1,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-14T01:21:34.260Z",
+      "id": "bBzCbkhl9qE"
+    },
+    {
+      "ticketNumber": "#2088-J",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 0,
+          "quantity": 4,
+          "total": 880
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "costPrice": 0,
+          "quantity": 2,
+          "total": 1100
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "costPrice": 0,
+          "quantity": 3,
+          "total": 750
+        }
+      ],
+      "subtotal": 2730,
+      "tax": 382.2,
+      "total": 3112.2,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-14T15:35:02.353Z",
+      "id": "AS9-0J_eXQ8"
+    },
+    {
+      "ticketNumber": "#7975-U",
+      "items": [
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "price": 160,
+          "costPrice": 105,
+          "quantity": 6,
+          "total": 960
+        }
+      ],
+      "subtotal": 960,
+      "tax": 134.4,
+      "total": 1094.4,
+      "paymentMethod": "Card",
+      "status": "Cancelled",
+      "createdAt": "2026-09-14T21:51:35.749Z",
+      "id": "aa7YDOjdxlU"
+    },
+    {
+      "ticketNumber": "#7469-T",
+      "items": [
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "price": 4350,
+          "costPrice": 2200,
+          "quantity": 1,
+          "total": 4350
+        },
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 2,
+          "total": 1100
+        },
+        {
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "price": 650,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 650
+        },
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "price": 160,
+          "costPrice": 105,
+          "quantity": 1,
+          "total": 160
+        },
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "costPrice": 100,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "costPrice": 10,
+          "quantity": 2,
+          "total": 30
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "costPrice": 55,
+          "quantity": 1,
+          "total": 200
+        }
+      ],
+      "subtotal": 7480,
+      "tax": 1047.2,
+      "total": 8527.2,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-14T21:55:35.622Z",
+      "id": "NlOc4UAvELc"
+    },
+    {
+      "ticketNumber": "#9065-G",
+      "items": [
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "price": 160,
+          "costPrice": 105,
+          "quantity": 1,
+          "total": 160
+        },
+        {
+          "productId": "g-Zfpr16690",
+          "productName": "Pasta",
+          "price": 15,
+          "costPrice": 12,
+          "quantity": 1,
+          "total": 15
+        },
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "price": 75,
+          "costPrice": 55,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "8mgaOCZTySg",
+          "productName": "V Cola",
+          "price": 20,
+          "costPrice": 15,
+          "quantity": 2,
+          "total": 40
+        },
+        {
+          "productId": "3",
+          "productName": "Notebook",
+          "price": 75,
+          "costPrice": 25,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "costPrice": 7,
+          "quantity": 1,
+          "total": 10
+        },
+        {
+          "productId": "JL_OrD8YdJo",
+          "productName": "Eraser",
+          "price": 12,
+          "costPrice": 9,
+          "quantity": 1,
+          "total": 12
+        }
+      ],
+      "subtotal": 387,
+      "tax": 54.18,
+      "total": 441.18,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-15T17:11:37.945Z",
+      "id": "zEqKD3MGNxM"
+    },
+    {
+      "ticketNumber": "#4921-U",
+      "items": [
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "price": 4350,
+          "costPrice": 2200,
+          "quantity": 4,
+          "total": 17400
+        },
+        {
+          "productId": "8mgaOCZTySg",
+          "productName": "V Cola",
+          "price": 20,
+          "costPrice": 15,
+          "quantity": 8,
+          "total": 160
+        }
+      ],
+      "subtotal": 17560,
+      "tax": 2458.4,
+      "total": 20018.4,
+      "paymentMethod": "Card",
+      "status": "Cancelled",
+      "createdAt": "2026-09-15T19:43:29.408Z",
+      "id": "awnGNrMv_Gk"
+    },
+    {
+      "ticketNumber": "#8893-D",
+      "items": [
+        {
+          "productId": "L68yt065cXs",
+          "productName": "Ruler",
+          "price": 20,
+          "costPrice": 14,
+          "quantity": 4,
+          "total": 80
+        }
+      ],
+      "subtotal": 80,
+      "tax": 11.2,
+      "total": 91.2,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-15T20:02:25.272Z",
+      "id": "OJxht6qLeow"
+    },
+    {
+      "ticketNumber": "#2855-M",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "price": 160,
+          "costPrice": 105,
+          "quantity": 1,
+          "total": 160
+        },
+        {
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "price": 650,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 650
+        }
+      ],
+      "subtotal": 1580,
+      "tax": 221.2,
+      "total": 1801.2,
+      "paymentMethod": "Cash",
+      "status": "Completed",
+      "createdAt": "2026-09-17T23:16:08.325Z",
+      "id": "KNN3JmIJCq4"
+    },
+    {
+      "ticketNumber": "#9583-F",
+      "items": [
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "costPrice": 55,
+          "quantity": 1,
+          "total": 200
+        },
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        }
+      ],
+      "subtotal": 750,
+      "tax": 105,
+      "total": 855,
+      "paymentMethod": "Card",
+      "status": "Completed",
+      "createdAt": "2026-09-18T11:55:25.991Z",
+      "id": "fPKbSo2hNnA"
+    }
+  ],
+  "returns": [
+    {
+      "type": "sale",
+      "referenceId": "awnGNrMv_Gk",
+      "referenceNumber": "##4921-U",
+      "items": [
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "sku": "UOU-008",
+          "quantity": 4,
+          "unitPrice": 4350,
+          "total": 17400
+        },
+        {
+          "productId": "8mgaOCZTySg",
+          "productName": "V Cola",
+          "sku": "sku005",
+          "quantity": 8,
+          "unitPrice": 20,
+          "total": 160
+        }
+      ],
+      "reason": "",
+      "total": 17560,
+      "status": "completed",
+      "createdAt": "2026-09-17T21:40:27.599Z",
+      "id": "Sza_LfXZWdU"
+    },
+    {
+      "type": "sale",
+      "referenceId": "NlOc4UAvELc",
+      "referenceNumber": "##7469-T",
+      "items": [
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "sku": "UOU-008",
+          "quantity": 1,
+          "unitPrice": 4350,
+          "total": 4350
+        }
+      ],
+      "reason": "",
+      "total": 4350,
+      "status": "completed",
+      "createdAt": "2026-09-17T21:43:40.808Z",
+      "id": "AX1ZiQNYtFA"
+    },
+    {
+      "type": "sale",
+      "referenceId": "aa7YDOjdxlU",
+      "referenceNumber": "##7975-U",
+      "items": [
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "sku": "OUO-300",
+          "quantity": 6,
+          "unitPrice": 160,
+          "total": 960
+        }
+      ],
+      "reason": "",
+      "total": 960,
+      "status": "completed",
+      "createdAt": "2026-09-17T21:45:04.880Z",
+      "id": "m0ZxGJq5wgY"
+    },
+    {
+      "type": "purchase",
+      "referenceId": "nK8RypkYYEQ",
+      "referenceNumber": "21546",
+      "items": [
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "sku": "MOM-001",
+          "quantity": 30,
+          "unitPrice": 105,
+          "total": 3150
+        }
+      ],
+      "reason": "",
+      "total": 3150,
+      "status": "completed",
+      "createdAt": "2026-09-17T21:48:00.231Z",
+      "id": "ko4MNz2eYe4"
+    },
+    {
+      "type": "purchase",
+      "referenceId": "A-4v2RlDdfk",
+      "referenceNumber": "36752",
+      "items": [
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "sku": "OUO-300",
+          "quantity": 10,
+          "unitPrice": 105,
+          "costPrice": 105,
+          "total": 1050
+        }
+      ],
+      "reason": "",
+      "total": 1050,
+      "status": "completed",
+      "createdAt": "2026-09-19T20:19:10.181Z",
+      "id": "-KdoxsWWwrA"
+    },
+    {
+      "type": "purchase",
+      "referenceId": "A-4v2RlDdfk",
+      "referenceNumber": "36752",
+      "items": [
+        {
+          "productId": "Xh9JRv8y1Sg",
+          "productName": "Oxi",
+          "sku": "OUO-300",
+          "quantity": 30,
+          "unitPrice": 105,
+          "costPrice": 105,
+          "total": 3150
+        }
+      ],
+      "reason": "",
+      "total": 3150,
+      "status": "completed",
+      "createdAt": "2026-09-19T20:20:14.981Z",
+      "id": "4_hrPZ-8bVc"
+    },
+    {
+      "type": "sale",
+      "referenceId": "fPKbSo2hNnA",
+      "referenceNumber": "##9583-F",
+      "items": [
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "sku": "Red-212",
+          "quantity": 1,
+          "unitPrice": 200,
+          "costPrice": 55,
+          "total": 200
+        }
+      ],
+      "reason": "",
+      "total": 200,
+      "status": "completed",
+      "createdAt": "2026-09-21T16:09:12.472Z",
+      "id": "7OodlcK7pIw"
+    }
+  ],
+  "storeSettings": [
+    {
+      "id": "1",
+      "storeName": "Matgeesh tany",
+      "phone": "01287893082",
+      "address": "امتداد محور 26 يوليو، مدخل مدينة الشيخ زايد، محافظة الجيزة.",
+      "currency": "EGP",
+      "taxRate": 14
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

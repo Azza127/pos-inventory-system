@@ -1,0 +1,292 @@
+<div class="pos-container no-print">
+  <!--  PRODUCTS SECTION -->
+  <section class="products-section">
+    <!-- Header -->
+    <div class="pos-header">
+      <div class="pos-heading">
+        <span class="pos-eyebrow">POINT OF SALE</span>
+        <h1>Sales Terminal</h1>
+        <p>Select products and complete customer transactions seamlessly. </p>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div class="top-bar">
+      <div class="search-box">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" 
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+
+        <input type="text" placeholder="Search products by name or SKU..." [(ngModel)]="searchQuery" (input)="filterProducts()" />
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="categories-wrapper">
+      <div class="categories-bar">
+        <button type="button" class="category-pill" [class.active]="selectedCategoryId === 'ALL'" (click)="selectCategory('ALL')">
+          All Products
+        </button>
+
+        <button type="button" *ngFor="let category of categories" class="category-pill" [class.active]="selectedCategoryId === category.id" (click)="selectCategory(category.id)" >
+          {{ category.name }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Products -->
+    <div class="products-grid">
+      <div *ngFor="let product of filteredProducts" class="product-card" [class.disabled]="product.stock <= 0" (click)="addToCart(product)" >
+        <!-- Image -->
+        <div class="product-img-wrapper">
+          <img [src]="  product.image || 'https://via.placeholder.com/300x220?text=Product' " [alt]="product.name" />
+
+          <div *ngIf="product.stock <= 0" class="badge-out" >
+            OUT OF STOCK
+          </div>
+        </div>
+
+        <!-- Details -->
+        <div class="product-details">
+          <h4 class="product-title"> {{ product.name }} </h4>
+
+          <span class="stock-text" [class.low-stock]=" product.stock > 0 && product.stock <= product.minStock ">
+            {{ product.stock > 0 ? 'Stock: ' + product.stock : 'Out of stock' }}
+          </span>
+
+          <div class="price-row">
+            <span class="product-price"> {{ product.price | number: '1.2-2' }} {{ currencySymbol }} </span>
+            <button type="button" class="add-btn" [disabled]="product.stock <= 0"(click)=" $event.stopPropagation(); addToCart(product)">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty Products -->
+      <div *ngIf="filteredProducts.length === 0" class="empty-products">
+        <div class="empty-products-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" >
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="20" y1="20" x2="16" y2="16"></line>
+          </svg>
+        </div>
+        <h3>No products found</h3>
+        <p>Try another product name, SKU, or category.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART SECTION -->
+  <aside class="cart-section">
+    <!-- Cart Header -->
+    <div class="cart-header">
+      <div class="cart-heading">
+        <div class="cart-title-row">
+          <h2> Current Order </h2>
+          <span class="cart-count" *ngIf="cart.length > 0" > {{ cart.length }} </span>
+        </div>
+
+        <span class="ticket-id"> Ticket {{ currentTicketNumber }} </span>
+      </div>
+
+      <button type="button" class="clear-icon-btn" (click)="clearCart()" [disabled]="cart.length === 0" title="Clear All" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d=" M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6 "></path>
+            <path d=" M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2 "></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Cart Items -->
+    <div class="cart-items">
+      <!-- Empty -->
+      <div *ngIf="cart.length === 0" class="empty-cart" >
+        <div class="empty-cart-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="20" r="1"></circle>
+            <circle cx="19" cy="20" r="1" ></circle>
+            <path  d="  M3 4h2l2.4 11.2a2 2 0 0 0   2 1.6h7.9a2 2 0 0 0  1.9-1.4L21 8H6 " ></path>
+          </svg>
+        </div>
+        <h3>Your cart is empty</h3>
+        <p> Select products from the catalog to start an order.</p>
+      </div>
+
+      <!-- Cart Item -->
+      <div *ngFor="let item of cart" class="cart-item" >
+        <!-- Product image -->
+        <div class="cart-product-image">
+          <img [src]="getProductImage(item)" [alt]="item.productName"/>
+        </div>
+
+        <!-- Product content -->
+        <div class="cart-item-content">
+          <div class="cart-item-top">
+            <div class="cart-product-info">
+              <span class="item-title"> {{ item.productName }} </span>
+              <span class="item-unit-price"> {{ item.price | number: '1.2-2' }} {{ currencySymbol }} / each </span>
+            </div>
+
+            <button type="button" class="remove-btn" (click)="removeFromCart(item)" title="Remove item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div class="cart-item-bottom">
+            <!-- Quantity -->
+            <div class="qty-controls">
+              <button type="button" (click)="updateQuantity(item, -1)" aria-label="Decrease quantity">
+                −
+              </button>
+
+              <span class="qty-value"> {{ item.quantity }} </span>
+              <button type="button" (click)="updateQuantity(item, 1)" aria-label="Increase quantity">
+                +
+              </button>
+            </div>
+
+            <!-- Total -->
+            <span class="item-total-price"> {{ item.total | number: '1.2-2' }} {{ currencySymbol }} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Summary -->
+    <div class="cart-summary" *ngIf="cart.length > 0">
+      <!-- Subtotal -->
+      <div class="summary-line">
+        <span> Subtotal </span>
+        <span> {{ subtotal | number: '1.2-2' }} {{ currencySymbol }} </span>
+      </div>
+
+      <!-- Tax -->
+      <div class="summary-line">
+        <span> Tax {{ taxRate * 100 | number:'1.0-2' }}% </span>
+        <span> {{ tax | number: '1.2-2' }} {{ currencySymbol }} </span>
+      </div>
+
+      <div class="summary-divider"></div>
+      <!-- Total -->
+      <div class="summary-line total-line">
+        <span> Total </span>
+        <span class="total-amount"> {{ total | number: '1.2-2' }} {{ currencySymbol }} </span>
+      </div>
+
+      <!-- Payment -->
+      <div class="payment-section">
+        <span class="payment-label"> Payment method </span>
+        <div class="payment-selector">
+          <button type="button" class="pay-select-btn" [class.active]="paymentMethod === 'Cash'" (click)=" paymentMethod = 'Cash'; savePaymentMethod() ">
+            <span class="payment-icon"> 💵 </span>
+            <span> Cash </span>
+          </button>
+
+          <button type="button" class="pay-select-btn" [class.active]="paymentMethod === 'Card'" (click)=" paymentMethod = 'Card'; savePaymentMethod()">
+            <span class="payment-icon"> 💳 </span>
+            <span> Card </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Checkout -->
+      <button type="button" class="checkout-submit-btn" (click)="checkout()" >
+        <span>  Pay Now </span>
+        <span> {{ total | number: '1.2-2' }} {{ currencySymbol }} </span>
+      </button>
+    </div>
+  </aside>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay no-print" *ngIf="showSuccessModal">
+  <div class="success-card">
+    <div class="check-icon"> ✓ </div>
+    <span class="success-eyebrow"> TRANSACTION COMPLETE </span>
+    <h2> Payment Successful! </h2>
+    <p class="modal-sub"> The transaction has been completed successfully. </p>
+    <div class="modal-details">
+      <div>
+        <span> Ticket </span>
+        <strong> {{ lastTicketNumber }} </strong>
+      </div>
+
+      <div>
+        <span> Amount Paid </span>
+        <strong> {{ lastOrderTotal | number: '1.2-2' }} {{ currencySymbol }} </strong>
+      </div>
+
+      <div>
+        <span> Method </span>
+        <strong> {{ lastPaymentMethod }} </strong>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button type="button" class="btn-secondary" (click)="printReceipt()" > 🖨️ Print Receipt </button>
+      <button type="button" class="btn-primary" (click)="closeModal()"> New Order </button>
+    </div>
+  </div>
+</div>
+
+<!-- PRINTABLE RECEIPT -->
+<div class="printable-receipt">
+  <div class="receipt-header">
+    <h2> MATGEESH TANY </h2>
+    <p> Tel: 123-456-789 </p>
+    <div class="receipt-divider">
+      ================================
+    </div>
+      <p class="receipt-meta"> Ticket {{ lastTicketNumber }} </p>
+      <p class="receipt-meta"> Date: {{ currentDate | date: 'yyyy-MM-dd HH:mm' }} </p>
+      <p class="receipt-meta"> Payment: {{ lastPaymentMethod }} </p>
+    </div>
+  <div class="receipt-divider">
+    ================================
+  </div>
+
+  <table class="receipt-table">
+    <thead>
+      <tr>
+        <th> Item </th>
+        <th class="text-center"> Qty </th>
+        <th class="text-right"> Price </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of receiptCart">
+        <td> {{ item.productName }} </td>
+        <td class="text-center"> {{ item.quantity }} </td>
+        <td class="text-right"> {{ item.total | number: '1.2-2' }} {{ currencySymbol }} </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="receipt-divider">
+    ================================
+  </div>
+
+  <div class="receipt-totals">
+    <div class="receipt-row total-row">
+      <span> TOTAL: </span>
+      <span> {{ lastOrderTotal | number: '1.2-2' }} {{ currencySymbol }} </span>
+    </div>
+  </div>
+  <div class="receipt-divider">
+    ================================
+  </div>
+
+  <div class="receipt-footer">
+    <p> Thank you for shopping with us! </p>
+  </div>
+</div>

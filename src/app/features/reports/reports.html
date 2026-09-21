@@ -1,0 +1,261 @@
+<div class="reports-container">
+  <!-- PAGE HEADER -->
+<header class="reports-header">
+  <div class="header-title">
+    <h1 class="page-title"> Reports &amp; Analytics </h1>
+    <p class="subtitle"> Monitor key metrics, sales trends, and inventory health. </p>
+  </div>
+
+  <div class="header-filters">
+    <!-- PERIOD FILTER -->
+    <div class="filter-dropdown-wrapper">
+      <div class="custom-period-dropdown">
+        <!-- PERIOD BUTTON -->
+        <button type="button"class="btn-filter custom-period-button" (click)="togglePeriodDropdown()" >
+          <i class="bi bi-calendar3"></i>
+          <span> {{ getSelectedPeriodLabel() }} </span>
+          <span class="dropdown-arrow" [class.open]="isPeriodDropdownOpen" ></span>
+        </button>
+
+        <!-- PERIOD OPTIONS -->
+        <div class="period-options" *ngIf="isPeriodDropdownOpen">
+          <button type="button" class="period-option" [class.selected]="selectedPeriod === 'daily'" (click)="selectPeriod('daily')" >
+            Daily
+          </button>
+
+          <button type="button" class="period-option" [class.selected]="selectedPeriod === 'weekly'" (click)="selectPeriod('weekly')" >
+            Weekly
+          </button>
+
+          <button type="button" class="period-option" [class.selected]="selectedPeriod === 'monthly'" (click)="selectPeriod('monthly')" >
+            Monthly
+          </button>
+
+          <button type="button" class="period-option" [class.selected]="selectedPeriod === 'yearly'" (click)="selectPeriod('yearly')" >
+            Yearly
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPORT PDF -->
+    <button type="button" class="btn-export" (click)="exportPDF()" >
+      <i class="fa-regular fa-file-pdf"></i>
+      <span>Export PDF</span>
+    </button>
+
+    <!-- EXPORT CSV -->
+    <button type="button" class="btn-export" (click)="exportCSV()" >
+      <i class="fa-regular fa-file-excel"></i>
+      <span>Export CSV</span>
+    </button>
+  </div>
+</header>
+
+  <!-- LOADING / ERROR -->
+  <div *ngIf="isLoading" class="state-msg">
+    Loading reports...
+  </div>
+
+  <div *ngIf="errorMessage && !isLoading" class="state-msg error">
+    {{ errorMessage }}
+  </div>
+  <!-- MAIN REPORTS -->
+  <main *ngIf="!isLoading && !errorMessage" class="dashboard-grid">
+    <!-- ROW 1 -->
+    <div class="grid-row">
+      <!-- SALES OVERVIEW -->
+      <section class="card sales-overview-card">
+        <div class="card-header">
+          <h3> Sales Overview</h3>
+          <button type="button" class="dot-icon" aria-label="More options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+        </div>
+
+        <div class="card-body">
+          <!-- Total Sales -->
+          <div class="total-sales-badge">
+            <h2> {{ totalSales | number:'1.2-2' }} {{ currencySymbol }} </h2>
+            <p> Total Revenue from {{ totalOrdersCount }} Completed Orders </p>
+          </div>
+
+          <!-- Line Chart -->
+          <div class="chart-container">
+            <canvas id="salesLineChart"></canvas>
+          </div>
+
+          <!-- Overview Stats -->
+          <div class="overview-stats-grid">
+            <div class="stat-box">
+              <span class="label"> Completed Orders </span>
+              <span class="value"> {{ totalOrdersCount }} </span>
+            </div>
+
+            <div class="stat-box">
+              <span class="label"> Avg Order Value </span>
+              <span class="value"> {{ totalOrdersCount > 0 ? (totalSales / totalOrdersCount | number:'1.2-2') : '0.00' }} {{ currencySymbol }} </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--  SALES BY CATEGORY -->
+      <section class="card category-card">
+        <div class="card-header">
+          <h3> Sales by Category </h3>
+          <button type="button" class="dot-icon" aria-label="More options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+        </div>
+
+        <div class="card-body category-body">
+          <!-- Doughnut -->
+          <div class="chart-wrapper">
+            <canvas id="categoryDoughnutChart"></canvas>
+          </div>
+
+          <!-- Legend -->
+          <div class="category-legend-grid">
+            <div *ngFor="let cat of categoryReports; let i = index" class="legend-item">
+                <div class="legend-left">
+                  <span class="dot" [style.background-color]="getCategoryColor(i)"></span>
+                  <span class="cat-name"> {{ cat.categoryName }} </span>
+                </div>
+                <span class="cat-percent"> {{ cat.percentage }}% </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <!--  ROW 2 -->
+    <div class="grid-row">
+      <!--  TOP PRODUCTS -->
+      <section class="card products-card">
+        <div class="card-header">
+          <h3> Top Performing Products </h3>
+          <!-- <a
+            href="#"
+            class="view-all-link"
+            (click)="$event.preventDefault()"
+          >
+            View All
+          </a> -->
+
+          <span class="info-icon">
+            <i class="fa-solid fa-circle-info"></i>
+          </span>
+        </div>
+
+        <div class="card-body table-body">
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th> PRODUCT NAME </th>
+                  <th> UNITS SOLD </th>
+                  <th> REVENUE </th>
+                  <th> TREND </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let prod of topProducts">
+                  <td class="product-cell">
+                    <div class="product-cell-content">
+                      <div class="product-icon">
+                        <img  *ngIf="prod.image; else productFallbackIcon" [src]="prod.image" [alt]="prod.productName" />
+                        <ng-template #productFallbackIcon>
+                          <i class="fa-solid fa-box"></i>
+                        </ng-template>
+                      </div>
+                      <strong> {{ prod.productName }} </strong>
+                    </div>
+                  </td>
+
+                  <td> {{ prod.unitsSold }} units </td>
+
+                  <td>
+                    <strong> {{ prod.revenue | number:'1.2-2' }} {{ currencySymbol }} </strong>
+                  </td>
+
+                  <td>
+                    <span class="trend-badge" [ngClass]="prod.isPositive ? 'positive' : 'negative'">
+                      <i class="fa-solid" [ngClass]="prod.isPositive? 'fa-arrow-trend-up': 'fa-arrow-trend-down'"></i>
+                      {{ prod.isPositive ? '+' : '' }}{{ prod.trend }}%
+                    </span>
+                  </td>
+                </tr>
+
+                <tr *ngIf="topProducts.length === 0">
+                  <td colspan="4" class="empty-cell" >
+                    No products sold yet.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- INVENTORY VALUATION -->
+      <section class="card inventory-card">
+        <div class="card-header">
+          <h3> Inventory Valuation </h3>
+          <span class="info-icon">
+            <i class="fa-solid fa-circle-info"></i>
+          </span>
+        </div>
+
+        <div class="card-body inventory-body">
+          <!-- Total Asset Value -->
+          <div class="valuation-box">
+            <div class="val-header">
+              <span> Total Asset Value (Cost) </span>
+              <span class="icon-badge">
+                <i class="fa-solid fa-wallet"></i>
+              </span>
+            </div>
+
+            <h2> {{ inventoryValuation.totalCost | number:'1.2-2' }} {{ currencySymbol }} </h2>
+          </div>
+
+          <!-- Potential Revenue -->
+          <div class="revenue-metric">
+            <div class="metric-label">
+              <span> Potential Revenue (Retail) </span>
+              <strong> {{ inventoryValuation.potentialRevenue | number:'1.2-2' }} {{ currencySymbol }} </strong>
+            </div>
+
+            <div class="progress-line-bg">
+              <div class="progress-line-fill" [style.width.%]="inventoryValuation.potentialRevenue > 0 
+                 ? (inventoryValuation.totalCost / inventoryValuation.potentialRevenue) * 100 : 0">
+              </div>
+            </div>
+          </div>
+
+          <!-- Profit Margin -->
+          <div class="margin-metric">
+            <div class="metric-label">
+              <span class="label-title"> Avg. Profit Margin </span>
+              <strong class="margin-value"> {{ inventoryValuation.profitMargin }}% </strong>
+            </div>
+
+            <div class="margin-bar-container">
+              <div class="bar-segment low"></div>
+              <div class="bar-segment medium"></div>
+              <div class="bar-segment high"></div>
+            </div>
+
+            <div class="margin-labels">
+              <span> Low (&lt;15%) </span>
+              <span> High (&gt;30%) </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

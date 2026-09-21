@@ -1,0 +1,98 @@
+<aside class="sidebar">
+
+  <!-- Brand -->
+  <div class="brand">
+    <div class="brand-header">
+      <div class="brand-mark">
+        <img
+          src="chart-line-solid-full.svg"
+          alt="Moasher Logo"
+          class="brand-logo"
+        />
+      </div>
+
+      <div class="brand-text">
+        <h2 class="brand-title">Moasher</h2>
+        <span class="brand-subtitle">INVENTORY & POS</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Main Navigation -->
+  <nav class="navigation">
+    <a routerLink="/dashboard" routerLinkActive="active">
+      <i class="bi bi-grid-fill"></i>
+      <span>Dashboard</span>
+    </a>
+
+    <a routerLink="/inventory" routerLinkActive="active">
+      <i class="bi bi-box-seam"></i>
+      <span>Inventory</span>
+    </a>
+
+    @if (userRole === 'Manager' || userRole === 'Owner') {
+      <a routerLink="/purchase-invoices" routerLinkActive="active">
+        <i class="bi bi-receipt"></i>
+        <span>Purchase Invoices</span>
+      </a>
+    }
+
+    <a routerLink="/pos" routerLinkActive="active">
+      <i class="bi bi-shop"></i>
+      <span>Sales (POS)</span>
+    </a>
+
+    <a routerLink="/orders" routerLinkActive="active">
+      <i class="bi bi-receipt"></i>
+      <span>Orders</span>
+    </a>
+
+    <a routerLink="/returns" routerLinkActive="active">
+      <i class="bi bi-arrow-return-left"></i>
+      <span>Returns</span>
+    </a>
+
+        <!-- <a routerLink="/reports" routerLinkActive="active" *ngIf="userRole === 'Owner' || userRole === 'Manager'"> -->
+          @if (userRole === 'Manager' || userRole === 'Owner') {
+            <a routerLink="/reports" routerLinkActive="active">
+              <i class="bi bi-bar-chart"></i>
+              <span>Reports</span>
+            </a>
+          }
+
+    <!-- <a routerLink="/team-members" routerLinkActive="active" *ngIf="userRole === 'Owner' || userRole === 'Manager'"> -->
+      @if (userRole === 'Manager' || userRole === 'Owner') {
+        <a routerLink="/team-members" routerLinkActive="active">
+          <i class="bi bi-person-gear"></i>
+          <span>Users</span>
+        </a>
+      }
+  </nav>
+
+
+  <!-- New Sale -->
+  <div class="new-sale">
+    <a routerLink="/pos">
+      <i class="bi bi-plus-lg"></i>
+      <span>New Sale</span>
+    </a>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-navigation">
+
+    <!-- <a>
+      <i class="bi bi-question-circle"></i>
+      <span>Help Center</span>
+    </a> -->
+
+    <!-- <a routerLink="/store-settings" routerLinkActive="active" *ngIf="userRole === 'Owner' || userRole === 'Manager'"> -->
+      @if (userRole === 'Owner') {
+        <a routerLink="/store-settings" routerLinkActive="active">
+          <i class="bi bi-gear"></i>
+          <span>Settings</span>
+        </a>
+      }
+  </div>
+</aside>

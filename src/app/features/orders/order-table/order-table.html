@@ -1,0 +1,102 @@
+<div class="table-wrapper">
+  <table class="table modern-table mb-0 align-middle">
+    <colgroup>
+      <col style="width: 14%"> <!-- TICKET -->
+      <col style="width: 20%"> <!-- DATE -->
+      <col style="width: 11%"> <!-- ITEMS -->
+      <col style="width: 17%"> <!-- TOTAL -->
+      <col style="width: 15%"> <!-- PAYMENT -->
+      <col style="width: 18%"> <!-- STATUS -->
+      <col style="width: 5%">  <!-- ACTION -->
+    </colgroup>
+
+    <thead>
+      <tr>
+        <th>TICKET</th>
+        <th>DATE</th>
+        <th>ITEMS</th>
+        <th>TOTAL</th>
+        <th>PAYMENT</th>
+        <th>STATUS</th>
+        <th class="text-center">ACTION</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @if (loading) {
+        <tr>
+          <td colspan="7" class="text-center text-muted py-4">
+            Loading orders...
+          </td>
+        </tr>
+      } @else if (!pagedOrders.length) {
+        <tr>
+          <td colspan="7" class="text-center text-muted py-4">
+            No orders found.
+          </td>
+        </tr>
+      } @else {
+        @for (order of pagedOrders; track trackByOrderId($index, order)) {
+          <tr class="order-row" (click)="select(order)" >
+            <!-- TICKET -->
+            <td class="fw-semibold">
+              {{ ticketNumber(order) }}
+            </td>
+
+            <!-- DATE + TIME -->
+            <td>
+              {{ order.createdAt | date:'medium' }}
+            </td>
+
+            <!-- ITEMS -->
+            <td>
+              {{ itemCount(order) }}
+              item{{ itemCount(order) === 1 ? '' : 's' }}
+            </td>
+
+            <!-- TOTAL -->
+            <td class="fw-semibold">
+              {{ order.total | number:'1.2-2' }}
+              {{ currencySymbol }}
+            </td>
+
+            <!-- PAYMENT -->
+            <td>
+              @if (paymentMethod(order).toLowerCase() === 'cash') {
+                <span class="payment-badge payment-cash">
+                  <i class="bi bi-cash-stack"></i>
+                  <span>Cash</span>
+                </span>
+              } @else if (paymentMethod(order).toLowerCase() === 'card') {
+                <span class="payment-badge payment-card">
+                  <i class="bi bi-credit-card"></i>
+                  <span>Card</span>
+                </span>
+              } @else {
+                <span class="payment-badge payment-other">
+                  <i class="bi bi-wallet2"></i>
+                  <span>{{ paymentMethod(order) }}</span>
+                </span>
+              }
+            </td>
+
+            <!-- STATUS -->
+            <td>
+              <span class="status-badge" [class.status-success]="order.status === 'Completed'" [class.status-warning]="order.status === 'Pending'" [class.status-danger]="order.status === 'Cancelled'" >
+                <span class="dot"></span>
+                {{ order.status }}
+              </span>
+            </td>
+
+            <!-- ACTION -->
+            <td class="text-center">
+              <button type="button" class="row-action-btn" (click)="$event.stopPropagation(); select(order)" aria-label="View order">
+                <i class="bi bi-eye"></i>
+              </button>
+            </td>
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+</div>

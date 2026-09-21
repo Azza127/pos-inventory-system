@@ -1,0 +1,195 @@
+<div class="settings-page">
+  @if (successMessage) {
+    <div class="save-toast success-toast">
+      <div class="toast-icon">
+        <i class="bi bi-check-circle-fill"></i>
+      </div>
+
+      <div class="toast-content">
+        <strong>Success</strong>
+        <span> {{ successMessage }} </span>
+      </div>
+
+      <button type="button"  class="toast-close" (click)="successMessage = ''">
+        ×
+      </button>
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="save-toast error-toast">
+      <div class="toast-icon">
+        <i class="bi bi-exclamation-circle-fill"></i>
+      </div>
+
+      <div class="toast-content">
+        <strong>Error</strong>
+        <span> {{ errorMessage }} </span>
+      </div>
+
+      <button type="button" class="toast-close" (click)="errorMessage = ''" >
+        ×
+      </button>
+    </div>
+  }
+
+  <div class="settings-card">
+    <!-- GENERAL INFORMATION -->
+    <section class="settings-section">
+      <div class="section-header">
+        <h3> General Information </h3>
+        <p> Manage your basic store information.</p>
+      </div>
+
+      <div class="form-grid">
+        <!-- STORE NAME -->
+        <div class="form-group">
+          <label for="storeName" [class.error-label]=" isFieldInvalid('storeName')">
+            Store Name
+          </label>
+
+          <input type="text" id="storeName" name="storeName" [(ngModel)]="settings.storeName" placeholder="Enter store name" 
+            (keydown)="allowLettersOnly($event)"
+            (input)="validateField('storeName') "
+            [class.error-input]=" isFieldInvalid('storeName') ">
+
+          @if (isFieldInvalid('storeName')) {
+            <small class="error-message">
+              @if (
+                getError('storeName') === 'required'
+              ) { Store name is required. }
+              @if (
+                getError('storeName') === 'letters'
+              ) { Store name must contain letters and spaces only. }
+            </small>
+          }
+        </div>
+
+        <!-- CONTACT PHONE -->
+        <div class="form-group">
+          <label for="phone" [class.error-label]=" isFieldInvalid('phone') " >
+            Contact Phone
+          </label>
+
+          <input type="text" id="phone" name="phone" [(ngModel)]="settings.phone" placeholder="Enter phone number" maxlength="11"
+            inputmode="numeric" (keydown)="allowNumbersOnly($event)" (input)=" validateField('phone') "
+            [class.error-input]=" isFieldInvalid('phone')" >
+
+          @if (isFieldInvalid('phone')) {
+            <small class="error-message">
+              @if (
+                getError('phone') === 'required'
+              ) { Phone number is required. }
+              @if (
+                getError('phone') === 'invalid'
+              ) {  Phone number must be exactly 11 digits and start with 01. }
+            </small>
+          }
+        </div>
+
+        <!-- STORE ADDRESS -->
+        <div class="form-group full-width">
+          <label for="address" [class.error-label]=" isFieldInvalid('address')" >
+            Store Address
+          </label>
+
+          <textarea id="address" name="address" [(ngModel)]="settings.address" placeholder="Enter store address" rows="3"
+            (input)=" validateField('address') "
+            [class.error-input]="isFieldInvalid('address')" ></textarea>
+
+          @if (isFieldInvalid('address')) {
+            <small class="error-message">
+              Store address is required.
+            </small>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- REGIONAL & FINANCIAL -->
+    <section class="settings-section">
+      <div class="section-header">
+        <h3> Regional & Financial</h3>
+        <p> Configure currency and tax settings. </p>
+      </div>
+      <div class="form-grid">
+
+        <!-- CURRENCY -->
+        <div class="form-group">
+          <label for="currency" [class.error-label]=" isFieldInvalid('currency') " >
+            Currency
+          </label>
+
+          <div class="custom-dropdown currency-dropdown" (click)="$event.stopPropagation()">
+            <button type="button" id="currency" class="custom-dropdown-button"[class.error-input]=" isFieldInvalid('currency')"
+              [class.open]=" currencyDropdownOpen "
+              (click)=" toggleCurrencyDropdown() " >
+              <span> {{ getSelectedCurrencyLabel() }} </span>
+              <span class="dropdown-arrow" [class.open]="currencyDropdownOpen"></span>
+            </button>
+
+            @if (currencyDropdownOpen) {
+              <div class="custom-dropdown-menu" role="listbox" >
+                @for (
+                  currency of currencies;
+                  track currency.code
+                ) {
+                    <button type="button" class="custom-dropdown-option"
+                    [class.selected]=" settings.currency === currency.code "
+                    (click)=" selectCurrency(currency.code) " >
+                    <span> {{ currency.code }} ({{ currency.symbol }}) </span>
+                    </button>
+                }
+              </div>
+            }
+          </div>
+
+          @if (isFieldInvalid('currency')) {
+            <small class="error-message"> Please select a currency. </small>
+          }
+        </div>
+
+        <!-- TAX RATE -->
+        <div class="form-group">
+          <label for="taxRate" [class.error-label]=" isFieldInvalid('taxRate') ">
+            Default Tax (%)
+          </label>
+
+          <input type="number" id="taxRate" name="taxRate" [(ngModel)]="settings.taxRate"
+            min="0" max="100" step="0.01" (input)=" validateField('taxRate') "
+            [class.error-input]=" isFieldInvalid('taxRate') " >
+
+          @if (isFieldInvalid('taxRate')) {
+            <small class="error-message">
+              @if (
+                getError('taxRate') === 'required'
+              ) { Tax rate is required. }
+              @if (
+                getError('taxRate') === 'invalid'
+              ) { Tax must be between 0 and 100. }
+            </small>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIONS -->
+    <div class="settings-actions">
+      <!-- DISCARD -->
+      <button type="button" class="discard-btn" (click)="discardChanges()" >
+        Discard Changes
+      </button>
+
+      <!-- SAVE -->
+      <button type="button" class="save-btn" [disabled]="isSaving" (click)="updateSettings()" >
+        @if (isSaving) {
+          <i class="bi bi-arrow-repeat spin"></i>
+          Saving...
+        } @else {
+          <i class="bi bi-check-lg"></i>
+          Save Settings
+        }
+      </button>
+    </div>
+  </div>
+</div>

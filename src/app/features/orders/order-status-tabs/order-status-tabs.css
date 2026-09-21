@@ -1,0 +1,47 @@
+.status-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+  }
+  
+  .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 6px;
+    margin-right: 22px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #737A7D;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  
+  .tab-btn:hover {
+    color: #159C92;
+  }
+  
+  .tab-btn.active {
+    color: #159C92;
+    border-bottom-color: #159C92;
+  }
+  
+  .tab-count {
+    padding: 1px 8px;
+    border-radius: 999px;
+    background: #F7F8F8;
+    color: #737A7D;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .tab-btn.active .tab-count {
+    background: #E7EDF8;
+    color: #159C92;
+  }
+

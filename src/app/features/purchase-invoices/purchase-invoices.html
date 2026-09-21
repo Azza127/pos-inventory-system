@@ -1,0 +1,581 @@
+<div class="purchase-invoices-page">
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-title-area">
+      <span class="eyebrow"> PURCHASES </span>
+      <h1> Purchase Invoices </h1>
+      <p> Manage incoming stock and purchase records. </p>
+    </div>
+
+    <div class="purchase-page-actions">
+      <button type="button" class="new-invoice-btn" (click)="showNewInvoiceForm()">
+        <i class="bi bi-plus-lg"></i>
+        New Purchase Invoice
+      </button>
+    </div>
+  </div>
+
+    <!-- SUMMARY -->
+  <div class="invoices-summary">
+    <div class="summary-item">
+      <strong> {{ filteredInvoices.length }} </strong>
+      <span> {{ filteredInvoices.length === 1 ? 'invoice' : 'invoices' }} </span>
+    </div>
+
+    <span class="summary-line"></span>
+    <span class="summary-text"> Purchase history </span>
+  </div>
+
+  <!-- INVOICES TABLE -->
+<section class="invoices-card">
+  <!-- TABLE TOOLBAR -->
+  <div class="invoices-toolbar">
+
+    <!-- SEARCH -->
+    <div class="toolbar-search-box">
+      <i class="bi bi-search"></i>
+      <input type="text" [(ngModel)]="invoiceSearchTerm" placeholder="Search by invoice number or supplier..." autocomplete="off" />
+      @if (invoiceSearchTerm) {
+        <button type="button" class="toolbar-clear-btn" (click)="invoiceSearchTerm = ''" aria-label="Clear search">
+          <i class="bi bi-x"></i>
+        </button>
+      }
+    </div>
+
+    <!-- DATE FILTER + EXPORT -->
+    <div class="toolbar-actions">
+      <div class="toolbar-date-box">
+        <i class="bi bi-calendar3"></i>
+        <input type="date" [(ngModel)]="invoiceDateFilter" aria-label="Filter invoices by date" />
+        @if (invoiceDateFilter) {
+          <button type="button" class="date-clear-btn" (click)="invoiceDateFilter = ''" aria-label="Clear date filter" >
+            <i class="bi bi-x"></i>
+          </button>
+        }
+      </div>
+
+      <button type="button" class="export-btn" (click)="exportInvoices()" >
+        <i class="bi bi-download"></i>
+        Export
+      </button>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>INVOICE</th>
+          <th>SUPPLIER</th>
+          <th>DATE</th>
+          <th>ITEMS</th>
+          <th>SUBTOTAL</th>
+          <th>TAX</th>
+          <th>TOTAL</th>
+          <th class="actions-header">
+            ACTIONS
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (
+          invoice of filteredInvoices;
+          track invoice.id
+        ) {
+          <tr [class.invoice-row-cancelled]=" isInvoiceFullyReturned(invoice) " >
+            <!-- Invoice -->
+            <td>
+              <div class="invoice-info">
+                <div class="invoice-icon">
+                  <i class="bi bi-receipt"></i>
+                </div>
+
+                <div class="invoice-cancel">
+                  <strong> {{ invoice.invoiceNumber }} </strong>
+                
+                  @if (isInvoiceFullyReturned(invoice)) {
+                    <span class="invoice-cancelled-badge"> Cancelled </span>
+                  }
+
+                  <span> {{ invoice.id }} </span>
+                </div>
+              </div>
+            </td>
+
+            <!-- Supplier -->
+            <td>
+              <span class="supplier-name">  {{ invoice.supplierName }} </span>
+            </td>
+
+            <!-- Date -->
+            <td>
+              <span class="invoice-date"> {{ invoice.invoiceDate }} </span>
+            </td>
+
+            <!-- Items -->
+            <td>
+              <span class="items-count">
+                {{ invoice.items.length }}
+                {{ invoice.items.length === 1 ? 'item' : 'items' }}
+              </span>
+            </td>
+
+            <!-- Subtotal -->
+            <td>
+              <span>
+                {{ invoice.subtotal | number:'1.2-2' }}
+                {{ currencySymbol }}
+              </span>
+            </td>
+
+            <!-- Tax -->
+            <td>
+              <span>
+                {{ invoice.taxTotal | number:'1.2-2' }}
+                {{ currencySymbol }}
+              </span>
+            </td>
+
+            <!-- Total -->
+            <td>
+              <strong class="invoice-total">
+                {{ invoice.total | number:'1.2-2' }}
+                {{ currencySymbol }}
+              </strong>
+            </td>
+
+            <!-- Actions -->
+            <td class="actions-cell">
+              <div class="invoice-actions">
+                <button type="button" class="action-btn edit" title="Edit invoice" (click)="editInvoice(invoice)">
+                  <i class="bi bi-pencil"></i>
+                </button>
+
+                <button type="button" class="action-btn delete" title="Delete invoice" (click)="deleteInvoice(invoice)" >
+                  <i class="bi bi-trash3"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        }
+
+        <!-- EMPTY STATE -->
+        @if (filteredInvoices.length === 0) {
+          <tr>
+            <td colspan="8">
+              <div class="empty-state">
+                <div class="empty-icon">
+                  <i class="bi bi-receipt"></i>
+                </div>
+                <h3> No purchase invoices found </h3>
+                <p> Try changing your search or date filter. </p>
+                @if (invoiceSearchTerm || invoiceDateFilter) {
+                  <button type="button" class="empty-action-btn" (click)="clearInvoiceFilters()">
+                    Clear Filters
+                  </button>
+                } @else {
+                  <button type="button" class="empty-action-btn" (click)="showNewInvoiceForm()" >
+                    <i class="bi bi-plus-lg"></i>
+                    New Purchase Invoice
+                  </button>
+                }
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+</div>
+
+<!-- NEW / EDIT PURCHASE INVOICE MODAL -->
+@if (showInvoiceForm) {
+  <div class="modal-backdrop">
+    <div class="invoice-modal">
+
+      <!-- MODAL HEADER -->
+      <div class="modal-header">
+        <div>
+          <span class="modal-eyebrow"> {{ editingInvoiceId ? 'EDIT PURCHASE'  : 'NEW PURCHASE'  }} </span>
+          <h2> {{ editingInvoiceId ? 'Edit Purchase Invoice' : 'New Purchase Invoice' }} </h2>
+        </div>
+
+        <button type="button" class="close-btn" (click)="cancelInvoiceForm()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <!-- MODAL BODY -->
+      <div class="modal-body">
+
+        <!-- INVOICE INFORMATION -->
+        <div class="section-title">
+          <div class="section-icon">
+            <i class="bi bi-file-text"></i>
+          </div>
+          <div>
+            <h3> Invoice Information </h3>
+            <p>Basic information about this purchase.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <!-- Supplier -->
+          <div class="form-group">
+            <label> Supplier <span>*</span></label>
+            <input type="text" [(ngModel)]="newInvoice.supplierName" placeholder="e.g. ABC Trading Company" />
+          </div>
+
+          <!-- Invoice Number -->
+          <div class="form-group">
+            <label> Invoice Number <span>*</span></label>
+            <input type="text" [(ngModel)]="newInvoice.invoiceNumber" placeholder="e.g. INV-2026-001" />
+          </div>
+
+          <!-- Date -->
+          <div class="form-group">
+            <label> Invoice Date <span>*</span> </label>
+            <input type="date" [(ngModel)]="newInvoice.invoiceDate" />
+          </div>
+
+          <!-- Warehouse -->
+          <div class="form-group">
+            <label> Warehouse </label>
+            <input type="text" [(ngModel)]="newInvoice.warehouseId" placeholder="e.g. Main Warehouse" />
+          </div>
+
+          <!-- Notes -->
+          <div class="form-group full">
+            <label> Notes </label>
+            <textarea [(ngModel)]="newInvoice.notes" rows="2" placeholder="Add notes about this purchase..." ></textarea>
+          </div>
+        </div>
+
+        <!-- PRODUCTS SECTION -->
+        <div class="products-section">
+          <div class="section-title">
+            <div class="section-icon">
+              <i class="bi bi-box-seam"></i>
+            </div>
+            <div>
+              <h3> Products </h3>
+              <p> Search by product name, SKU, or scan a barcode. </p>
+            </div>
+          </div>
+
+          <!-- PRODUCT SEARCH -->
+          <div class="product-search">
+            <div class="product-search-input">
+              <i class="bi bi-upc-scan"></i>
+              <input type="text" [(ngModel)]="productSearchTerm" (ngModelChange)="searchProducts($event)" (keydown.enter)="scanProductByCode(productSearchTerm)" placeholder="Search or scan product SKU..." autocomplete="off" />
+              @if (productSearchTerm) {
+                <button type="button" class="clear-search-btn" (click)="clearProductSearch()">
+                  <i class="bi bi-x"></i>
+                </button>
+              }
+            </div>
+
+            <!-- SEARCH RESULTS -->
+            @if (showProductResults) {
+              <div class="product-results">
+                @for (
+                  product of productSearchResults;
+                  track product.id
+                ) {
+                  <button type="button" class="product-result" (click)="selectProduct(product)">
+                    <div class="result-image">
+                      @if (product.image) {
+                        <img [src]="product.image" [alt]="product.name" />
+                      } @else {
+                        <i class="bi bi-box-seam"></i>
+                      }
+                    </div>
+
+                    <div class="result-info">
+                      <strong> {{ product.name }} </strong>
+                      <span> SKU: {{ product.sku }} </span>
+                    </div>
+
+                    <div class="result-stock">
+                      <span>  Current stock </span>
+                      <strong> {{ product.stock }} </strong>
+                    </div>
+
+                    <i class="bi bi-plus-lg result-add"></i>
+                  </button>
+                }
+              </div>
+            }
+          </div>
+
+          <!-- NO PRODUCT FOUND -->
+          @if (
+              productSearchTerm.trim() !== '' && !showProductResults
+            ) {
+            
+              <div class="no-product-found">
+                <div class="no-product-content">
+                  <div class="no-product-icon">
+                    <i class="bi bi-search"></i>
+                  </div>
+            
+                  <div class="no-product-text">
+                    <strong>  Product not found </strong>
+                    <span> No existing product matches this name or SKU.</span>
+                  </div>
+                </div>
+            
+                <button type="button" class="quick-add-product-btn" (click)="openQuickAddProduct()">
+                  <i class="bi bi-plus-lg"></i>
+                  Add Product
+                </button>
+              </div>
+            }
+
+          <!-- ITEMS TABLE -->
+          @if (newInvoice.items.length > 0) {
+            <div class="items-table-wrapper">
+              <table class="items-table">
+                <thead>
+                  <tr>
+                    <th> PRODUCT </th>
+                    <th> QTY </th>
+                    <th> EXPIRY </th>
+                    <th> PURCHASE </th>
+                    <th> SELLING </th>
+                    <th> TAX </th>
+                    <th> TOTAL </th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  @for (
+                    item of newInvoice.items;
+                    track item.id
+                  ) {
+                    <tr>
+                      <!-- Product -->
+                      <td>
+                        <div class="invoice-product">
+                          <strong> {{ item.productName }} </strong>
+                          <span> {{ item.sku }} </span>
+                        </div>
+                      </td>
+
+                      <!-- Quantity -->
+                      <td>
+                        <input class="table-input quantity-input" type="number" min="1" [(ngModel)]="item.quantity" (ngModelChange)="updateItem(item)" />
+                      </td>
+
+                      <!-- Expiry -->
+                      <td>
+                        <input class="table-input" type="date" [(ngModel)]="item.expiryDate" />
+                      </td>
+
+                      <!-- Purchase Price -->
+                      <td>
+                        <div class="price-input">
+                          <span>{{ currencySymbol }}</span>
+                          <input class="table-input" type="number" min="0" step="0.01" [(ngModel)]="item.purchasePrice" (ngModelChange)="updateItem(item)" />
+                        </div>
+                      </td>
+
+                      <!-- Selling Price -->
+                      <td>
+                        <div class="price-input">
+                          <span>{{ currencySymbol }}</span>
+                          <input class="table-input" type="number" min="0" step="0.01" [(ngModel)]="item.sellingPrice" (ngModelChange)="updateItem(item)" />
+                        </div>
+                      </td>
+
+                      <!-- Tax -->
+                      <td>
+                        <div class="tax-input">
+                          <span> % </span>
+                          <input class="table-input" type="number" min="0" step="0.01" [(ngModel)]="item.taxRate" (ngModelChange)="updateItem(item)" />
+                        </div>
+                      </td>
+
+                      <!-- Total -->
+                      <td>
+                        <strong class="item-total"> {{ currencySymbol }}{{ item.total | number:'1.2-2' }} </strong>
+                      </td>
+
+                      <!-- Remove -->
+                      <td>
+                        <button type="button" class="remove-item-btn" title="Remove product" (click)="removeInvoiceItem(item.id)">
+                          <i class="bi bi-trash3"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          } @else {
+            <div class="items-empty">
+              <div class="items-empty-icon">
+                <i class="bi bi-box-seam"></i>
+              </div>
+              <strong> No products added yet </strong>
+              <span> Search for a product or scan its barcode to add it. </span>
+            </div>
+          }
+        </div>
+
+        <!-- TOTALS -->
+        <div class="invoice-bottom">
+          <!-- Profit -->
+          <div class="profit-card">
+            <div class="profit-icon">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <div>
+              <span> Expected Profit </span>
+              <strong> {{ currencySymbol }}{{ getInvoiceProfit() | number:'1.2-2' }} </strong>
+            </div>
+          </div>
+
+          <!-- Totals -->
+          <div class="totals-card">
+            <div class="total-row">
+              <span> Subtotal </span>
+              <strong> {{ currencySymbol }}{{ newInvoice.subtotal | number:'1.2-2' }} </strong>
+            </div>
+
+            <div class="total-row">
+              <span> Tax </span>
+              <strong> {{ currencySymbol }}{{ newInvoice.taxTotal | number:'1.2-2' }} </strong>
+            </div>
+
+            <div class="total-divider"></div>
+            <div class="total-row grand-total">
+              <span> Total </span>
+              <strong> {{ currencySymbol }}{{ newInvoice.total | number:'1.2-2' }} </strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL FOOTER -->
+      <div class="modal-footer">
+        <button type="button" class="cancel-btn" (click)="cancelInvoiceForm()">
+          Cancel
+        </button>
+
+        <button type="button"class="save-btn" [disabled]="!isInvoiceValid()" (click)="saveInvoice()">
+          <i class="bi" [class.bi-check-lg]="editingInvoiceId" [class.bi-receipt]="!editingInvoiceId"> </i>
+          {{ editingInvoiceId ? 'Save Changes' : 'Save Purchase Invoice' }}
+        </button>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- QUICK ADD PRODUCT MODAL -->
+@if (showQuickAddProduct) {
+  <div class="quick-product-backdrop">
+    <div class="quick-product-modal">
+
+      <!-- HEADER -->
+      <div class="quick-product-header">
+        <div>
+          <span class="quick-product-eyebrow"> NEW PRODUCT </span>
+          <h2> Add Product </h2>
+          <p> Add this product to your inventory and continue the current purchase invoice. </p>
+        </div>
+
+        <button type="button" class="quick-product-close" (click)="closeQuickAddProduct()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <!-- BODY -->
+      <div class="quick-product-body">
+        <div class="quick-product-grid">
+          <!-- Product Name -->
+          <div class="quick-form-group full">
+            <label> Product Name <span>*</span> </label>
+            <input type="text" [(ngModel)]="quickProduct.name" placeholder="e.g. Premium Coffee" />
+          </div>
+
+          <!-- SKU -->
+          <div class="quick-form-group">
+            <label> SKU <span>*</span> </label>
+            <input type="text" [(ngModel)]="quickProduct.sku" placeholder="e.g. CF-001" />
+          </div>
+
+          <!-- Category -->
+          <div class="quick-form-group">
+            <label> Category <span>*</span> </label>
+            <select [(ngModel)]="quickProduct.categoryId">
+              <option value=""> Select category </option>
+              @for (
+                category of categories;
+                track category.id
+              ) {
+                <option [value]="category.id"> {{ category.name }} </option>
+              }
+            </select>
+          </div>
+
+          <!-- Minimum Stock -->
+          <div class="quick-form-group">
+            <label> Minimum Stock </label>
+            <input type="number" min="0" [(ngModel)]="quickProduct.minStock" placeholder="0" />
+          </div>
+
+          <!-- Maximum Stock -->
+          <div class="quick-form-group">
+            <label> Maximum Stock </label>
+            <input type="number" min="1" [(ngModel)]="quickProduct.maxStock" placeholder="0" />
+          </div>
+
+          <!-- Selling Price -->
+          <div class="quick-form-group full">
+              <label> Selling Price <span>*</span> </label>
+              <input type="number" min="0" step="0.01" [(ngModel)]="quickProduct.price" placeholder="0.00" />
+            </div>
+
+          <!-- Image -->
+          <div class="quick-form-group full">
+            <label> Image URL </label>
+            <input type="text" [(ngModel)]="quickProduct.image" placeholder="https://..." />
+          </div>
+
+          <!-- Description -->
+          <div class="quick-form-group full">
+            <label> Description </label>
+            <textarea [(ngModel)]="quickProduct.description" rows="3" placeholder="Add a short description..."> </textarea>
+          </div>
+        </div>
+
+        <!-- INFO-->
+        <div class="quick-product-info">
+          <i class="bi bi-info-circle"></i>
+          <span>
+            The product will be added with zero stock.
+            The quantity entered in this purchase invoice
+            will be added to inventory when the invoice is saved.
+          </span>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="quick-product-footer">
+        <button type="button"  class="quick-product-cancel" (click)="closeQuickAddProduct()">
+          Cancel
+        </button>
+
+        <button type="button" class="quick-product-save"  [disabled]="!isQuickProductValid()" (click)="saveQuickProduct()">
+          <i class="bi bi-plus-lg"></i>
+          Add Product
+        </button>
+      </div>
+    </div>
+  </div>
+}
