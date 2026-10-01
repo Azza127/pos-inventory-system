@@ -17,12 +17,12 @@
       "status": "Active"
     },
     {
+      "id": "MXuHU1OJu0k",
       "username": "samir123",
       "password": "123456",
       "name": "samir",
       "role": "Employee",
-      "status": "Active",
-      "id": "MXuHU1OJu0k"
+      "status": "Inactive"
     },
     {
       "username": "azzaEzzat",
@@ -91,7 +91,7 @@
       "categoryId": "1",
       "price": 500,
       "costPrice": 120,
-      "stock": 45,
+      "stock": 44,
       "minStock": 10,
       "maxStock": 50,
       "description": "Black / Wireless",
@@ -130,7 +130,7 @@
       "categoryId": "4",
       "price": 220,
       "costPrice": 95,
-      "stock": 32,
+      "stock": 30,
       "minStock": 5,
       "maxStock": 20,
       "description": "Pink / Glossy Finish",
@@ -208,7 +208,7 @@
       "categoryId": "6",
       "price": 550,
       "costPrice": 350,
-      "stock": 30,
+      "stock": 33,
       "minStock": 2,
       "maxStock": 10,
       "description": "White / Cotton",
@@ -221,7 +221,7 @@
       "categoryId": "2",
       "price": 250,
       "costPrice": 110,
-      "stock": 30,
+      "stock": 44,
       "minStock": 2,
       "maxStock": 6,
       "description": "Gold / Stainless Steel",
@@ -234,7 +234,7 @@
       "categoryId": "w-UYvx6E5OA",
       "price": 15,
       "costPrice": 10,
-      "stock": 6,
+      "stock": 66,
       "minStock": 15,
       "maxStock": 60,
       "description": "Can 280ml",
@@ -247,7 +247,7 @@
       "categoryId": "5",
       "price": 15,
       "costPrice": 12,
-      "stock": 68,
+      "stock": 88,
       "minStock": 15,
       "maxStock": 60,
       "description": "400g",
@@ -260,7 +260,7 @@
       "categoryId": "cT8bmadytzM",
       "price": 550,
       "costPrice": 200,
-      "stock": 14,
+      "stock": 12,
       "minStock": 5,
       "maxStock": 20,
       "description": "Black / perfume",
@@ -299,7 +299,7 @@
       "categoryId": "5",
       "price": 75,
       "costPrice": 55,
-      "stock": 37,
+      "stock": 75,
       "minStock": 15,
       "maxStock": 50,
       "description": "2 Kg",
@@ -326,10 +326,10 @@
       "categoryId": "w-UYvx6E5OA",
       "price": 20,
       "costPrice": 15,
-      "stock": 18,
+      "stock": 17,
       "maxStock": 50,
       "minStock": 10,
-      "image": "https://i.pinimg.com/736x/31/25/08/31250865271f68ea920c5191a2c6d91d.jpg"
+      "image": "https://i.pinimg.com/1200x/42/65/9f/42659f20dc84fdbe2c751a32ae54a757.jpg"
     },
     {
       "id": "KQKfHlIDRQs",
@@ -339,7 +339,7 @@
       "categoryId": "6",
       "price": 650,
       "costPrice": 350,
-      "stock": 48,
+      "stock": 57,
       "maxStock": 100,
       "minStock": 0,
       "image": "https://i.pinimg.com/736x/0a/4c/09/0a4c09fad4a49a0519b43f69de6befda.jpg"
@@ -356,6 +356,78 @@
       "maxStock": 50,
       "minStock": 4,
       "image": "https://i.pinimg.com/736x/ca/dc/8c/cadc8c1d17a2cd894fe4b40d65a64543.jpg"
+    },
+    {
+      "id": "9KzCjwLZ8SM",
+      "name": "Flour",
+      "description": "1 Kg",
+      "sku": "CF-001",
+      "categoryId": "5",
+      "price": 30,
+      "stock": 98,
+      "maxStock": 200,
+      "minStock": 10,
+      "image": "https://i.pinimg.com/1200x/c5/14/5f/c5145fdbad5e04a3b06c1342d9b0c52d.jpg"
+    },
+    {
+      "id": "RSaZQkKfUrE",
+      "name": "Olive oil",
+      "description": "500 ml",
+      "sku": "kl-002",
+      "categoryId": "5",
+      "price": 350,
+      "stock": 59,
+      "maxStock": 200,
+      "minStock": 10,
+      "image": "https://i.pinimg.com/736x/79/e7/ee/79e7ee5799c00a4b5bef27744c439781.jpg"
+    },
+    {
+      "id": "kqxqu7LsBRA",
+      "name": "Pickled olives",
+      "description": "250 ml",
+      "sku": "DF-007",
+      "categoryId": "5",
+      "price": 95,
+      "stock": 100,
+      "maxStock": 200,
+      "minStock": 10,
+      "image": "https://i.pinimg.com/1200x/2b/85/1a/2b851a8497a2606709e4b2d7475275d0.jpg"
+    },
+    {
+      "id": "Y_foj4E0ZB0",
+      "name": "Nescafé Gold",
+      "description": "250 ml",
+      "sku": "RO-001",
+      "categoryId": "5",
+      "price": 121,
+      "stock": 49,
+      "maxStock": 200,
+      "minStock": 10,
+      "image": "https://i.pinimg.com/1200x/5f/01/94/5f019413b187b8aaf8b9020b31b9f3cc.jpg"
+    },
+    {
+      "id": "WunXib68h98",
+      "name": "Nescafé Classic",
+      "description": "250 ml",
+      "sku": "VO-004",
+      "categoryId": "5",
+      "price": 95,
+      "stock": 50,
+      "maxStock": 200,
+      "minStock": 10,
+      "image": "https://i.pinimg.com/1200x/a3/b6/a6/a3b6a695cc35ef71fc2c7930591151a5.jpg"
+    },
+    {
+      "id": "FDCdAuDKQI0",
+      "name": "Almarai Milk",
+      "description": "1 Liter",
+      "sku": "CF-002",
+      "categoryId": "5",
+      "price": 45,
+      "stock": 118,
+      "maxStock": 200,
+      "minStock": 10,
+      "image": "https://i.pinimg.com/1200x/3f/65/af/3f65af4042985092362cc980bd864f36.jpg"
     }
   ],
   "purchaseInvoices": [
@@ -426,7 +498,8 @@
           "subtotal": 840,
           "total": 840
         }
-      ]
+      ],
+      "supplierId": "LNHBLb1C07A"
     },
     {
       "id": "ZTT0jCiskG8",
@@ -453,7 +526,8 @@
           "subtotal": 5000,
           "total": 5150
         }
-      ]
+      ],
+      "supplierId": "QzRvhoMaee8"
     },
     {
       "id": "KFCYawF5DE8",
@@ -480,7 +554,8 @@
           "subtotal": 18000,
           "total": 18360
         }
-      ]
+      ],
+      "supplierId": "srXJuZd5GKM"
     },
     {
       "id": "3VSUKlS_6tQ",
@@ -507,7 +582,8 @@
           "subtotal": 20250,
           "total": 20310.75
         }
-      ]
+      ],
+      "supplierId": "dihll1JQlNA"
     },
     {
       "id": "FmM1OhlGbQM",
@@ -534,7 +610,8 @@
           "subtotal": 27000,
           "total": 27000
         }
-      ]
+      ],
+      "supplierId": "42TQaVbXTvU"
     },
     {
       "id": "i5ivqz7a0ss",
@@ -575,7 +652,8 @@
           "subtotal": 19500,
           "total": 20475
         }
-      ]
+      ],
+      "supplierId": "M9PqcWZUfus"
     },
     {
       "id": "Ayo5Uza8DwY",
@@ -602,7 +680,8 @@
           "subtotal": 6000,
           "total": 6120
         }
-      ]
+      ],
+      "supplierId": "M9PqcWZUfus"
     },
     {
       "id": "of6MEeYalis",
@@ -657,7 +736,8 @@
           "subtotal": 700,
           "total": 700
         }
-      ]
+      ],
+      "supplierId": "uxUsOvLyx3w"
     },
     {
       "id": "xvQFmr7rXoA",
@@ -698,7 +778,8 @@
           "subtotal": 650,
           "total": 650
         }
-      ]
+      ],
+      "supplierId": "YiCfmChFUtQ"
     },
     {
       "id": "-txV7i3yZ1w",
@@ -739,7 +820,8 @@
           "subtotal": 300,
           "total": 300.6
         }
-      ]
+      ],
+      "supplierId": "YiCfmChFUtQ"
     },
     {
       "id": "nK8RypkYYEQ",
@@ -766,7 +848,8 @@
           "subtotal": 3150,
           "total": 3244.5
         }
-      ]
+      ],
+      "supplierId": "Dok0Q2Y8x9Y"
     },
     {
       "id": "A2axphcw_so",
@@ -793,7 +876,8 @@
           "subtotal": 1000,
           "total": 1020
         }
-      ]
+      ],
+      "supplierId": "h8qlFBcsWjc"
     },
     {
       "id": "A-4v2RlDdfk",
@@ -820,7 +904,8 @@
           "subtotal": 4200,
           "total": 4208.4
         }
-      ]
+      ],
+      "supplierId": "A5TZQ7GsF30"
     },
     {
       "id": "n56mWhgVAuw",
@@ -861,7 +946,381 @@
           "subtotal": 2800,
           "total": 2912
         }
+      ],
+      "supplierId": "EWSU1gM_f7k"
+    },
+    {
+      "id": "cGS9saeYIwg",
+      "supplierName": "شركة العبور للمواد الغذائية",
+      "invoiceNumber": "75632",
+      "invoiceDate": "2026-09-28",
+      "warehouseId": "المخزن",
+      "notes": "",
+      "subtotal": 2200,
+      "taxTotal": 0,
+      "total": 2200,
+      "items": [
+        {
+          "id": "179062115982415s5tj",
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "sku": "FDD-220",
+          "quantity": 40,
+          "expiryDate": "2029-02-28",
+          "purchasePrice": 55,
+          "sellingPrice": 85,
+          "taxRate": null,
+          "taxAmount": 0,
+          "subtotal": 2200,
+          "total": 2200
+        }
+      ],
+      "supplierId": "YiCfmChFUtQ"
+    },
+    {
+      "id": "jgoP9iTDjXs",
+      "supplierName": "شركة العبور للمواد الغذائية",
+      "invoiceNumber": "745896",
+      "invoiceDate": "2026-09-28",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 600,
+      "taxTotal": 0,
+      "total": 600,
+      "items": [
+        {
+          "id": "1790621315735u87r8y",
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "sku": "DOD-220",
+          "quantity": 60,
+          "expiryDate": "2030-07-13",
+          "purchasePrice": 10,
+          "sellingPrice": 20,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 600,
+          "total": 600
+        }
+      ],
+      "supplierId": "YiCfmChFUtQ"
+    },
+    {
+      "id": "G5v0VF8jOqs",
+      "supplierName": "شركة العبور للمواد الغذائية",
+      "invoiceNumber": "3205410",
+      "invoiceDate": "2026-09-28",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 9000,
+      "taxTotal": 0,
+      "total": 9000,
+      "items": [
+        {
+          "id": "17906223585449zw24x",
+          "productId": "RSaZQkKfUrE",
+          "productName": "Olive oil",
+          "sku": "kl-002",
+          "quantity": 60,
+          "expiryDate": "",
+          "purchasePrice": 150,
+          "sellingPrice": 350,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 9000,
+          "total": 9000
+        }
+      ],
+      "supplierId": "YiCfmChFUtQ"
+    },
+    {
+      "id": "qfQyaNIAQfI",
+      "supplierName": "شركة العبور للمواد الغذائية",
+      "invoiceNumber": "4875210",
+      "invoiceDate": "2026-09-28",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 2000,
+      "taxTotal": 0,
+      "total": 2000,
+      "items": [
+        {
+          "id": "1790622426529khr1cn",
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "sku": "CF-001",
+          "quantity": 100,
+          "expiryDate": "",
+          "purchasePrice": 20,
+          "sellingPrice": 35,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 2000,
+          "total": 2000
+        }
+      ],
+      "supplierId": "YiCfmChFUtQ"
+    },
+    {
+      "id": "2SkbTE74-n8",
+      "supplierName": "شركة العبور للمواد الغذائية",
+      "invoiceNumber": "210354",
+      "invoiceDate": "2026-09-28",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 7750,
+      "taxTotal": 0,
+      "total": 7750,
+      "items": [
+        {
+          "id": "1790622517792wzqawg",
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "sku": "RO-001",
+          "quantity": 50,
+          "expiryDate": "",
+          "purchasePrice": 85,
+          "sellingPrice": 121,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 4250,
+          "total": 4250
+        },
+        {
+          "id": "179062254547049g4p7",
+          "productId": "WunXib68h98",
+          "productName": "Nescafé Classic",
+          "sku": "VO-004",
+          "quantity": 50,
+          "expiryDate": "",
+          "purchasePrice": 70,
+          "sellingPrice": 95,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 3500,
+          "total": 3500
+        }
+      ],
+      "supplierId": "YiCfmChFUtQ"
+    },
+    {
+      "id": "GsN81XrBCEE",
+      "supplierName": "شركة العبور للمواد الغذائية",
+      "invoiceNumber": "785210",
+      "invoiceDate": "2026-09-28",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 7000,
+      "taxTotal": 0,
+      "total": 7000,
+      "items": [
+        {
+          "id": "1790622710895n501r3",
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "sku": "CF-002",
+          "quantity": 100,
+          "expiryDate": "",
+          "purchasePrice": 25,
+          "sellingPrice": 45,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 2500,
+          "total": 2500
+        },
+        {
+          "id": "1790622727296ixqji8",
+          "productId": "kqxqu7LsBRA",
+          "productName": "Pickled olives",
+          "sku": "DF-007",
+          "quantity": 100,
+          "expiryDate": "",
+          "purchasePrice": 45,
+          "sellingPrice": 95,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 4500,
+          "total": 4500
+        }
+      ],
+      "supplierId": "YiCfmChFUtQ"
+    },
+    {
+      "id": "Re1HSiOrg8c",
+      "supplierId": "LNHBLb1C07A",
+      "supplierName": "شركة الهدى لتوزيع المواد الغذائية",
+      "invoiceNumber": "21462",
+      "invoiceDate": "2026-09-29",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 300,
+      "taxTotal": 6,
+      "total": 306,
+      "items": [
+        {
+          "id": "1790649770444tsrqo3",
+          "productId": "g-Zfpr16690",
+          "productName": "Pasta",
+          "sku": "FOF-220",
+          "quantity": 20,
+          "expiryDate": "",
+          "purchasePrice": 15,
+          "sellingPrice": 20,
+          "taxRate": 2,
+          "taxAmount": 6,
+          "subtotal": 300,
+          "total": 306
+        }
       ]
+    },
+    {
+      "id": "3pHAVtCGOkM",
+      "supplierId": "Dok0Q2Y8x9Y",
+      "supplierName": "Azza Fahmy",
+      "invoiceNumber": "325646",
+      "invoiceDate": "2026-09-29",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 1100,
+      "taxTotal": 0,
+      "total": 1100,
+      "items": [
+        {
+          "id": "1790655006201v69rb5",
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "sku": "MOM-001",
+          "quantity": 10,
+          "expiryDate": "",
+          "purchasePrice": 110,
+          "sellingPrice": 250,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 1100,
+          "total": 1100
+        }
+      ],
+      "paymentStatus": "Paid",
+      "paymentAccountId": "1",
+      "paymentAccountName": "Cash Drawer"
+    },
+    {
+      "id": "s1lM3_KiR1w",
+      "supplierId": "ENRgRxPuuBU",
+      "supplierName": "شركة فهمي للصناعات الغذائية",
+      "invoiceNumber": "32597",
+      "invoiceDate": "2026-09-29",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 700,
+      "taxTotal": 0,
+      "total": 700,
+      "items": [
+        {
+          "id": "17906551280668kcql5",
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "sku": "CF-002",
+          "quantity": 20,
+          "expiryDate": "",
+          "purchasePrice": 35,
+          "sellingPrice": 45,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 700,
+          "total": 700
+        }
+      ],
+      "paymentStatus": "Paid",
+      "paymentAccountId": "3",
+      "paymentAccountName": "InstaPay"
+    },
+    {
+      "id": "k-3y1hSxIQ8",
+      "supplierId": "Dok0Q2Y8x9Y",
+      "supplierName": "Azza Fahmy",
+      "invoiceNumber": "21036",
+      "invoiceDate": "2026-09-29",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 550,
+      "taxTotal": 0,
+      "total": 550,
+      "items": [
+        {
+          "id": "17906552249067bklnk",
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "sku": "MOM-001",
+          "quantity": 5,
+          "expiryDate": "",
+          "purchasePrice": 110,
+          "sellingPrice": 250,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 550,
+          "total": 550
+        }
+      ],
+      "paymentStatus": "OnAccount"
+    },
+    {
+      "id": "6g9-ZCJBxLE",
+      "supplierId": "dihll1JQlNA",
+      "supplierName": "Egypt Fashion Center",
+      "invoiceNumber": "021487",
+      "invoiceDate": "2026-09-29",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 1750,
+      "taxTotal": 87.5,
+      "total": 1837.5,
+      "items": [
+        {
+          "id": "17906553001728m1dcs",
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "sku": "BOB-001",
+          "quantity": 5,
+          "expiryDate": "",
+          "purchasePrice": 350,
+          "sellingPrice": 550,
+          "taxRate": 5,
+          "taxAmount": 87.5,
+          "subtotal": 1750,
+          "total": 1837.5
+        }
+      ],
+      "paymentStatus": "OnAccount"
+    },
+    {
+      "id": "n8BeN7DBgtw",
+      "supplierId": "srXJuZd5GKM",
+      "supplierName": "شركة زارا للملابس",
+      "invoiceNumber": "210145",
+      "invoiceDate": "2026-09-29",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 3500,
+      "taxTotal": 0,
+      "total": 3500,
+      "items": [
+        {
+          "id": "17906557883828j9l6u",
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "sku": "pip-009",
+          "quantity": 10,
+          "expiryDate": "",
+          "purchasePrice": 350,
+          "sellingPrice": 650,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 3500,
+          "total": 3500
+        }
+      ],
+      "paymentStatus": "OnAccount"
     }
   ],
   "orders": [
@@ -2433,6 +2892,217 @@
       "status": "Completed",
       "createdAt": "2026-09-18T11:55:25.991Z",
       "id": "fPKbSo2hNnA"
+    },
+    {
+      "ticketNumber": "#7431-G",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 220,
+      "tax": 30.8,
+      "total": 250.8,
+      "paymentStatus": "OnAccount",
+      "status": "Completed",
+      "createdAt": "2026-09-24T03:49:34.293Z",
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "id": "z2WNEHNxrEc"
+    },
+    {
+      "ticketNumber": "#7431-G",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 220,
+      "tax": 30.8,
+      "total": 250.8,
+      "paymentStatus": "OnAccount",
+      "status": "Completed",
+      "createdAt": "2026-09-24T03:49:34.337Z",
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "id": "xMYBTgH4sGE"
+    },
+    {
+      "ticketNumber": "#1193-L",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "costPrice": 120,
+          "quantity": 1,
+          "total": 500
+        }
+      ],
+      "subtotal": 500,
+      "tax": 70,
+      "total": 570,
+      "paymentStatus": "OnAccount",
+      "status": "Completed",
+      "createdAt": "2026-09-24T03:51:26.755Z",
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "id": "z91dlL6ukHk"
+    },
+    {
+      "ticketNumber": "#2506-R",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 550
+        }
+      ],
+      "subtotal": 1100,
+      "tax": 154,
+      "total": 1254,
+      "paymentStatus": "OnAccount",
+      "status": "Completed",
+      "createdAt": "2026-09-25T00:51:15.787Z",
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "id": "PEWghNw1gGQ"
+    },
+    {
+      "ticketNumber": "#3737-C",
+      "items": [
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 2,
+          "total": 90
+        },
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "price": 121,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "RSaZQkKfUrE",
+          "productName": "Olive oil",
+          "price": 350,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 350
+        },
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "price": 30,
+          "costPrice": 0,
+          "quantity": 2,
+          "total": 60
+        },
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "price": 75,
+          "costPrice": 55,
+          "quantity": 2,
+          "total": 150
+        },
+        {
+          "productId": "8mgaOCZTySg",
+          "productName": "V Cola",
+          "price": 20,
+          "costPrice": 15,
+          "quantity": 1,
+          "total": 20
+        }
+      ],
+      "subtotal": 791,
+      "tax": 110.74,
+      "total": 901.74,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-09-28T22:11:01.139Z",
+      "paymentAccountId": "3",
+      "id": "zOJWcoT0Ggg"
+    },
+    {
+      "ticketNumber": "#9036-V",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "price": 650,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 650
+        }
+      ],
+      "subtotal": 2220,
+      "tax": 310.8,
+      "total": 2530.8,
+      "paymentStatus": "OnAccount",
+      "status": "Completed",
+      "createdAt": "2026-09-29T20:36:07.360Z",
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "id": "MCDXBWyxfYA"
     }
   ],
   "returns": [
@@ -2596,6 +3266,285 @@
       "address": "امتداد محور 26 يوليو، مدخل مدينة الشيخ زايد، محافظة الجيزة.",
       "currency": "EGP",
       "taxRate": 14
+    }
+  ],
+  "customers": [
+    {
+      "name": "Azza Ezzat Eldamaty",
+      "phone": "01017158284",
+      "address": "East of Al-Arish General Hospital",
+      "balance": 4354.8,
+      "status": "Active",
+      "id": "ZqwiPVb-DdA"
+    },
+    {
+      "name": "Hanya Ahmed",
+      "phone": "01012630745",
+      "address": "East of Al-Arish General Hospital",
+      "notes": "VIP",
+      "balance": 0,
+      "status": "Active",
+      "id": "0x5qBJpmtcw"
+    },
+    {
+      "name": "Fatma Ezzat",
+      "phone": "01110388048",
+      "address": "Dreamland area",
+      "notes": "VIP",
+      "balance": 0,
+      "status": "Active",
+      "id": "-Ywmbx1_gPY"
+    }
+  ],
+  "suppliers": [
+    {
+      "name": "شركة العبور للمواد الغذائية",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 30482.1,
+      "status": "Active",
+      "id": "YiCfmChFUtQ"
+    },
+    {
+      "name": "H&M",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 6278,
+      "status": "Active",
+      "id": "EWSU1gM_f7k"
+    },
+    {
+      "name": "Azza Fahmy",
+      "phone": "01027458391",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 644.5,
+      "status": "Active",
+      "id": "Dok0Q2Y8x9Y"
+    },
+    {
+      "name": "Huda Beauty",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 1020,
+      "status": "Active",
+      "id": "h8qlFBcsWjc"
+    },
+    {
+      "name": "مصنع المصطفي للمنظفات",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 8.4,
+      "status": "Active",
+      "id": "A5TZQ7GsF30"
+    },
+    {
+      "name": "شركة الهدى لتوزيع المواد الغذائية",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 4507.2,
+      "status": "Active",
+      "id": "LNHBLb1C07A"
+    },
+    {
+      "name": "شركة كايرو إسنس",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 5150,
+      "status": "Active",
+      "id": "QzRvhoMaee8"
+    },
+    {
+      "name": "شركة زارا للملابس",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 21860,
+      "status": "Active",
+      "id": "srXJuZd5GKM"
+    },
+    {
+      "name": "Egypt Fashion Center",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 22148.25,
+      "status": "Active",
+      "id": "dihll1JQlNA"
+    },
+    {
+      "name": "Hin ox Company",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 27000,
+      "status": "Active",
+      "id": "42TQaVbXTvU"
+    },
+    {
+      "name": "CompuSafe",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 45705,
+      "status": "Active",
+      "id": "M9PqcWZUfus"
+    },
+    {
+      "name": "شركة الأوائل للتوريدات المكتبية",
+      "phone": "",
+      "notes": "Created from historical purchase invoices.",
+      "balance": 1750,
+      "status": "Active",
+      "id": "uxUsOvLyx3w"
+    },
+    {
+      "name": "شركة فهمي للصناعات الغذائية",
+      "phone": "01245723982",
+      "address": "العريش شارع 26 يوليو بجوار محمصة المدينة",
+      "balance": 0,
+      "status": "Active",
+      "id": "ENRgRxPuuBU"
+    }
+  ],
+  "paymentAccounts": [
+    {
+      "id": "1",
+      "name": "Cash Drawer",
+      "type": "cash",
+      "description": "Physical cash in the store drawer",
+      "image": "payment-accounts/cash.svg",
+      "isActive": true
+    },
+    {
+      "name": "Visa POS",
+      "type": "card",
+      "description": "Card payments through POS terminal",
+      "image": "payment-accounts/visa.png",
+      "isActive": true,
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "InstaPay",
+      "type": "bank",
+      "description": "Payments received through InstaPay",
+      "image": "payment-accounts/instapay.png",
+      "isActive": true
+    },
+    {
+      "id": "4",
+      "name": "Vodafone Cash",
+      "type": "wallet",
+      "description": "Payments received through Vodafone Cash",
+      "image": "payment-accounts/vodafone-cash.png",
+      "isActive": true
+    },
+    {
+      "name": "Orange Cash",
+      "type": "wallet",
+      "description": "Payments received through Orange Cash",
+      "image": "payment-accounts/Orange-cash.svg",
+      "isActive": true,
+      "id": "5"
+    },
+    {
+      "name": "Etisalat Cash",
+      "type": "wallet",
+      "description": "Payments received through Etisalat Cash",
+      "image": "payment-accounts/etisalat-cash.png",
+      "isActive": true,
+      "id": "6"
+    },
+    {
+      "name": "Fawry",
+      "type": "bank",
+      "description": "Payments received through Fawry",
+      "image": "payment-accounts/fawry.png",
+      "isActive": true,
+      "id": "7"
+    }
+  ],
+  "customerTransactions": [
+    {
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "type": "OnAccountSale",
+      "referenceId": "#2506-R",
+      "referenceNumber": "#2506-R",
+      "amount": 1254,
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "quantity": 1,
+          "unitPrice": 550,
+          "total": 550
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "quantity": 1,
+          "unitPrice": 550,
+          "total": 550
+        }
+      ],
+      "createdAt": "2026-09-25T00:51:15.787Z",
+      "id": "QMzgDvMG2ms"
+    },
+    {
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "type": "OnAccountSale",
+      "referenceId": "#9036-V",
+      "referenceNumber": "#9036-V",
+      "amount": 2530.8,
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "quantity": 1,
+          "unitPrice": 220,
+          "total": 220
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "quantity": 1,
+          "unitPrice": 250,
+          "total": 250
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "quantity": 1,
+          "unitPrice": 550,
+          "total": 550
+        },
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "quantity": 1,
+          "unitPrice": 550,
+          "total": 550
+        },
+        {
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "quantity": 1,
+          "unitPrice": 650,
+          "total": 650
+        }
+      ],
+      "createdAt": "2026-09-29T20:36:07.360Z",
+      "id": "qHB3N5T24b0"
+    }
+  ],
+  "supplierTransactions": [
+    {
+      "supplierId": "srXJuZd5GKM",
+      "supplierName": "شركة زارا للملابس",
+      "type": "OnAccountPurchase",
+      "referenceId": "n8BeN7DBgtw",
+      "referenceNumber": "210145",
+      "amount": 3500,
+      "createdAt": "2026-09-29T04:23:20.737Z",
+      "id": "z2EejtMTj-E"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

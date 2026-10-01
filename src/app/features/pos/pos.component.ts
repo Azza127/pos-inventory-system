@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectorRef, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { StoreSettingsService } from '../../core/services/store-settings.service';
@@ -10,6 +10,15 @@ import { PopupService } from '../../core/services/popup.service';
 import { Product } from '../../core/models/product.model';
 import { Category } from '../../core/models/category.model';
 import { OrderItem } from '../../core/models/order-item.model';
+import { PaymentAccount } from '../../core/models/payment-account.model';
+import { PaymentAccountService } from '../../core/services/payment-account.service';
+import { Customer } from '../../core/models/customer.model';
+import { CustomerService } from '../../core/services/customer.service';
+import {
+  CustomerTransaction
+} from '../../core/models/customer-transaction.model';
+import { CustomerTransactionService }
+  from '../../core/services/customer-transaction.service';
 import { forkJoin } from 'rxjs';
 
 @Component({
@@ -29,11 +38,12 @@ export class PosComponent implements OnInit {
   private readonly storeSettingsService = inject(StoreSettingsService);
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly popupService = inject(PopupService);
-
+  private readonly paymentAccountService = inject(PaymentAccountService);
+  private readonly customerService = inject(CustomerService);
+  private readonly customerTransactionService = inject(CustomerTransactionService);
   // CART PERSISTENCE
   private readonly CART_STORAGE_KEY = 'pos_cart';
   private readonly TICKET_STORAGE_KEY = 'pos_ticket';
-  private readonly PAYMENT_STORAGE_KEY = 'pos_payment';
 
   // SAVE CART
   saveCart(): void {
@@ -80,17 +90,68 @@ export class PosComponent implements OnInit {
     }
   }
 
-  // SAVE PAYMENT METHOD
-  savePaymentMethod(): void {
-    localStorage.setItem( this.PAYMENT_STORAGE_KEY, this.paymentMethod );
+  loadPaymentAccounts(): void {
+    this.paymentAccountService
+      .getActivePaymentAccounts()
+      .subscribe({
+        next: (accounts) => {
+          this.paymentAccounts = accounts;
+  
+          if (
+            !this.selectedPaymentAccountId &&
+            accounts.length > 0
+          ) {
+            this.selectedPaymentAccountId = accounts[0].id;
+          }
+  
+          this.cdr.detectChanges();
+        },
+  
+        error: (err) => {
+          console.error(
+            'Error loading payment accounts:',
+            err
+          );
+        }
+      });
   }
 
-  // LOAD PAYMENT METHOD
-  loadPaymentMethod(): void {
-    const savedPayment =  localStorage.getItem( this.PAYMENT_STORAGE_KEY );
-    if (savedPayment === 'Cash' || savedPayment === 'Card' ) {
-      this.paymentMethod =  savedPayment;
+  loadCustomers(): void {
+    this.customerService
+      .getCustomers()
+      .subscribe({
+        next: (customers) => {
+          this.customers = customers.filter(
+            customer => customer.status === 'Active'
+          );
+  
+          this.cdr.detectChanges();
+        },
+  
+        error: (err) => {
+          console.error(
+            'Error loading customers:',
+            err
+          );
+        }
+      });
+  }
+
+  onPaymentStatusChange(
+    status: 'Paid' | 'OnAccount'
+  ): void {
+  
+    this.paymentStatus = status;
+  
+    this.showCustomerDropdown = false;
+  
+    if (status === 'Paid') {
+      this.selectedCustomerId = '';
+    } else {
+      this.selectedPaymentAccountId = '';
     }
+  
+    this.cdr.detectChanges();
   }
 
   // CLEAR SAVED CART
@@ -113,7 +174,11 @@ export class PosComponent implements OnInit {
   searchQuery: string = '';
 
   // PAYMENT
-  paymentMethod: 'Cash' | 'Card' = 'Cash';
+  paymentStatus: 'Paid' | 'OnAccount' = 'Paid';
+  paymentAccounts: PaymentAccount[] = [];
+  selectedPaymentAccountId: string = '';
+  customers: Customer[] = [];
+  selectedCustomerId: string = '';
   taxRate: number = 0.14;
   currency: string = 'EGP';
   currencySymbol: string = 'EGP';
@@ -124,17 +189,21 @@ export class PosComponent implements OnInit {
 
   // SUCCESS MODAL
   showSuccessModal: boolean = false;
+  showCustomerDropdown: boolean = false;
   lastOrderTotal: number = 0;
-  lastPaymentMethod: string = '';
+  lastPaymentStatus: 'Paid' | 'OnAccount' = 'Paid';
+  lastPaymentAccountName: string = '';
+  lastCustomerName: string = '';
   lastTicketNumber: string = '';
 
   // INIT
   ngOnInit(): void {
     this.loadTicketNumber();
-    this.loadPaymentMethod();
     this.loadCart();
     this.loadStoreSettings();
     this.loadData();
+    this.loadPaymentAccounts();
+    this.loadCustomers();
   }
 
   // LOAD STORE SETTINGS
@@ -158,6 +227,46 @@ export class PosComponent implements OnInit {
         }
       });
   }
+
+  toggleCustomerDropdown(): void {
+    this.showCustomerDropdown =
+      !this.showCustomerDropdown;
+  }
+
+  selectCustomer(customer: Customer): void {
+
+    this.selectedCustomerId =
+      customer.id;
+  
+    this.showCustomerDropdown = false;
+  
+    this.cdr.detectChanges();
+  }
+
+  getSelectedCustomerName(): string {
+
+    const customer =
+      this.customers.find(
+        c =>
+          String(c.id) ===
+          String(this.selectedCustomerId)
+      );
+  
+    return customer?.name || '';
+  }
+
+  @HostListener('document:click', ['$event'])
+onDocumentClick(event: MouseEvent): void {
+
+  const target =
+    event.target as HTMLElement;
+
+  if (
+    !target.closest('.customer-dropdown')
+  ) {
+    this.showCustomerDropdown = false;
+  }
+}
 
   // GENERATE TICKET
   generateTicketNumber(): void {
@@ -335,69 +444,330 @@ export class PosComponent implements OnInit {
     return ( this.subtotal + this.tax );
   }
 
-  // CHECKOUT
-  checkout(): void {
-    if (this.cart.length === 0) {
-      return;
-    }
+    /* =========================================================
+     CHECKOUT
+     ========================================================= */
 
-    // CURRENT DATE / TIME
-    this.currentDate =  new Date();
-    this.lastOrderTotal = this.total;
-    this.lastPaymentMethod = this.paymentMethod;
-    this.lastTicketNumber = this.currentTicketNumber;
-    this.receiptCart = [...this.cart];
+     checkout(): void {
 
-    const newOrder = {
-      ticketNumber: this.currentTicketNumber,
-      items: this.cart,
-      subtotal: Number( this.subtotal.toFixed(2)),
-      tax: Number( this.tax.toFixed(2) ),
-      total: Number( this.total.toFixed(2)),
-      paymentMethod: this.paymentMethod,
-      status: 'Completed' as const,
-      createdAt: this.currentDate.toISOString()
-    };
-
-    // CREATE ORDER
-    this.orderService .createOrder(newOrder as any) .subscribe({
-        next: () => {
-          /* UPDATE PRODUCT STOCK*/
-          const updateRequests = this.cart .map((item) => {const product = this.products.find((p) => String(p.id) === String(item.productId));
-                  if (product) {
-                    const updatedProduct = { ...product, stock: product.stock};
-                    return this.productService .updateProduct( product.id, updatedProduct as any );
-                  }
-                  return null;
-                }
-              ).filter((req) => req !== null);
-          forkJoin( updateRequests ).subscribe({
-            next: () => {
-              this.cart = [];
-              this.clearSavedCart();
-              this.showSuccessModal = true;
-              this.cdr.detectChanges();
-            },
-            error: (err) => { console.error( 'Error updating stocks:', err );
+      if (this.cart.length === 0) {
+        return;
+      }
+  
+      /*
+       * On Account requires customer
+       */
+      if (
+        this.paymentStatus === 'OnAccount' &&
+        !this.selectedCustomerId
+      ) {
+        this.popupService.showAlert(
+          'Please select a customer for the On Account sale.',
+          'warning',
+          'Customer Required'
+        );
+  
+        return;
+      }
+  
+      /*
+       * Paid requires payment account
+       */
+      if (
+        this.paymentStatus === 'Paid' &&
+        !this.selectedPaymentAccountId
+      ) {
+        this.popupService.showAlert(
+          'Please select a payment account.',
+          'warning',
+          'Payment Account Required'
+        );
+  
+        return;
+      }
+  
+      this.currentDate = new Date();
+  
+      this.lastOrderTotal = this.total;
+      this.lastPaymentStatus = this.paymentStatus;
+      this.lastTicketNumber = this.currentTicketNumber;
+  
+      this.receiptCart = [...this.cart];
+  
+      const selectedCustomer =
+        this.customers.find(
+          customer =>
+            String(customer.id) ===
+            String(this.selectedCustomerId)
+        );
+  
+      const selectedAccount =
+        this.paymentAccounts.find(
+          account =>
+            String(account.id) ===
+            String(this.selectedPaymentAccountId)
+        );
+  
+      /*
+       * CUSTOMER TRANSACTION ITEMS
+       */
+      const customerTransactionItems =
+        this.cart.map(item => ({
+          productId: String(item.productId),
+          productName: item.productName,
+          quantity: Number(item.quantity),
+          unitPrice: Number(item.price),
+          total: Number(item.total)
+        }));
+  
+      /*
+       * CREATE ORDER
+       */
+      const newOrder: any = {
+        ticketNumber: this.currentTicketNumber,
+  
+        items: [...this.cart],
+  
+        subtotal: Number(this.subtotal.toFixed(2)),
+  
+        tax: Number(this.tax.toFixed(2)),
+  
+        total: Number(this.total.toFixed(2)),
+  
+        paymentStatus: this.paymentStatus,
+  
+        status: 'Completed',
+  
+        createdAt: this.currentDate.toISOString()
+      };
+  
+      /*
+       * PAID
+       */
+      if (
+        this.paymentStatus === 'Paid' &&
+        selectedAccount
+      ) {
+        newOrder.paymentAccountId =
+          String(selectedAccount.id);
+      }
+  
+      /*
+       * ON ACCOUNT
+       */
+      if (
+        this.paymentStatus === 'OnAccount' &&
+        selectedCustomer
+      ) {
+        newOrder.customerId =
+          String(selectedCustomer.id);
+  
+        newOrder.customerName =
+          selectedCustomer.name;
+      }
+  
+      /*
+       * SAVE ORDER
+       */
+      this.orderService
+        .createOrder(newOrder)
+        .subscribe({
+  
+          next: () => {
+  
+            const updateRequests: any[] = [];
+  
+            /*
+             * UPDATE PRODUCT STOCK
+             */
+            this.cart.forEach(item => {
+  
+              const product =
+                this.products.find(
+                  p =>
+                    String(p.id) ===
+                    String(item.productId)
+                );
+  
+              if (!product) {
+                return;
+              }
+  
+              const updatedProduct = {
+                ...product,
+                stock: Number(product.stock)
+              };
+  
+              updateRequests.push(
+                this.productService.updateProduct(
+                  product.id,
+                  updatedProduct as any
+                )
+              );
+  
+            });
+  
+            /*
+             * ON ACCOUNT DATA
+             */
+            if (
+              this.paymentStatus === 'OnAccount' &&
+              selectedCustomer
+            ) {
+  
+              /*
+               * UPDATE CUSTOMER BALANCE
+               */
+              const updatedCustomer: Customer = {
+  
+                ...selectedCustomer,
+  
+                balance:
+                  Number(selectedCustomer.balance || 0) +
+                  Number(this.total)
+  
+              };
+  
+              updateRequests.push(
+                this.customerService.updateCustomer(
+                  selectedCustomer.id,
+                  updatedCustomer
+                )
+              );
+  
+              /*
+               * SAVE CUSTOMER TRANSACTION
+               */
+              const customerTransaction:
+                Omit<CustomerTransaction, 'id'> = {
+  
+                customerId:
+                  String(selectedCustomer.id),
+  
+                customerName:
+                  selectedCustomer.name,
+  
+                type: 'OnAccountSale',
+  
+                referenceId:
+                  String(this.currentTicketNumber),
+  
+                referenceNumber:
+                  this.currentTicketNumber,
+  
+                amount:
+                  Number(this.total.toFixed(2)),
+  
+                items:
+                  customerTransactionItems,
+  
+                createdAt:
+                  this.currentDate.toISOString()
+              };
+  
+              updateRequests.push(
+                this.customerTransactionService
+                  .addTransaction(
+                    customerTransaction
+                  )
+              );
             }
-          });
-        },
-        error: (err) => {
-          console.error( 'Error creating order:', err );
-          this.popupService.showAlert( 'Failed to process checkout!', 'error', 'Checkout Failed' );
-        }
-      });
+  
+            /*
+             * FINISH CHECKOUT
+             */
+            if (updateRequests.length === 0) {
+  
+              this.cart = [];
+  
+              this.clearSavedCart();
+  
+              this.showSuccessModal = true;
+  
+              this.cdr.detectChanges();
+  
+              return;
+            }
+  
+            forkJoin(updateRequests)
+              .subscribe({
+  
+                next: () => {
+  
+                  this.cart = [];
+  
+                  this.clearSavedCart();
+  
+                  this.showSuccessModal = true;
+  
+                  this.cdr.detectChanges();
+  
+                },
+  
+                error: err => {
+  
+                  console.error(
+                    'Error updating checkout data:',
+                    err
+                  );
+  
+                  this.popupService.showAlert(
+                    'Order was created, but some related data could not be updated.',
+                    'error',
+                    'Checkout Warning'
+                  );
+  
+                  this.cdr.detectChanges();
+  
+                }
+  
+              });
+  
+          },
+  
+          error: err => {
+  
+            console.error(
+              'Error creating order:',
+              err
+            );
+  
+            this.popupService.showAlert(
+              'Failed to process checkout!',
+              'error',
+              'Checkout Failed'
+            );
+  
+            this.cdr.detectChanges();
+  
+          }
+  
+        });
+  
+    }
+  
+  
+    /* =========================================================
+       PRINT RECEIPT
+       ========================================================= */
+  
+    printReceipt(): void {
+      window.print();
+    }
+  
+  
+    /* =========================================================
+       CLOSE SUCCESS MODAL
+       ========================================================= */
+  
+    closeModal(): void {
+  
+      this.showSuccessModal = false;
+  
+      this.generateTicketNumber();
+  
+      this.saveTicketNumber();
+  
+    }
+  
   }
-
-  // PRINT
-  printReceipt(): void {
-    window.print();
-  }
-
-  // CLOSE SUCCESS MODAL
-  closeModal(): void {
-    this.showSuccessModal = false;
-    this.generateTicketNumber();
-    this.saveTicketNumber();
-  }
-}

@@ -1,0 +1,454 @@
+<div class="customers-page">
+
+  <!-- =========================
+   Add Customer Modal
+   ========================= -->
+
+@if (showCustomerModal) {
+
+  <div class="modal-overlay">
+
+    <div class="customer-modal">
+
+      <!-- Modal Header -->
+
+      <div class="modal-header">
+
+        <div>
+          <span class="modal-eyebrow">CUSTOMER MANAGEMENT</span>
+
+          <h2>
+              {{ editingCustomerId ? 'Edit Customer' : 'Add New Customer' }}
+            </h2>
+            
+            <p>
+              {{
+                editingCustomerId
+                  ? 'Update customer information.'
+                  : 'Add a customer to manage their account and balances.'
+              }}
+            </p>
+        </div>
+
+        <button
+          type="button"
+          class="modal-close-btn"
+          (click)="closeCustomerModal()"
+          aria-label="Close"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+
+      </div>
+
+
+      <!-- Modal Body -->
+
+      <div class="modal-body">
+
+        <!-- Customer Name -->
+
+        <div class="form-group">
+
+          <label for="customerName">
+            Customer Name
+            <span>*</span>
+          </label>
+
+          <input
+            id="customerName"
+            type="text"
+            [(ngModel)]="customerForm.name"
+            placeholder="Enter customer name"
+          />
+
+        </div>
+
+
+        <!-- Phone -->
+
+        <div class="form-group">
+
+          <label for="customerPhone">
+            Phone Number
+            <span>*</span>
+          </label>
+
+          <input
+            id="customerPhone"
+            type="tel"
+            [(ngModel)]="customerForm.phone"
+            placeholder="Enter phone number"
+          />
+
+        </div>
+
+
+        <!-- Address -->
+
+        <div class="form-group">
+
+          <label for="customerAddress">
+            Address
+          </label>
+
+          <input
+            id="customerAddress"
+            type="text"
+            [(ngModel)]="customerForm.address"
+            placeholder="Enter customer address"
+          />
+
+        </div>
+
+
+        <!-- Notes -->
+
+        <div class="form-group">
+
+          <label for="customerNotes">
+            Notes
+          </label>
+
+          <textarea
+            id="customerNotes"
+            rows="3"
+            [(ngModel)]="customerForm.notes"
+            placeholder="Add any notes about this customer..."
+          ></textarea>
+
+        </div>
+
+
+        <!-- Account Info -->
+
+        <div class="account-info">
+
+          <div class="account-info-icon">
+            <i class="bi bi-wallet2"></i>
+          </div>
+
+          <div>
+            <strong>Opening Balance</strong>
+
+            <span>
+              New customers start with a balance of 0 EGP.
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Modal Footer -->
+
+      <div class="modal-footer">
+
+        <button
+          type="button"
+          class="cancel-btn"
+          (click)="closeCustomerModal()"
+        >
+          Cancel
+        </button>
+
+        <button
+        type="button"
+        class="save-customer-btn"
+        (click)="saveCustomer()"
+      >
+        <i class="bi bi-check-lg"></i>
+        {{ editingCustomerId ? 'Save Changes' : 'Add Customer' }}
+      </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+}
+
+  <!-- =========================
+       Page Header
+       ========================= -->
+
+  <div class="page-header">
+
+    <div class="page-title">
+      <span class="page-eyebrow">CUSTOMER MANAGEMENT</span>
+
+      <h1>Customers</h1>
+
+      <p>
+        Manage your customers and track their outstanding balances.
+      </p>
+    </div>
+
+    <button
+    type="button"
+    class="add-customer-btn"
+    (click)="openAddCustomerModal()"
+  >
+      <i class="bi bi-plus-lg"></i>
+      <span>Add Customer</span>
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       Customers Card
+       ========================= -->
+
+  <div class="customers-card">
+
+      <div class="customers-toolbar">
+
+          <div class="search-controls">
+            <!-- Search -->
+        
+            <div class="search-box">
+        
+              <i class="bi bi-search"></i>
+        
+              <input
+                type="text"
+                [(ngModel)]="searchTerm"
+                (input)="applyFilters()"
+                [placeholder]="
+                  searchMode === 'name'
+                    ? 'Search by customer name...'
+                    : 'Search by phone number...'
+                "
+              />
+        
+              @if (searchTerm) {
+                <button
+                  type="button"
+                  class="clear-search-btn"
+                  (click)="searchTerm = ''; applyFilters()"
+                  aria-label="Clear search"
+                >
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              }
+        
+            </div>
+
+             <!-- Search Mode -->
+        
+             <div class="search-mode">
+        
+              <button
+                type="button"
+                class="search-mode-btn"
+                [class.active]="searchMode === 'name'"
+                (click)="searchMode = 'name'; applyFilters()"
+              >
+                Name
+              </button>
+        
+              <button
+                type="button"
+                class="search-mode-btn"
+                [class.active]="searchMode === 'phone'"
+                (click)="searchMode = 'phone'; applyFilters()"
+              >
+                Phone
+              </button>
+        
+            </div>
+        
+          </div>
+
+    </div>
+
+
+    <!-- Loading State -->
+
+    @if (errorMessage) {
+
+      <div class="state-container error-state">
+    
+        <i class="bi bi-exclamation-circle"></i>
+    
+        <p>{{ errorMessage }}</p>
+    
+        <button
+          type="button"
+          (click)="loadCustomers()"
+        >
+          Try Again
+        </button>
+    
+      </div>
+    
+    }
+    @else {
+    
+      @if (filteredCustomers.length === 0) {
+    
+        <div class="state-container empty-state">
+    
+          <i class="bi bi-people"></i>
+    
+          @if (searchTerm) {
+    
+            <h3>No customers found</h3>
+    
+            <p>
+              Try searching with a different name or phone number.
+            </p>
+    
+          } @else {
+    
+            <h3>No customers yet</h3>
+    
+            <p>
+              Add your first customer to get started.
+            </p>
+    
+          }
+    
+        </div>
+    
+      } @else {
+
+        <div class="table-wrapper">
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Notes</th>
+                <th>Balance</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              @for (customer of filteredCustomers; track customer.id) {
+
+                <tr>
+
+                  <!-- Customer -->
+
+                  <td>
+
+                    <div class="customer-info">
+
+                      <div class="customer-avatar">
+                        {{ customer.name.charAt(0).toUpperCase() }}
+                      </div>
+
+                      <div class="customer-name">
+                        {{ customer.name }}
+                      </div>
+
+                    </div>
+
+                  </td>
+
+
+                  <!-- Phone -->
+
+                  <td>
+                    {{ customer.phone }}
+                  </td>
+
+
+                  <!-- Address -->
+
+                  <td>
+                    {{ customer.address || '—' }}
+                  </td>
+
+                  <!-- Notes -->
+
+                  <td>
+                      {{ customer.notes || '—' }}
+                  </td>
+
+                  <!-- Balance -->
+
+                  <td>
+
+                    <span
+                      [class.balance-due]="customer.balance > 0"
+                      [class.balance-clear]="customer.balance <= 0"
+                    >
+                      {{ customer.balance | number:'1.2-2' }} EGP
+                    </span>
+
+                  </td>
+
+
+                  <!-- Status -->
+
+                  <td>
+
+                    <span
+                      class="status-badge"
+                      [class.active]="customer.status === 'Active'"
+                      [class.inactive]="customer.status === 'Inactive'"
+                    >
+                      {{ customer.status }}
+                    </span>
+
+                  </td>
+
+
+                  <!-- Actions -->
+
+                  <td>
+
+                    <div class="actions-cell">
+
+                      <!-- Edit -->
+                      <button
+                        type="button"
+                        class="action-btn edit"
+                        title="Edit Customer"
+                        (click)="openEditCustomerModal(customer)"
+                      >
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                    
+                      <!-- Delete -->
+                      <button
+                        type="button"
+                        class="action-btn delete"
+                        title="Delete Customer"
+                        (click)="deleteCustomer(customer)"
+                      >
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    
+                    </div>
+
+                  </td>
+
+                </tr>
+
+              }
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      }
+
+    }
+
+  </div>
+
+</div>

@@ -186,18 +186,184 @@
 
       <!-- Payment -->
       <div class="payment-section">
-        <span class="payment-label"> Payment method </span>
-        <div class="payment-selector">
-          <button type="button" class="pay-select-btn" [class.active]="paymentMethod === 'Cash'" (click)=" paymentMethod = 'Cash'; savePaymentMethod() ">
-            <span class="payment-icon"> 💵 </span>
-            <span> Cash </span>
-          </button>
 
-          <button type="button" class="pay-select-btn" [class.active]="paymentMethod === 'Card'" (click)=" paymentMethod = 'Card'; savePaymentMethod()">
-            <span class="payment-icon"> 💳 </span>
-            <span> Card </span>
+        <span class="payment-label">
+          Payment
+        </span>
+      
+        <!-- Payment Status -->
+        <div class="payment-selector">
+      
+          <button
+            type="button"
+            class="pay-select-btn"
+            [class.active]="paymentStatus === 'Paid'"
+            (click)="onPaymentStatusChange('Paid')"
+          >
+            <span class="payment-icon">💵</span>
+            <span>Paid</span>
           </button>
+      
+          <button
+          type="button"
+          class="pay-select-btn"
+          [class.active]="paymentStatus === 'OnAccount'"
+          (click)="onPaymentStatusChange('OnAccount')"
+        >
+          <span class="payment-icon">📋</span>
+          <span>On Account</span>
+        </button>
+      
         </div>
+      
+      
+       <!-- Payment Account -->
+<div
+class="payment-subsection"
+*ngIf="paymentStatus === 'Paid'"
+>
+
+<label class="payment-sub-label">
+  Payment Account
+</label>
+
+<div class="payment-accounts-list">
+
+  <button
+    type="button"
+    class="payment-account-option"
+    *ngFor="let account of paymentAccounts"
+    [class.active]="
+      selectedPaymentAccountId === account.id
+    "
+    (click)="selectedPaymentAccountId = account.id"
+  >
+
+    <span class="payment-account-option-icon">
+
+      <img
+        *ngIf="account.image"
+        [src]="account.image"
+        [alt]="account.name"
+      />
+
+      <span *ngIf="!account.image">
+        <ng-container [ngSwitch]="account.type">
+
+          <span *ngSwitchCase="'cash'">💵</span>
+          <span *ngSwitchCase="'bank'">🏦</span>
+          <span *ngSwitchCase="'wallet'">📱</span>
+          <span *ngSwitchCase="'card'">💳</span>
+
+          <span *ngSwitchDefault>💰</span>
+
+        </ng-container>
+      </span>
+
+    </span>
+
+    <span class="payment-account-option-name">
+      {{ account.name }}
+    </span>
+
+  </button>
+
+</div>
+
+</div>
+      
+      
+    <!-- Customer -->
+<div
+class="payment-subsection"
+*ngIf="paymentStatus === 'OnAccount'"
+>
+
+<label class="payment-sub-label">
+  Customer
+</label>
+
+<div class="customer-dropdown">
+
+  <button
+    type="button"
+    class="customer-dropdown-btn"
+    (click)="toggleCustomerDropdown()"
+  >
+
+    <span
+      class="customer-selected-text"
+      [class.placeholder]="!selectedCustomerId"
+    >
+      {{
+        getSelectedCustomerName()
+        || 'Select customer'
+      }}
+    </span>
+
+    <span
+      class="customer-dropdown-arrow"
+      [class.open]="showCustomerDropdown"
+    ></span>
+
+  </button>
+
+
+  <div
+    class="customer-dropdown-menu"
+    *ngIf="showCustomerDropdown"
+  >
+
+    <button
+      type="button"
+      class="customer-option"
+      *ngFor="let customer of customers"
+      [class.selected]="
+        selectedCustomerId === customer.id
+      "
+      (click)="selectCustomer(customer)"
+    >
+
+      <span class="customer-option-info">
+
+        <span class="customer-option-name">
+          {{ customer.name }}
+        </span>
+
+        <span
+          class="customer-option-balance"
+          *ngIf="customer.balance > 0"
+        >
+          Balance:
+          {{ customer.balance | number:'1.2-2' }}
+          {{ currencySymbol }}
+        </span>
+
+      </span>
+
+      <span
+        class="customer-option-check"
+        *ngIf="selectedCustomerId === customer.id"
+      >
+        ✓
+      </span>
+
+    </button>
+
+
+    <div
+      class="customer-empty"
+      *ngIf="customers.length === 0"
+    >
+      No active customers
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+      
       </div>
 
       <!-- Checkout -->
@@ -210,34 +376,27 @@
 </div>
 
 <!-- SUCCESS MODAL -->
-<div class="modal-overlay no-print" *ngIf="showSuccessModal">
-  <div class="success-card">
-    <div class="check-icon"> ✓ </div>
-    <span class="success-eyebrow"> TRANSACTION COMPLETE </span>
-    <h2> Payment Successful! </h2>
-    <p class="modal-sub"> The transaction has been completed successfully. </p>
-    <div class="modal-details">
-      <div>
-        <span> Ticket </span>
-        <strong> {{ lastTicketNumber }} </strong>
-      </div>
+<div class="success-payment-info">
 
-      <div>
-        <span> Amount Paid </span>
-        <strong> {{ lastOrderTotal | number: '1.2-2' }} {{ currencySymbol }} </strong>
-      </div>
+  <span>
+    Payment:
+    {{ lastPaymentStatus }}
+  </span>
 
-      <div>
-        <span> Method </span>
-        <strong> {{ lastPaymentMethod }} </strong>
-      </div>
-    </div>
+  <span
+    *ngIf="lastPaymentStatus === 'Paid'"
+  >
+    Account:
+    {{ lastPaymentAccountName }}
+  </span>
 
-    <div class="modal-actions">
-      <button type="button" class="btn-secondary" (click)="printReceipt()" > 🖨️ Print Receipt </button>
-      <button type="button" class="btn-primary" (click)="closeModal()"> New Order </button>
-    </div>
-  </div>
+  <span
+  *ngIf="lastPaymentStatus === 'OnAccount'"
+  >
+    Customer:
+    {{ lastCustomerName }}
+  </span>
+
 </div>
 
 <!-- PRINTABLE RECEIPT -->
@@ -250,7 +409,37 @@
     </div>
       <p class="receipt-meta"> Ticket {{ lastTicketNumber }} </p>
       <p class="receipt-meta"> Date: {{ currentDate | date: 'yyyy-MM-dd HH:mm' }} </p>
-      <p class="receipt-meta"> Payment: {{ lastPaymentMethod }} </p>
+      <p class="receipt-meta"> Payment:  {{ lastPaymentStatus }} </p>
+    </div>
+
+    <div class="receipt-payment-details">
+
+      <div>
+        <span>Payment</span>
+        <strong>
+          {{ lastPaymentStatus }}
+        </strong>
+      </div>
+    
+      <div
+        *ngIf="lastPaymentStatus === 'Paid'"
+      >
+        <span>Account</span>
+        <strong>
+          {{ lastPaymentAccountName }}
+        </strong>
+      </div>
+    
+      <div
+  *ngIf="lastPaymentStatus === 'OnAccount'"
+
+      >
+        <span>Customer</span>
+        <strong>
+          {{ lastCustomerName }}
+        </strong>
+      </div>
+    
     </div>
   <div class="receipt-divider">
     ================================

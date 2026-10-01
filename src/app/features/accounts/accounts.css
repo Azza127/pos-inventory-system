@@ -1,0 +1,2080 @@
+/* =========================================================
+   ACCOUNTS PAGE
+   ========================================================= */
+   .accounts-page {
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: #14263D;
+  }
+  
+  
+  /* =========================================================
+     PAGE HEADER
+     ========================================================= */
+     .accounts-header {
+        width: 100%;
+        min-height: 58px;
+      
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      
+        gap: 14px;
+      
+        margin-bottom: 10px;
+      }
+      
+      
+      /* =========================================================
+         PAGE TITLE — PUSH HEADER FILTERS TO THE RIGHT
+         ========================================================= */
+      
+      .page-title-area {
+        flex: 1;
+        min-width: 0;
+      }
+  
+  
+  /* =========================================================
+     HEADER ACTIONS
+     ========================================================= */
+  
+  /* .accounts-header-actions {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  
+    gap: 10px;
+  
+    flex-shrink: 0;
+  } */
+  
+  /* =========================================================
+     DATE INPUT
+     ========================================================= */
+  
+  .date-input-wrapper {
+    position: relative;
+    width: 125px;
+  }
+  
+  .date-input-wrapper input {
+    width: 100%;
+    height: 40px;
+  
+    box-sizing: border-box;
+  
+    padding: 0 34px 0 9px;
+  
+    border: 1px solid #E1E5E8;
+    border-radius: 7px;
+  
+    background: #FFFFFF;
+    color: #14263D;
+  
+    font-family: inherit;
+    font-size: 0.67rem;
+  
+    outline: none;
+  
+    transition:
+      border-color 0.15s ease,
+      background 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  
+  .date-input-wrapper input:focus {
+    border-color: #159F9A;
+    background: #FFFFFF;
+  
+    box-shadow:
+      0 0 0 3px rgba(21, 159, 154, 0.07);
+  }
+  
+  
+  /* Hide native calendar icon */
+  
+  .date-input-wrapper input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  
+  /* =========================================================
+     DATE ICON BUTTON
+     ========================================================= */
+  
+  .date-icon-button {
+    position: absolute;
+  
+    top: 50%;
+    right: 7px;
+  
+    width: 24px;
+    height: 24px;
+  
+    transform: translateY(-50%);
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 0;
+  
+    border: 0;
+    border-radius: 5px;
+  
+    background: transparent;
+  
+    color: #6F8094;
+  
+    cursor: pointer;
+  
+    transition:
+      background 0.15s ease,
+      color 0.15s ease;
+  }
+  
+  .date-icon-button:hover {
+    background: #E8F5F4;
+    color: #11847F;
+  }
+  
+  .date-icon-button i {
+    font-size: 0.72rem;
+  }
+  
+  .page-eyebrow,
+  .modal-eyebrow,
+  .details-eyebrow {
+    display: block;
+    color: #159F9A;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 1.15px;
+    text-transform: uppercase;
+  }
+  
+  .page-title-area h1 {
+    margin: 5px 0 4px;
+    color: #14263D;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  
+  .page-title-area p {
+    margin: 0;
+    color: #6F8094;
+    font-size: 0.74rem;
+  }
+
+  .account-type-dropdown {
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  .account-type-trigger {
+    min-width: 156px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9px;
+    padding: 0 12px;
+    border: 1px solid #E1E5E8;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #14263D;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 3px 11px rgba(20, 38, 61, 0.035);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  
+  .account-type-trigger:hover {
+    border-color: #159F9A;
+    box-shadow: 0 0 0 3px rgba(21, 159, 154, 0.06);
+  }
+  
+  .account-type-trigger > i:first-child {
+    color: #159F9A;
+    font-size: 0.9rem;
+  }
+  
+  .account-type-trigger .bi-chevron-down {
+    color: #6F8094;
+    transition: transform 0.15s ease;
+  }
+  
+  .account-type-trigger .bi-chevron-down.rotated {
+    transform: rotate(180deg);
+  }
+  
+  .account-type-menu {
+    position: absolute;
+    z-index: 1200;
+    top: calc(100% + 6px);
+    right: 0;
+    width: 265px;
+    padding: 6px;
+    border: 1px solid #E1E5E8;
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 0 12px 30px rgba(20, 38, 61, 0.12);
+  }
+  
+  .account-type-option {
+    width: 100%;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 9px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #14263D;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  
+  .account-type-option:hover,
+  .account-type-option.active {
+    background: #E8F5F4;
+  }
+  
+  .account-type-option-icon {
+    width: 31px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #F1F8F7;
+    color: #159F9A;
+  }
+  
+  .account-type-option span:last-child {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .account-type-option strong {
+    color: #14263D;
+    font-size: 0.72rem;
+  }
+  
+  .account-type-option small {
+    color: #6F8094;
+    font-size: 0.61rem;
+  }
+  
+  
+  /* =========================================================
+     STATEMENT CONTAINER
+     ========================================================= */
+  
+     .statement-container {
+        width: 100%;
+        min-height: 0;
+        padding: 0;
+        border: 1px solid #E1E5E8;
+        border-radius: 14px;
+        background: #FFFFFF;
+        overflow: hidden;
+        box-shadow: 0 4px 18px rgba(20, 38, 61, 0.045);
+      }
+  
+  
+  /* =========================================================
+     STATEMENT TOOLBAR
+     ========================================================= */
+  
+  .statement-toolbar {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 0;
+    padding: 0;
+  
+    border-bottom: 1px solid #E1E5E8;
+    background: #FFFFFF;
+  }
+  
+  
+  /* =========================================================
+     TOOLBAR — ROW 1
+     ACCOUNT TYPE LEFT / DATE FILTER RIGHT
+     ========================================================= */
+  
+  .statement-toolbar-top {
+    width: 100%;
+  
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  
+    gap: 24px;
+    padding: 16px 18px;
+  
+    box-sizing: border-box;
+  }
+  
+  
+  /* =========================================================
+     ACCOUNT TYPE SELECTOR
+     ========================================================= */
+  
+     .account-selector {
+        flex: 0 0 220px;
+        width: 220px;
+        min-width: 220px;
+        max-width: 220px;
+      
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+  
+  .account-selector label {
+    color: #6F8094;
+    font-size: 0.63rem;
+    font-weight: 700;
+  }
+  
+  .account-selector-type-dropdown {
+    position: relative;
+    width: 100%;
+  }
+  
+  .account-selector-type-dropdown .account-type-trigger {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  
+  .account-selector-type-menu {
+    position: absolute;
+    z-index: 1200;
+  
+    top: calc(100% + 6px);
+    left: 0;
+    right: auto;
+  
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  
+  /* =========================================================
+     SELECTED ACCOUNT TRIGGER
+     ========================================================= */
+  
+  .account-select-trigger {
+    width: 100%;
+    min-height: 50px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    gap: 12px;
+    padding: 7px 11px;
+  
+    border: 1px solid #E1E5E8;
+    border-radius: 9px;
+  
+    background: #FAFBFB;
+    color: #14263D;
+  
+    font-family: inherit;
+    text-align: left;
+  
+    cursor: pointer;
+  
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease,
+      background 0.15s ease;
+  }
+  
+  .account-select-trigger:hover {
+    border-color: #159F9A;
+    background: #FFFFFF;
+  }
+  
+  .account-select-trigger:focus-visible {
+    outline: none;
+    border-color: #159F9A;
+    box-shadow: 0 0 0 3px rgba(21, 159, 154, 0.08);
+  }
+  
+  .account-select-main {
+    min-width: 0;
+  
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  
+  .account-select-icon {
+    width: 34px;
+    height: 34px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;
+    border-radius: 8px;
+  
+    background: #E8F5F4;
+    color: #159F9A;
+  }
+  
+  .account-select-icon.supplier {
+    background: #F1F6FA;
+    color: #5C7690;
+  }
+  
+  .account-select-text {
+    min-width: 0;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .account-select-text strong {
+    overflow: hidden;
+  
+    color: #14263D;
+    font-size: 0.74rem;
+    font-weight: 700;
+  
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .account-select-text small {
+    color: #6F8094;
+    font-size: 0.61rem;
+  }
+  
+  .account-select-placeholder {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  
+    color: #9AA9B5;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+  
+  .account-select-placeholder i {
+    color: #159F9A;
+  }
+  
+  .account-select-arrow {
+    flex-shrink: 0;
+    color: #6F8094;
+  }
+  
+  
+  /* =========================================================
+     TOOLBAR — ROW 2
+     SELECTED ACCOUNT LEFT / CURRENT BALANCE RIGHT
+     ========================================================= */
+  
+     .statement-toolbar-bottom {
+        width: 100%;
+      
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+      
+        column-gap: 28px;
+      
+        padding: 14px 20px;
+      
+        border-top: 0;
+        border-bottom: 1px solid #E1E5E8;
+      
+        background: #FFFFFF;
+      
+        box-sizing: border-box;
+      }     
+  
+/* =========================
+   SELECTED ACCOUNT
+   ========================= */
+
+   .selected-account-summary {
+    min-width: 0;
+  
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+    justify-self: start;
+  }
+
+
+  .selected-account-summary-icon {
+    width: 36px;
+    height: 36px;
+  
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;
+    border-radius: 9px;
+  
+    background: #E8F5F4;
+    color: #159F9A;
+  }
+  
+  .selected-account-summary-icon.supplier {
+    background: #F1F6FA;
+    color: #5C7690;
+  }
+  
+  .selected-account-summary-text {
+    min-width: 0;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .selected-account-summary-text strong {
+    overflow: hidden;
+  
+    color: #14263D;
+    font-size: 0.76rem;
+    font-weight: 700;
+  
+    line-height: 1.25;
+  
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+.selected-account-summary-text span {
+  color: #6F8094;
+  font-size: 0.61rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+  
+/* =========================================================
+   CURRENT BALANCE
+   UNDER SELECTED ACCOUNT
+   ========================================================= */
+
+.selected-account-info {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0;
+  margin: 0;
+
+  justify-self: start;
+}
+  
+  .selected-account-label {
+    color: #6F8094;
+    font-size: 0.61rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  .selected-account-info strong {
+    color: #14263D;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.2;
+  
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  
+  .balance-due {
+    color: #C85C55 !important;
+  }
+  
+  .balance-clear {
+    color: #159F9A !important;
+  }
+  
+  
+  /* =========================================================
+     DATE FILTER — ROW 1
+     ========================================================= */
+  
+     .header-date-filters {
+        flex-shrink: 0;
+        min-width: 0;
+      
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+      
+        gap: 12px;
+      
+        padding: 0;
+        margin: 0;
+      
+        border: 0;
+        background: transparent;
+      }
+  
+      .header-date-filters .statement-date-field {
+        gap: 5px;
+      }
+      
+      .header-date-filters .date-input-wrapper {
+        width: 145px;
+      }
+      
+      .header-date-filters .date-input-wrapper input {
+        height: 42px;
+      }
+  
+  /* =========================================================
+     ACCOUNT INFO ROW
+     ========================================================= */
+  
+  .account-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 15px 18px;
+    border-bottom: 1px solid #EEF1F2;
+    background: #FBFCFC;
+  }
+  
+  .account-info-main {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .account-info-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #E8F5F4;
+    color: #159F9A;
+  }
+  
+  .account-info-icon.supplier {
+    background: #F1F6FA;
+    color: #5C7690;
+  }
+  
+  .account-info-main > div {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .account-info-main strong {
+    overflow: hidden;
+    color: #14263D;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .account-info-main span:not(.account-info-icon) {
+    color: #6F8094;
+    font-size: 0.63rem;
+  }
+  
+  .account-balance {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+  }
+  
+  .account-balance > span {
+    color: #9AA9B5;
+    font-size: 0.61rem;
+    font-weight: 700;
+  }
+  
+  .account-balance > strong {
+    color: #14263D;
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+  
+  
+  /* =========================================================
+     DATE FILTERS
+     ========================================================= */
+  
+  .statement-filters {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 13px 18px;
+    border-bottom: 1px solid #E1E5E8;
+    background: #FFFFFF;
+  }
+  
+  .statement-date-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .statement-date-field label {
+    display: block;
+  
+    color: #6F8094;
+    font-size: 0.61rem;
+    font-weight: 600;
+  
+    line-height: 1.2;
+  }
+  
+  .statement-date-field input {
+    width: 145px;
+    height: 35px;
+    box-sizing: border-box;
+    padding: 0 9px;
+    border: 1px solid #E1E5E8;
+    border-radius: 7px;
+    background: #F7F9F9;
+    color: #14263D;
+    font-family: inherit;
+    font-size: 0.67rem;
+    outline: none;
+    transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  }
+  
+  .statement-date-field input:focus {
+    border-color: #159F9A;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(21, 159, 154, 0.07);
+  }
+  
+  .clear-filter-btn {
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 10px;
+    border: 1px solid #E1E5E8;
+    border-radius: 7px;
+    background: #FFFFFF;
+    color: #6F8094;
+    font-family: inherit;
+    font-size: 0.67rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  
+  .clear-filter-btn:hover {
+    border-color: #159F9A;
+    background: #E8F5F4;
+    color: #11847F;
+  }
+  
+  
+  /* =========================================================
+     TABLE WRAPPER
+     ========================================================= */
+  
+  .statement-table-wrapper {
+    width: 100%;
+    max-height: 430px;
+    overflow: auto;
+    background: #FFFFFF;
+    scrollbar-width: thin;
+    scrollbar-color: #C5D8D6 transparent;
+  }
+  
+  .statement-table-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .statement-table-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .statement-table-wrapper::-webkit-scrollbar-thumb {
+    background: #C5D8D6;
+    border-radius: 10px;
+  }
+  
+  
+  /* =========================================================
+     STATEMENT TABLE
+     ========================================================= */
+  
+  .statement-table {
+    width: 100%;
+    min-width: 930px;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  
+  .statement-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    background: #F8FAFA;
+  }
+  
+  .statement-table th {
+    height: 42px;
+    padding: 0 16px;
+    border-bottom: 1px solid #E1E5E8;
+    background: #159F9A;
+    color: #F8FAFA;
+    font-size: 0.59rem;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  
+  .statement-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #EEF1F2;
+    color: #14263D;
+    font-size: 0.68rem;
+    vertical-align: middle;
+    box-sizing: border-box;
+  }
+  
+  .statement-table tbody tr.transaction-row:hover {
+    background: #FBFCFC;
+  }
+  
+  
+  /* =========================================================
+     TABLE COLUMN STRUCTURE
+     ========================================================= */
+  
+  .statement-table .col-number-width {
+    width: 5%;
+  }
+  
+  .statement-table .col-transaction-width {
+    width: 24%;
+  }
+  
+  .statement-table .col-date-width {
+    width: 14%;
+  }
+  
+  .statement-table .col-reference-width {
+    width: 14%;
+  }
+  
+  .statement-table .col-debit-width,
+  .statement-table .col-credit-width,
+  .statement-table .col-balance-width {
+    width: 14.333%;
+  }
+  
+  
+  /* =========================================================
+     TABLE COLUMN ALIGNMENT
+     ========================================================= */
+  
+  .statement-table .col-number,
+  .statement-table td.row-number {
+    text-align: center;
+  }
+  
+  .statement-table .col-transaction,
+  .statement-table .col-date,
+  .statement-table .col-reference {
+    text-align: left;
+  }
+  
+  .statement-table .col-debit,
+  .statement-table .col-credit,
+  .statement-table .col-balance {
+    text-align: right;
+  }
+  
+  .statement-table td.amount-cell,
+  .statement-table td.balance-cell {
+    text-align: right;
+  }
+  
+  
+  /* =========================================================
+     BALANCE EDGE SPACING
+     ========================================================= */
+  
+  .statement-table th.col-balance,
+  .statement-table td.balance-cell {
+    padding-right: 24px;
+  }
+  
+  .row-number {
+    color: #A0AAB3 !important;
+    font-size: 0.61rem !important;
+  }
+  
+  .date-cell {
+    display: table-cell;
+  }
+  
+  .date-cell strong {
+    display: block;
+    color: #14263D;
+    font-size: 0.67rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  
+  .date-cell span {
+    display: block;
+    margin-top: 2px;
+    color: #9AA9B5;
+    font-size: 0.58rem;
+    white-space: nowrap;
+  }
+  
+  .transaction-cell {
+    min-width: 0;
+  }
+  
+  .transaction-name {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  
+  .transaction-copy {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  
+  .transaction-copy > strong {
+    overflow: hidden;
+    color: #14263D;
+    font-size: 0.69rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .statement-title-row {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .statement-title-row > strong {
+    color: #14263D;
+    font-size: 0.69rem;
+    font-weight: 700;
+  }
+  
+  .transaction-subtext,
+  .payment-method {
+    color: #6F8094;
+    font-size: 0.58rem;
+  }
+  
+  .payment-method {
+    color: #11847F;
+    font-weight: 600;
+  }
+  
+  .transaction-icon {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+  }
+  
+  .transaction-icon.sale {
+    background: #E8F5F4;
+    color: #159F9A;
+  }
+  
+  .transaction-icon.collection {
+    background: #EEF7F1;
+    color: #5F956F;
+  }
+  
+  .transaction-icon.return {
+    background: #FFF0EE;
+    color: #C85C55;
+  }
+  
+  .transaction-icon.purchase {
+    background: #EFF4F8;
+    color: #58728B;
+  }
+  
+  .transaction-icon-button {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    cursor: default;
+  }
+  
+  .transaction-icon-button.clickable {
+    cursor: pointer;
+  }
+  
+  .transaction-icon-button.clickable:hover .transaction-icon {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(20, 38, 61, 0.07);
+  }
+  
+  .transaction-icon-button .transaction-icon {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  
+  .reference-cell {
+    color: #6F8094 !important;
+    font-size: 0.65rem !important;
+  }
+  
+  .amount-cell {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  
+  .amount-cell.debit {
+    color: #C85C55 !important;
+    font-weight: 700;
+  }
+  
+  .amount-cell.credit {
+    color: #159F9A !important;
+    font-weight: 700;
+  }
+  
+  .balance-cell {
+    color: #14263D !important;
+    font-weight: 700;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  
+  
+  /* =========================================================
+     OPENING BALANCE
+     ========================================================= */
+  
+  .opening-balance-row td {
+    background: #FBFCFC;
+    border-bottom-color: #E1E5E8;
+  }
+  
+  .opening-balance-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .opening-icon {
+    width: 27px;
+    height: 27px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    background: #F1F6F6;
+    color: #159F9A;
+  }
+  
+  .opening-balance-label strong {
+    color: #14263D;
+    font-size: 0.66rem;
+  }
+  
+  
+  /* =========================================================
+     STATUS BADGES
+     ========================================================= */
+  
+  .paid-badge,
+  .on-account-badge,
+  .return-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 6px;
+    border-radius: 999px;
+    font-size: 0.53rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  
+  .paid-badge {
+    background: #E7F7F1;
+    color: #2F896A;
+  }
+  
+  .on-account-badge {
+    background: #EEF4FA;
+    color: #5A7690;
+  }
+  
+  .return-badge {
+    background: #FFF0EE;
+    color: #C85C55;
+  }
+  
+  
+  /* =========================================================
+     DETAILS ROW
+     ========================================================= */
+  
+  .details-row td {
+    padding: 0 12px 11px;
+    background: #FFFFFF;
+  }
+  
+  .transaction-details-panel {
+    position: relative;
+    margin: 0 0 0 35px;
+  
+    /* border: 1px solid #E8ECEE;
+    border-radius: 9px;
+    background: #FBFCFC; */
+    overflow: hidden;
+  }
+  
+  .details-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 11px;
+    border-bottom: 1px solid #E8ECEE;
+    background: #FFFFFF;
+  }
+  
+  .details-header > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .details-header strong {
+    color: #14263D;
+    font-size: 0.66rem;
+  }
+  
+  .details-eyebrow {
+    font-size: 0.51rem;
+    letter-spacing: 0.8px;
+  }
+  
+  .details-close {
+    position: absolute;
+  
+    top: 8px;
+    right: 9px;
+  
+    width: 24px;
+    height: 24px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 0;
+  
+    border: 1px solid #E1E5E8;
+    border-radius: 6px;
+  
+    background: #FFFFFF;
+    color: #6F8094;
+  
+    cursor: pointer;
+  
+    z-index: 2;
+  }
+  
+  .details-close:hover {
+    border-color: #C85C55;
+    background: #FFF4F2;
+    color: #C85C55;
+  }
+  
+  .details-items {
+    padding: 8px 10px;
+  }
+  
+  .details-item {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    /* padding: 6px; */
+    border-bottom: 1px solid #EEF1F2;
+  }
+  
+  .details-item:last-child {
+    border-bottom: 0;
+  }
+  
+  .details-item-main {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .details-item-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #E8F5F4;
+    color: #159F9A;
+  }
+
+  .details-item-icon.product-image {
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #E8ECEE;
+  }
+  
+  .details-item-icon.product-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .details-item-main > div {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .details-item-main strong {
+    overflow: hidden;
+    color: #14263D;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .details-item-main span {
+    color: #6F8094;
+    font-size: 0.54rem;
+  }
+  
+  .details-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+  
+  .details-item-meta span {
+    color: #9AA9B5;
+    font-size: 0.54rem;
+  }
+  
+  .details-item-meta strong {
+    color: #14263D;
+    font-size: 0.61rem;
+  }
+  
+  .details-empty {
+    padding: 13px;
+    color: #6F8094;
+    font-size: 0.6rem;
+    text-align: center;
+  }
+  
+  .row-expanded td {
+    background: #FCFEFE;
+  }
+  
+  
+  /* =========================================================
+     EMPTY STATE
+     ========================================================= */
+  
+  .empty-row td {
+    padding: 0 !important;
+  }
+  
+  .empty-state {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 24px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .empty-state > i {
+    margin-bottom: 3px;
+    color: #159F9A;
+    font-size: 1.3rem;
+  }
+  
+  .empty-state strong {
+    color: #14263D;
+    font-size: 0.73rem;
+  }
+  
+  .empty-state span {
+    max-width: 300px;
+    color: #6F8094;
+    font-size: 0.59rem;
+    line-height: 1.5;
+  }
+  
+  
+  /* =========================================================
+     TOTALS
+     ========================================================= */
+  
+  .statement-table tfoot {
+    background: #FBFCFC;
+  }
+  
+  .totals-row td {
+    border-top: 1px solid #E1E5E8;
+    border-bottom: 0;
+    background: #FBFCFC;
+    color: #14263D;
+    font-size: 0.65rem;
+    font-weight: 700;
+  }
+  
+  .totals-row td:first-child {
+    text-align: right;
+    padding-right: 16px;
+    white-space: nowrap;
+  }
+  
+  .totals-row .totals-label-cell {
+    text-align: left !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    white-space: nowrap;
+  }
+  
+  
+  /* =========================================================
+     ACCOUNT SUMMARY
+     ========================================================= */
+  
+  .account-summary {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 0 18px;
+    border-top: 1px solid #E1E5E8;
+    background: #FFFFFF;
+  }
+  
+  .summary-line-item {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  
+  .summary-line-item span {
+    color: #6F8094;
+    font-size: 0.59rem;
+    font-weight: 700;
+  }
+  
+  .summary-line-item strong {
+    color: #14263D;
+    font-size: 0.67rem;
+    font-weight: 700;
+  }
+  
+  .summary-line-item.balance strong {
+    color: #159F9A;
+  }
+  
+  .summary-divider {
+    width: 1px;
+    height: 17px;
+    background: #DDE4E5;
+  }
+  
+  
+  /* =========================================================
+     NO ACCOUNT SELECTED
+     ========================================================= */
+  
+  .no-account-selected {
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    text-align: center;
+  }
+  
+  .no-account-icon {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background: #E8F5F4;
+    color: #159F9A;
+    font-size: 1.35rem;
+  }
+  
+  .no-account-selected h2 {
+    margin: 0;
+    color: #14263D;
+    font-size: 0.9rem;
+  }
+  
+  .no-account-selected p {
+    max-width: 330px;
+    margin: 6px 0 14px;
+    color: #6F8094;
+    font-size: 0.66rem;
+    line-height: 1.5;
+  }
+  
+  .no-account-action {
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    border: 1px solid #159F9A;
+    border-radius: 7px;
+    background: #159F9A;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 0.65rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .no-account-action:hover {
+    background: #11847F;
+    border-color: #11847F;
+  }
+  
+  
+  /* =========================================================
+     LOADING
+     ========================================================= */
+  
+  .account-loading {
+    min-height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #6F8094;
+    font-size: 0.68rem;
+  }
+  
+  .account-loading i {
+    color: #159F9A;
+    animation: accountsSpin 1s linear infinite;
+  }
+  
+  @keyframes accountsSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  /* =========================================================
+     ERROR
+     ========================================================= */
+  
+  .account-error {
+    margin: 0 18px 18px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #F1D7D4;
+    border-radius: 8px;
+    background: #FFF7F6;
+    color: #C85C55;
+    font-size: 0.64rem;
+  }
+  
+  
+  /* =========================================================
+     ACCOUNT MODAL
+     ========================================================= */
+  
+  .account-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgba(20, 38, 61, 0.34);
+  }
+  
+  .account-modal {
+    width: min(540px, 100%);
+    max-height: min(680px, calc(100vh - 40px));
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #E1E5E8;
+    border-radius: 13px;
+    background: #FFFFFF;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(20, 38, 61, 0.20);
+  }
+  
+  .account-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 18px 15px;
+    border-bottom: 1px solid #E1E5E8;
+  }
+  
+  .account-modal-header h2 {
+    margin: 4px 0 4px;
+    color: #14263D;
+    font-size: 1rem;
+  }
+  
+  .account-modal-header p {
+    margin: 0;
+    color: #6F8094;
+    font-size: 0.65rem;
+  }
+  
+  .modal-close-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0;
+    border: 1px solid #E1E5E8;
+    border-radius: 7px;
+    background: #FFFFFF;
+    color: #6F8094;
+    cursor: pointer;
+  }
+  
+  .modal-close-btn:hover {
+    border-color: #C85C55;
+    background: #FFF4F2;
+    color: #C85C55;
+  }
+  
+  .account-modal-search {
+    position: relative;
+    margin: 13px 13px 8px;
+  }
+  
+  .account-modal-search > i {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #159F9A;
+    font-size: 0.76rem;
+    pointer-events: none;
+  }
+  
+  .account-modal-search input {
+    width: 100%;
+    height: 38px;
+    box-sizing: border-box;
+    padding: 0 36px 0 31px;
+    border: 1px solid #E1E5E8;
+    border-radius: 8px;
+    background: #FAFBFB;
+    color: #14263D;
+    font-family: inherit;
+    font-size: 0.68rem;
+    outline: none;
+  }
+  
+  .account-modal-search input:focus {
+    border-color: #159F9A;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(21, 159, 154, 0.07);
+  }
+  
+  .modal-search-clear {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #E8F5F4;
+    color: #11847F;
+    cursor: pointer;
+  }
+  
+  .account-options {
+    flex: 1;
+    min-height: 0;
+    padding: 0 8px 9px;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #C5D8D6 transparent;
+  }
+  
+  .account-options::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .account-options::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .account-options::-webkit-scrollbar-thumb {
+    background: #C5D8D6;
+    border-radius: 10px;
+  }
+  
+  .account-option {
+    width: 100%;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 9px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  
+  .account-option:hover,
+  .account-option.selected {
+    background: #F3FAF9;
+  }
+  
+  .account-option-icon {
+    width: 33px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+  }
+  
+  .account-option-icon.customer {
+    background: #E8F5F4;
+    color: #159F9A;
+  }
+  
+  .account-option-icon.supplier {
+    background: #EFF4F8;
+    color: #5B7288;
+  }
+  
+  .account-option-info {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .account-option-info strong {
+    overflow: hidden;
+    color: #14263D;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .account-option-info small {
+    color: #6F8094;
+    font-size: 0.57rem;
+  }
+  
+  .account-option-balance {
+    flex-shrink: 0;
+    color: #6F8094;
+    font-size: 0.58rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .account-option-arrow {
+    flex-shrink: 0;
+    color: #A0AAB3;
+    font-size: 0.63rem;
+  }
+  
+  .account-options-empty {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .account-options-empty > i {
+    color: #159F9A;
+    font-size: 1.15rem;
+  }
+  
+  .account-options-empty strong {
+    color: #14263D;
+    font-size: 0.71rem;
+  }
+  
+  .account-options-empty span {
+    color: #6F8094;
+    font-size: 0.58rem;
+  }
+  
+  .customer-details-pricing {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+    margin-right: 58px;
+  }
+  
+  .customer-detail-value {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    min-width: 58px;
+  }
+  
+  .customer-detail-value span {
+    color: #9AA9B5;
+    font-size: 0.54rem;
+  }
+  
+  .customer-detail-value strong {
+    color: #14263D;
+    font-size: 0.61rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  
+  
+  /* =========================================================
+     RESPONSIVE
+     ========================================================= */
+  
+  @media (max-width: 900px) {
+    .accounts-page {
+      padding: 0;
+    }
+  
+    .statement-toolbar-top {
+      align-items: stretch;
+      flex-direction: column;
+      gap: 14px;
+    }
+  
+    .account-selector {
+      width: 100%;
+      max-width: none;
+    }
+  
+    .header-date-filters {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  
+    @media (max-width: 900px) {
+
+        .accounts-page {
+          padding: 0;
+        }
+      
+        .statement-toolbar-top {
+          align-items: stretch;
+          flex-direction: column;
+          gap: 14px;
+        }
+      
+        .account-selector {
+          width: 100%;
+          max-width: none;
+        }
+      
+        .header-date-filters {
+          width: 100%;
+          justify-content: flex-start;
+        }
+      
+        .statement-toolbar-bottom {
+          grid-template-columns: minmax(0, 1fr) auto;
+          row-gap: 14px;
+          column-gap: 20px;
+        }
+      
+        .selected-account-summary {
+          justify-self: start;
+        }
+      
+        .selected-account-info {
+          justify-self: end;
+          align-items: flex-end;
+        }
+      
+        .header-date-filters {
+          grid-column: 1 / -1;
+          justify-self: end;
+        }
+      }
+  }
+  
+  @media (max-width: 600px) {
+    .accounts-page {
+      padding: 0;
+    }
+  
+    .accounts-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  
+    .statement-toolbar-top {
+      padding: 13px;
+      gap: 12px;
+    }
+  
+    .header-date-filters {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+  
+    .header-date-filters.statement-date-field {
+      width: 100%;
+      min-width: 0;
+    }
+  
+    .header-date-filters .date-input-wrapper {
+      width: 100%;
+    }
+  
+    .statement-toolbar-bottom {
+      padding: 12px 13px;
+    }
+  
+    .statement-toolbar-bottom .selected-account-info {
+      min-width: auto;
+    }
+  
+    .account-type-menu {
+      left: 0;
+      right: auto;
+    }
+  
+    .account-selector-type-menu {
+      width: 100%;
+    }
+  
+    .statement-container {
+      border-radius: 11px;
+    }
+  
+    .statement-filters {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+    }
+  
+    .statement-date-field input {
+      width: 100%;
+    }
+  
+    .clear-filter-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .account-summary {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 9px 12px;
+      padding: 10px 13px;
+    }
+  
+    .summary-divider {
+      display: none;
+    }
+  
+    .account-modal-backdrop {
+      padding: 10px;
+    }
+  
+    .account-modal {
+      max-height: calc(100vh - 20px);
+      border-radius: 11px;
+    }
+
+    @media (max-width: 600px) {
+
+        .accounts-page {
+          padding: 0;
+        }
+      
+        .accounts-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      
+        .statement-toolbar-top {
+          padding: 13px;
+          gap: 12px;
+        }
+      
+        .statement-toolbar-bottom {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+      
+          gap: 14px;
+          padding: 13px;
+        }
+      
+        .selected-account-summary {
+          width: 100%;
+          justify-self: auto;
+        }
+      
+        .selected-account-info {
+          width: 100%;
+      
+          align-items: flex-start;
+          justify-self: auto;
+        }
+      
+        .header-date-filters {
+          width: 100%;
+      
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+      
+          gap: 10px;
+      
+          justify-self: auto;
+        }
+      
+        .header-date-filters .statement-date-field {
+          width: 100%;
+          min-width: 0;
+        }
+      
+        .header-date-filters .date-input-wrapper {
+          width: 100%;
+        }
+      
+        .header-date-filters .date-input-wrapper input {
+          width: 100%;
+        }
+      
+        /* باقي الـ CSS الموجود عندك */
+      }
+  }
+  
+  @media (max-width: 420px) {
+    .page-title-area h1 {
+      font-size: 1.25rem;
+    }
+  
+    .statement-table-wrapper {
+      max-height: 400px;
+    }
+  }
+  

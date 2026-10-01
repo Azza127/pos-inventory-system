@@ -5,6 +5,9 @@ import { Dashboard } from './features/dashboard/dashboard';
 import { Products } from './features/products/products';
 import { PurchaseInvoices } from './features/purchase-invoices/purchase-invoices';
 import { Categories } from './features/categories/categories';
+import { Customer } from './features/customer/customer';
+import { Supplier } from './features/supplier/supplier';
+import { Accounts } from './features/accounts/accounts';
 import { PosComponent } from './features/pos/pos.component';
 import { Reports } from './features/reports/reports';
 import { SettingsComponent } from './features/auth-settings/store-settings/settings';
@@ -21,6 +24,15 @@ export const routes: Routes = [
   { path: 'dashboard', component: Dashboard, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
   { path: 'products', component: Products, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
   { path: 'categories', component: Categories, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
+  { path: 'customers', component: Customer, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
+  {
+    path: 'suppliers',
+    component: Supplier,
+    canActivate: [authGuard, roleGuard],
+    data: {
+      roles: ['Employee', 'Manager', 'Owner']
+    }
+  },
   { path: 'inventory', component: Products, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
   { path: 'pos', component: PosComponent, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
   { path: 'orders', component: Orders, canActivate: [authGuard, roleGuard], data: { roles: ['Employee','Manager', 'Owner'] } },
@@ -30,5 +42,11 @@ export const routes: Routes = [
   { path: 'reports', component: Reports, canActivate: [authGuard, roleGuard], data: { roles: ['Manager', 'Owner'] } },
   { path: 'team-members', component: TeamMembers, canActivate: [authGuard, roleGuard], data: { roles: ['Manager', 'Owner'] } },
   { path: 'store-settings', component: SettingsComponent, canActivate: [authGuard, roleGuard], data: { roles: ['Owner'] } },
+  {
+    path: 'accounts',
+    component: Accounts,
+    canActivate: [authGuard, roleGuard],
+    data: { roles: ['Employee', 'Manager', 'Owner'] }
+  },
   { path: '**', redirectTo: 'login' },
 ];

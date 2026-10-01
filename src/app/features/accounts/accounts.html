@@ -1,0 +1,1487 @@
+<div class="accounts-page">
+
+    <!-- =======================================================
+         PAGE HEADER
+         ======================================================= -->
+         <div class="accounts-header">
+                    <div class="page-title-area">
+                      <span class="page-eyebrow">
+                        ACCOUNTING
+                      </span>
+                  
+                      <h1>
+                        Account Statement
+                      </h1>
+                  
+                      <p>
+                        Customer and supplier account statements.
+                      </p>
+                  
+                    </div>
+
+                                          <!-- DATE FILTER -->
+      
+          <div class="header-date-filters">
+      
+            <!-- FROM -->
+      
+            <div class="statement-date-field">
+              <label>
+                From
+              </label>
+      
+              <div class="date-input-wrapper">
+                <input
+                  #fromDateInput
+                  type="date"
+                  [(ngModel)]="fromDate"
+                  (ngModelChange)="
+                    accountType === 'customer'
+                      ? filterByDate()
+                      : filterSupplierByDate()
+                  "
+                />
+      
+                <button
+                  type="button"
+                  class="date-icon-button"
+                  (click)="
+                    fromDate
+                      ? clearFromDate()
+                      : fromDateInput.click()
+                  "
+                  [attr.aria-label]="
+                    fromDate
+                      ? 'Clear from date'
+                      : 'Open from date picker'
+                  "
+                >
+      
+                  @if (fromDate) {
+      
+                    <i class="bi bi-x-lg"></i>
+      
+                  } @else {
+      
+                    <i class="bi bi-calendar3"></i>
+      
+                  }
+      
+                </button>
+      
+              </div>
+      
+            </div>
+      
+      
+            <!-- TO -->
+      
+            <div class="statement-date-field">
+      
+              <label>
+                To
+              </label>
+      
+              <div class="date-input-wrapper">
+      
+                <input
+                  #toDateInput
+                  type="date"
+                  [(ngModel)]="toDate"
+                  (ngModelChange)="
+                    accountType === 'customer'
+                      ? filterByDate()
+                      : filterSupplierByDate()
+                  "
+                />
+      
+                <button
+                  type="button"
+                  class="date-icon-button"
+                  (click)="
+                    toDate
+                      ? clearToDate()
+                      : toDateInput.click()
+                  "
+                  [attr.aria-label]="
+                    toDate
+                      ? 'Clear to date'
+                      : 'Open to date picker'
+                  "
+                >
+      
+                  @if (toDate) {
+      
+                    <i class="bi bi-x-lg"></i>
+      
+                  } @else {
+      
+                    <i class="bi bi-calendar3"></i>
+      
+                  }
+      
+                </button>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+
+        <!-- ACCOUNT TYPE -->
+          <div class="account-selector">
+      
+            <label>
+              Account Type
+            </label>
+      
+            
+            <div class="account-type-dropdown account-selector-type-dropdown">
+              <button
+                type="button"
+                class="account-type-trigger"
+                (click)="toggleAccountDropdown(); $event.stopPropagation()"
+              >
+      
+                @if (selectedCustomer && accountType === 'customer') {
+      
+                  <i class="bi bi-people"></i>
+                  <span>Customers</span>
+      
+                } @else if (selectedSupplier && accountType === 'supplier') {
+      
+                  <i class="bi bi-truck"></i>
+                  <span>Suppliers</span>
+      
+                } @else if (isAccountModalOpen && accountType === 'customer') {
+      
+                  <i class="bi bi-people"></i>
+                  <span>Customers</span>
+      
+                } @else if (isAccountModalOpen && accountType === 'supplier') {
+      
+                  <i class="bi bi-truck"></i>
+                  <span>Suppliers</span>
+      
+                } @else {
+      
+                  <i class="bi bi-person-lines-fill"></i>
+                  <span>Customer or Supplier</span>
+      
+                }
+      
+                <i
+                  class="bi bi-chevron-down"
+                  [class.rotated]="isAccountDropdownOpen"
+                ></i>
+      
+              </button>
+      
+      
+              @if (isAccountDropdownOpen) {
+      
+                <div
+                  class="account-type-menu account-selector-type-menu"
+                  (click)="$event.stopPropagation()"
+                >
+      
+                  <!-- CUSTOMER -->
+      
+                  <button
+                    type="button"
+                    class="account-type-option"
+                    [class.active]="accountType === 'customer'"
+                    (click)="selectAccountType('customer')"
+                  >
+      
+                    <span class="account-type-option-icon">
+                      <i class="bi bi-people"></i>
+                    </span>
+      
+                    <span>
+      
+                      <strong>
+                        Customers
+                      </strong>
+      
+                      <small>
+                        Customer account statements
+                      </small>
+      
+                    </span>
+      
+                  </button>
+      
+      
+                  <!-- SUPPLIER -->
+      
+                  <button
+                    type="button"
+                    class="account-type-option"
+                    [class.active]="accountType === 'supplier'"
+                    (click)="selectAccountType('supplier')"
+                  >
+      
+                    <span class="account-type-option-icon">
+                      <i class="bi bi-truck"></i>
+                    </span>
+      
+                    <span>
+      
+                      <strong>
+                        Suppliers
+                      </strong>
+      
+                      <small>
+                        Supplier account statements
+                      </small>
+      
+                    </span>
+      
+                  </button>
+      
+                </div>
+      
+              }
+      
+            </div>
+      
+          </div> 
+          </div>
+  
+  
+    <!-- =======================================================
+         STATEMENT CONTAINER
+         ======================================================= -->
+  
+    <section class="statement-container">
+  
+      <!-- =====================================================
+           ACCOUNT SELECTOR TOOLBAR
+           ===================================================== -->
+  
+<!-- =====================================================
+     STATEMENT TOOLBAR
+     ROW 1:
+     ACCOUNT TYPE LEFT + DATE FILTER RIGHT
+
+     ROW 2:
+     SELECTED ACCOUNT LEFT + CURRENT BALANCE RIGHT
+     ===================================================== -->
+
+     <div class="statement-toolbar">
+    
+        <!-- ===================================================
+             ROW 2
+             SELECTED ACCOUNT LEFT + CURRENT BALANCE RIGHT
+             =================================================== -->
+      
+        @if (
+          (selectedCustomer && accountType === 'customer') ||
+          (selectedSupplier && accountType === 'supplier')
+        ) {
+      
+          <div class="statement-toolbar-bottom">
+      
+            <!-- SELECTED ACCOUNT -->
+      
+            <div class="selected-account-summary">
+      
+              @if (
+                selectedCustomer &&
+                accountType === 'customer'
+              ) {
+      
+                <span class="selected-account-summary-icon customer">
+                  <i class="bi bi-person"></i>
+                </span>
+      
+                <div class="selected-account-summary-text">
+      
+                  <strong>
+                    {{ selectedCustomer.name }}
+                  </strong>
+      
+                  <span>
+                    {{ selectedCustomer.phone }}
+                  </span>
+      
+                </div>
+      
+              } @else if (
+                selectedSupplier &&
+                accountType === 'supplier'
+              ) {
+      
+                <span class="selected-account-summary-icon supplier">
+                  <i class="bi bi-building"></i>
+                </span>
+      
+                <div class="selected-account-summary-text">
+      
+                  <strong>
+                    {{ selectedSupplier.name }}
+                  </strong>
+      
+                  <span>
+                    Supplier account
+                  </span>
+      
+                </div>
+      
+              }
+      
+            </div>
+
+                        <!-- CURRENT BALANCE -->
+      
+                        <div class="selected-account-info">
+      
+                            <span class="selected-account-label">
+                              Current Balance
+                            </span>
+                    
+                            @if (
+                              selectedCustomer &&
+                              accountType === 'customer'
+                            ) {
+                    
+                              <strong
+                                [class.balance-due]="currentBalance > 0"
+                                [class.balance-clear]="currentBalance <= 0"
+                              >
+                                {{ currentBalance | number:'1.2-2' }} EGP
+                              </strong>
+                    
+                            } @else {
+                    
+                              <strong
+                                [class.balance-due]="supplierCurrentBalance > 0"
+                                [class.balance-clear]="supplierCurrentBalance <= 0"
+                              >
+                                {{ supplierCurrentBalance | number:'1.2-2' }} EGP
+                              </strong>
+                    
+                            }
+                    
+                          </div>
+      
+
+      
+
+      
+          </div>
+      
+        }
+      
+      </div>
+  
+  
+      <!-- =====================================================
+           CUSTOMER ACCOUNT
+           ===================================================== -->
+  
+      @if (selectedCustomer && accountType === 'customer') {
+    
+        <!-- ===================================================
+             CUSTOMER STATEMENT TABLE
+             =================================================== -->
+  
+        <div class="statement-table-wrapper">
+  
+            <table class="statement-table">
+
+                <colgroup>
+                  <col class="col-number-width">
+                  <col class="col-transaction-width">
+                  <col class="col-date-width">
+                  <col class="col-reference-width">
+                  <col class="col-debit-width">
+                  <col class="col-credit-width">
+                  <col class="col-balance-width">
+                </colgroup>
+              
+                <thead>
+                  <tr>
+                    <th class="col-number">#</th>
+                    <th class="col-transaction">Transaction</th>
+                    <th class="col-date">Date</th>
+                    <th class="col-reference">Reference</th>
+                    <th class="col-debit">Debit</th>
+                    <th class="col-credit">Credit</th>
+                    <th class="col-balance">Balance</th>
+                  </tr>
+                </thead>
+              
+                <tbody>
+              
+                  <!-- Opening Balance -->
+                  <tr class="opening-balance-row">
+              
+                    <td class="row-number">1</td>
+              
+                    <td class="transaction-cell">
+                      <div class="opening-balance-label">
+                        <span class="opening-icon">
+                          <i class="bi bi-wallet2"></i>
+                        </span>
+              
+                        <strong>Opening Balance</strong>
+                      </div>
+                    </td>
+              
+                    <td class="date-cell">—</td>
+              
+                    <td class="reference-cell">—</td>
+              
+                    <td class="amount-cell">—</td>
+              
+                    <td class="amount-cell">—</td>
+              
+                    <td class="balance-cell">
+                      {{ openingBalance | number:'1.2-2' }}
+                    </td>
+              
+                  </tr>
+              
+              
+                  @for (
+                    transaction of transactions;
+                    track transaction.id;
+                    let i = $index
+                  ) {
+              
+                    <tr
+                      class="transaction-row"
+                      [class.row-expanded]="isTransactionExpanded(transaction)"
+                    >
+              
+                      <!-- # -->
+                      <td class="row-number">
+                        {{ i + 2 }}
+                      </td>
+              
+              
+                      <!-- TRANSACTION -->
+                      <td class="transaction-cell">
+              
+                        <div class="transaction-name">
+              
+                          @if (transaction.type === 'Sale') {
+              
+                            <button
+                              type="button"
+                              class="transaction-icon-button sale"
+                              [class.clickable]="hasTransactionItems(transaction)"
+                              (click)="hasTransactionItems(transaction) && toggleTransaction(transaction)"
+                              [attr.aria-label]="hasTransactionItems(transaction) ? 'Show sale details' : null"
+                            >
+                              <span class="transaction-icon sale">
+                                <i class="bi bi-cart3"></i>
+                              </span>
+                            </button>
+              
+                            <div class="transaction-copy">
+              
+                              <div class="statement-title-row">
+              
+                                <strong>
+                                  {{ getCustomerTransactionLabel(transaction) }}
+                                </strong>
+              
+                                @if (transaction.paymentStatus === 'Paid') {
+              
+                                  <span class="paid-badge">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Paid
+                                  </span>
+              
+                                } @else {
+              
+                                  <span class="on-account-badge">
+                                    <i class="bi bi-clock-history"></i>
+                                    On Account
+                                  </span>
+              
+                                }
+              
+                              </div>
+              
+              
+                              @if (transaction.paymentStatus === 'Paid') {
+
+                                <span class="payment-method">
+                                  Paid {{ transaction.amount | number:'1.2-2' }} EGP
+                                  via {{ getCustomerPaymentAccountName(transaction) }}
+                                </span>
+                              
+                              } @else {
+                              
+                                <span class="transaction-subtext">
+                                  Credit sale · {{ transaction.amount | number:'1.2-2' }} EGP
+                                </span>
+                              
+                              }
+              
+                            </div>
+              
+                          } @else if (transaction.type === 'CustomerCollection') {
+              
+                            <span class="transaction-icon collection">
+                              <i class="bi bi-cash-stack"></i>
+                            </span>
+              
+                            <div class="transaction-copy">
+              
+                              <strong>
+                                Customer Collection
+                              </strong>
+              
+                              @if (
+                                transaction.paymentAccountName ||
+                                transaction.paymentAccountId
+                              ) {
+              
+                                <span class="payment-method">
+                                  Received via {{ getCustomerPaymentAccountName(transaction) }}
+                                </span>
+              
+                              } @else {
+              
+                                <span class="transaction-subtext">
+                                  Account payment
+                                </span>
+              
+                              }
+              
+                            </div>
+              
+                          } @else {
+              
+                            <button
+                              type="button"
+                              class="transaction-icon-button return"
+                              [class.clickable]="hasTransactionItems(transaction)"
+                              (click)="hasTransactionItems(transaction) && toggleTransaction(transaction)"
+                              [attr.aria-label]="hasTransactionItems(transaction) ? 'Show return details' : null"
+                            >
+              
+                              <span class="transaction-icon return">
+                                <i class="bi bi-arrow-return-left"></i>
+                              </span>
+              
+                            </button>
+              
+                            <div class="transaction-copy">
+              
+                              <div class="statement-title-row">
+              
+                                <strong>
+                                  Sale Return
+                                </strong>
+              
+                                <span class="return-badge">
+                                  <i class="bi bi-arrow-return-left"></i>
+                                  Return
+                                </span>
+              
+                              </div>
+              
+                              <span class="transaction-subtext">
+                                Customer credit
+                              </span>
+              
+                            </div>
+              
+                          }
+              
+                        </div>
+              
+                      </td>
+              
+              
+                      <!-- DATE -->
+                      <td class="date-cell">
+              
+                        <strong>
+                          {{ transaction.createdAt | date:'dd/MM/yyyy' }}
+                        </strong>
+              
+                        <span>
+                          {{ transaction.createdAt | date:'hh:mm a' }}
+                        </span>
+              
+                      </td>
+              
+              
+                      <!-- REFERENCE -->
+                      <td class="reference-cell">
+                        <span>
+                          {{ transaction.referenceNumber || '—' }}
+                        </span>
+                      </td>
+              
+              
+                      <!-- DEBIT -->
+                      <td class="amount-cell debit">
+                        {{ getCustomerTransactionDebit(transaction) | number:'1.2-2' }}
+                      </td>
+              
+              
+                      <!-- CREDIT -->
+                      <td class="amount-cell credit">
+                        {{ getCustomerTransactionCredit(transaction) | number:'1.2-2' }}
+                      </td>
+              
+              
+                      <!-- BALANCE -->
+                      <td class="balance-cell">
+                        {{ getRunningBalance(transaction) | number:'1.2-2' }}
+                      </td>
+              
+                    </tr>
+              
+              
+                    @if (isTransactionExpanded(transaction)) {
+              
+                      <tr class="details-row">
+              
+                        <td></td>
+              
+                        <td colspan="6">
+              
+                          <div class="transaction-details-panel">
+                            <button
+                            type="button"
+                            class="details-close"
+                            (click)="expandedTransactionId = null"
+                            aria-label="Close details"
+                          >
+                            <i class="bi bi-x-lg"></i>
+                          </button>
+                  
+                          <div class="details-items">
+                            @if (transaction.items.length > 0) {
+              
+                              <div class="details-items">
+              
+                                @for (
+                                  item of transaction.items;
+                                  track item.productId || $index
+                                ) {
+              
+                                  <div class="details-item">
+              
+                                    <div class="details-item-main">
+              
+                                        @if (getProductImage(item.productId)) {
+
+                                            <span class="details-item-icon product-image">
+                                              <img
+                                                [src]="getProductImage(item.productId)"
+                                                [alt]="item.productName"
+                                              />
+                                            </span>
+                                          
+                                          } @else {
+                                          
+                                            <span class="details-item-icon">
+                                              <i class="bi bi-box-seam"></i>
+                                            </span>
+                                          
+                                          }
+              
+                                      <div>
+              
+                                        <strong>
+                                          {{ item.productName }}
+                                        </strong>
+              
+                                        @if (item.sku) {
+              
+                                          <span>
+                                            SKU: {{ item.sku }}
+                                          </span>
+              
+                                        }
+              
+                                      </div>
+              
+                                    </div>
+              
+              
+                                    <div class="customer-details-pricing">
+              
+                                      <div class="customer-detail-value">
+                                        <span>Qty</span>
+                                        <strong>
+                                          {{ item.quantity }}
+                                        </strong>
+                                      </div>
+              
+                                      <div class="customer-detail-value">
+                                        <span>Unit Price</span>
+                                        <strong>
+                                          {{ item.unitPrice | number:'1.2-2' }}
+                                        </strong>
+                                      </div>
+              
+                                      <div class="customer-detail-value">
+                                        <span>Total</span>
+                                        <strong>
+                                          {{ item.total | number:'1.2-2' }}
+                                        </strong>
+                                      </div>
+              
+                                    </div>
+              
+                                  </div>
+              
+                                }
+              
+                              </div>
+              
+                            } @else {
+              
+                              <div class="details-empty">
+                                No product details available for this transaction.
+                              </div>
+              
+                            }
+              
+                          </div>
+                        </div>
+                        </td>
+              
+                      </tr>
+              
+                    }
+              
+                  }
+              
+              
+                  @if (transactions.length === 0 && !loading) {
+              
+                    <tr class="empty-row">
+              
+                      <td colspan="7">
+              
+                        <div class="empty-state">
+              
+                          <i class="bi bi-journal-text"></i>
+              
+                          <strong>
+                            No transactions found
+                          </strong>
+              
+                          <span>
+                            There are no customer account transactions for the selected period.
+                          </span>
+              
+                        </div>
+              
+                      </td>
+              
+                    </tr>
+              
+                  }
+              
+                </tbody>
+              
+              
+                <tfoot>
+              
+                  <tr class="totals-row">
+              
+                    <!-- # -->
+                    <td></td>
+              
+                    <!-- Transaction -->
+                    <td></td>
+              
+                    <!-- Date -->
+                    <td></td>
+              
+                    <!-- Reference / Label -->
+                    <td class="totals-label-cell">
+                      Statement Total
+                    </td>
+              
+                    <!-- Debit -->
+                    <td class="amount-cell">
+                      {{ totalDebit | number:'1.2-2' }}
+                    </td>
+              
+                    <!-- Credit -->
+                    <td class="amount-cell">
+                      {{ totalCredit | number:'1.2-2' }}
+                    </td>
+              
+                    <!-- Balance -->
+                    <td class="balance-cell">
+                      {{ currentBalance | number:'1.2-2' }}
+                    </td>
+              
+                  </tr>
+              
+                </tfoot>
+              
+              </table>
+  
+        </div>
+  
+  
+        <div class="account-summary">
+  
+          <div class="summary-line-item">
+            <span>Total Debit</span>
+            <strong>{{ totalDebit | number:'1.2-2' }} EGP</strong>
+          </div>
+  
+          <div class="summary-divider"></div>
+  
+          <div class="summary-line-item">
+            <span>Total Credit</span>
+            <strong>{{ totalCredit | number:'1.2-2' }} EGP</strong>
+          </div>
+  
+          <div class="summary-divider"></div>
+  
+          <div class="summary-line-item balance">
+            <span>Current Balance</span>
+            <strong>{{ currentBalance | number:'1.2-2' }} EGP</strong>
+          </div>
+  
+        </div>
+  
+  
+      <!-- =====================================================
+           SUPPLIER ACCOUNT
+           ===================================================== -->
+  
+      } @else if (selectedSupplier && accountType === 'supplier') {
+        <div class="statement-table-wrapper">
+  
+            <table class="statement-table">
+
+                <colgroup>
+                  <col class="col-number-width">
+                  <col class="col-transaction-width">
+                  <col class="col-date-width">
+                  <col class="col-reference-width">
+                  <col class="col-debit-width">
+                  <col class="col-credit-width">
+                  <col class="col-balance-width">
+                </colgroup>
+
+                <thead>
+                    <tr>
+                      <th class="col-number">#</th>
+                      <th class="col-transaction">Transaction</th>
+                      <th class="col-date">Date</th>
+                      <th class="col-reference">Reference</th>
+                      <th class="col-debit">Debit</th>
+                      <th class="col-credit">Credit</th>
+                      <th class="col-balance">Balance</th>
+                    </tr>
+                  </thead>
+  
+            <tbody>
+  
+                <tr class="opening-balance-row">
+
+                    <td class="row-number">
+                      1
+                    </td>
+                  
+                    <td class="transaction-cell">
+                  
+                      <div class="opening-balance-label">
+                  
+                        <span class="opening-icon">
+                          <i class="bi bi-wallet2"></i>
+                        </span>
+                  
+                        <strong>
+                          Opening Balance
+                        </strong>
+                  
+                      </div>
+                  
+                    </td>
+                  
+                    <td class="date-cell">
+                      —
+                    </td>
+                  
+                    <td class="reference-cell">
+                      —
+                    </td>
+                  
+                    <td class="amount-cell">
+                      —
+                    </td>
+                  
+                    <td class="amount-cell">
+                      —
+                    </td>
+                  
+                    <td class="balance-cell">
+                      {{ supplierOpeningBalance | number:'1.2-2' }}
+                    </td>
+                  
+                  </tr>
+  
+  
+              @for (
+                transaction of supplierDisplayedTransactions;
+                track transaction.id;
+                let i = $index
+              ) {
+  
+                <tr
+                  class="transaction-row"
+                  [class.row-expanded]="expandedTransactionId === transaction.id"
+                >
+  
+                  <td class="row-number">{{ i + 2 }}</td>
+  
+                  <td class="transaction-cell">
+  
+                    <div class="transaction-name">
+  
+                      @if (transaction.type === 'PurchaseInvoice') {
+  
+                        <button
+                        type="button"
+                        class="transaction-icon-button purchase"
+                        [class.clickable]="transaction.items.length > 0"
+                        (click)="
+                          transaction.items.length > 0 &&
+                          (
+                            expandedTransactionId === transaction.id
+                              ? expandedTransactionId = null
+                              : expandedTransactionId = transaction.id
+                          )
+                        "
+                        [attr.aria-label]="
+                          transaction.items.length > 0
+                            ? 'Show purchase invoice details'
+                            : null
+                        "
+                      >
+                        <span class="transaction-icon purchase">
+                          <i class="bi bi-receipt"></i>
+                        </span>
+                      </button>
+  
+                        <div class="transaction-copy">
+                          <div class="statement-title-row">
+                            <strong>Purchase Invoice</strong>
+  
+                            @if (transaction.paymentStatus === 'Paid') {
+                              <span class="paid-badge">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Paid
+                              </span>
+                            } @else {
+                              <span class="on-account-badge">
+                                <i class="bi bi-clock-history"></i>
+                                On Account
+                              </span>
+                            }
+                          </div>
+                    @if (transaction.paymentStatus === 'Paid') {
+
+                    <span class="payment-method">
+                        Paid {{ transaction.amount | number:'1.2-2' }} EGP
+                        @if (transaction.paymentAccountName) {
+                        via {{ transaction.paymentAccountName }}
+                        }
+                    </span>
+
+                    } @else {
+
+                    <span class="transaction-subtext">
+                        Invoice total {{ transaction.amount | number:'1.2-2' }} EGP
+                    </span>
+
+                    }
+                        </div>
+  
+                      } @else {
+  
+                        <button
+                          type="button"
+                          class="transaction-icon-button return"
+                          [class.clickable]="transaction.items.length > 0"
+                          (click)="transaction.items.length > 0 && (expandedTransactionId === transaction.id ? expandedTransactionId = null : expandedTransactionId = transaction.id)"
+                          aria-label="Show purchase return details"
+                        >
+                          <span class="transaction-icon return">
+                            <i class="bi bi-arrow-return-left"></i>
+                          </span>
+                        </button>
+  
+                        <div class="transaction-copy">
+                          <div class="statement-title-row">
+                            <strong>Purchase Return</strong>
+                            <span class="return-badge">
+                              <i class="bi bi-arrow-return-left"></i>
+                              Return
+                            </span>
+                          </div>
+                          <span class="transaction-subtext">
+                            Supplier credit
+                          </span>
+                        </div>
+  
+                      }
+  
+                    </div>
+  
+                  </td>
+
+                  <td class="date-cell">
+                    <strong>{{ transaction.createdAt | date:'dd/MM/yyyy' }}</strong>
+                    <span>{{ transaction.createdAt | date:'hh:mm a' }}</span>
+                  </td>
+  
+                  <td class="reference-cell">
+                    {{ transaction.referenceNumber || '—' }}
+                  </td>
+  
+                  <td class="amount-cell debit">
+                    {{ getSupplierTransactionDebit(transaction) | number:'1.2-2' }}
+                  </td>
+  
+                  <td class="amount-cell credit">
+                    {{ getSupplierTransactionCredit(transaction) | number:'1.2-2' }}
+                  </td>
+  
+                  <td class="balance-cell">
+                    {{ getSupplierRunningBalance(transaction) | number:'1.2-2' }}
+                  </td>
+  
+                </tr>
+  
+  
+                @if (expandedTransactionId === transaction.id) {
+
+                    <tr class="details-row">
+                  
+                      <td></td>
+                  
+                      <td colspan="6">
+                  
+                        <div class="transaction-details-panel">
+                  
+                          <!-- CLOSE -->
+                          <button
+                            type="button"
+                            class="details-close"
+                            (click)="expandedTransactionId = null"
+                            aria-label="Close details"
+                          >
+                            <i class="bi bi-x-lg"></i>
+                          </button>
+                  
+                  
+                          <!-- ITEMS -->
+                          <div class="details-items">
+                  
+                            @for (item of transaction.items; track $index) {
+                  
+                              <div class="details-item">
+                  
+                                <!-- PRODUCT -->
+                                <div class="details-item-main">
+                  
+                                    @if (getProductImage(item.productId)) {
+
+                                        <span class="details-item-icon product-image">
+                                          <img
+                                            [src]="getProductImage(item.productId)"
+                                            [alt]="item.productName"
+                                          />
+                                        </span>
+                                      
+                                      } @else {
+                                      
+                                        <span class="details-item-icon">
+                                          <i class="bi bi-box-seam"></i>
+                                        </span>
+                                      
+                                      }
+                  
+                                  <div>
+                  
+                                    <strong>
+                                      {{ item.productName }}
+                                    </strong>
+                  
+                                    @if (item.sku) {
+                                      <span>
+                                        SKU: {{ item.sku }}
+                                      </span>
+                                    }
+                  
+                                  </div>
+                  
+                                </div>
+                  
+                  
+                                <!-- PRICING -->
+                                <div class="customer-details-pricing">
+                  
+                                  <div class="customer-detail-value">
+                  
+                                    <span>
+                                      Qty
+                                    </span>
+                  
+                                    <strong>
+                                      {{ item.quantity }}
+                                    </strong>
+                  
+                                  </div>
+                  
+                  
+                                  <div class="customer-detail-value">
+                  
+                                    <span>
+                                      Unit Price
+                                    </span>
+                  
+                                    <strong>
+                                      {{ item.unitPrice | number:'1.2-2' }}
+                                    </strong>
+                  
+                                  </div>
+                  
+                  
+                                  <div class="customer-detail-value">
+                  
+                                    <span>
+                                      Total
+                                    </span>
+                  
+                                    <strong>
+                                      {{ item.total | number:'1.2-2' }}
+                                    </strong>
+                  
+                                  </div>
+                  
+                                </div>
+                  
+                              </div>
+                  
+                            }
+                  
+                          </div>
+                  
+                        </div>
+                  
+                      </td>
+                  
+                    </tr>
+                  
+                  }
+                }
+  
+  
+              @if (supplierDisplayedTransactions.length === 0 && !loading) {
+                <tr class="empty-row">
+                  <td colspan="7">
+                    <div class="empty-state">
+                      <i class="bi bi-journal-text"></i>
+                      <strong>No transactions found</strong>
+                      <span>
+                        There are no supplier account transactions for the selected period.
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              }
+  
+            </tbody>
+  
+            <tfoot>
+
+                <tr class="totals-row">
+              
+                  <td></td>
+              
+                  <td></td>
+              
+                  <td></td>
+              
+                  <td class="totals-label-cell">
+                    Statement Total
+                  </td>
+              
+                  <td class="amount-cell">
+                    {{ supplierTotalDebit | number:'1.2-2' }}
+                  </td>
+              
+                  <td class="amount-cell">
+                    {{ supplierTotalCredit | number:'1.2-2' }}
+                  </td>
+              
+                  <td class="balance-cell">
+                    {{ supplierCurrentBalance | number:'1.2-2' }}
+                  </td>
+              
+                </tr>
+              
+              </tfoot>
+  
+          </table>
+  
+        </div>
+  
+  
+        <div class="account-summary">
+  
+          <div class="summary-line-item">
+            <span>Total Debit</span>
+            <strong>{{ supplierTotalDebit | number:'1.2-2' }} EGP</strong>
+          </div>
+  
+          <div class="summary-divider"></div>
+  
+          <div class="summary-line-item">
+            <span>Total Credit</span>
+            <strong>{{ supplierTotalCredit | number:'1.2-2' }} EGP</strong>
+          </div>
+  
+          <div class="summary-divider"></div>
+  
+          <div class="summary-line-item balance">
+            <span>Current Balance</span>
+            <strong>{{ supplierCurrentBalance | number:'1.2-2' }} EGP</strong>
+          </div>
+  
+        </div>
+  
+  
+      <!-- =====================================================
+           NO ACCOUNT SELECTED
+           ===================================================== -->
+  
+      } @else if (!loading) {
+  
+        <div class="no-account-selected">
+  
+          <div class="no-account-icon">
+            <i class="bi bi-journal-text"></i>
+          </div>
+  
+          <h2>
+            Select an Account
+          </h2>
+  
+          <p>
+            Choose a customer or supplier above to view the account statement.
+          </p>
+  
+          <button
+            type="button"
+            class="no-account-action"
+            (click)="openAccountModal()"
+          >
+            <i class="bi bi-person-plus"></i>
+            Select Account
+          </button>
+  
+        </div>
+  
+      }
+  
+  
+      <!-- =====================================================
+           LOADING
+           ===================================================== -->
+  
+      @if (loading) {
+  
+        <div class="account-loading">
+          <i class="bi bi-arrow-repeat"></i>
+          <span>Loading account statement...</span>
+        </div>
+  
+      }
+  
+  
+      <!-- =====================================================
+           ERROR
+           ===================================================== -->
+  
+      @if (errorMessage) {
+  
+        <div class="account-error">
+          <i class="bi bi-exclamation-circle"></i>
+          <span>{{ errorMessage }}</span>
+        </div>
+  
+      }
+  
+    </section>
+  
+  
+    <!-- =======================================================
+         ACCOUNT SELECTION MODAL
+         ======================================================= -->
+  
+    @if (isAccountModalOpen) {
+  
+      <div
+        class="account-modal-backdrop"
+        (click)="closeAccountModal()"
+      >
+  
+        <div
+          class="account-modal"
+          (click)="$event.stopPropagation()"
+        >
+  
+          <div class="account-modal-header">
+  
+            <div>
+              <span class="modal-eyebrow">
+                ACCOUNT SELECTOR
+              </span>
+  
+              <h2>
+                Select {{ accountType === 'customer' ? 'Customer' : 'Supplier' }}
+              </h2>
+  
+              <p>
+                Choose the account you want to review.
+              </p>
+            </div>
+  
+            <button
+              type="button"
+              class="modal-close-btn"
+              (click)="closeAccountModal()"
+              aria-label="Close account selector"
+            >
+              <i class="bi bi-x-lg"></i>
+            </button>
+  
+          </div>
+  
+  
+          <div class="account-modal-search">
+            <i class="bi bi-search"></i>
+            <input
+              type="text"
+              [(ngModel)]="accountSearchTerm"
+              [placeholder]="accountType === 'customer' ? 'Search customer name or phone...' : 'Search supplier name...'"
+              autocomplete="off"
+            />
+  
+            @if (accountSearchTerm) {
+              <button
+                type="button"
+                class="modal-search-clear"
+                (click)="accountSearchTerm = ''"
+                aria-label="Clear search"
+              >
+                <i class="bi bi-x"></i>
+              </button>
+            }
+          </div>
+  
+  
+          <div class="account-options">
+  
+            @if (accountType === 'customer') {
+  
+              @if (filteredCustomers.length > 0) {
+  
+                @for (customer of filteredCustomers; track customer.id) {
+  
+                  <button
+                    type="button"
+                    class="account-option"
+                    [class.selected]="isCustomerSelected(customer.id)"
+                    (click)="selectCustomerFromModal(customer)"
+                  >
+                    <span class="account-option-icon customer">
+                      <i class="bi bi-person"></i>
+                    </span>
+  
+                    <span class="account-option-info">
+                      <strong>{{ customer.name }}</strong>
+                      <small>{{ customer.phone }}</small>
+                    </span>
+  
+                    <span class="account-option-balance">
+                      {{ customer.balance | number:'1.2-2' }} EGP
+                    </span>
+                  </button>
+  
+                }
+  
+              } @else {
+  
+                <div class="account-options-empty">
+                  <i class="bi bi-search"></i>
+                  <strong>No customers found</strong>
+                  <span>Try a different name or phone number.</span>
+                </div>
+  
+              }
+  
+            } @else {
+  
+              @if (filteredSuppliers.length > 0) {
+  
+                @for (supplier of filteredSuppliers; track supplier.id) {
+  
+                  <button
+                    type="button"
+                    class="account-option"
+                    [class.selected]="isSupplierSelected(supplier.id)"
+                    (click)="selectSupplierFromModal(supplier)"
+                  >
+                    <span class="account-option-icon supplier">
+                      <i class="bi bi-building"></i>
+                    </span>
+  
+                    <span class="account-option-info">
+                      <strong>{{ supplier.name }}</strong>
+                      <small>Supplier account</small>
+                    </span>
+  
+                    <span class="account-option-arrow">
+                      <i class="bi bi-chevron-right"></i>
+                    </span>
+                  </button>
+  
+                }
+  
+              } @else {
+  
+                <div class="account-options-empty">
+                  <i class="bi bi-search"></i>
+                  <strong>No suppliers found</strong>
+                  <span>Try a different supplier name.</span>
+                </div>
+  
+              }
+  
+            }
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    }
+  
+  </div>
+  

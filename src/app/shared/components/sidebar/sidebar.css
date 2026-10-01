@@ -1,3 +1,4 @@
+/* SIDEBAR */
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -11,6 +12,31 @@
   padding: 24px 15px 18px;
   z-index: 1000;
   border-right: 1px solid #E5E7EB;
+
+  /* Allow the whole sidebar to scroll when its content
+     becomes taller than the viewport. */
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }
 
 /* Brand */
@@ -64,6 +90,27 @@
   letter-spacing: 1.3px;
 }
 
+/* Current Page */
+.current-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 18px 10px 0;
+}
+
+.current-page-label {
+  color: #94A3B8;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+}
+
+.current-page-title {
+  color: #0F172A;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
 
 /* Navigation */
 .navigation {
@@ -100,7 +147,6 @@
   text-align: center;
   flex-shrink: 0;
 }
-
 
 /* Hover */
 .navigation a:hover,
@@ -142,7 +188,7 @@
   align-items: center;
   justify-content: center;
   gap: 9px;
-  min-height: 46px;
+  min-height: 40px;
   background: #159F98;
   color: #FFFFFF;
   text-decoration: none;
@@ -170,14 +216,9 @@
   color: #FFFFFF;
 }
 
-
 /* Bottom Navigation */
 .bottom-navigation {
-  padding-top: 12px;
-}
-
-.bottom-navigation a {
-  margin-bottom: 3px;
+  padding-top: 10px;
 }
 
 /* Tablet */
@@ -185,6 +226,11 @@
   .sidebar {
     width: 76px;
     padding: 22px 9px 16px;
+
+    /* Keep the compact sidebar scrollable vertically
+       if its contents become taller than the viewport. */
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .brand {
@@ -202,6 +248,10 @@
   .brand-mark {
     width: 44px;
     height: 44px;
+  }
+
+  .current-page {
+    display: none;
   }
 
   .navigation {
@@ -251,7 +301,6 @@
   }
 }
 
-
 /* Mobile */
 @media (max-width: 600px) {
   .sidebar {
@@ -261,6 +310,10 @@
     padding: 10px 13px;
     flex-direction: row;
     align-items: center;
+
+    /* Mobile uses horizontal navigation scrolling. */
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
 
   .brand {
@@ -280,6 +333,22 @@
     gap: 4px;
     flex: 1;
     overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 0;
+    scrollbar-width: none;
+  }
+
+  .navigation::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .navigation::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .navigation::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 10px;
   }
 
   .navigation a {

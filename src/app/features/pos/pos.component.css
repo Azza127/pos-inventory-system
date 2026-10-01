@@ -837,6 +837,435 @@
   font-size: 14px;
 }
 
+/* =========================================================
+   PAYMENT ACCOUNTS
+   ========================================================= */
+
+   .payment-subsection {
+    margin-top: 12px;
+  }
+  
+  .payment-sub-label {
+    display: block;
+  
+    margin-bottom: 7px;
+  
+    color: #737A7D;
+  
+    font-size: 10px;
+    font-weight: 700;
+  
+    letter-spacing: 0.4px;
+  }
+  
+  
+  /* Payment account options */
+  
+  .payment-accounts-list {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+  
+    width: 100%;
+  
+    overflow-x: auto;
+  
+    padding-bottom: 3px;
+  
+    scrollbar-width: thin;
+  }
+  
+  
+  .payment-account-option {
+    flex: 1 0 82px;
+  
+    min-width: 82px;
+    max-width: 105px;
+  
+    min-height: 72px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    gap: 6px;
+  
+    padding: 8px 6px;
+  
+    border: 1px solid #E3E7E7;
+    border-radius: 10px;
+  
+    background: #FFFFFF;
+  
+    color: #737A7D;
+  
+    font-family: inherit;
+  
+    cursor: pointer;
+  
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.15s ease;
+  }
+  
+  
+  .payment-account-option:hover {
+    border-color: #159C92;
+  
+    color: #087F78;
+  
+    background: #FAFCFC;
+  
+    transform: translateY(-1px);
+  }
+  
+  
+  .payment-account-option.active {
+    background: #E7F5F3;
+  
+    border-color: #159C92;
+  
+    color: #087F78;
+  
+    box-shadow:
+      inset 0 0 0 1px #D6EAE8;
+  }
+  
+  
+  /* Account icon */
+  
+  .payment-account-option-icon {
+    width: 34px;
+    height: 34px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;
+  }
+  
+  
+  .payment-account-option-icon img {
+    width: 34px;
+    height: 34px;
+  
+    display: block;
+  
+    object-fit: contain;
+  
+    border-radius: 0;
+  }
+  
+  
+  /* Fallback emoji/icon */
+  
+  .payment-account-option-icon > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 21px;
+  
+    line-height: 1;
+  }
+  
+  
+  /* Account name */
+  
+  .payment-account-option-name {
+    width: 100%;
+  
+    overflow: hidden;
+  
+    text-overflow: ellipsis;
+  
+    white-space: nowrap;
+  
+    text-align: center;
+  
+    font-size: 10px;
+  
+    font-weight: 700;
+  }
+  
+  
+  /* =========================================================
+     PAYMENT ACCOUNT SCROLLBAR
+     ========================================================= */
+  
+  .payment-accounts-list::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .payment-accounts-list::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .payment-accounts-list::-webkit-scrollbar-thumb {
+    background: #DCE4E6;
+    border-radius: 10px;
+  }
+  
+  .payment-accounts-list::-webkit-scrollbar-thumb:hover {
+    background: #BFCFD1;
+  }
+
+  /* =========================================================
+   CUSTOMER DROPDOWN
+   ========================================================= */
+
+.customer-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+
+.customer-dropdown-btn {
+  width: 100%;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 12px;
+
+  border: 1px solid #E3E7E7;
+  border-radius: 8px;
+
+  background: #FFFFFF;
+
+  color: #15191C;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.customer-dropdown-btn:hover {
+  border-color: #159C92;
+}
+
+
+.customer-dropdown-btn:focus {
+  outline: none;
+
+  border-color: #159C92;
+
+  box-shadow:
+    0 0 0 3px rgba(21, 159, 154, 0.10);
+}
+
+
+.customer-selected-text {
+  display: block;
+
+  width: 100%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  background: transparent !important;
+
+  color: #14263D;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-align: left;
+}
+
+.customer-selected-text.placeholder {
+  background: transparent !important;
+  color: #737A7D;
+}
+
+.customer-dropdown-btn {
+  background: #FFFFFF !important;
+}
+
+
+/* Arrow */
+
+.customer-dropdown-arrow {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  margin-left: 10px;
+
+  border-right: 1.5px solid #737A7D;
+  border-bottom: 1.5px solid #737A7D;
+
+  transform: rotate(45deg)
+    translateY(-2px);
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+.customer-dropdown-arrow.open {
+  transform:
+    rotate(225deg)
+    translateY(-2px);
+}
+
+
+/* Dropdown menu */
+
+.customer-dropdown-menu {
+  position: absolute;
+
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+
+  z-index: 50;
+
+  max-height: 220px;
+
+  overflow-y: auto;
+
+  padding: 5px;
+
+  background: #FFFFFF;
+
+  border: 1px solid #E1E5E8;
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 8px 24px rgba(20, 38, 61, 0.10);
+}
+
+
+/* Customer option */
+
+.customer-option {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 9px 10px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #14263D;
+
+  font-family: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+
+.customer-option:hover {
+  background: #E8F5F4;
+}
+
+
+.customer-option.selected {
+  background: #E8F5F4;
+
+  color: #11847F;
+}
+
+
+.customer-option-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+.customer-option-name {
+  font-size: 11px;
+  font-weight: 700;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+.customer-option-balance {
+  color: #6F8094;
+
+  font-size: 9px;
+  font-weight: 500;
+}
+
+
+.customer-option-check {
+  flex-shrink: 0;
+
+  margin-left: 8px;
+
+  color: #159F9A;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+/* Empty state */
+
+.customer-empty {
+  padding: 14px 10px;
+
+  color: #6F8094;
+
+  font-size: 11px;
+
+  text-align: center;
+}
+
+
+/* Scrollbar */
+
+.customer-dropdown-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.customer-dropdown-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.customer-dropdown-menu::-webkit-scrollbar-thumb {
+  background: #DCE4E6;
+  border-radius: 10px;
+}
+
 .pay-select-btn:hover {
   border-color: #159C92;
   color: #087F78;

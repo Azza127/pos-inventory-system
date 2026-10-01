@@ -2,6 +2,12 @@ import { Component, OnInit, ChangeDetectorRef, HostListener } from '@angular/cor
 import { FormsModule } from '@angular/forms';
 import { StoreSettingsService, CurrencyOption } from '../../../core/services/store-settings.service';
 import { StoreSettings } from '../../../core/models/store-settings.model';
+import { PaymentAccountService } from '../../../core/services/payment-account.service';
+import {
+  PaymentAccount,
+  PaymentAccountType
+} from '../../../core/models/payment-account.model';
+import { PopupService } from '../../../core/services/popup.service';
 
 @Component({
   selector: 'app-settings',
@@ -34,13 +40,17 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     private storeSettingsService: StoreSettingsService,
+    private paymentAccountService: PaymentAccountService,
+    private popupService: PopupService,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.currencies =
-    this.storeSettingsService.getCurrencies();
+      this.storeSettingsService.getCurrencies();
+
     this.getSettings();
+    this.loadPaymentAccounts();
   }
 
   getSettings(): void {
@@ -112,10 +122,16 @@ export class SettingsComponent implements OnInit {
   
   @HostListener('document:click')
   onDocumentClick(): void {
+  
     if (this.currencyDropdownOpen) {
       this.currencyDropdownOpen = false;
-      this.cdr.detectChanges();
     }
+  
+    if (this.paymentAccountTypeDropdownOpen) {
+      this.paymentAccountTypeDropdownOpen = false;
+    }
+  
+    this.cdr.detectChanges();
   }
 
   validateField(field: string): void {
@@ -272,4 +288,440 @@ export class SettingsComponent implements OnInit {
     this.errorMessage = '';
     this.cdr.detectChanges();
   }
+
+    // =========================================================
+  // PAYMENT ACCOUNTS
+  // =========================================================
+
+  paymentAccounts: PaymentAccount[] = [];
+
+  showPaymentAccountModal = false;
+  editingPaymentAccountId: string | null = null;
+
+  paymentAccountForm = {
+    name: '',
+    type: 'cash' as PaymentAccountType,
+    description: '',
+    image: '',
+    isActive: true
+  };
+
+    // =========================================================
+  // LOAD PAYMENT ACCOUNTS
+  // =========================================================
+
+  loadPaymentAccounts(): void {
+
+    this.paymentAccountService
+      .getPaymentAccounts()
+      .subscribe({
+        next: (accounts) => {
+
+          this.paymentAccounts = accounts;
+
+          this.cdr.detectChanges();
+        },
+
+        error: (error) => {
+
+          console.error(
+            'Error loading payment accounts:',
+            error
+          );
+
+          this.showError(
+            'Failed to load payment accounts.'
+          );
+        }
+      });
+  }
+
+
+  // =========================================================
+  // PAYMENT ACCOUNT TYPE LABEL
+  // =========================================================
+
+  getPaymentAccountTypeLabel(
+    type: PaymentAccountType
+  ): string {
+
+    switch (type) {
+
+      case 'cash':
+        return 'Cash';
+
+      case 'card':
+        return 'Card';
+
+      case 'bank':
+        return 'Bank';
+
+      case 'wallet':
+        return 'Wallet';
+
+      default:
+        return type;
+    }
+  }
+
+
+  // =========================================================
+  // OPEN ADD MODAL
+  // =========================================================
+
+  openAddPaymentAccountModal(): void {
+
+    this.editingPaymentAccountId = null;
+
+    this.paymentAccountForm = {
+      name: '',
+      type: 'cash',
+      description: '',
+      image: '',
+      isActive: true
+    };
+
+    this.showPaymentAccountModal = true;
+
+    this.cdr.detectChanges();
+  }
+
+
+  // =========================================================
+  // OPEN EDIT MODAL
+  // =========================================================
+
+  openEditPaymentAccountModal(
+    account: PaymentAccount
+  ): void {
+
+    this.editingPaymentAccountId = account.id;
+
+    this.paymentAccountForm = {
+      name: account.name,
+      type: account.type,
+      description: account.description || '',
+      image: account.image || '',
+      isActive: account.isActive
+    };
+
+    this.showPaymentAccountModal = true;
+
+    this.cdr.detectChanges();
+  }
+
+
+  // =========================================================
+  // CLOSE MODAL
+  // =========================================================
+
+  closePaymentAccountModal(): void {
+
+    this.showPaymentAccountModal = false;
+    this.editingPaymentAccountId = null;
+
+    this.cdr.detectChanges();
+  }
+
+
+  // =========================================================
+  // SAVE PAYMENT ACCOUNT
+  // =========================================================
+
+  savePaymentAccount(): void {
+
+    const name =
+      this.paymentAccountForm.name.trim();
+
+    const description =
+      this.paymentAccountForm.description.trim();
+
+    if (!name) {
+
+      this.showError(
+        'Payment account name is required.'
+      );
+
+      return;
+    }
+
+    const accountData: Omit<PaymentAccount, 'id'> = {
+      name,
+      type: this.paymentAccountForm.type,
+      description: description || undefined,
+      image: this.paymentAccountForm.image || undefined,
+      isActive: this.paymentAccountForm.isActive
+    };
+
+
+    // EDIT
+    if (this.editingPaymentAccountId) {
+
+      this.paymentAccountService
+        .updatePaymentAccount(
+          this.editingPaymentAccountId,
+          accountData
+        )
+        .subscribe({
+
+          next: (updatedAccount) => {
+
+            this.paymentAccounts =
+              this.paymentAccounts.map(
+                account =>
+                  account.id === updatedAccount.id
+                    ? updatedAccount
+                    : account
+              );
+
+            this.closePaymentAccountModal();
+
+            this.showSuccess(
+              'Payment account updated successfully.'
+            );
+
+            this.cdr.detectChanges();
+          },
+
+          error: (error) => {
+
+            console.error(
+              'Error updating payment account:',
+              error
+            );
+
+            this.showError(
+              'Failed to update payment account.'
+            );
+          }
+        });
+
+      return;
+    }
+
+
+    // ADD
+    this.paymentAccountService
+      .addPaymentAccount(accountData)
+      .subscribe({
+
+        next: (createdAccount) => {
+
+          this.paymentAccounts = [
+            ...this.paymentAccounts,
+            createdAccount
+          ];
+
+          this.closePaymentAccountModal();
+
+          this.showSuccess(
+            'Payment account added successfully.'
+          );
+
+          this.cdr.detectChanges();
+        },
+
+        error: (error) => {
+
+          console.error(
+            'Error adding payment account:',
+            error
+          );
+
+          this.showError(
+            'Failed to add payment account.'
+          );
+        }
+      });
+  }
+
+  onPaymentAccountImageSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+  
+    if (!input.files || input.files.length === 0) {
+      return;
+    }
+  
+    const file = input.files[0];
+  
+    // Validate file type
+    const allowedTypes = [
+      'image/png',
+      'image/jpeg',
+      'image/webp'
+    ];
+  
+    if (!allowedTypes.includes(file.type)) {
+      this.showError(
+        'Please select a PNG, JPG or WebP image.'
+      );
+  
+      input.value = '';
+      return;
+    }
+  
+    // Limit image size to 200 KB
+    const maxSize = 200 * 1024;
+  
+    if (file.size > maxSize) {
+      this.showError(
+        'Image size must not exceed 200 KB.'
+      );
+  
+      input.value = '';
+      return;
+    }
+  
+    const reader = new FileReader();
+  
+    reader.onload = () => {
+  
+      this.paymentAccountForm.image =
+        reader.result as string;
+  
+      this.cdr.detectChanges();
+    };
+  
+    reader.onerror = () => {
+  
+      this.showError(
+        'Failed to read the selected image.'
+      );
+  
+      input.value = '';
+    };
+  
+    reader.readAsDataURL(file);
+  }
+
+
+  // =========================================================
+  // TOGGLE ACTIVE STATUS
+  // =========================================================
+
+  togglePaymentAccountStatus(
+    account: PaymentAccount
+  ): void {
+
+    const updatedAccount: Omit<PaymentAccount, 'id'> = {
+      name: account.name,
+      type: account.type,
+      description: account.description,
+      image: account.image,
+      isActive: !account.isActive
+    };
+
+    this.paymentAccountService
+      .updatePaymentAccount(
+        account.id,
+        updatedAccount
+      )
+      .subscribe({
+
+        next: (updatedAccount) => {
+
+          this.paymentAccounts =
+            this.paymentAccounts.map(
+              item =>
+                item.id === updatedAccount.id
+                  ? updatedAccount
+                  : item
+            );
+
+          this.showSuccess(
+            updatedAccount.isActive
+              ? 'Payment account activated.'
+              : 'Payment account deactivated.'
+          );
+
+          this.cdr.detectChanges();
+        },
+
+        error: (error) => {
+
+          console.error(
+            'Error updating payment account status:',
+            error
+          );
+
+          this.showError(
+            'Failed to update payment account status.'
+          );
+        }
+      });
+  }
+
+
+  // =========================================================
+  // DELETE PAYMENT ACCOUNT
+  // =========================================================
+
+  deletePaymentAccount(
+    account: PaymentAccount
+  ): void {
+
+    this.popupService
+      .showConfirm(
+        `Are you sure you want to delete "${account.name}"?`,
+        'Delete Payment Account'
+      )
+      .subscribe((confirmed: boolean) => {
+
+        if (!confirmed) {
+          return;
+        }
+
+        this.paymentAccountService
+          .deletePaymentAccount(account.id)
+          .subscribe({
+
+            next: () => {
+
+              this.paymentAccounts =
+                this.paymentAccounts.filter(
+                  item =>
+                    item.id !== account.id
+                );
+
+              this.popupService.showAlert(
+                'Payment account deleted successfully.',
+                'success'
+              );
+
+              this.cdr.detectChanges();
+            },
+
+            error: (error) => {
+
+              console.error(
+                'Error deleting payment account:',
+                error
+              );
+
+              this.popupService.showAlert(
+                'Failed to delete payment account.',
+                'error'
+              );
+            }
+          });
+      });
+  }
+
+  paymentAccountTypeDropdownOpen = false;
+
+togglePaymentAccountTypeDropdown(): void {
+  this.paymentAccountTypeDropdownOpen =
+    !this.paymentAccountTypeDropdownOpen;
+}
+
+selectPaymentAccountType(
+  type: PaymentAccountType
+): void {
+
+  this.paymentAccountForm.type = type;
+
+  this.paymentAccountTypeDropdownOpen = false;
+
+  this.cdr.detectChanges();
+}
 }

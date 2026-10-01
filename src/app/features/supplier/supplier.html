@@ -1,0 +1,568 @@
+<div class="suppliers-page">
+
+  <!-- =========================
+       Add Supplier Modal
+       ========================= -->
+
+  @if (showSupplierModal) {
+
+    <div class="modal-overlay">
+
+      <div class="supplier-modal">
+
+        <!-- Modal Header -->
+
+        <div class="modal-header">
+
+          <div>
+
+            <span class="modal-eyebrow">
+              SUPPLIER MANAGEMENT
+            </span>
+
+            <h2>
+              {{
+                editingSupplierId
+                  ? 'Edit Supplier'
+                  : 'Add New Supplier'
+              }}
+            </h2>
+
+            <p>
+              {{
+                editingSupplierId
+                  ? 'Update supplier information.'
+                  : 'Add a supplier to manage their account and balances.'
+              }}
+            </p>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="modal-close-btn"
+            (click)="closeSupplierModal()"
+            aria-label="Close"
+          >
+
+            <i class="bi bi-x-lg"></i>
+
+          </button>
+
+        </div>
+
+
+        <!-- Modal Body -->
+
+        <div class="modal-body">
+
+          <!-- Supplier Name -->
+
+          <div class="form-group">
+
+            <label for="supplierName">
+
+              Supplier Name
+
+              <span>*</span>
+
+            </label>
+
+            <input
+              id="supplierName"
+              type="text"
+              [(ngModel)]="supplierForm.name"
+              placeholder="Enter supplier name"
+            />
+
+          </div>
+
+
+          <!-- Phone -->
+
+          <div class="form-group">
+
+            <label for="supplierPhone">
+
+              Phone Number
+
+              <span>*</span>
+
+            </label>
+
+            <input
+              id="supplierPhone"
+              type="tel"
+              [(ngModel)]="supplierForm.phone"
+              placeholder="Enter phone number"
+            />
+
+          </div>
+
+
+          <!-- Address -->
+
+          <div class="form-group">
+
+            <label for="supplierAddress">
+              Address
+            </label>
+
+            <input
+              id="supplierAddress"
+              type="text"
+              [(ngModel)]="supplierForm.address"
+              placeholder="Enter supplier address"
+            />
+
+          </div>
+
+
+          <!-- Notes -->
+
+          <div class="form-group">
+
+            <label for="supplierNotes">
+              Notes
+            </label>
+
+            <textarea
+              id="supplierNotes"
+              rows="3"
+              [(ngModel)]="supplierForm.notes"
+              placeholder="Add any notes about this supplier..."
+            ></textarea>
+
+          </div>
+
+
+          <!-- Account Info -->
+
+          <div class="account-info">
+
+            <div class="account-info-icon">
+
+              <i class="bi bi-wallet2"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Opening Balance
+              </strong>
+
+              <span>
+                New suppliers start with a balance of 0 EGP.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Modal Footer -->
+
+        <div class="modal-footer">
+
+          <button
+            type="button"
+            class="cancel-btn"
+            (click)="closeSupplierModal()"
+          >
+            Cancel
+          </button>
+
+
+          <button
+            type="button"
+            class="save-supplier-btn"
+            (click)="saveSupplier()"
+          >
+
+            <i class="bi bi-check-lg"></i>
+
+            {{
+              editingSupplierId
+                ? 'Save Changes'
+                : 'Add Supplier'
+            }}
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  }
+
+
+  <!-- =========================
+       Page Header
+       ========================= -->
+
+  <div class="page-header">
+
+    <div class="page-title">
+
+      <span class="page-eyebrow">
+        SUPPLIER MANAGEMENT
+      </span>
+
+      <h1>
+        Suppliers
+      </h1>
+
+      <p>
+        Manage your suppliers and track their outstanding balances.
+      </p>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="add-supplier-btn"
+      (click)="openAddSupplierModal()"
+    >
+
+      <i class="bi bi-plus-lg"></i>
+
+      <span>
+        Add Supplier
+      </span>
+
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       Suppliers Card
+       ========================= -->
+
+  <div class="suppliers-card">
+
+    <div class="suppliers-toolbar">
+
+      <div class="search-controls">
+
+        <!-- Search -->
+
+        <div class="search-box">
+
+          <i class="bi bi-search"></i>
+
+          <input
+            type="text"
+            [(ngModel)]="searchTerm"
+            (input)="applyFilters()"
+            [placeholder]="
+              searchMode === 'name'
+                ? 'Search by supplier name...'
+                : 'Search by phone number...'
+            "
+          />
+
+
+          @if (searchTerm) {
+
+            <button
+              type="button"
+              class="clear-search-btn"
+              (click)="searchTerm = ''; applyFilters()"
+              aria-label="Clear search"
+            >
+
+              <i class="bi bi-x-lg"></i>
+
+            </button>
+
+          }
+
+        </div>
+
+
+        <!-- Search Mode -->
+
+        <div class="search-mode">
+
+          <button
+            type="button"
+            class="search-mode-btn"
+            [class.active]="searchMode === 'name'"
+            (click)="searchMode = 'name'; applyFilters()"
+          >
+            Name
+          </button>
+
+
+          <button
+            type="button"
+            class="search-mode-btn"
+            [class.active]="searchMode === 'phone'"
+            (click)="searchMode = 'phone'; applyFilters()"
+          >
+            Phone
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Error State -->
+
+    @if (errorMessage) {
+
+      <div class="state-container error-state">
+
+        <i class="bi bi-exclamation-circle"></i>
+
+        <p>
+          {{ errorMessage }}
+        </p>
+
+        <button
+          type="button"
+          (click)="loadSuppliers()"
+        >
+          Try Again
+        </button>
+
+      </div>
+
+    }
+
+    @else {
+
+      @if (filteredSuppliers.length === 0) {
+
+        <div class="state-container empty-state">
+
+          <i class="bi bi-buildings"></i>
+
+
+          @if (searchTerm) {
+
+            <h3>
+              No suppliers found
+            </h3>
+
+            <p>
+              Try searching with a different name or phone number.
+            </p>
+
+          }
+
+          @else {
+
+            <h3>
+              No suppliers yet
+            </h3>
+
+            <p>
+              Add your first supplier to get started.
+            </p>
+
+          }
+
+        </div>
+
+      }
+
+      @else {
+
+        <div class="table-wrapper">
+
+          <table>
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Supplier
+                </th>
+
+                <th>
+                  Phone
+                </th>
+
+                <th>
+                  Address
+                </th>
+
+                <th>
+                  Notes
+                </th>
+
+                <th>
+                  Balance
+                </th>
+
+                <th>
+                  Status
+                </th>
+
+                <th>
+                  Actions
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+              @for (
+                supplier of filteredSuppliers;
+                track supplier.id
+              ) {
+
+                <tr>
+
+                  <!-- Supplier -->
+
+                  <td>
+
+                    <div class="supplier-info">
+
+                      <div class="supplier-avatar">
+
+                        {{
+                          supplier.name
+                            .charAt(0)
+                            .toUpperCase()
+                        }}
+
+                      </div>
+
+                      <div class="supplier-name">
+
+                        {{ supplier.name }}
+
+                      </div>
+
+                    </div>
+
+                  </td>
+
+
+                  <!-- Phone -->
+
+                  <td>
+                    {{ supplier.phone }}
+                  </td>
+
+
+                  <!-- Address -->
+
+                  <td>
+                    {{ supplier.address || '—' }}
+                  </td>
+
+
+                  <!-- Notes -->
+
+                  <td>
+                    {{ supplier.notes || '—' }}
+                  </td>
+
+
+                  <!-- Balance -->
+
+                  <td>
+
+                    <span
+                      [class.balance-due]="supplier.balance > 0"
+                      [class.balance-clear]="supplier.balance <= 0"
+                    >
+
+                      {{ supplier.balance | number:'1.2-2' }}
+                      EGP
+
+                    </span>
+
+                  </td>
+
+
+                  <!-- Status -->
+
+                  <td>
+
+                    <span
+                      class="status-badge"
+                      [class.active]="supplier.status === 'Active'"
+                      [class.inactive]="supplier.status === 'Inactive'"
+                    >
+
+                      {{ supplier.status }}
+
+                    </span>
+
+                  </td>
+
+
+                  <!-- Actions -->
+
+                  <td>
+
+                    <div class="actions-cell">
+
+                      <!-- Edit -->
+
+                      <button
+                        type="button"
+                        class="action-btn edit"
+                        title="Edit Supplier"
+                        (click)="openEditSupplierModal(supplier)"
+                      >
+
+                        <i class="bi bi-pencil"></i>
+
+                      </button>
+
+
+                      <!-- Delete -->
+
+                      <button
+                        type="button"
+                        class="action-btn delete"
+                        title="Delete Supplier"
+                        (click)="deleteSupplier(supplier)"
+                      >
+
+                        <i class="bi bi-trash"></i>
+
+                      </button>
+
+                    </div>
+
+                  </td>
+
+                </tr>
+
+              }
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      }
+
+    }
+
+  </div>
+
+</div>

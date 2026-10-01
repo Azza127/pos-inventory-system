@@ -471,6 +471,607 @@
   color: #11847F;
 }
 
+/* =========================================================
+   PAYMENT ACCOUNTS
+   ========================================================= */
+
+   .payment-accounts-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .add-payment-account-btn {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 8px;
+    background: #159F9A;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+  
+  .add-payment-account-btn:hover {
+    background: #11847F;
+    transform: translateY(-1px);
+  }
+  
+  .add-payment-account-btn i {
+    font-size: 13px;
+  }
+  
+  
+  /* Payment Accounts List */
+  
+  .payment-accounts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .payment-account-item {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    border: 1px solid #E1E5E8;
+    border-radius: 10px;
+    background: #FFFFFF;
+    transition: all 0.2s ease;
+  }
+  
+  .payment-account-item:hover {
+    border-color: #B8DAD8;
+    box-shadow: 0 4px 12px rgba(20, 38, 61, 0.05);
+  }
+  
+  
+  /* Account Icon */
+  .payment-account-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 10px;
+    font-size: 18px;
+    background: transparent;
+  }
+  
+  .payment-account-icon img {
+    width: 38px;
+    height: 38px;
+  
+    display: block;
+    object-fit: contain;
+    border-radius: 0;
+  }
+
+  .payment-account-icon:has(img),
+  .payment-account-icon.cash:has(img),
+  .payment-account-icon.card:has(img),
+  .payment-account-icon.bank:has(img),
+  .payment-account-icon.wallet:has(img) {
+    background: transparent;
+    border: none;
+  }
+  
+  /* =========================================================
+   PAYMENT ACCOUNT IMAGE
+   ========================================================= */
+
+   .payment-account-icon img {
+    width: 42px;
+    height: 42px;
+    display: block;
+    object-fit: contain;
+    border-radius: 0;
+  }
+
+/* =========================================================
+   PAYMENT ACCOUNT IMAGE UPLOAD
+   ========================================================= */
+
+   .payment-account-image-upload {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  
+    padding: 14px;
+  
+    border: 1px solid #E1E5E8;
+    border-radius: 12px;
+  
+    background: #FFFFFF;
+  }
+  
+  .payment-account-image-preview {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    border: 1px solid #E1E5E8;
+    border-radius: 12px;
+  
+    background: #F6F4EE;
+    overflow: hidden;
+  
+    color: #6F8094;
+    font-size: 24px;
+  }
+  
+  .payment-account-image-preview img {
+    width: 100%;
+    height: 100%;
+  
+    display: block;
+  
+    object-fit: contain;
+    border-radius: 11px;
+  }
+  
+  .payment-account-image-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  
+  .payment-account-upload-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  
+    padding: 9px 14px;
+  
+    border: 1px solid #159F9A;
+    border-radius: 8px;
+  
+    background: #E8F5F4;
+    color: #11847F;
+  
+    font-size: 13px;
+    font-weight: 600;
+  
+    cursor: pointer;
+  
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+  
+  .payment-account-upload-btn:hover {
+    background: #159F9A;
+    border-color: #159F9A;
+    color: #FFFFFF;
+  }
+  
+  .payment-account-image-content span {
+    color: #6F8094;
+    font-size: 11px;
+  }
+  
+  /* Account Info */
+  
+  .payment-account-info {
+    min-width: 0;
+    flex: 1;
+  }
+  
+  .payment-account-name-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 3px;
+  }
+  
+  .payment-account-name-row strong {
+    color: #14263D;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  
+  .payment-account-type {
+    display: block;
+    color: #6F8094;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  
+  .payment-account-info p {
+    margin: 4px 0 0;
+    color: #6F8094;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
+  /* Status */
+  
+  .account-status {
+    display: inline-flex;
+    align-items: center;
+    height: 21px;
+    padding: 0 7px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  
+  .account-status.active {
+    background: #E8F5F4;
+    color: #11847F;
+  }
+  
+  .account-status.inactive {
+    background: #F1F3F5;
+    color: #6F8094;
+  }
+  
+  
+  /* Account Actions */
+  
+  .payment-account-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .account-action-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: #6F8094;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .account-action-btn:hover {
+    background: #E8F5F4;
+    color: #11847F;
+  }
+  
+  .account-action-btn.delete:hover {
+    background: #FCEEEE;
+    color: #C85C55;
+  }
+  
+  .account-action-btn.toggle {
+    font-size: 20px;
+  }
+  
+  
+  /* Empty State */
+  
+  .payment-accounts-empty {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    box-sizing: border-box;
+    border: 1px dashed #D5DEE1;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .payment-accounts-empty .empty-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: #E8F5F4;
+    color: #159F9A;
+    font-size: 18px;
+  }
+  
+  .payment-accounts-empty strong {
+    color: #14263D;
+    font-size: 13px;
+  }
+  
+  .payment-accounts-empty p {
+    margin: 5px 0 0;
+    color: #6F8094;
+    font-size: 11px;
+  }
+  
+  
+  /* =========================================================
+     PAYMENT ACCOUNT MODAL
+     ========================================================= */
+  
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(20, 38, 61, 0.42);
+    backdrop-filter: blur(2px);
+  }
+  
+  .payment-account-modal {
+    width: 100%;
+    max-width: 520px;
+    background: #FFFFFF;
+    border: 1px solid #E1E5E8;
+    border-radius: 12px;
+    box-shadow: 0 18px 45px rgba(20, 38, 61, 0.18);
+    overflow: visible;
+    animation: paymentModalIn 0.18s ease;
+  }
+  
+  @keyframes paymentModalIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  
+  /* Modal Header */
+  
+  .modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 22px 24px;
+    border-bottom: 1px solid #E1E5E8;
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    color: #14263D;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  
+  .modal-header p {
+    margin: 5px 0 0;
+    color: #6F8094;
+    font-size: 11px;
+  }
+  
+  .modal-close-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: #6F8094;
+    cursor: pointer;
+  }
+  
+  .modal-close-btn:hover {
+    background: #E8F5F4;
+    color: #11847F;
+  }
+  
+  
+  /* Modal Body */
+  
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px;
+  }
+  
+  .modal-body .form-group {
+    gap: 7px;
+  }
+  
+  .modal-body .form-group input,
+  .modal-body .form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #E1E5E8;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #14263D;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+  
+  .modal-body .form-group input {
+    height: 42px;
+    padding: 0 12px;
+  }
+  
+  .modal-body .form-group textarea {
+    min-height: 75px;
+    padding: 10px 12px;
+    resize: vertical;
+  }
+  
+  .modal-body .form-group input:focus,
+  .modal-body .form-group textarea:focus {
+    border-color: #159F9A;
+    box-shadow: 0 0 0 3px rgba(21, 159, 154, 0.10);
+  }
+  
+  .modal-body .form-group label {
+    color: #14263D;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  
+  /* Modal Dropdown */
+  
+  .modal-body .custom-dropdown {
+    position: relative;
+  }
+  
+  .modal-body .custom-dropdown-button {
+    height: 42px;
+  }
+  
+  
+  /* Account Status */
+  
+  .payment-account-status-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 13px;
+    border: 1px solid #E1E5E8;
+    border-radius: 9px;
+    background: #FAFBFB;
+  }
+  
+  .payment-account-status-field > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .payment-account-status-field strong {
+    color: #14263D;
+    font-size: 12px;
+  }
+  
+  .payment-account-status-field span {
+    color: #6F8094;
+    font-size: 10px;
+  }
+  
+  
+  /* Toggle */
+  
+  .status-toggle {
+    position: relative;
+    width: 42px;
+    height: 24px;
+    flex: 0 0 42px;
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    background: #D9E0E3;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .status-toggle.active {
+    background: #159F9A;
+  }
+  
+  .toggle-circle {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(20, 38, 61, 0.18);
+    transition: transform 0.2s ease;
+  }
+  
+  .status-toggle.active .toggle-circle {
+    transform: translateX(18px);
+  }
+  
+  
+  /* Modal Actions */
+  
+  .modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 18px 24px;
+    border-top: 1px solid #E1E5E8;
+  }
+  
+  .modal-cancel-btn {
+    height: 40px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #6F8094;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .modal-cancel-btn:hover {
+    background: #E8F5F4;
+    color: #11847F;
+  }
+  
+  .modal-save-btn {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 17px;
+    border: none;
+    border-radius: 8px;
+    background: #159F9A;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .modal-save-btn:hover {
+    background: #11847F;
+    transform: translateY(-1px);
+  }
+
 @keyframes toastIn {
   from {
     opacity: 0;
@@ -502,6 +1103,26 @@
 
 }
 
+@media (max-width: 650px) {
+  
+  .payment-accounts-header {
+    flex-direction: column;
+  }
+
+  .add-payment-account-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .payment-account-item {
+    align-items: flex-start;
+  }
+
+  .payment-account-actions {
+    flex-direction: column;
+  }
+
+}
 
 @media (max-width: 480px) {
   .settings-page {
@@ -532,5 +1153,64 @@
     right: 15px;
     left: 15px;
     width: auto;
+  }
+
+  .payment-account-item {
+    flex-wrap: wrap;
+  }
+
+  .payment-account-info {
+    width: calc(100% - 60px);
+  }
+
+  .payment-account-actions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-top: 5px;
+    border-top: 1px solid #E1E5E8;
+  }
+
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .payment-account-modal {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-actions {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .modal-cancel-btn,
+  .modal-save-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .payment-account-image-upload {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .payment-account-image-preview {
+    width: 56px;
+    height: 56px;
+    flex-basis: 56px;
+  }
+
+  .payment-account-upload-btn {
+    padding: 8px 11px;
+    font-size: 12px;
   }
 }
