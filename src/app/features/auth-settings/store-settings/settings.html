@@ -110,7 +110,7 @@
     <section class="settings-section">
       <div class="section-header">
         <h3> Regional & Financial</h3>
-        <p> Configure currency and tax settings. </p>
+        <p> Configure currency, tax and opening cash settings. </p>
       </div>
       <div class="form-grid">
 
@@ -170,45 +170,50 @@
             </small>
           }
         </div>
+
+        <!-- OPENING FLOAT -->
+        <div class="form-group">
+          <label for="openingFloat" [class.error-label]="isFieldInvalid('openingFloat')" >
+            Opening Float
+          </label>
+
+          <input type="number" id="openingFloat" name="openingFloat" [(ngModel)]="settings.openingFloat" min="0" step="0.01" (input)="validateField('openingFloat')" [class.error-input]="isFieldInvalid('openingFloat')" >
+          @if (isFieldInvalid('openingFloat')) {
+            <small class="error-message">
+              @if (getError('openingFloat') === 'required') {
+                Opening float is required.
+              }
+
+              @if (getError('openingFloat') === 'invalid') {
+                Opening float must be 0 or greater.
+              }
+            </small>
+          }
+        </div>
       </div>
     </section>
 
         <!-- PAYMENT ACCOUNTS -->
         <section class="settings-section payment-accounts-section">
-
           <div class="section-header payment-accounts-header">
-    
             <div>
               <h3>Payment Accounts</h3>
-    
-              <p>
-                Manage the accounts used to receive payments from customers.
-              </p>
+              <p> Manage the accounts used to receive payments from customers. </p>
             </div>
     
-            <button
-              type="button"
-              class="add-payment-account-btn"
-              (click)="openAddPaymentAccountModal()"
-            >
+            <button type="button" class="add-payment-account-btn" (click)="openAddPaymentAccountModal()" >
               <i class="bi bi-plus-lg"></i>
               Add Account
             </button>
-    
           </div>
     
-    
           @if (paymentAccounts.length > 0) {
-    
             <div class="payment-accounts-list">
-    
               @for (
                 account of paymentAccounts;
                 track account.id
               ) {
-    
                 <div class="payment-account-item">
-    
                   <!-- ACCOUNT ICON -->
                   <div
                   class="payment-account-icon"
@@ -216,12 +221,9 @@
                   [class.card]="account.type === 'card'"
                   [class.bank]="account.type === 'bank'"
                   [class.wallet]="account.type === 'wallet'"
-                >
+                  >
                   @if (account.image) {
-                    <img
-                      [src]="account.image"
-                      [alt]="account.name"
-                    >
+                    <img [src]="account.image" [alt]="account.name" >
                   } @else {
                 
                     @if (account.type === 'cash') {
@@ -239,130 +241,66 @@
                     @if (account.type === 'wallet') {
                       <i class="bi bi-wallet2"></i>
                     }
-                
                   }
                 </div>
     
-    
                   <!-- ACCOUNT INFO -->
                   <div class="payment-account-info">
-    
                     <div class="payment-account-name-row">
-    
-                      <strong>
-                        {{ account.name }}
-                      </strong>
-    
-                      <span
-                        class="account-status"
-                        [class.active]="account.isActive"
-                        [class.inactive]="!account.isActive"
-                      >
+                      <strong> {{ account.name }} </strong>
+                      <span class="account-status" [class.active]="account.isActive" [class.inactive]="!account.isActive" >
                         {{ account.isActive ? 'Active' : 'Inactive' }}
                       </span>
-    
                     </div>
-    
                     <span class="payment-account-type">
                       {{ getPaymentAccountTypeLabel(account.type) }}
                     </span>
-    
                     @if (account.description) {
-    
-                      <p>
-                        {{ account.description }}
-                      </p>
-    
+                      <p> {{ account.description }} </p>
                     }
-    
                   </div>
-    
     
                   <!-- ACTIONS -->
                   <div class="payment-account-actions">
-    
-                    <button
-                      type="button"
-                      class="account-action-btn toggle"
-                      [title]="account.isActive ? 'Deactivate' : 'Activate'"
-                      (click)="togglePaymentAccountStatus(account)"
-                    >
-    
+                    <button type="button" class="account-action-btn toggle" [title]="account.isActive ? 'Deactivate' : 'Activate'" (click)="togglePaymentAccountStatus(account)" >
                       @if (account.isActive) {
                         <i class="bi bi-toggle-on"></i>
                       } @else {
                         <i class="bi bi-toggle-off"></i>
                       }
-    
                     </button>
     
-    
-                    <button
-                      type="button"
-                      class="account-action-btn edit"
-                      title="Edit Payment Account"
-                      (click)="openEditPaymentAccountModal(account)"
-                    >
+                    <button type="button" class="account-action-btn edit" title="Edit Payment Account" (click)="openEditPaymentAccountModal(account)" >
                       <i class="bi bi-pencil"></i>
                     </button>
     
-    
-                    <button
-                      type="button"
-                      class="account-action-btn delete"
-                      title="Delete Payment Account"
-                      (click)="deletePaymentAccount(account)"
-                    >
+                    <button type="button" class="account-action-btn delete" title="Delete Payment Account" (click)="deletePaymentAccount(account)" >
                       <i class="bi bi-trash"></i>
                     </button>
-    
                   </div>
-    
                 </div>
-    
               }
-    
             </div>
-    
           } @else {
-    
             <div class="payment-accounts-empty">
-    
               <div class="empty-icon">
                 <i class="bi bi-wallet2"></i>
               </div>
-    
               <strong>No Payment Accounts</strong>
-    
-              <p>
-                Add a payment account to start receiving payments.
-              </p>
-    
+              <p> Add a payment account to start receiving payments. </p>
             </div>
-    
           }
-    
         </section>
 
     <!-- ACTIONS -->
     <div class="settings-actions">
-
       <!-- DISCARD -->
-      <button
-        type="button"
-        class="discard-btn"
-        (click)="discardChanges()"
-      >
+      <button type="button" class="discard-btn" (click)="discardChanges()" >
         Discard Changes
       </button>
 
       <!-- SAVE -->
-      <button
-        type="button"
-        class="save-btn"
-        [disabled]="isSaving"
-        (click)="updateSettings()"
-      >
+      <button type="button" class="save-btn" [disabled]="isSaving" (click)="updateSettings()" >
         @if (isSaving) {
           <i class="bi bi-arrow-repeat spin"></i>
           Saving...
@@ -371,285 +309,128 @@
           Save Settings
         }
       </button>
-
     </div>
-
   </div>
   <!-- END .settings-card -->
 
-
   <!-- PAYMENT ACCOUNT MODAL -->
   @if (showPaymentAccountModal) {
-
     <div class="modal-overlay">
-
       <div class="payment-account-modal">
-
         <!-- MODAL HEADER -->
         <div class="modal-header">
-
           <div>
             <h2>
-              {{
-                editingPaymentAccountId
-                  ? 'Edit Payment Account'
-                  : 'Add Payment Account'
-              }}
+              {{ editingPaymentAccountId ? 'Edit Payment Account' : 'Add Payment Account' }}
             </h2>
-
             <p>
-              {{
-                editingPaymentAccountId
-                  ? 'Update payment account information.'
-                  : 'Add an account that can receive customer payments.'
-              }}
+              {{ editingPaymentAccountId ? 'Update payment account information.' : 'Add an account that can receive customer payments.' }}
             </p>
           </div>
 
-          <button
-            type="button"
-            class="modal-close-btn"
-            (click)="closePaymentAccountModal()"
-          >
+          <button type="button" class="modal-close-btn" (click)="closePaymentAccountModal()" >
             <i class="bi bi-x-lg"></i>
           </button>
-
         </div>
-
 
         <!-- MODAL BODY -->
         <div class="modal-body">
-
           <!-- ACCOUNT NAME -->
           <div class="form-group">
-
             <label for="paymentAccountName">
               Account Name
             </label>
-
-            <input
-              type="text"
-              id="paymentAccountName"
-              [(ngModel)]="paymentAccountForm.name"
-              placeholder="e.g. Visa POS"
-            >
-
+            <input type="text" id="paymentAccountName" [(ngModel)]="paymentAccountForm.name" placeholder="e.g. Visa POS" >
           </div>
 
           <!-- ACCOUNT IMAGE -->
 <div class="form-group">
-
   <label for="paymentAccountImage">
     Account Image
   </label>
 
   <div class="payment-account-image-upload">
-
     <div class="payment-account-image-preview">
-
       @if (paymentAccountForm.image) {
-        <img
-          [src]="paymentAccountForm.image"
-          [alt]="paymentAccountForm.name || 'Payment account'"
-        >
+        <img [src]="paymentAccountForm.image" [alt]="paymentAccountForm.name || 'Payment account'" >
       } @else {
         <i class="bi bi-image"></i>
       }
-
     </div>
-
     <div class="payment-account-image-content">
-
-      <label
-        for="paymentAccountImage"
-        class="payment-account-upload-btn"
-      >
+      <label for="paymentAccountImage" class="payment-account-upload-btn" >
         <i class="bi bi-upload"></i>
         Choose Image
       </label>
-
-      <input
-        type="file"
-        id="paymentAccountImage"
-        accept="image/png,image/jpeg,image/webp"
-        (change)="onPaymentAccountImageSelected($event)"
-        hidden
-      >
-
-      <span>
-        Optional · PNG, JPG or WebP
-      </span>
-
+      <input type="file" id="paymentAccountImage" accept="image/png,image/jpeg,image/webp" (change)="onPaymentAccountImageSelected($event)" hidden >
+      <span> Optional · PNG, JPG or WebP </span>
     </div>
-
   </div>
-
 </div>
 
           <!-- ACCOUNT TYPE -->
           <div class="form-group">
-
-            <label for="paymentAccountType">
-              Account Type
-            </label>
-
-            <div
-              class="custom-dropdown"
-              (click)="$event.stopPropagation()"
-            >
-
-              <button
-                type="button"
-                class="custom-dropdown-button"
-                [class.open]="paymentAccountTypeDropdownOpen"
-                (click)="togglePaymentAccountTypeDropdown()"
-              >
-
-                <span>
-                  {{
-                    getPaymentAccountTypeLabel(
-                      paymentAccountForm.type
-                    )
-                  }}
-                </span>
-
-                <span
-                  class="dropdown-arrow"
-                  [class.open]="paymentAccountTypeDropdownOpen"
-                ></span>
-
+            <label for="paymentAccountType"> Account Type </label>
+            <div class="custom-dropdown" (click)="$event.stopPropagation()" >
+              <button type="button" class="custom-dropdown-button" [class.open]="paymentAccountTypeDropdownOpen" (click)="togglePaymentAccountTypeDropdown()" >
+                <span> {{ getPaymentAccountTypeLabel( paymentAccountForm.type ) }} </span>
+                <span class="dropdown-arrow" [class.open]="paymentAccountTypeDropdownOpen" ></span>
               </button>
 
-
               @if (paymentAccountTypeDropdownOpen) {
-
                 <div class="custom-dropdown-menu">
-
-                  <button
-                    type="button"
-                    class="custom-dropdown-option"
-                    [class.selected]="paymentAccountForm.type === 'cash'"
-                    (click)="selectPaymentAccountType('cash')"
-                  >
+                  <button type="button" class="custom-dropdown-option" [class.selected]="paymentAccountForm.type === 'cash'" (click)="selectPaymentAccountType('cash')" >
                     Cash
                   </button>
 
-                  <button
-                    type="button"
-                    class="custom-dropdown-option"
-                    [class.selected]="paymentAccountForm.type === 'card'"
-                    (click)="selectPaymentAccountType('card')"
-                  >
+                  <button type="button" class="custom-dropdown-option" [class.selected]="paymentAccountForm.type === 'card'" (click)="selectPaymentAccountType('card')" >
                     Card
                   </button>
 
-                  <button
-                    type="button"
-                    class="custom-dropdown-option"
-                    [class.selected]="paymentAccountForm.type === 'bank'"
-                    (click)="selectPaymentAccountType('bank')"
-                  >
+                  <button type="button" class="custom-dropdown-option" [class.selected]="paymentAccountForm.type === 'bank'" (click)="selectPaymentAccountType('bank')" >
                     Bank
                   </button>
 
-                  <button
-                    type="button"
-                    class="custom-dropdown-option"
-                    [class.selected]="paymentAccountForm.type === 'wallet'"
-                    (click)="selectPaymentAccountType('wallet')"
-                  >
+                  <button type="button" class="custom-dropdown-option" [class.selected]="paymentAccountForm.type === 'wallet'" (click)="selectPaymentAccountType('wallet')" >
                     Wallet
                   </button>
-
                 </div>
-
               }
-
             </div>
-
           </div>
-
 
           <!-- DESCRIPTION -->
           <div class="form-group">
-
             <label for="paymentAccountDescription">
               Description
             </label>
-
-            <textarea
-              id="paymentAccountDescription"
-              [(ngModel)]="paymentAccountForm.description"
-              placeholder="Optional description"
-              rows="3"
-            ></textarea>
-
+            <textarea id="paymentAccountDescription" [(ngModel)]="paymentAccountForm.description" placeholder="Optional description" rows="3" ></textarea>
           </div>
-
 
           <!-- ACTIVE STATUS -->
           <div class="payment-account-status-field">
-
             <div>
-
-              <strong>
-                Account Status
-              </strong>
-
-              <span>
-                Inactive accounts will not appear in POS payment options.
-              </span>
-
+              <strong> Account Status </strong>
+              <span> Inactive accounts will not appear in POS payment options. </span>
             </div>
-
-            <button
-              type="button"
-              class="status-toggle"
-              [class.active]="paymentAccountForm.isActive"
-              (click)="paymentAccountForm.isActive = !paymentAccountForm.isActive"
-            >
-
+            <button type="button" class="status-toggle" [class.active]="paymentAccountForm.isActive" (click)="paymentAccountForm.isActive = !paymentAccountForm.isActive" >
               <span class="toggle-circle"></span>
-
             </button>
-
           </div>
-
         </div>
-
 
         <!-- MODAL ACTIONS -->
         <div class="modal-actions">
-
-          <button
-            type="button"
-            class="modal-cancel-btn"
-            (click)="closePaymentAccountModal()"
-          >
+          <button type="button" class="modal-cancel-btn" (click)="closePaymentAccountModal()" >
             Cancel
           </button>
 
-          <button
-            type="button"
-            class="modal-save-btn"
-            (click)="savePaymentAccount()"
-          >
+          <button type="button" class="modal-save-btn" (click)="savePaymentAccount()" >
             <i class="bi bi-check-lg"></i>
-
-            {{
-              editingPaymentAccountId
-                ? 'Save Changes'
-                : 'Add Account'
-            }}
-
+            {{ editingPaymentAccountId ? 'Save Changes'  : 'Add Account' }}
           </button>
-
         </div>
-
       </div>
-
     </div>
-
   }
-
 </div>

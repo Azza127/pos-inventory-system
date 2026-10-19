@@ -20,28 +20,25 @@
   
   .eyebrow,
   .section-kicker {
-    display: block;
-    margin-bottom: 0.4rem;
-    color: #159F9A;
-    font-size: 0.68rem;
+    color: #159C92;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    line-height: 1;
+    letter-spacing: 1.5px;
+    margin-bottom: 7px;
   }
   
   .dashboard-header h2 {
     margin: 0;
     color: #14263D;
-    font-size: 2rem;
+    font-size: 27px;
     font-weight: 700;
     line-height: 1.15;
-    letter-spacing: -0.025em;
   }
   
   .dashboard-header p {
     margin: 0.45rem 0 0;
     color: #6F8094;
-    font-size: 0.88rem;
+    font-size: 13px;
     line-height: 1.5;
   }
   
@@ -948,6 +945,51 @@
 
 .orders-table .order-payment.payment-card i {
   color: #4F78B8 !important;
+}
+
+/* Payment account logo */
+.orders-table .payment-account-image {
+  display: block;
+  flex: 0 0 19px;
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+}
+
+.orders-table .order-payment > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Match the payment type colors used in the Orders page */
+.orders-table .order-payment.payment-cash {
+  /* background: #E8F5F1; */
+  color: #159F9A;
+}
+
+.orders-table .order-payment.payment-card,
+.orders-table .order-payment.payment-bank {
+  /* background: #EDF3FC; */
+  color: #4F78B8;
+}
+
+.orders-table .order-payment.payment-wallet {
+  /* background: #F3EEFA; */
+  color: #8064A8;
+}
+
+.orders-table .order-payment.payment-other {
+  /* background: #F1F2F2; */
+  color: #6F8094;
+}
+
+.orders-table .order-payment.payment-cash i,
+.orders-table .order-payment.payment-card i,
+.orders-table .order-payment.payment-bank i,
+.orders-table .order-payment.payment-wallet i,
+.orders-table .order-payment.payment-other i {
+  color: currentColor;
 }
 
 /* STATUS BADGES */

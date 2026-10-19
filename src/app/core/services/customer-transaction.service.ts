@@ -1,18 +1,17 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-
 import { CustomerTransaction } from '../models/customer-transaction.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root'})
+
 export class CustomerTransactionService {
+  deleteTransaction(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 
   private readonly http = inject(HttpClient);
-
-  private readonly apiUrl =
-    'http://localhost:3000/customerTransactions';
+  private readonly apiUrl = 'http://localhost:3000/customerTransactions';
 
   getTransactions(): Observable<CustomerTransaction[]> {
     return this.http

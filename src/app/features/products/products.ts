@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs';
+import { forkJoin, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +12,9 @@ import { ProductService } from '../../core/services/product.service';
 import { Product } from '../../core/models/product.model';
 import { CategoryService } from '../../core/services/category.service';
 import { Category } from '../../core/models/category.model';
+import { OrderService } from '../../core/services/order.service';
+import { PurchaseInvoiceService } from '../../core/services/purchase-invoice.service';
+import { ReturnService } from '../../core/services/return.service';
 
 @Component({
   selector: 'app-products',
@@ -34,6 +37,9 @@ export class Products implements OnInit {
   private readonly popupService = inject(PopupService);
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly storeSettingsService = inject(StoreSettingsService);
+  private readonly orderService = inject(OrderService);
+  private readonly purchaseInvoiceService = inject(PurchaseInvoiceService);
+  private readonly returnService = inject(ReturnService);
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
@@ -205,23 +211,41 @@ filterByCategory(categoryId: string | null): void {
   this.applyFilters();
 }
 
-  private applyFilters(): void {
-    const term = this.searchTerm.trim().toLowerCase();
-    let filtered = this.products.filter((product) => {
-      const searchValue = this.searchMode === 'name' ? product.name.toLowerCase() : product.sku.toLowerCase();
-      const matchesSearch = term === '' || searchValue.includes(term);
-      const matchesCategory = this.selectedCategoryId === null || product.categoryId === this.selectedCategoryId;
-      return matchesSearch && matchesCategory;
-    });
+private applyFilters(): void {
+  const term = this.searchTerm.trim().toLowerCase();
 
-    if (term !== '') { filtered.sort((a, b) => {
-        const aValue = this.searchMode === 'name' ? a.name.toLowerCase() : a.sku.toLowerCase();
-        const bValue = this.searchMode === 'name' ? b.name.toLowerCase() : b.sku.toLowerCase();
-        return aValue.indexOf(term) - bValue.indexOf(term);
-      });
-    }
-    this.filteredProducts = filtered;
-  }
+  const filtered = this.products.filter((product) => {
+    const searchValue =
+      this.searchMode === 'name'
+        ? product.name.toLowerCase()
+        : product.sku.toLowerCase();
+
+    const matchesSearch =
+      term === '' || searchValue.includes(term);
+
+    const matchesCategory =
+      this.selectedCategoryId === null ||
+      product.categoryId === this.selectedCategoryId;
+
+    return matchesSearch && matchesCategory;
+  });
+
+  // Always sort products alphabetically by product name.
+  // Case-insensitive, with natural ordering for numbers.
+  const collator = new Intl.Collator(undefined, {
+    sensitivity: 'base',
+    numeric: true
+  });
+
+  filtered.sort((a, b) =>
+    collator.compare(
+      (a.name || '').trim(),
+      (b.name || '').trim()
+    )
+  );
+
+  this.filteredProducts = filtered;
+}
 
   getCategoryName(categoryId: string): string {
     const category = this.categories.find((c) => c.id === categoryId);
@@ -247,29 +271,92 @@ filterByCategory(categoryId: string | null): void {
     this.cdr.markForCheck();
   }
 
+
   deleteProduct(product: Product): void {
-    if (this.isEmployee) return;
+    if (this.isEmployee) {
+      return;
+    }
+  
     this.popupService
       .showConfirm(
         `Are you sure you want to delete "${product.name}"? This action cannot be undone.`,
         'Delete Product'
       )
-      .subscribe((confirmed) => {
+      .subscribe(confirmed => {
         if (!confirmed) {
           return;
         }
   
-        this.productService.deleteProduct(product.id).subscribe({
-          next: () => {
-            this.products = this.products.filter((p) => p.id !== product.id);
-            this.applyFilters();
-            this.cdr.markForCheck();
-          }, error: (error: unknown) => {
-            console.error('Failed to delete product:', error);
+        forkJoin({
+          orders: this.orderService.getOrders(),
+          purchaseInvoices: this.purchaseInvoiceService.getPurchaseInvoices(),
+          returns: this.returnService.getReturns()
+        }).subscribe({
+          next: ({ orders, purchaseInvoices, returns }) => {
+
+            const productId = String(product.id);
+
+            const usedInOrders = orders.some(order =>
+              (order.items || []).some(
+                item => String(item.productId) === productId
+              )
+            );
+            
+            const usedInInvoices = purchaseInvoices.some(invoice =>
+              (invoice.items || []).some(
+                item => String(item.productId) === productId
+              )
+            );
+            
+            const usedInReturns = returns.some(transaction =>
+              (transaction.items || []).some(
+                item => String(item.productId) === productId
+              )
+            );
+            
+            if (usedInOrders || usedInInvoices || usedInReturns) {
+              this.popupService.showAlert(
+                'This product is used in historical transactions and cannot be deleted. Keeping it preserves sales, purchase, and return history.',
+                'warning',
+                'Product Has History'
+              );
+            
+              return;
+            }
+            
+            this.productService.deleteProduct(product.id).subscribe({
+              next: () => {
+                this.products = this.products.filter(
+                  item => item.id !== product.id
+                );
+            
+                this.applyFilters();
+                this.cdr.markForCheck();
+              },
+              error: (error: unknown) => {
+                console.error('Failed to delete product:', error);
+            
+                this.popupService.showAlert(
+                  'Failed to delete the product.',
+                  'error',
+                  'Delete Failed'
+                );
+              }
+            });
+          },
+  
+          error: (error: unknown) => {
+            console.error('Failed to verify product history:', error);
+  
+            this.popupService.showAlert(
+              'The product history could not be checked, so the product was not deleted.',
+              'error',
+              'Delete Cancelled'
+            );
           }
         });
       });
-  }
+  }  
 
   addProduct(): void {
     const name = this.newProduct.name.trim();

@@ -1,7 +1,5 @@
-/* =========================================================
-   ACCOUNTS PAGE
-   ========================================================= */
-   .accounts-page {
+/* ACCOUNTS PAGE */
+  .accounts-page {
     width: 100%;
     min-height: 100%;
     box-sizing: border-box;
@@ -10,52 +8,24 @@
     color: #14263D;
   }
   
-  
-  /* =========================================================
-     PAGE HEADER
-     ========================================================= */
-     .accounts-header {
+  /* PAGE HEADER */
+    .accounts-header {
         width: 100%;
         min-height: 58px;
-      
         display: flex;
         align-items: center;
         justify-content: flex-start;
-      
         gap: 14px;
-      
         margin-bottom: 10px;
       }
       
-      
-      /* =========================================================
-         PAGE TITLE — PUSH HEADER FILTERS TO THE RIGHT
-         ========================================================= */
-      
+      /* PAGE TITLE — PUSH HEADER FILTERS TO THE RIGHT */
       .page-title-area {
         flex: 1;
         min-width: 0;
       }
   
-  
-  /* =========================================================
-     HEADER ACTIONS
-     ========================================================= */
-  
-  /* .accounts-header-actions {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-  
-    gap: 10px;
-  
-    flex-shrink: 0;
-  } */
-  
-  /* =========================================================
-     DATE INPUT
-     ========================================================= */
-  
+  /* DATE INPUT */
   .date-input-wrapper {
     position: relative;
     width: 125px;
@@ -64,22 +34,15 @@
   .date-input-wrapper input {
     width: 100%;
     height: 40px;
-  
     box-sizing: border-box;
-  
     padding: 0 34px 0 9px;
-  
     border: 1px solid #E1E5E8;
     border-radius: 7px;
-  
     background: #FFFFFF;
     color: #14263D;
-  
     font-family: inherit;
     font-size: 0.67rem;
-  
     outline: none;
-  
     transition:
       border-color 0.15s ease,
       background 0.15s ease,
@@ -89,50 +52,33 @@
   .date-input-wrapper input:focus {
     border-color: #159F9A;
     background: #FFFFFF;
-  
     box-shadow:
       0 0 0 3px rgba(21, 159, 154, 0.07);
   }
   
-  
   /* Hide native calendar icon */
-  
   .date-input-wrapper input::-webkit-calendar-picker-indicator {
     opacity: 0;
     cursor: pointer;
   }
   
-  
-  /* =========================================================
-     DATE ICON BUTTON
-     ========================================================= */
-  
+  /* DATE ICON BUTTON */
   .date-icon-button {
     position: absolute;
-  
     top: 50%;
     right: 7px;
-  
     width: 24px;
     height: 24px;
-  
     transform: translateY(-50%);
-  
     display: flex;
     align-items: center;
     justify-content: center;
-  
     padding: 0;
-  
     border: 0;
     border-radius: 5px;
-  
     background: transparent;
-  
     color: #6F8094;
-  
     cursor: pointer;
-  
     transition:
       background 0.15s ease,
       color 0.15s ease;
@@ -161,7 +107,7 @@
   .page-title-area h1 {
     margin: 5px 0 4px;
     color: #14263D;
-    font-size: 1.45rem;
+    font-size: 27px;
     font-weight: 700;
     line-height: 1.15;
   }
@@ -169,7 +115,7 @@
   .page-title-area p {
     margin: 0;
     color: #6F8094;
-    font-size: 0.74rem;
+    font-size: 13px;
   }
 
   .account-type-dropdown {
@@ -190,7 +136,7 @@
     background: #FFFFFF;
     color: #14263D;
     font-family: inherit;
-    font-size: 0.75rem;
+    font-size: 12px;
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 3px 11px rgba(20, 38, 61, 0.035);
@@ -279,12 +225,8 @@
     font-size: 0.61rem;
   }
   
-  
-  /* =========================================================
-     STATEMENT CONTAINER
-     ========================================================= */
-  
-     .statement-container {
+  /* STATEMENT CONTAINER */
+    .statement-container {
         width: 100%;
         min-height: 0;
         padding: 0;
@@ -295,52 +237,33 @@
         box-shadow: 0 4px 18px rgba(20, 38, 61, 0.045);
       }
   
-  
-  /* =========================================================
-     STATEMENT TOOLBAR
-     ========================================================= */
-  
+  /* STATEMENT TOOLBAR */
   .statement-toolbar {
     display: flex;
     flex-direction: column;
-  
     gap: 0;
     padding: 0;
-  
     border-bottom: 1px solid #E1E5E8;
     background: #FFFFFF;
   }
   
-  
-  /* =========================================================
-     TOOLBAR — ROW 1
-     ACCOUNT TYPE LEFT / DATE FILTER RIGHT
-     ========================================================= */
-  
+  /* TOOLBAR — ROW 1 : ACCOUNT TYPE LEFT / DATE FILTER RIGHT */
   .statement-toolbar-top {
     width: 100%;
-  
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-  
     gap: 24px;
     padding: 16px 18px;
-  
     box-sizing: border-box;
   }
   
-  
-  /* =========================================================
-     ACCOUNT TYPE SELECTOR
-     ========================================================= */
-  
-     .account-selector {
+  /* ACCOUNT TYPE SELECTOR */
+    .account-selector {
         flex: 0 0 220px;
         width: 220px;
         min-width: 220px;
         max-width: 220px;
-      
         display: flex;
         flex-direction: column;
         gap: 6px;
@@ -366,42 +289,29 @@
   .account-selector-type-menu {
     position: absolute;
     z-index: 1200;
-  
     top: calc(100% + 6px);
     left: 0;
     right: auto;
-  
     width: 100%;
     box-sizing: border-box;
   }
   
-  
-  /* =========================================================
-     SELECTED ACCOUNT TRIGGER
-     ========================================================= */
-  
+  /* SELECTED ACCOUNT TRIGGER */
   .account-select-trigger {
     width: 100%;
     min-height: 50px;
-  
     display: flex;
     align-items: center;
     justify-content: space-between;
-  
     gap: 12px;
     padding: 7px 11px;
-  
     border: 1px solid #E1E5E8;
     border-radius: 9px;
-  
     background: #FAFBFB;
     color: #14263D;
-  
     font-family: inherit;
     text-align: left;
-  
     cursor: pointer;
-  
     transition:
       border-color 0.15s ease,
       box-shadow 0.15s ease,
@@ -421,7 +331,6 @@
   
   .account-select-main {
     min-width: 0;
-  
     display: flex;
     align-items: center;
     gap: 9px;
@@ -430,14 +339,11 @@
   .account-select-icon {
     width: 34px;
     height: 34px;
-  
     display: flex;
     align-items: center;
     justify-content: center;
-  
     flex-shrink: 0;
     border-radius: 8px;
-  
     background: #E8F5F4;
     color: #159F9A;
   }
@@ -449,7 +355,6 @@
   
   .account-select-text {
     min-width: 0;
-  
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -457,11 +362,9 @@
   
   .account-select-text strong {
     overflow: hidden;
-  
     color: #14263D;
     font-size: 0.74rem;
     font-weight: 700;
-  
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -475,7 +378,6 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-  
     color: #9AA9B5;
     font-size: 0.72rem;
     font-weight: 600;
@@ -491,56 +393,37 @@
   }
   
   
-  /* =========================================================
-     TOOLBAR — ROW 2
-     SELECTED ACCOUNT LEFT / CURRENT BALANCE RIGHT
-     ========================================================= */
-  
-     .statement-toolbar-bottom {
+  /* TOOLBAR — ROW 2 : SELECTED ACCOUNT LEFT / CURRENT BALANCE RIGHT */
+    .statement-toolbar-bottom {
         width: 100%;
-      
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
         align-items: center;
-      
         column-gap: 28px;
-      
         padding: 14px 20px;
-      
         border-top: 0;
         border-bottom: 1px solid #E1E5E8;
-      
         background: #FFFFFF;
-      
         box-sizing: border-box;
       }     
   
-/* =========================
-   SELECTED ACCOUNT
-   ========================= */
-
-   .selected-account-summary {
+/* SELECTED ACCOUNT */
+  .selected-account-summary {
     min-width: 0;
-  
     display: flex;
     align-items: center;
     gap: 10px;
-  
     justify-self: start;
   }
-
 
   .selected-account-summary-icon {
     width: 36px;
     height: 36px;
-  
     display: inline-flex;
     align-items: center;
     justify-content: center;
-  
     flex-shrink: 0;
     border-radius: 9px;
-  
     background: #E8F5F4;
     color: #159F9A;
   }
@@ -552,7 +435,6 @@
   
   .selected-account-summary-text {
     min-width: 0;
-  
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -560,13 +442,10 @@
 
   .selected-account-summary-text strong {
     overflow: hidden;
-  
     color: #14263D;
     font-size: 0.76rem;
     font-weight: 700;
-  
     line-height: 1.25;
-  
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -578,21 +457,14 @@
   white-space: nowrap;
 }
   
-/* =========================================================
-   CURRENT BALANCE
-   UNDER SELECTED ACCOUNT
-   ========================================================= */
-
+/* CURRENT BALANCE  UNDER SELECTED ACCOUNT */
 .selected-account-info {
   min-width: 0;
-
   display: flex;
   align-items: center;
   gap: 8px;
-
   padding: 0;
   margin: 0;
-
   justify-self: start;
 }
   
@@ -608,7 +480,6 @@
     font-size: 0.95rem;
     font-weight: 700;
     line-height: 1.2;
-  
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
   }
@@ -621,24 +492,16 @@
     color: #159F9A !important;
   }
   
-  
-  /* =========================================================
-     DATE FILTER — ROW 1
-     ========================================================= */
-  
-     .header-date-filters {
+  /* DATE FILTER — ROW 1 */
+    .header-date-filters {
         flex-shrink: 0;
         min-width: 0;
-      
         display: flex;
         align-items: flex-end;
         justify-content: flex-end;
-      
         gap: 12px;
-      
         padding: 0;
         margin: 0;
-      
         border: 0;
         background: transparent;
       }
@@ -655,10 +518,7 @@
         height: 42px;
       }
   
-  /* =========================================================
-     ACCOUNT INFO ROW
-     ========================================================= */
-  
+  /* ACCOUNT INFO ROW */ 
   .account-info-row {
     display: flex;
     align-items: center;
@@ -734,11 +594,7 @@
     font-weight: 700;
   }
   
-  
-  /* =========================================================
-     DATE FILTERS
-     ========================================================= */
-  
+  /* DATE FILTERS */
   .statement-filters {
     display: flex;
     align-items: flex-end;
@@ -756,11 +612,9 @@
   
   .statement-date-field label {
     display: block;
-  
     color: #6F8094;
     font-size: 0.61rem;
     font-weight: 600;
-  
     line-height: 1.2;
   }
   
@@ -809,10 +663,7 @@
   }
   
   
-  /* =========================================================
-     TABLE WRAPPER
-     ========================================================= */
-  
+  /* TABLE WRAPPER */
   .statement-table-wrapper {
     width: 100%;
     max-height: 430px;
@@ -836,11 +687,7 @@
     border-radius: 10px;
   }
   
-  
-  /* =========================================================
-     STATEMENT TABLE
-     ========================================================= */
-  
+  /* STATEMENT TABLE */
   .statement-table {
     width: 100%;
     min-width: 930px;
@@ -882,11 +729,7 @@
     background: #FBFCFC;
   }
   
-  
-  /* =========================================================
-     TABLE COLUMN STRUCTURE
-     ========================================================= */
-  
+  /* TABLE COLUMN STRUCTURE */
   .statement-table .col-number-width {
     width: 5%;
   }
@@ -907,13 +750,9 @@
   .statement-table .col-credit-width,
   .statement-table .col-balance-width {
     width: 14.333%;
-  }
+  } 
   
-  
-  /* =========================================================
-     TABLE COLUMN ALIGNMENT
-     ========================================================= */
-  
+  /* TABLE COLUMN ALIGNMENT */
   .statement-table .col-number,
   .statement-table td.row-number {
     text-align: center;
@@ -935,12 +774,8 @@
   .statement-table td.balance-cell {
     text-align: right;
   }
-  
-  
-  /* =========================================================
-     BALANCE EDGE SPACING
-     ========================================================= */
-  
+
+  /* BALANCE EDGE SPACING */
   .statement-table th.col-balance,
   .statement-table td.balance-cell {
     padding-right: 24px;
@@ -1106,10 +941,7 @@
   }
   
   
-  /* =========================================================
-     OPENING BALANCE
-     ========================================================= */
-  
+  /* OPENING BALANCE */
   .opening-balance-row td {
     background: #FBFCFC;
     border-bottom-color: #E1E5E8;
@@ -1137,11 +969,7 @@
     font-size: 0.66rem;
   }
   
-  
-  /* =========================================================
-     STATUS BADGES
-     ========================================================= */
-  
+  /* STATUS BADGES */
   .paid-badge,
   .on-account-badge,
   .return-badge {
@@ -1171,11 +999,7 @@
     color: #C85C55;
   }
   
-  
-  /* =========================================================
-     DETAILS ROW
-     ========================================================= */
-  
+  /* DETAILS ROW */
   .details-row td {
     padding: 0 12px 11px;
     background: #FFFFFF;
@@ -1184,7 +1008,6 @@
   .transaction-details-panel {
     position: relative;
     margin: 0 0 0 35px;
-  
     /* border: 1px solid #E8ECEE;
     border-radius: 9px;
     background: #FBFCFC; */
@@ -1219,27 +1042,19 @@
   
   .details-close {
     position: absolute;
-  
     top: 8px;
     right: 9px;
-  
     width: 24px;
     height: 24px;
-  
     display: flex;
     align-items: center;
     justify-content: center;
-  
     padding: 0;
-  
     border: 1px solid #E1E5E8;
     border-radius: 6px;
-  
     background: #FFFFFF;
     color: #6F8094;
-  
     cursor: pointer;
-  
     z-index: 2;
   }
   
@@ -1349,10 +1164,7 @@
   }
   
   
-  /* =========================================================
-     EMPTY STATE
-     ========================================================= */
-  
+  /*  EMPTY STATE */
   .empty-row td {
     padding: 0 !important;
   }
@@ -1388,10 +1200,7 @@
   }
   
   
-  /* =========================================================
-     TOTALS
-     ========================================================= */
-  
+  /* TOTALS */
   .statement-table tfoot {
     background: #FBFCFC;
   }
@@ -1419,10 +1228,7 @@
   }
   
   
-  /* =========================================================
-     ACCOUNT SUMMARY
-     ========================================================= */
-  
+  /* ACCOUNT SUMMARY */
   .account-summary {
     min-height: 58px;
     display: flex;
@@ -1462,11 +1268,7 @@
     background: #DDE4E5;
   }
   
-  
-  /* =========================================================
-     NO ACCOUNT SELECTED
-     ========================================================= */
-  
+  /* NO ACCOUNT SELECTED */
   .no-account-selected {
     min-height: 430px;
     display: flex;
@@ -1525,11 +1327,7 @@
     border-color: #11847F;
   }
   
-  
-  /* =========================================================
-     LOADING
-     ========================================================= */
-  
+  /* LOADING */
   .account-loading {
     min-height: 210px;
     display: flex;
@@ -1552,10 +1350,7 @@
   }
   
   
-  /* =========================================================
-     ERROR
-     ========================================================= */
-  
+  /* ERROR */
   .account-error {
     margin: 0 18px 18px;
     padding: 10px 12px;
@@ -1569,11 +1364,7 @@
     font-size: 0.64rem;
   }
   
-  
-  /* =========================================================
-     ACCOUNT MODAL
-     ========================================================= */
-  
+  /* ACCOUNT MODAL */
   .account-modal-backdrop {
     position: fixed;
     inset: 0;
@@ -1847,10 +1638,7 @@
   }
   
   
-  /* =========================================================
-     RESPONSIVE
-     ========================================================= */
-  
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     .accounts-page {
       padding: 0;
@@ -1872,8 +1660,7 @@
       justify-content: flex-start;
     }
   
-    @media (max-width: 900px) {
-
+  @media (max-width: 900px) {
         .accounts-page {
           padding: 0;
         }
@@ -2063,8 +1850,6 @@
         .header-date-filters .date-input-wrapper input {
           width: 100%;
         }
-      
-        /* باقي الـ CSS الموجود عندك */
       }
   }
   

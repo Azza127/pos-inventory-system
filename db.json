@@ -35,7 +35,7 @@
     {
       "id": "iWwIZZIbbTo",
       "username": "zouza",
-      "password": "654321",
+      "password": "987654",
       "name": "azza",
       "role": "Manager",
       "status": "Inactive"
@@ -89,9 +89,9 @@
       "name": "Wireless Mouse",
       "sku": "MOU-001",
       "categoryId": "1",
-      "price": 500,
+      "price": 220,
       "costPrice": 120,
-      "stock": 44,
+      "stock": 47,
       "minStock": 10,
       "maxStock": 50,
       "description": "Black / Wireless",
@@ -104,7 +104,7 @@
       "categoryId": "1",
       "price": 360,
       "costPrice": 260,
-      "stock": 63,
+      "stock": 54,
       "minStock": 10,
       "maxStock": 40,
       "description": "Black / 256G",
@@ -117,7 +117,7 @@
       "categoryId": "3",
       "price": 75,
       "costPrice": 25,
-      "stock": 6,
+      "stock": 4,
       "minStock": 10,
       "maxStock": 40,
       "description": "A5 / Ruled Pages",
@@ -130,7 +130,7 @@
       "categoryId": "4",
       "price": 220,
       "costPrice": 95,
-      "stock": 30,
+      "stock": 22,
       "minStock": 5,
       "maxStock": 20,
       "description": "Pink / Glossy Finish",
@@ -143,7 +143,7 @@
       "categoryId": "1",
       "price": 650,
       "costPrice": 450,
-      "stock": 31,
+      "stock": 27,
       "minStock": 5,
       "maxStock": 30,
       "description": "Black / Wireless",
@@ -156,7 +156,7 @@
       "categoryId": "3",
       "price": 220,
       "costPrice": 100,
-      "stock": 13,
+      "stock": 8,
       "minStock": 3,
       "maxStock": 10,
       "description": "Paperback / Arabic",
@@ -169,7 +169,7 @@
       "categoryId": "3",
       "price": 10,
       "costPrice": 7,
-      "stock": 96,
+      "stock": 90,
       "minStock": 6,
       "maxStock": 35,
       "description": "HB / Graphite",
@@ -182,7 +182,7 @@
       "categoryId": "3",
       "price": 12,
       "costPrice": 9,
-      "stock": 25,
+      "stock": 22,
       "minStock": 5,
       "maxStock": 20,
       "description": "White / Soft Rubber",
@@ -208,7 +208,7 @@
       "categoryId": "6",
       "price": 550,
       "costPrice": 350,
-      "stock": 33,
+      "stock": 27,
       "minStock": 2,
       "maxStock": 10,
       "description": "White / Cotton",
@@ -221,7 +221,7 @@
       "categoryId": "2",
       "price": 250,
       "costPrice": 110,
-      "stock": 44,
+      "stock": 33,
       "minStock": 2,
       "maxStock": 6,
       "description": "Gold / Stainless Steel",
@@ -234,24 +234,11 @@
       "categoryId": "w-UYvx6E5OA",
       "price": 15,
       "costPrice": 10,
-      "stock": 66,
+      "stock": 61,
       "minStock": 15,
       "maxStock": 60,
       "description": "Can 280ml",
       "image": "https://images.unsplash.com/photo-1651000877908-18e19a5d4ceb?q=80&w=735&auto=format&fit=crop"
-    },
-    {
-      "id": "g-Zfpr16690",
-      "name": "Pasta",
-      "sku": "FOF-220",
-      "categoryId": "5",
-      "price": 15,
-      "costPrice": 12,
-      "stock": 88,
-      "minStock": 15,
-      "maxStock": 60,
-      "description": "400g",
-      "image": "https://i.pinimg.com/736x/9e/c1/15/9ec115cad9800016f853c080ccfe6578.jpg"
     },
     {
       "id": "ILEoSyI_Fn8",
@@ -260,7 +247,7 @@
       "categoryId": "cT8bmadytzM",
       "price": 550,
       "costPrice": 200,
-      "stock": 12,
+      "stock": 4,
       "minStock": 5,
       "maxStock": 20,
       "description": "Black / perfume",
@@ -299,7 +286,7 @@
       "categoryId": "5",
       "price": 75,
       "costPrice": 55,
-      "stock": 75,
+      "stock": 69,
       "minStock": 15,
       "maxStock": 50,
       "description": "2 Kg",
@@ -311,9 +298,9 @@
       "description": "Energy drink",
       "sku": "Red-212",
       "categoryId": "w-UYvx6E5OA",
-      "price": 200,
-      "costPrice": 55,
-      "stock": 28,
+      "price": 55,
+      "costPrice": 35,
+      "stock": 41,
       "maxStock": 50,
       "minStock": 5,
       "image": "https://i.pinimg.com/736x/a2/25/78/a2257896c64ea8a85b46d28930266d16.jpg"
@@ -326,7 +313,7 @@
       "categoryId": "w-UYvx6E5OA",
       "price": 20,
       "costPrice": 15,
-      "stock": 17,
+      "stock": 15,
       "maxStock": 50,
       "minStock": 10,
       "image": "https://i.pinimg.com/1200x/42/65/9f/42659f20dc84fdbe2c751a32ae54a757.jpg"
@@ -339,7 +326,7 @@
       "categoryId": "6",
       "price": 650,
       "costPrice": 350,
-      "stock": 57,
+      "stock": 53,
       "maxStock": 100,
       "minStock": 0,
       "image": "https://i.pinimg.com/736x/0a/4c/09/0a4c09fad4a49a0519b43f69de6befda.jpg"
@@ -352,7 +339,7 @@
       "categoryId": "k8ka5rF59Ms",
       "price": 4350,
       "costPrice": 2200,
-      "stock": 9,
+      "stock": 5,
       "maxStock": 50,
       "minStock": 4,
       "image": "https://i.pinimg.com/736x/ca/dc/8c/cadc8c1d17a2cd894fe4b40d65a64543.jpg"
@@ -363,11 +350,12 @@
       "description": "1 Kg",
       "sku": "CF-001",
       "categoryId": "5",
-      "price": 30,
-      "stock": 98,
+      "price": 40,
+      "stock": 97,
       "maxStock": 200,
       "minStock": 10,
-      "image": "https://i.pinimg.com/1200x/c5/14/5f/c5145fdbad5e04a3b06c1342d9b0c52d.jpg"
+      "image": "https://i.pinimg.com/1200x/c5/14/5f/c5145fdbad5e04a3b06c1342d9b0c52d.jpg",
+      "costPrice": 24
     },
     {
       "id": "RSaZQkKfUrE",
@@ -376,10 +364,11 @@
       "sku": "kl-002",
       "categoryId": "5",
       "price": 350,
-      "stock": 59,
+      "stock": 53,
       "maxStock": 200,
       "minStock": 10,
-      "image": "https://i.pinimg.com/736x/79/e7/ee/79e7ee5799c00a4b5bef27744c439781.jpg"
+      "image": "https://i.pinimg.com/736x/79/e7/ee/79e7ee5799c00a4b5bef27744c439781.jpg",
+      "costPrice": 150
     },
     {
       "id": "kqxqu7LsBRA",
@@ -388,10 +377,11 @@
       "sku": "DF-007",
       "categoryId": "5",
       "price": 95,
-      "stock": 100,
+      "stock": 94,
       "maxStock": 200,
       "minStock": 10,
-      "image": "https://i.pinimg.com/1200x/2b/85/1a/2b851a8497a2606709e4b2d7475275d0.jpg"
+      "image": "https://i.pinimg.com/1200x/2b/85/1a/2b851a8497a2606709e4b2d7475275d0.jpg",
+      "costPrice": 45
     },
     {
       "id": "Y_foj4E0ZB0",
@@ -400,10 +390,11 @@
       "sku": "RO-001",
       "categoryId": "5",
       "price": 121,
-      "stock": 49,
+      "stock": 32,
       "maxStock": 200,
       "minStock": 10,
-      "image": "https://i.pinimg.com/1200x/5f/01/94/5f019413b187b8aaf8b9020b31b9f3cc.jpg"
+      "image": "https://i.pinimg.com/1200x/5f/01/94/5f019413b187b8aaf8b9020b31b9f3cc.jpg",
+      "costPrice": 85
     },
     {
       "id": "WunXib68h98",
@@ -412,10 +403,11 @@
       "sku": "VO-004",
       "categoryId": "5",
       "price": 95,
-      "stock": 50,
+      "stock": 44,
       "maxStock": 200,
       "minStock": 10,
-      "image": "https://i.pinimg.com/1200x/a3/b6/a6/a3b6a695cc35ef71fc2c7930591151a5.jpg"
+      "image": "https://i.pinimg.com/1200x/a3/b6/a6/a3b6a695cc35ef71fc2c7930591151a5.jpg",
+      "costPrice": 70
     },
     {
       "id": "FDCdAuDKQI0",
@@ -424,10 +416,37 @@
       "sku": "CF-002",
       "categoryId": "5",
       "price": 45,
-      "stock": 118,
+      "stock": 96,
       "maxStock": 200,
       "minStock": 10,
-      "image": "https://i.pinimg.com/1200x/3f/65/af/3f65af4042985092362cc980bd864f36.jpg"
+      "image": "https://i.pinimg.com/1200x/3f/65/af/3f65af4042985092362cc980bd864f36.jpg",
+      "costPrice": 35
+    },
+    {
+      "id": "JjCrzdNy2BE",
+      "name": "Pasta",
+      "description": "1 Kg",
+      "sku": "P-004",
+      "categoryId": "5",
+      "price": 30,
+      "stock": 5,
+      "maxStock": 100,
+      "minStock": 10,
+      "image": "https://i.pinimg.com/736x/40/62/fb/4062fb7763367ba3a9271c28e516dc93.jpg",
+      "costPrice": 20
+    },
+    {
+      "id": "EeB_ZZwto4I",
+      "name": "Strawberry Jam",
+      "description": "850 g",
+      "sku": "IOI-74",
+      "categoryId": "5",
+      "price": 40,
+      "stock": 5,
+      "maxStock": 50,
+      "minStock": 5,
+      "image": "https://i.pinimg.com/1200x/7d/86/f8/7d86f89e7cad8ef63d619adaa4373c33.jpg",
+      "costPrice": 20
     }
   ],
   "purchaseInvoices": [
@@ -1321,6 +1340,161 @@
         }
       ],
       "paymentStatus": "OnAccount"
+    },
+    {
+      "id": "zFcphcEK2rY",
+      "supplierId": "M9PqcWZUfus",
+      "supplierName": "CompuSafe",
+      "invoiceNumber": "125847",
+      "invoiceDate": "2026-10-11",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 1200,
+      "taxTotal": 0,
+      "total": 1200,
+      "items": [
+        {
+          "id": "1791722643059wvw44k",
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "sku": "MOU-001",
+          "quantity": 10,
+          "expiryDate": "",
+          "purchasePrice": 120,
+          "sellingPrice": 220,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 1200,
+          "total": 1200
+        }
+      ],
+      "paymentStatus": "Paid",
+      "paymentAccountId": "1",
+      "paymentAccountName": "Cash Drawer"
+    },
+    {
+      "id": "dCloIza4UGE",
+      "supplierId": "ENRgRxPuuBU",
+      "supplierName": "شركة فهمي للصناعات الغذائية",
+      "invoiceNumber": "210159",
+      "invoiceDate": "2026-10-11",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 700,
+      "taxTotal": 0,
+      "total": 700,
+      "items": [
+        {
+          "id": "1791722838615xa2ach",
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "sku": "Red-212",
+          "quantity": 20,
+          "expiryDate": "",
+          "purchasePrice": 35,
+          "sellingPrice": 55,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 700,
+          "total": 700
+        }
+      ],
+      "paymentStatus": "Paid",
+      "paymentAccountId": "2",
+      "paymentAccountName": "Visa POS"
+    },
+    {
+      "id": "apsK7K_uWc4",
+      "supplierId": "YiCfmChFUtQ",
+      "supplierName": "شركة العبور للمواد الغذائية",
+      "invoiceNumber": "214587",
+      "invoiceDate": "2026-10-13",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 240,
+      "taxTotal": 0,
+      "total": 240,
+      "items": [
+        {
+          "id": "1791929623848kql922",
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "sku": "CF-001",
+          "quantity": 10,
+          "expiryDate": "",
+          "purchasePrice": 24,
+          "sellingPrice": 40,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 240,
+          "total": 240
+        }
+      ],
+      "paymentStatus": "Paid",
+      "paymentAccountId": "1",
+      "paymentAccountName": "Cash Drawer"
+    },
+    {
+      "id": "gl_P7Q1k2RM",
+      "supplierId": "LNHBLb1C07A",
+      "supplierName": "شركة الهدى لتوزيع المواد الغذائية",
+      "invoiceNumber": "120487",
+      "invoiceDate": "2026-10-15",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 200,
+      "taxTotal": 0,
+      "total": 200,
+      "items": [
+        {
+          "id": "179207313010203ht3v",
+          "productId": "JjCrzdNy2BE",
+          "productName": "Pasta",
+          "sku": "P-004",
+          "quantity": 10,
+          "expiryDate": "",
+          "purchasePrice": 20,
+          "sellingPrice": 30,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 200,
+          "total": 200
+        }
+      ],
+      "paymentStatus": "Paid",
+      "paymentAccountId": "3",
+      "paymentAccountName": "InstaPay"
+    },
+    {
+      "id": "VS2anL8Sim0",
+      "supplierId": "YiCfmChFUtQ",
+      "supplierName": "شركة العبور للمواد الغذائية",
+      "invoiceNumber": "12487",
+      "invoiceDate": "2026-10-15",
+      "warehouseId": "",
+      "notes": "",
+      "subtotal": 200,
+      "taxTotal": 0,
+      "total": 200,
+      "items": [
+        {
+          "id": "1792085541408r9iuu3",
+          "productId": "EeB_ZZwto4I",
+          "productName": "Strawberry Jam",
+          "sku": "IOI-74",
+          "quantity": 10,
+          "expiryDate": "",
+          "purchasePrice": 20,
+          "sellingPrice": 40,
+          "taxRate": 0,
+          "taxAmount": 0,
+          "subtotal": 200,
+          "total": 200
+        }
+      ],
+      "paymentStatus": "Paid",
+      "paymentAccountId": "3",
+      "paymentAccountName": "InstaPay"
     }
   ],
   "orders": [
@@ -3103,6 +3277,2691 @@
       "customerId": "ZqwiPVb-DdA",
       "customerName": "Azza Ezzat Eldamaty",
       "id": "MCDXBWyxfYA"
+    },
+    {
+      "ticketNumber": "#5561-P",
+      "items": [
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "costPrice": 55,
+          "quantity": 1,
+          "total": 200
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "costPrice": 10,
+          "quantity": 1,
+          "total": 15
+        },
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "price": 121,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 45
+        },
+        {
+          "productId": "g-Zfpr16690",
+          "productName": "Pasta",
+          "price": 15,
+          "costPrice": 12,
+          "quantity": 1,
+          "total": 15
+        }
+      ],
+      "subtotal": 396,
+      "tax": 55.44,
+      "total": 451.44,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T05:07:02.452Z",
+      "paymentAccountId": "1",
+      "id": "aBwxirnOpAk"
+    },
+    {
+      "ticketNumber": "#5561-P",
+      "items": [
+        {
+          "productId": "kqxqu7LsBRA",
+          "productName": "Pickled olives",
+          "price": 95,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 95
+        },
+        {
+          "productId": "RSaZQkKfUrE",
+          "productName": "Olive oil",
+          "price": 350,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 350
+        },
+        {
+          "productId": "WunXib68h98",
+          "productName": "Nescafé Classic",
+          "price": 95,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 95
+        },
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "price": 30,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 30
+        }
+      ],
+      "subtotal": 570,
+      "tax": 79.8,
+      "total": 649.8,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T05:07:24.259Z",
+      "paymentAccountId": "4",
+      "id": "CT80EeTKWNk"
+    },
+    {
+      "ticketNumber": "#5561-P",
+      "items": [
+        {
+          "productId": "3",
+          "productName": "Notebook",
+          "price": 75,
+          "costPrice": 25,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "costPrice": 100,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "costPrice": 260,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "costPrice": 7,
+          "quantity": 1,
+          "total": 10
+        },
+        {
+          "productId": "JL_OrD8YdJo",
+          "productName": "Eraser",
+          "price": 12,
+          "costPrice": 9,
+          "quantity": 1,
+          "total": 12
+        }
+      ],
+      "subtotal": 677,
+      "tax": 94.78,
+      "total": 771.78,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T05:07:40.217Z",
+      "paymentAccountId": "3",
+      "id": "pXAmEOWpMSI"
+    },
+    {
+      "ticketNumber": "#7801-Z",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "costPrice": 120,
+          "quantity": 1,
+          "total": 500
+        },
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "costPrice": 260,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "WunXib68h98",
+          "productName": "Nescafé Classic",
+          "price": 95,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 95
+        }
+      ],
+      "subtotal": 955,
+      "tax": 133.7,
+      "total": 1088.7,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:30:01.565Z",
+      "paymentAccountId": "2",
+      "id": "fvq7MkgEtKI"
+    },
+    {
+      "ticketNumber": "#7801-Z",
+      "items": [
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "price": 121,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "kqxqu7LsBRA",
+          "productName": "Pickled olives",
+          "price": 95,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 95
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 45
+        }
+      ],
+      "subtotal": 261,
+      "tax": 36.54,
+      "total": 297.54,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:30:16.240Z",
+      "paymentAccountId": "4",
+      "id": "CknHki8KkFY"
+    },
+    {
+      "ticketNumber": "#7801-Z",
+      "items": [
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "costPrice": 7,
+          "quantity": 1,
+          "total": 10
+        },
+        {
+          "productId": "g-Zfpr16690",
+          "productName": "Pasta",
+          "price": 15,
+          "costPrice": 12,
+          "quantity": 1,
+          "total": 15
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        }
+      ],
+      "subtotal": 275,
+      "tax": 38.5,
+      "total": 313.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:30:31.072Z",
+      "paymentAccountId": "3",
+      "id": "6ZSFRXF-AfY"
+    },
+    {
+      "ticketNumber": "#7801-Z",
+      "items": [
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 45
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        }
+      ],
+      "subtotal": 845,
+      "tax": 118.3,
+      "total": 963.3,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:31:09.258Z",
+      "paymentAccountId": "1",
+      "id": "_-qFTzwVWnM"
+    },
+    {
+      "ticketNumber": "#7801-Z",
+      "items": [
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "price": 121,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "price": 30,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 30
+        },
+        {
+          "productId": "RSaZQkKfUrE",
+          "productName": "Olive oil",
+          "price": 350,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 350
+        }
+      ],
+      "subtotal": 501,
+      "tax": 70.14,
+      "total": 571.14,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:31:53.898Z",
+      "paymentAccountId": "7",
+      "id": "1ZNWWtjNffY"
+    },
+    {
+      "ticketNumber": "#3114-S",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "costPrice": 260,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "costPrice": 120,
+          "quantity": 1,
+          "total": 500
+        }
+      ],
+      "subtotal": 860,
+      "tax": 120.4,
+      "total": 980.4,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:39:59.737Z",
+      "paymentAccountId": "1",
+      "id": "uc5sTUB58mY"
+    },
+    {
+      "ticketNumber": "#3114-S",
+      "items": [
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "costPrice": 7,
+          "quantity": 1,
+          "total": 10
+        },
+        {
+          "productId": "JL_OrD8YdJo",
+          "productName": "Eraser",
+          "price": 12,
+          "costPrice": 9,
+          "quantity": 1,
+          "total": 12
+        },
+        {
+          "productId": "3",
+          "productName": "Notebook",
+          "price": 75,
+          "costPrice": 25,
+          "quantity": 1,
+          "total": 75
+        }
+      ],
+      "subtotal": 97,
+      "tax": 13.58,
+      "total": 110.58,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:40:05.070Z",
+      "paymentAccountId": "1",
+      "id": "oFcs28kRyV0"
+    },
+    {
+      "ticketNumber": "#3114-S",
+      "items": [
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 45
+        },
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "price": 121,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 121
+        }
+      ],
+      "subtotal": 166,
+      "tax": 23.24,
+      "total": 189.24,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:40:14.884Z",
+      "paymentAccountId": "4",
+      "id": "GPM9V8lolC8"
+    },
+    {
+      "ticketNumber": "#3114-S",
+      "items": [
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "price": 4350,
+          "costPrice": 2200,
+          "quantity": 1,
+          "total": 4350
+        }
+      ],
+      "subtotal": 4350,
+      "tax": 609,
+      "total": 4959,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:40:18.941Z",
+      "paymentAccountId": "2",
+      "id": "eDies1lxoME"
+    },
+    {
+      "ticketNumber": "#3114-S",
+      "items": [
+        {
+          "productId": "RSaZQkKfUrE",
+          "productName": "Olive oil",
+          "price": 350,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 350
+        },
+        {
+          "productId": "kqxqu7LsBRA",
+          "productName": "Pickled olives",
+          "price": 95,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 95
+        },
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "price": 30,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 30
+        }
+      ],
+      "subtotal": 475,
+      "tax": 66.5,
+      "total": 541.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:40:32.521Z",
+      "paymentAccountId": "7",
+      "id": "hJoWUdwUpLg"
+    },
+    {
+      "ticketNumber": "#3114-S",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        },
+        {
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "price": 650,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 650
+        }
+      ],
+      "subtotal": 2000,
+      "tax": 280,
+      "total": 2280,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:40:45.007Z",
+      "paymentAccountId": "6",
+      "id": "s1rQUwkPhfI"
+    },
+    {
+      "ticketNumber": "#3114-S",
+      "items": [
+        {
+          "productId": "8mgaOCZTySg",
+          "productName": "V Cola",
+          "price": 20,
+          "costPrice": 15,
+          "quantity": 1,
+          "total": 20
+        },
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        }
+      ],
+      "subtotal": 490,
+      "tax": 68.6,
+      "total": 558.6,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:41:16.548Z",
+      "paymentAccountId": "5",
+      "id": "A4_MUFw-gqk"
+    },
+    {
+      "ticketNumber": "#3114-S",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "costPrice": 260,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "costPrice": 10,
+          "quantity": 1,
+          "total": 15
+        }
+      ],
+      "subtotal": 375,
+      "tax": 52.5,
+      "total": 427.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T06:42:04.203Z",
+      "paymentAccountId": "3",
+      "id": "p9MmSktOyNA"
+    },
+    {
+      "ticketNumber": "#8235-E",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "costPrice": 260,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "costPrice": 7,
+          "quantity": 1,
+          "total": 10
+        }
+      ],
+      "subtotal": 370,
+      "tax": 51.8,
+      "total": 421.8,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T07:21:56.359Z",
+      "paymentAccountId": "1",
+      "id": "r9gYQEtAJLk"
+    },
+    {
+      "ticketNumber": "#8235-E",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 550
+        }
+      ],
+      "subtotal": 770,
+      "tax": 107.8,
+      "total": 877.8,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T07:22:07.392Z",
+      "paymentAccountId": "2",
+      "id": "gHa5_jbPR0U"
+    },
+    {
+      "ticketNumber": "#8235-E",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        }
+      ],
+      "subtotal": 800,
+      "tax": 112,
+      "total": 912,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T07:22:14.173Z",
+      "paymentAccountId": "3",
+      "id": "mjuveRozJGM"
+    },
+    {
+      "ticketNumber": "#8235-E",
+      "items": [
+        {
+          "productId": "g-Zfpr16690",
+          "productName": "Pasta",
+          "price": 15,
+          "costPrice": 12,
+          "quantity": 1,
+          "total": 15
+        },
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "price": 121,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 121
+        }
+      ],
+      "subtotal": 136,
+      "tax": 19.04,
+      "total": 155.04,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T07:22:23.674Z",
+      "paymentAccountId": "4",
+      "id": "GhZf7f_QrxM"
+    },
+    {
+      "ticketNumber": "#8235-E",
+      "items": [
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 45
+        },
+        {
+          "productId": "WunXib68h98",
+          "productName": "Nescafé Classic",
+          "price": 95,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 95
+        }
+      ],
+      "subtotal": 140,
+      "tax": 19.6,
+      "total": 159.6,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T07:22:32.206Z",
+      "paymentAccountId": "5",
+      "id": "zNF8iLa2guE"
+    },
+    {
+      "ticketNumber": "#8235-E",
+      "items": [
+        {
+          "productId": "RSaZQkKfUrE",
+          "productName": "Olive oil",
+          "price": 350,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 350
+        },
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "price": 30,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 30
+        }
+      ],
+      "subtotal": 380,
+      "tax": 53.2,
+      "total": 433.2,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T07:22:41.905Z",
+      "paymentAccountId": "6",
+      "id": "41BWse0xH1M"
+    },
+    {
+      "ticketNumber": "#8235-E",
+      "items": [
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "price": 4350,
+          "costPrice": 2200,
+          "quantity": 1,
+          "total": 4350
+        }
+      ],
+      "subtotal": 4350,
+      "tax": 609,
+      "total": 4959,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-02T07:22:49.505Z",
+      "paymentAccountId": "7",
+      "id": "-MyS0eGEkE0"
+    },
+    {
+      "ticketNumber": "#7037-L",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "costPrice": 260,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "costPrice": 120,
+          "quantity": 1,
+          "total": 500
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "costPrice": 100,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "price": 650,
+          "costPrice": 450,
+          "quantity": 1,
+          "total": 650
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "price": 15,
+          "costPrice": 10,
+          "quantity": 1,
+          "total": 15
+        },
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "costPrice": 55,
+          "quantity": 1,
+          "total": 200
+        },
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "price": 121,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 2,
+          "total": 90
+        }
+      ],
+      "subtotal": 2706,
+      "tax": 378.84,
+      "total": 3084.84,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-04T21:28:16.423Z",
+      "paymentAccountId": "1",
+      "id": "NS52VlUFCV4"
+    },
+    {
+      "ticketNumber": "#4679-T",
+      "items": [
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "price": 30,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 30
+        },
+        {
+          "productId": "RSaZQkKfUrE",
+          "productName": "Olive oil",
+          "price": 350,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 350
+        },
+        {
+          "productId": "WunXib68h98",
+          "productName": "Nescafé Classic",
+          "price": 95,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 95
+        }
+      ],
+      "subtotal": 475,
+      "tax": 66.5,
+      "total": 541.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-04T22:29:36.902Z",
+      "paymentAccountId": "3",
+      "id": "glkkwMoCuno"
+    },
+    {
+      "ticketNumber": "#4679-T",
+      "items": [
+        {
+          "productId": "kqxqu7LsBRA",
+          "productName": "Pickled olives",
+          "price": 95,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 95
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 45
+        }
+      ],
+      "subtotal": 140,
+      "tax": 19.6,
+      "total": 159.6,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-04T22:29:56.624Z",
+      "paymentAccountId": "4",
+      "id": "LRBGuEOp4MI"
+    },
+    {
+      "ticketNumber": "#5412-K",
+      "items": [
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "price": 30,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 30
+        },
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "price": 4350,
+          "costPrice": 2200,
+          "quantity": 1,
+          "total": 4350
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 45
+        },
+        {
+          "productId": "RSaZQkKfUrE",
+          "productName": "Olive oil",
+          "price": 350,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 350
+        },
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "price": 121,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 121
+        }
+      ],
+      "subtotal": 4896,
+      "tax": 685.44,
+      "total": 5581.44,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-04T22:30:59.818Z",
+      "paymentAccountId": "1",
+      "id": "27Rl1IXHZFw"
+    },
+    {
+      "ticketNumber": "#5412-K",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        },
+        {
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "price": 650,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 650
+        }
+      ],
+      "subtotal": 1670,
+      "tax": 233.8,
+      "total": 1903.8,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-04T22:31:17.080Z",
+      "paymentAccountId": "1",
+      "id": "3SuqPu6vHps"
+    },
+    {
+      "ticketNumber": "#5412-K",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        },
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        }
+      ],
+      "subtotal": 1020,
+      "tax": 142.8,
+      "total": 1162.8,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-04T22:31:38.294Z",
+      "paymentAccountId": "3",
+      "id": "Y7CexVBh5UM"
+    },
+    {
+      "ticketNumber": "#5412-K",
+      "items": [
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "price": 200,
+          "costPrice": 55,
+          "quantity": 1,
+          "total": 200
+        },
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "price": 121,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 45
+        }
+      ],
+      "subtotal": 366,
+      "tax": 51.24,
+      "total": 417.24,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-04T22:31:51.703Z",
+      "paymentAccountId": "4",
+      "id": "SRsjHZU_vjY"
+    },
+    {
+      "ticketNumber": "#4626-F",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "costPrice": 120,
+          "quantity": 1,
+          "total": 500
+        }
+      ],
+      "subtotal": 500,
+      "tax": 70,
+      "total": 570,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-04T23:39:53.967Z",
+      "paymentAccountId": "1",
+      "id": "1RZHcJtcZ60"
+    },
+    {
+      "ticketNumber": "#5753-V",
+      "items": [
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "price": 75,
+          "costPrice": 55,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "g-Zfpr16690",
+          "productName": "Pasta",
+          "price": 15,
+          "costPrice": 12,
+          "quantity": 1,
+          "total": 15
+        }
+      ],
+      "subtotal": 90,
+      "tax": 12.6,
+      "total": 102.6,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-04T23:41:01.802Z",
+      "paymentAccountId": "1",
+      "id": "1vFO4dy_XH4"
+    },
+    {
+      "ticketNumber": "#5753-V",
+      "items": [
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "price": 220,
+          "costPrice": 100,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 220,
+      "tax": 30.8,
+      "total": 250.8,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-05T00:01:05.586Z",
+      "paymentAccountId": "4",
+      "id": "Rgf1TQrZL8k"
+    },
+    {
+      "ticketNumber": "#3526-S",
+      "items": [
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "price": 121,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "price": 45,
+          "costPrice": 0,
+          "quantity": 1,
+          "total": 45
+        }
+      ],
+      "subtotal": 166,
+      "tax": 23.24,
+      "total": 189.24,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-05T00:01:28.179Z",
+      "paymentAccountId": "3",
+      "id": "8FRWDv9GrFY"
+    },
+    {
+      "ticketNumber": "#7884-T",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "costPrice": 260,
+          "quantity": 1,
+          "total": 360
+        }
+      ],
+      "subtotal": 360,
+      "tax": 50.4,
+      "total": 410.4,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-05T00:30:24.028Z",
+      "paymentAccountId": "1",
+      "id": "YVSFrcc3XgA"
+    },
+    {
+      "ticketNumber": "#7884-T",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "costPrice": 120,
+          "quantity": 1,
+          "total": 500
+        },
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "price": 650,
+          "costPrice": 450,
+          "quantity": 1,
+          "total": 650
+        }
+      ],
+      "subtotal": 1150,
+      "tax": 161,
+      "total": 1311,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-05T00:30:33.694Z",
+      "paymentAccountId": "3",
+      "id": "3Qmlr_fpi-A"
+    },
+    {
+      "ticketNumber": "#7884-T",
+      "items": [
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "price": 4350,
+          "costPrice": 2200,
+          "quantity": 1,
+          "total": 4350
+        }
+      ],
+      "subtotal": 4350,
+      "tax": 609,
+      "total": 4959,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-05T00:30:43.771Z",
+      "paymentAccountId": "2",
+      "id": "Hg4xTTSoBFY"
+    },
+    {
+      "ticketNumber": "#4230-K",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "price": 360,
+          "costPrice": 260,
+          "quantity": 2,
+          "total": 720
+        },
+        {
+          "productId": "3",
+          "productName": "Notebook",
+          "price": 75,
+          "costPrice": 25,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 500,
+          "costPrice": 120,
+          "quantity": 1,
+          "total": 500
+        }
+      ],
+      "subtotal": 1295,
+      "tax": 181.3,
+      "total": 1476.3,
+      "paymentStatus": "Paid",
+      "status": "Cancelled",
+      "createdAt": "2026-10-05T17:49:39.084Z",
+      "paymentAccountId": "3",
+      "id": "83xGAbWzgHg"
+    },
+    {
+      "ticketNumber": "#4259-J",
+      "items": [
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "price": 10,
+          "costPrice": 7,
+          "quantity": 1,
+          "total": 10
+        },
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 230,
+      "tax": 34.5,
+      "total": 264.5,
+      "paymentStatus": "OnAccount",
+      "status": "Completed",
+      "createdAt": "2026-10-05T18:14:23.077Z",
+      "customerId": "0x5qBJpmtcw",
+      "customerName": "Hanya Ahmed",
+      "id": "61Smh2MXFMs"
+    },
+    {
+      "ticketNumber": "#9303-S",
+      "items": [
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "price": 35,
+          "costPrice": 20,
+          "quantity": 1,
+          "total": 35
+        }
+      ],
+      "subtotal": 35,
+      "tax": 5.25,
+      "total": 40.25,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-12T15:10:50.714Z",
+      "paymentAccountId": "1",
+      "id": "g3pKPOi-Mto"
+    },
+    {
+      "ticketNumber": "#6734-U",
+      "items": [
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "price": 35,
+          "costPrice": 20,
+          "quantity": 1,
+          "total": 35
+        }
+      ],
+      "subtotal": 35,
+      "tax": 5.25,
+      "total": 40.25,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-13T22:11:33.552Z",
+      "paymentAccountId": "1",
+      "id": "fPF9FY0oUL4"
+    },
+    {
+      "ticketNumber": "#6734-U",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "price": 220,
+          "costPrice": 120,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 220,
+      "tax": 33,
+      "total": 253,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-13T22:12:45.446Z",
+      "paymentAccountId": "1",
+      "id": "doqOyTxZldg"
+    },
+    {
+      "ticketNumber": "#4691-D",
+      "items": [
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "price": 40,
+          "costPrice": 24,
+          "quantity": 1,
+          "total": 40
+        }
+      ],
+      "subtotal": 40,
+      "tax": 6,
+      "total": 46,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-13T22:14:42.520Z",
+      "paymentAccountId": "1",
+      "id": "Q2Xwm5zHEM4"
+    },
+    {
+      "ticketNumber": "#8734-L",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        }
+      ],
+      "subtotal": 470,
+      "tax": 70.5,
+      "total": 540.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-14T19:47:16.154Z",
+      "paymentAccountId": "1",
+      "id": "yV_pA7dAeVA"
+    },
+    {
+      "ticketNumber": "#9496-E",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "categoryId": "1",
+          "price": 220,
+          "costPrice": 120,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 220,
+      "tax": 33,
+      "total": 253,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-14T22:31:23.765Z",
+      "paymentAccountId": "1",
+      "id": "J7-f9Nk737g"
+    },
+    {
+      "ticketNumber": "#9563-D",
+      "items": [
+        {
+          "productId": "JjCrzdNy2BE",
+          "productName": "Pasta",
+          "categoryId": "5",
+          "price": 30,
+          "costPrice": 20,
+          "quantity": 3,
+          "total": 90
+        }
+      ],
+      "subtotal": 90,
+      "tax": 13.5,
+      "total": 103.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-15T14:08:30.955Z",
+      "paymentAccountId": "1",
+      "id": "IBFNvRiPUMw"
+    },
+    {
+      "ticketNumber": "#1982-C",
+      "items": [
+        {
+          "productId": "EeB_ZZwto4I",
+          "productName": "Strawberry Jam",
+          "categoryId": "5",
+          "price": 40,
+          "costPrice": 20,
+          "quantity": 1,
+          "total": 40
+        }
+      ],
+      "subtotal": 40,
+      "tax": 6,
+      "total": 46,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-15T17:43:34.547Z",
+      "paymentAccountId": "1",
+      "id": "sindQj8g3Oo"
+    },
+    {
+      "ticketNumber": "#3565-A",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "categoryId": "1",
+          "price": 360,
+          "costPrice": 260,
+          "quantity": 1,
+          "total": 360
+        },
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "categoryId": "1",
+          "price": 650,
+          "costPrice": 450,
+          "quantity": 1,
+          "total": 650
+        }
+      ],
+      "subtotal": 1010,
+      "tax": 151.5,
+      "total": 1161.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-16T13:44:36.654Z",
+      "paymentAccountId": "1",
+      "id": "GH-KH2JadbA"
+    },
+    {
+      "ticketNumber": "#3565-A",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "categoryId": "cT8bmadytzM",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "categoryId": "2",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        }
+      ],
+      "subtotal": 800,
+      "tax": 120,
+      "total": 920,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-16T13:44:59.286Z",
+      "paymentAccountId": "3",
+      "id": "DvUdss2fda4"
+    },
+    {
+      "ticketNumber": "#3565-A",
+      "items": [
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "categoryId": "3",
+          "price": 10,
+          "costPrice": 7,
+          "quantity": 1,
+          "total": 10
+        },
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "categoryId": "3",
+          "price": 220,
+          "costPrice": 100,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 230,
+      "tax": 34.5,
+      "total": 264.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-16T13:45:19.766Z",
+      "paymentAccountId": "4",
+      "id": "vYCwb6M5W_s"
+    },
+    {
+      "ticketNumber": "#3565-A",
+      "items": [
+        {
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "categoryId": "6",
+          "price": 650,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 650
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "categoryId": "6",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 550
+        }
+      ],
+      "subtotal": 1200,
+      "tax": 180,
+      "total": 1380,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-16T13:45:34.702Z",
+      "paymentAccountId": "4",
+      "id": "KL9qrCGfyO4"
+    },
+    {
+      "ticketNumber": "#3565-A",
+      "items": [
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "categoryId": "5",
+          "price": 121,
+          "costPrice": 85,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "categoryId": "5",
+          "price": 45,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 45
+        }
+      ],
+      "subtotal": 166,
+      "tax": 24.9,
+      "total": 190.9,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-16T13:45:43.334Z",
+      "paymentAccountId": "1",
+      "id": "LBs6YRx0XoM"
+    },
+    {
+      "ticketNumber": "#7747-P",
+      "items": [
+        {
+          "productId": "JjCrzdNy2BE",
+          "productName": "Pasta",
+          "categoryId": "5",
+          "price": 30,
+          "costPrice": 20,
+          "quantity": 1,
+          "total": 30
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "categoryId": "5",
+          "price": 45,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 45
+        }
+      ],
+      "subtotal": 75,
+      "tax": 10.5,
+      "total": 85.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-17T06:34:51.263Z",
+      "paymentAccountId": "1",
+      "id": "NXTBKS3mw7g"
+    },
+    {
+      "ticketNumber": "#7747-P",
+      "items": [
+        {
+          "productId": "kqxqu7LsBRA",
+          "productName": "Pickled olives",
+          "categoryId": "5",
+          "price": 95,
+          "costPrice": 45,
+          "quantity": 1,
+          "total": 95
+        },
+        {
+          "productId": "RSaZQkKfUrE",
+          "productName": "Olive oil",
+          "categoryId": "5",
+          "price": 350,
+          "costPrice": 150,
+          "quantity": 1,
+          "total": 350
+        }
+      ],
+      "subtotal": 445,
+      "tax": 62.3,
+      "total": 507.3,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-17T06:34:59.934Z",
+      "paymentAccountId": "1",
+      "id": "teAaNTndR7Q"
+    },
+    {
+      "ticketNumber": "#7747-P",
+      "items": [
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "categoryId": "5",
+          "price": 121,
+          "costPrice": 85,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "EeB_ZZwto4I",
+          "productName": "Strawberry Jam",
+          "categoryId": "5",
+          "price": 40,
+          "costPrice": 20,
+          "quantity": 1,
+          "total": 40
+        }
+      ],
+      "subtotal": 161,
+      "tax": 22.54,
+      "total": 183.54,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-17T06:35:11.510Z",
+      "paymentAccountId": "4",
+      "id": "MAOUJyx04R0"
+    },
+    {
+      "ticketNumber": "#7747-P",
+      "items": [
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "categoryId": "5",
+          "price": 40,
+          "costPrice": 24,
+          "quantity": 1,
+          "total": 40
+        },
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "categoryId": "5",
+          "price": 75,
+          "costPrice": 55,
+          "quantity": 1,
+          "total": 75
+        }
+      ],
+      "subtotal": 115,
+      "tax": 16.1,
+      "total": 131.1,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-17T06:35:21.174Z",
+      "paymentAccountId": "3",
+      "id": "NXhNlzM-jdQ"
+    },
+    {
+      "ticketNumber": "#4786-X",
+      "items": [
+        {
+          "productId": "EeB_ZZwto4I",
+          "productName": "Strawberry Jam",
+          "categoryId": "5",
+          "price": 40,
+          "costPrice": 20,
+          "quantity": 1,
+          "total": 40
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "categoryId": "w-UYvx6E5OA",
+          "price": 15,
+          "costPrice": 10,
+          "quantity": 1,
+          "total": 15
+        }
+      ],
+      "subtotal": 55,
+      "tax": 7.7,
+      "total": 62.7,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-17T06:37:39.086Z",
+      "paymentAccountId": "1",
+      "id": "kPB9J6FvXj8"
+    },
+    {
+      "ticketNumber": "#4786-X",
+      "items": [
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "categoryId": "5",
+          "price": 45,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 45
+        },
+        {
+          "productId": "WunXib68h98",
+          "productName": "Nescafé Classic",
+          "categoryId": "5",
+          "price": 95,
+          "costPrice": 70,
+          "quantity": 1,
+          "total": 95
+        }
+      ],
+      "subtotal": 140,
+      "tax": 19.6,
+      "total": 159.6,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-17T06:38:26.598Z",
+      "paymentAccountId": "3",
+      "id": "P3OboEoWdHM"
+    },
+    {
+      "ticketNumber": "#8673-E",
+      "items": [
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "categoryId": "5",
+          "price": 121,
+          "costPrice": 85,
+          "quantity": 1,
+          "total": 121
+        }
+      ],
+      "subtotal": 121,
+      "tax": 16.94,
+      "total": 137.94,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-17T17:14:10.669Z",
+      "paymentAccountId": "1",
+      "id": "q3HpznmjfpE"
+    },
+    {
+      "ticketNumber": "#7562-U",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "categoryId": "4",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 220,
+      "tax": 30.8,
+      "total": 250.8,
+      "paymentStatus": "Paid",
+      "status": "Cancelled",
+      "createdAt": "2026-10-17T17:27:06.045Z",
+      "paymentAccountId": "1",
+      "id": "TkvQ2Ltnfsg"
+    },
+    {
+      "ticketNumber": "#7649-U",
+      "items": [
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "categoryId": "5",
+          "price": 45,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 45
+        }
+      ],
+      "subtotal": 45,
+      "tax": 6.3,
+      "total": 51.3,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-17T21:54:39.850Z",
+      "paymentAccountId": "1",
+      "id": "j1ejEsMK88w"
+    },
+    {
+      "ticketNumber": "#5747-H",
+      "items": [
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "categoryId": "5",
+          "price": 121,
+          "costPrice": 85,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "categoryId": "5",
+          "price": 45,
+          "costPrice": 35,
+          "quantity": 2,
+          "total": 90
+        }
+      ],
+      "subtotal": 211,
+      "tax": 29.54,
+      "total": 240.54,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-17T22:02:06.512Z",
+      "paymentAccountId": "3",
+      "id": "hhelt8BeYGQ"
+    },
+    {
+      "ticketNumber": "#4178-S",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "categoryId": "cT8bmadytzM",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "categoryId": "2",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        }
+      ],
+      "subtotal": 800,
+      "tax": 112,
+      "total": 912,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T07:07:05.751Z",
+      "paymentAccountId": "2",
+      "id": "d1r2kaWKef4"
+    },
+    {
+      "ticketNumber": "#1061-G",
+      "items": [
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "categoryId": "5",
+          "price": 121,
+          "costPrice": 85,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "categoryId": "5",
+          "price": 45,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 45
+        },
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "categoryId": "5",
+          "price": 75,
+          "costPrice": 55,
+          "quantity": 2,
+          "total": 150
+        },
+        {
+          "productId": "pzQDVud1YWA",
+          "productName": "Pepsi",
+          "categoryId": "w-UYvx6E5OA",
+          "price": 15,
+          "costPrice": 10,
+          "quantity": 1,
+          "total": 15
+        },
+        {
+          "productId": "JjCrzdNy2BE",
+          "productName": "Pasta",
+          "categoryId": "5",
+          "price": 30,
+          "costPrice": 20,
+          "quantity": 1,
+          "total": 30
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "categoryId": "w-UYvx6E5OA",
+          "price": 55,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 55
+        }
+      ],
+      "subtotal": 416,
+      "tax": 58.24,
+      "total": 474.24,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T14:21:44.269Z",
+      "paymentAccountId": "6",
+      "id": "MpfZ7wAQwt8"
+    },
+    {
+      "ticketNumber": "#6043-P",
+      "items": [
+        {
+          "productId": "9KzCjwLZ8SM",
+          "productName": "Flour",
+          "categoryId": "5",
+          "price": 40,
+          "costPrice": 24,
+          "quantity": 1,
+          "total": 40
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "categoryId": "w-UYvx6E5OA",
+          "price": 55,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 55
+        },
+        {
+          "productId": "8mgaOCZTySg",
+          "productName": "V Cola",
+          "categoryId": "w-UYvx6E5OA",
+          "price": 20,
+          "costPrice": 15,
+          "quantity": 1,
+          "total": 20
+        },
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "categoryId": "5",
+          "price": 75,
+          "costPrice": 55,
+          "quantity": 1,
+          "total": 75
+        },
+        {
+          "productId": "EeB_ZZwto4I",
+          "productName": "Strawberry Jam",
+          "categoryId": "5",
+          "price": 40,
+          "costPrice": 20,
+          "quantity": 1,
+          "total": 40
+        },
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "categoryId": "5",
+          "price": 121,
+          "costPrice": 85,
+          "quantity": 1,
+          "total": 121
+        }
+      ],
+      "subtotal": 351,
+      "tax": 49.14,
+      "total": 400.14,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T15:30:22.491Z",
+      "paymentAccountId": "1",
+      "id": "mCJn_jseZwA"
+    },
+    {
+      "ticketNumber": "#3476-K",
+      "items": [
+        {
+          "productId": "KQKfHlIDRQs",
+          "productName": "pants",
+          "categoryId": "6",
+          "price": 650,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 650
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "categoryId": "6",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 550
+        }
+      ],
+      "subtotal": 1200,
+      "tax": 168,
+      "total": 1368,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T15:32:32.036Z",
+      "paymentAccountId": "3",
+      "id": "aqS_IoUw2YA"
+    },
+    {
+      "ticketNumber": "#7916-K",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "categoryId": "4",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 220,
+      "tax": 30.8,
+      "total": 250.8,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T15:36:51.416Z",
+      "paymentAccountId": "1",
+      "id": "jGLLtvgFs5w"
+    },
+    {
+      "ticketNumber": "#5330-D",
+      "items": [
+        {
+          "productId": "MxLTWca2omI",
+          "productName": "Bracelet",
+          "categoryId": "2",
+          "price": 250,
+          "costPrice": 110,
+          "quantity": 1,
+          "total": 250
+        }
+      ],
+      "subtotal": 250,
+      "tax": 35,
+      "total": 285,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T15:37:04.647Z",
+      "paymentAccountId": "6",
+      "id": "iQm1_zCff9A"
+    },
+    {
+      "ticketNumber": "#8873-Y",
+      "items": [
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "categoryId": "5",
+          "price": 121,
+          "costPrice": 85,
+          "quantity": 1,
+          "total": 121
+        }
+      ],
+      "subtotal": 121,
+      "tax": 16.94,
+      "total": 137.94,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T15:37:43.776Z",
+      "paymentAccountId": "1",
+      "id": "HcLWBAJEojY"
+    },
+    {
+      "ticketNumber": "#1547-X",
+      "items": [
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "categoryId": "5",
+          "price": 45,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 45
+        },
+        {
+          "productId": "kqxqu7LsBRA",
+          "productName": "Pickled olives",
+          "categoryId": "5",
+          "price": 95,
+          "costPrice": 45,
+          "quantity": 1,
+          "total": 95
+        }
+      ],
+      "subtotal": 140,
+      "tax": 19.6,
+      "total": 159.6,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T15:44:29.358Z",
+      "paymentAccountId": "4",
+      "id": "0xY0dmPxJYw"
+    },
+    {
+      "ticketNumber": "#1188-R",
+      "items": [
+        {
+          "productId": "JL_OrD8YdJo",
+          "productName": "Eraser",
+          "categoryId": "3",
+          "price": 12,
+          "costPrice": 9,
+          "quantity": 1,
+          "total": 12
+        },
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "categoryId": "3",
+          "price": 10,
+          "costPrice": 7,
+          "quantity": 1,
+          "total": 10
+        }
+      ],
+      "subtotal": 22,
+      "tax": 3.08,
+      "total": 25.08,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T15:59:29.109Z",
+      "paymentAccountId": "1",
+      "id": "KWF4doenUcQ"
+    },
+    {
+      "ticketNumber": "#6711-U",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "categoryId": "cT8bmadytzM",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        }
+      ],
+      "subtotal": 550,
+      "tax": 77,
+      "total": 627,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T16:03:58.102Z",
+      "paymentAccountId": "2",
+      "id": "4XV-f0fNKp0"
+    },
+    {
+      "ticketNumber": "#4988-E",
+      "items": [
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "categoryId": "w-UYvx6E5OA",
+          "price": 55,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 55
+        }
+      ],
+      "subtotal": 55,
+      "tax": 7.7,
+      "total": 62.7,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T16:29:32.435Z",
+      "paymentAccountId": "1",
+      "id": "4VIQhPU9ZUw"
+    },
+    {
+      "ticketNumber": "#8168-K",
+      "items": [
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "categoryId": "1",
+          "price": 220,
+          "costPrice": 120,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 220,
+      "tax": 30.8,
+      "total": 250.8,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T16:31:01.241Z",
+      "paymentAccountId": "1",
+      "id": "QqnVGGSgryY"
+    },
+    {
+      "ticketNumber": "#3482-T",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "categoryId": "cT8bmadytzM",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        }
+      ],
+      "subtotal": 550,
+      "tax": 77,
+      "total": 627,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T16:35:36.402Z",
+      "paymentAccountId": "3",
+      "id": "Vst56u1I--g"
+    },
+    {
+      "ticketNumber": "#3549-L",
+      "items": [
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "categoryId": "5",
+          "price": 45,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 45
+        }
+      ],
+      "subtotal": 45,
+      "tax": 6.3,
+      "total": 51.3,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T17:35:18.330Z",
+      "paymentAccountId": "1",
+      "id": "q1sQ-Hz4xdc"
+    },
+    {
+      "ticketNumber": "#5867-H",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "categoryId": "1",
+          "price": 360,
+          "costPrice": 260,
+          "quantity": 1,
+          "total": 360
+        }
+      ],
+      "subtotal": 360,
+      "tax": 50.4,
+      "total": 410.4,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T17:46:02.099Z",
+      "paymentAccountId": "1",
+      "id": "BGwQVJYUOMM"
+    },
+    {
+      "ticketNumber": "#4171-E",
+      "items": [
+        {
+          "productId": "kqxqu7LsBRA",
+          "productName": "Pickled olives",
+          "categoryId": "5",
+          "price": 95,
+          "costPrice": 45,
+          "quantity": 1,
+          "total": 95
+        }
+      ],
+      "subtotal": 95,
+      "tax": 13.3,
+      "total": 108.3,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T18:23:19.692Z",
+      "paymentAccountId": "4",
+      "id": "cS8KAqvklnw"
+    },
+    {
+      "ticketNumber": "#8022-P",
+      "items": [
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "categoryId": "4",
+          "price": 220,
+          "costPrice": 95,
+          "quantity": 1,
+          "total": 220
+        },
+        {
+          "productId": "UExSrVT0Ex8",
+          "productName": "RedBull",
+          "categoryId": "w-UYvx6E5OA",
+          "price": 55,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 55
+        }
+      ],
+      "subtotal": 275,
+      "tax": 38.5,
+      "total": 313.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T22:33:45.095Z",
+      "paymentAccountId": "5",
+      "id": "3qwIjDzb4CU"
+    },
+    {
+      "ticketNumber": "#6566-D",
+      "items": [
+        {
+          "productId": "EeB_ZZwto4I",
+          "productName": "Strawberry Jam",
+          "categoryId": "5",
+          "price": 40,
+          "costPrice": 20,
+          "quantity": 1,
+          "total": 40
+        }
+      ],
+      "subtotal": 40,
+      "tax": 5.6,
+      "total": 45.6,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T22:34:32.106Z",
+      "paymentAccountId": "7",
+      "id": "yKO6NvcJWdQ"
+    },
+    {
+      "ticketNumber": "#8526-B",
+      "items": [
+        {
+          "productId": "Y_foj4E0ZB0",
+          "productName": "Nescafé Gold",
+          "categoryId": "5",
+          "price": 121,
+          "costPrice": 85,
+          "quantity": 1,
+          "total": 121
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "categoryId": "5",
+          "price": 45,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 45
+        }
+      ],
+      "subtotal": 166,
+      "tax": 23.24,
+      "total": 189.24,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T22:37:22.258Z",
+      "paymentAccountId": "3",
+      "id": "GhC-WYKnCxc"
+    },
+    {
+      "ticketNumber": "#1291-Q",
+      "items": [
+        {
+          "productId": "HOy_74MXcMk",
+          "productName": "Carolina Rice",
+          "categoryId": "5",
+          "price": 75,
+          "costPrice": 55,
+          "quantity": 1,
+          "total": 75
+        }
+      ],
+      "subtotal": 75,
+      "tax": 10.5,
+      "total": 85.5,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-18T22:40:17.609Z",
+      "paymentAccountId": "1",
+      "id": "TzBoI-mUGhU"
+    },
+    {
+      "ticketNumber": "#9699-G",
+      "items": [
+        {
+          "productId": "WunXib68h98",
+          "productName": "Nescafé Classic",
+          "categoryId": "5",
+          "price": 95,
+          "costPrice": 70,
+          "quantity": 1,
+          "total": 95
+        },
+        {
+          "productId": "FDCdAuDKQI0",
+          "productName": "Almarai Milk",
+          "categoryId": "5",
+          "price": 45,
+          "costPrice": 35,
+          "quantity": 1,
+          "total": 45
+        }
+      ],
+      "subtotal": 140,
+      "tax": 19.6,
+      "total": 159.6,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-19T09:52:05.836Z",
+      "paymentAccountId": "4",
+      "id": "QFExcgC9r7I"
+    },
+    {
+      "ticketNumber": "#2636-J",
+      "items": [
+        {
+          "productId": "W605lG_8obY",
+          "productName": "Turkish dinner set",
+          "categoryId": "k8ka5rF59Ms",
+          "price": 4350,
+          "costPrice": 2200,
+          "quantity": 1,
+          "total": 4350
+        }
+      ],
+      "subtotal": 4350,
+      "tax": 609,
+      "total": 4959,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-19T09:52:22.648Z",
+      "paymentAccountId": "2",
+      "id": "OgYsizFMRDc"
+    },
+    {
+      "ticketNumber": "#1822-K",
+      "items": [
+        {
+          "productId": "ILEoSyI_Fn8",
+          "productName": "Olympia",
+          "categoryId": "cT8bmadytzM",
+          "price": 550,
+          "costPrice": 200,
+          "quantity": 1,
+          "total": 550
+        },
+        {
+          "productId": "UTjQXLaZTHE",
+          "productName": "Blouse",
+          "categoryId": "6",
+          "price": 550,
+          "costPrice": 350,
+          "quantity": 1,
+          "total": 550
+        }
+      ],
+      "subtotal": 1100,
+      "tax": 154,
+      "total": 1254,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-19T09:53:04.527Z",
+      "paymentAccountId": "3",
+      "id": "i4_IWiXHI8Q"
+    },
+    {
+      "ticketNumber": "#9012-B",
+      "items": [
+        {
+          "productId": "9d0eSH2RgoQ",
+          "productName": "Novel",
+          "categoryId": "3",
+          "price": 220,
+          "costPrice": 100,
+          "quantity": 1,
+          "total": 220
+        }
+      ],
+      "subtotal": 220,
+      "tax": 30.8,
+      "total": 250.8,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-19T09:53:18.978Z",
+      "paymentAccountId": "6",
+      "id": "hvShPrLhY3w"
+    },
+    {
+      "ticketNumber": "#9307-L",
+      "items": [
+        {
+          "productId": "5",
+          "productName": "Wireless Keyboard",
+          "categoryId": "1",
+          "price": 650,
+          "costPrice": 450,
+          "quantity": 1,
+          "total": 650
+        }
+      ],
+      "subtotal": 650,
+      "tax": 91,
+      "total": 741,
+      "paymentStatus": "Paid",
+      "status": "Completed",
+      "createdAt": "2026-10-19T09:53:48.541Z",
+      "paymentAccountId": "5",
+      "id": "w5ArUJ1D-Qg"
     }
   ],
   "returns": [
@@ -3256,6 +6115,87 @@
       "status": "completed",
       "createdAt": "2026-09-21T16:09:12.472Z",
       "id": "7OodlcK7pIw"
+    },
+    {
+      "type": "sale",
+      "referenceId": "83xGAbWzgHg",
+      "referenceNumber": "##4230-K",
+      "items": [
+        {
+          "productId": "2",
+          "productName": "USB-C Cable",
+          "sku": "USB-001",
+          "quantity": 2,
+          "unitPrice": 360,
+          "costPrice": 260,
+          "total": 720
+        },
+        {
+          "productId": "3",
+          "productName": "Notebook",
+          "sku": "NOT-001",
+          "quantity": 1,
+          "unitPrice": 75,
+          "costPrice": 25,
+          "total": 75
+        },
+        {
+          "productId": "1",
+          "productName": "Wireless Mouse",
+          "sku": "MOU-001",
+          "quantity": 1,
+          "unitPrice": 500,
+          "costPrice": 120,
+          "total": 500
+        }
+      ],
+      "reason": "",
+      "total": 1295,
+      "status": "completed",
+      "createdAt": "2026-10-05T18:02:41.412Z",
+      "id": "Vi_sHsAIlow"
+    },
+    {
+      "type": "sale",
+      "referenceId": "IBFNvRiPUMw",
+      "referenceNumber": "##9563-D",
+      "items": [
+        {
+          "productId": "JjCrzdNy2BE",
+          "productName": "Pasta",
+          "sku": "P-004",
+          "quantity": 1,
+          "unitPrice": 30,
+          "costPrice": 20,
+          "total": 30
+        }
+      ],
+      "reason": "",
+      "total": 30,
+      "status": "completed",
+      "createdAt": "2026-10-15T14:08:44.652Z",
+      "id": "09tTy1LKFfg"
+    },
+    {
+      "type": "purchase",
+      "referenceId": "gl_P7Q1k2RM",
+      "referenceNumber": "120487",
+      "items": [
+        {
+          "productId": "JjCrzdNy2BE",
+          "productName": "Pasta",
+          "sku": "P-004",
+          "quantity": 1,
+          "unitPrice": 20,
+          "costPrice": 20,
+          "total": 20
+        }
+      ],
+      "reason": "Test purchase return",
+      "total": 20,
+      "status": "completed",
+      "createdAt": "2026-10-15T14:35:29.365Z",
+      "id": "j8TlvF4fUMo"
     }
   ],
   "storeSettings": [
@@ -3265,7 +6205,8 @@
       "phone": "01287893082",
       "address": "امتداد محور 26 يوليو، مدخل مدينة الشيخ زايد، محافظة الجيزة.",
       "currency": "EGP",
-      "taxRate": 14
+      "taxRate": 14,
+      "openingFloat": 1500
     }
   ],
   "customers": [
@@ -3273,7 +6214,7 @@
       "name": "Azza Ezzat Eldamaty",
       "phone": "01017158284",
       "address": "East of Al-Arish General Hospital",
-      "balance": 4354.8,
+      "balance": 2354.8,
       "status": "Active",
       "id": "ZqwiPVb-DdA"
     },
@@ -3282,18 +6223,9 @@
       "phone": "01012630745",
       "address": "East of Al-Arish General Hospital",
       "notes": "VIP",
-      "balance": 0,
+      "balance": 264.5,
       "status": "Active",
       "id": "0x5qBJpmtcw"
-    },
-    {
-      "name": "Fatma Ezzat",
-      "phone": "01110388048",
-      "address": "Dreamland area",
-      "notes": "VIP",
-      "balance": 0,
-      "status": "Active",
-      "id": "-Ywmbx1_gPY"
     }
   ],
   "suppliers": [
@@ -3317,7 +6249,7 @@
       "name": "Azza Fahmy",
       "phone": "01027458391",
       "notes": "Created from historical purchase invoices.",
-      "balance": 644.5,
+      "balance": 0,
       "status": "Active",
       "id": "Dok0Q2Y8x9Y"
     },
@@ -3341,7 +6273,7 @@
       "name": "شركة الهدى لتوزيع المواد الغذائية",
       "phone": "",
       "notes": "Created from historical purchase invoices.",
-      "balance": 4507.2,
+      "balance": 4487.2,
       "status": "Active",
       "id": "LNHBLb1C07A"
     },
@@ -3533,6 +6465,52 @@
       ],
       "createdAt": "2026-09-29T20:36:07.360Z",
       "id": "qHB3N5T24b0"
+    },
+    {
+      "customerId": "0x5qBJpmtcw",
+      "customerName": "Hanya Ahmed",
+      "type": "OnAccountSale",
+      "referenceId": "#4259-J",
+      "referenceNumber": "#4259-J",
+      "amount": 264.5,
+      "items": [
+        {
+          "productId": "TEQYUx5ka1I",
+          "productName": "Pencil",
+          "quantity": 1,
+          "unitPrice": 10,
+          "total": 10
+        },
+        {
+          "productId": "4",
+          "productName": "Lip Gloss",
+          "quantity": 1,
+          "unitPrice": 220,
+          "total": 220
+        }
+      ],
+      "createdAt": "2026-10-05T18:14:23.077Z",
+      "id": "nF7F99S0JTE"
+    },
+    {
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "type": "CustomerCollection",
+      "referenceId": "COL-MVAR14TF-W512",
+      "referenceNumber": "COL-MVAR14TF-W512",
+      "amount": 1000,
+      "createdAt": "2026-10-16T09:11:00.000Z",
+      "id": "FH5YkfOgHZ8"
+    },
+    {
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "type": "CustomerCollection",
+      "referenceId": "COL-MVCJ3F0Z-P0EA",
+      "referenceNumber": "COL-MVCJ3F0Z-P0EA",
+      "amount": 1000,
+      "createdAt": "2026-10-17T15:05:00.000Z",
+      "id": "_45jM6EUO9w"
     }
   ],
   "supplierTransactions": [
@@ -3545,6 +6523,2641 @@
       "amount": 3500,
       "createdAt": "2026-09-29T04:23:20.737Z",
       "id": "z2EejtMTj-E"
+    },
+    {
+      "supplierId": "Dok0Q2Y8x9Y",
+      "supplierName": "Azza Fahmy",
+      "type": "SupplierPayment",
+      "referenceId": "PAY-MVCGEFP1-PRF2",
+      "referenceNumber": "PAY-MVCGEFP1-PRF2",
+      "amount": 644.5,
+      "createdAt": "2026-10-17T13:49:00.000Z",
+      "id": "n3hDP7MFOaw"
+    }
+  ],
+  "cashMovements": [
+    {
+      "createdAt": "2026-10-02T05:07:02.452Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 451.44,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#5561-P",
+      "shiftId": "-HxYj56oH8M",
+      "id": "Lt0D2etqHEw"
+    },
+    {
+      "createdAt": "2026-10-02T05:07:24.259Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 649.8,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#5561-P",
+      "shiftId": "-HxYj56oH8M",
+      "id": "aITfzbF78eA"
+    },
+    {
+      "createdAt": "2026-10-02T05:07:40.217Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 771.78,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#5561-P",
+      "shiftId": "-HxYj56oH8M",
+      "id": "bkYpojpd8r0"
+    },
+    {
+      "createdAt": "2026-10-02T06:30:01.565Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 1088.7,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "2",
+      "toAccountName": "Visa POS",
+      "referenceType": "Order",
+      "referenceId": "#7801-Z",
+      "shiftId": "qMFhbYC6XEk",
+      "id": "czXacbrfdT4"
+    },
+    {
+      "createdAt": "2026-10-02T06:30:16.240Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 297.54,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#7801-Z",
+      "shiftId": "qMFhbYC6XEk",
+      "id": "NNEBmO-vAQw"
+    },
+    {
+      "createdAt": "2026-10-02T06:30:31.072Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 313.5,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#7801-Z",
+      "shiftId": "qMFhbYC6XEk",
+      "id": "9cJeVyOFTZ4"
+    },
+    {
+      "createdAt": "2026-10-02T06:31:09.258Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 963.3,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#7801-Z",
+      "shiftId": "qMFhbYC6XEk",
+      "id": "9G1oRzqzBDA"
+    },
+    {
+      "createdAt": "2026-10-02T06:31:53.898Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 571.14,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "7",
+      "toAccountName": "Fawry",
+      "referenceType": "Order",
+      "referenceId": "#7801-Z",
+      "shiftId": "qMFhbYC6XEk",
+      "id": "NSqheC-8L08"
+    },
+    {
+      "createdAt": "2026-10-02T06:39:59.737Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 980.4,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#3114-S",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "dW7FS7naEgc"
+    },
+    {
+      "createdAt": "2026-10-02T06:40:14.884Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 189.24,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#3114-S",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "LiR5gLZGtuE"
+    },
+    {
+      "createdAt": "2026-10-02T06:40:32.521Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 541.5,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "7",
+      "toAccountName": "Fawry",
+      "referenceType": "Order",
+      "referenceId": "#3114-S",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "pB7sAwh_5so"
+    },
+    {
+      "createdAt": "2026-10-02T06:40:45.007Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 2280,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "6",
+      "toAccountName": "Etisalat Cash",
+      "referenceType": "Order",
+      "referenceId": "#3114-S",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "GnFZDvzUeP0"
+    },
+    {
+      "createdAt": "2026-10-02T06:41:16.548Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 558.6,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "5",
+      "toAccountName": "Orange Cash",
+      "referenceType": "Order",
+      "referenceId": "#3114-S",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "4J1qvAM7Ems"
+    },
+    {
+      "createdAt": "2026-10-02T06:42:04.203Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 427.5,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#3114-S",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "bJ9d565A6bQ"
+    },
+    {
+      "createdAt": "2026-10-02T06:42:30.749Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 1090.98,
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "uPbLHbNFDBE",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "9AWZ5H6GyBM"
+    },
+    {
+      "createdAt": "2026-10-02T06:42:30.749Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 189.24,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "4",
+      "fromAccountName": "Vodafone Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "uPbLHbNFDBE",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "LugiJz0Sn4g"
+    },
+    {
+      "createdAt": "2026-10-02T06:42:30.749Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 541.5,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "7",
+      "fromAccountName": "Fawry",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "uPbLHbNFDBE",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "K3F34ErYl4Y"
+    },
+    {
+      "createdAt": "2026-10-02T06:42:30.749Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 2280,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "6",
+      "fromAccountName": "Etisalat Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "uPbLHbNFDBE",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "GnTw-pvW1Aw"
+    },
+    {
+      "createdAt": "2026-10-02T06:42:30.749Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 558.6,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "5",
+      "fromAccountName": "Orange Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "uPbLHbNFDBE",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "JU2HpVwg_BQ"
+    },
+    {
+      "createdAt": "2026-10-02T06:42:30.749Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 427.5,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "uPbLHbNFDBE",
+      "shiftId": "uPbLHbNFDBE",
+      "id": "of7XL-MCNJw"
+    },
+    {
+      "createdAt": "2026-10-02T07:21:56.359Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 421.8,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#8235-E",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "B5iYZduRQkY"
+    },
+    {
+      "createdAt": "2026-10-02T07:22:07.392Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 877.8,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "2",
+      "toAccountName": "Visa POS",
+      "referenceType": "Order",
+      "referenceId": "#8235-E",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "ilGqG3KpKgg"
+    },
+    {
+      "createdAt": "2026-10-02T07:22:14.173Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 912,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#8235-E",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "1mXrtdbrlxo"
+    },
+    {
+      "createdAt": "2026-10-02T07:22:23.674Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 155.04,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#8235-E",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "0Y9wKpbwEIg"
+    },
+    {
+      "createdAt": "2026-10-02T07:22:32.206Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 159.6,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "5",
+      "toAccountName": "Orange Cash",
+      "referenceType": "Order",
+      "referenceId": "#8235-E",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "rluCPUQWsyg"
+    },
+    {
+      "createdAt": "2026-10-02T07:22:41.905Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 433.2,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "6",
+      "toAccountName": "Etisalat Cash",
+      "referenceType": "Order",
+      "referenceId": "#8235-E",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "4jzNSV5Id_4"
+    },
+    {
+      "createdAt": "2026-10-02T07:22:49.505Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 4959,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "7",
+      "toAccountName": "Fawry",
+      "referenceType": "Order",
+      "referenceId": "#8235-E",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "oSIPxAOJrQM"
+    },
+    {
+      "createdAt": "2026-10-02T07:23:06.885Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 421.8,
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "T4zM8Wz7pNU",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "OaNmwMfvX90"
+    },
+    {
+      "createdAt": "2026-10-02T07:23:06.885Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 877.8,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "2",
+      "fromAccountName": "Visa POS",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "T4zM8Wz7pNU",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "6fmuoufZpSM"
+    },
+    {
+      "createdAt": "2026-10-02T07:23:06.885Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 912,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "T4zM8Wz7pNU",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "1rLq2j-Fphk"
+    },
+    {
+      "createdAt": "2026-10-02T07:23:06.885Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 155.04,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "4",
+      "fromAccountName": "Vodafone Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "T4zM8Wz7pNU",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "Xw6CTghFl5M"
+    },
+    {
+      "createdAt": "2026-10-02T07:23:06.885Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 433.2,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "6",
+      "fromAccountName": "Etisalat Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "T4zM8Wz7pNU",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "2pJSkwHJmcQ"
+    },
+    {
+      "createdAt": "2026-10-02T07:23:06.885Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 4959,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "7",
+      "fromAccountName": "Fawry",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "T4zM8Wz7pNU",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "86x0MMqqOnY"
+    },
+    {
+      "createdAt": "2026-10-02T07:23:06.885Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 159.6,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "5",
+      "fromAccountName": "Orange Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "T4zM8Wz7pNU",
+      "shiftId": "T4zM8Wz7pNU",
+      "id": "PZQ2PnlqgJ4"
+    },
+    {
+      "createdAt": "2026-10-04T21:28:16.423Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 3084.84,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#7037-L",
+      "shiftId": "owcFGo9stu4",
+      "id": "TYXc-PXvwS8"
+    },
+    {
+      "createdAt": "2026-10-04T21:29:06.178Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 3084.84,
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "owcFGo9stu4",
+      "shiftId": "owcFGo9stu4",
+      "id": "x4C1LPGm1Sc"
+    },
+    {
+      "createdAt": "2026-10-04T22:29:36.902Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 541.5,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#4679-T",
+      "shiftId": "dkvvEsOHHxA",
+      "id": "SSyu-wY9-jE"
+    },
+    {
+      "createdAt": "2026-10-04T22:29:56.624Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 159.6,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#4679-T",
+      "shiftId": "dkvvEsOHHxA",
+      "id": "Y0ruHwqtaKQ"
+    },
+    {
+      "createdAt": "2026-10-04T22:30:15.911Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 541.5,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "dkvvEsOHHxA",
+      "shiftId": "dkvvEsOHHxA",
+      "id": "0GXYx3TizUo"
+    },
+    {
+      "createdAt": "2026-10-04T22:30:15.911Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 159.6,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "4",
+      "fromAccountName": "Vodafone Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "dkvvEsOHHxA",
+      "shiftId": "dkvvEsOHHxA",
+      "id": "0GI2K7vSjaQ"
+    },
+    {
+      "createdAt": "2026-10-04T22:30:59.818Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 5581.44,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#5412-K",
+      "shiftId": "ZVuOdEM9OQU",
+      "id": "E7q89t7bKDU"
+    },
+    {
+      "createdAt": "2026-10-04T22:31:17.080Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 1903.8,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#5412-K",
+      "shiftId": "ZVuOdEM9OQU",
+      "id": "5kZW688EJ08"
+    },
+    {
+      "createdAt": "2026-10-04T22:31:38.294Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 1162.8,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#5412-K",
+      "shiftId": "ZVuOdEM9OQU",
+      "id": "rr2-MQjBPIo"
+    },
+    {
+      "createdAt": "2026-10-04T22:31:51.703Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 417.24,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#5412-K",
+      "shiftId": "ZVuOdEM9OQU",
+      "id": "1I_bt3VxTPc"
+    },
+    {
+      "createdAt": "2026-10-04T22:32:07.795Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 7485.24,
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "ZVuOdEM9OQU",
+      "shiftId": "ZVuOdEM9OQU",
+      "id": "5ohI_FQvIcA"
+    },
+    {
+      "createdAt": "2026-10-04T22:32:07.795Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 1162.8,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "ZVuOdEM9OQU",
+      "shiftId": "ZVuOdEM9OQU",
+      "id": "W40k-z4mtcw"
+    },
+    {
+      "createdAt": "2026-10-04T22:32:07.795Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 417.24,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "4",
+      "fromAccountName": "Vodafone Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "ZVuOdEM9OQU",
+      "shiftId": "ZVuOdEM9OQU",
+      "id": "3tv6tGNFWQ8"
+    },
+    {
+      "createdAt": "2026-10-04T23:39:53.967Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 570,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#4626-F",
+      "shiftId": "a8nlsflBZ3Q",
+      "id": "UAqciO84y7A"
+    },
+    {
+      "createdAt": "2026-10-04T23:41:01.802Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 102.6,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#5753-V",
+      "shiftId": "a8nlsflBZ3Q",
+      "id": "bUbTZRlL4D4"
+    },
+    {
+      "createdAt": "2026-10-05T00:01:05.586Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 250.8,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#5753-V",
+      "shiftId": "a8nlsflBZ3Q",
+      "id": "kks9A_UcLpY"
+    },
+    {
+      "createdAt": "2026-10-05T00:01:28.179Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 189.24,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#3526-S",
+      "shiftId": "a8nlsflBZ3Q",
+      "id": "yTpLVdBEzOk"
+    },
+    {
+      "createdAt": "2026-10-05T00:30:24.028Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 410.4,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#7884-T",
+      "shiftId": "Bn0A1bixucM",
+      "id": "SxHUWt0-Sxw"
+    },
+    {
+      "createdAt": "2026-10-05T00:30:33.694Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 1311,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#7884-T",
+      "shiftId": "Bn0A1bixucM",
+      "id": "hCNjUGaGgWU"
+    },
+    {
+      "createdAt": "2026-10-05T00:30:43.771Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 4959,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "2",
+      "toAccountName": "Visa POS",
+      "referenceType": "Order",
+      "referenceId": "#7884-T",
+      "shiftId": "Bn0A1bixucM",
+      "id": "7R9GXRuBZl8"
+    },
+    {
+      "createdAt": "2026-10-05T00:32:20.989Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 410.4,
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "Bn0A1bixucM",
+      "shiftId": "Bn0A1bixucM",
+      "id": "tXsFUk58lZU"
+    },
+    {
+      "createdAt": "2026-10-05T00:32:20.989Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 1311,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "Bn0A1bixucM",
+      "shiftId": "Bn0A1bixucM",
+      "id": "D0JH4Doupf4"
+    },
+    {
+      "createdAt": "2026-10-05T00:32:20.989Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 4959,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "2",
+      "fromAccountName": "Visa POS",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "Bn0A1bixucM",
+      "shiftId": "Bn0A1bixucM",
+      "id": "CsTeTX3FH44"
+    },
+    {
+      "createdAt": "2026-10-05T01:01:23.622Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 672.6,
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "a8nlsflBZ3Q",
+      "shiftId": "a8nlsflBZ3Q",
+      "id": "dvR_vM0rCYg"
+    },
+    {
+      "createdAt": "2026-10-05T01:01:23.622Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 250.8,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "4",
+      "fromAccountName": "Vodafone Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "a8nlsflBZ3Q",
+      "shiftId": "a8nlsflBZ3Q",
+      "id": "rzdtpl1QO6g"
+    },
+    {
+      "createdAt": "2026-10-05T01:01:23.622Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 189.24,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "a8nlsflBZ3Q",
+      "shiftId": "a8nlsflBZ3Q",
+      "id": "iCYNmF5JchA"
+    },
+    {
+      "createdAt": "2026-10-05T17:49:39.084Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 1476.3,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#4230-K",
+      "shiftId": "UKzyks3FeA0",
+      "id": "o5rG5O8jRKk"
+    },
+    {
+      "createdAt": "2026-10-05T18:00:38.297Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 1476.3,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "UKzyks3FeA0",
+      "shiftId": "UKzyks3FeA0",
+      "id": "hZ4YxepNc9k"
+    },
+    {
+      "createdAt": "2026-10-12T15:10:50.714Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 40.25,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#9303-S",
+      "shiftId": "KLFe-2hsu84",
+      "id": "RFrFifV4w3w"
+    },
+    {
+      "createdAt": "2026-10-13T22:11:33.552Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 40.25,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#6734-U",
+      "shiftId": "KLFe-2hsu84",
+      "id": "uW91iySXhb0"
+    },
+    {
+      "createdAt": "2026-10-13T22:12:45.446Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 253,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#6734-U",
+      "shiftId": "KLFe-2hsu84",
+      "id": "HPi-jnOr6i8"
+    },
+    {
+      "createdAt": "2026-10-13T22:14:42.520Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 46,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#4691-D",
+      "shiftId": "KLFe-2hsu84",
+      "id": "plkcjUbUHRs"
+    },
+    {
+      "createdAt": "2026-10-14T19:47:16.154Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 540.5,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#8734-L",
+      "shiftId": "KLFe-2hsu84",
+      "id": "IHj9tCw6naY"
+    },
+    {
+      "createdAt": "2026-10-15T14:08:30.955Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 103.5,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#9563-D",
+      "shiftId": "KLFe-2hsu84",
+      "id": "SLHfGUxusX0"
+    },
+    {
+      "createdAt": "2026-10-15T17:43:34.547Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 46,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#1982-C",
+      "shiftId": "KLFe-2hsu84",
+      "id": "2jptPXMTaFo"
+    },
+    {
+      "createdAt": "2026-10-16T09:11:00.000Z",
+      "type": "CashIn",
+      "reason": "CustomerCollection",
+      "amount": 1000,
+      "category": "Customer Collection",
+      "fromAccountType": "external",
+      "fromAccountId": "external",
+      "fromAccountName": "Azza Ezzat Eldamaty",
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "CustomerTransaction",
+      "referenceId": "FH5YkfOgHZ8",
+      "shiftId": "KLFe-2hsu84",
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "id": "nAfr7ZyZhTA"
+    },
+    {
+      "createdAt": "2026-10-16T09:14:00.000Z",
+      "type": "CashOut",
+      "reason": "Expense",
+      "amount": 300,
+      "category": "Internet",
+      "fromAccountType": "safe",
+      "fromAccountId": "safe",
+      "fromAccountName": "Safe",
+      "toAccountType": "external",
+      "toAccountId": "external",
+      "toAccountName": "External / Outside",
+      "referenceType": "Other",
+      "id": "AwYDWU6XvM0"
+    },
+    {
+      "createdAt": "2026-10-16T09:17:00.000Z",
+      "type": "CashOut",
+      "reason": "Expense",
+      "amount": 200,
+      "category": "Stationery",
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "external",
+      "toAccountId": "external",
+      "toAccountName": "External / Outside",
+      "referenceType": "Other",
+      "shiftId": "KLFe-2hsu84",
+      "id": "9WzbOkGydeo"
+    },
+    {
+      "createdAt": "2026-10-16T13:44:36.654Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 1161.5,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#3565-A",
+      "shiftId": "KLFe-2hsu84",
+      "id": "JJDiVgQLBPY"
+    },
+    {
+      "createdAt": "2026-10-16T13:44:59.286Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 920,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#3565-A",
+      "shiftId": "KLFe-2hsu84",
+      "id": "2cjbS8ibuaU"
+    },
+    {
+      "createdAt": "2026-10-16T13:45:19.766Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 264.5,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#3565-A",
+      "shiftId": "KLFe-2hsu84",
+      "id": "U6eF1WrwVWI"
+    },
+    {
+      "createdAt": "2026-10-16T13:45:34.702Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 1380,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#3565-A",
+      "shiftId": "KLFe-2hsu84",
+      "id": "zJM1onUQaiY"
+    },
+    {
+      "createdAt": "2026-10-16T13:45:43.334Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 190.9,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#3565-A",
+      "shiftId": "KLFe-2hsu84",
+      "id": "-s3Z-slwm2U"
+    },
+    {
+      "createdAt": "2026-10-16T13:46:11.054Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 3221.9,
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "KLFe-2hsu84",
+      "shiftId": "KLFe-2hsu84",
+      "id": "2l9liN1x3rM"
+    },
+    {
+      "createdAt": "2026-10-16T13:46:11.054Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 920,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "KLFe-2hsu84",
+      "shiftId": "KLFe-2hsu84",
+      "id": "yGR7bVzefYE"
+    },
+    {
+      "createdAt": "2026-10-16T13:46:11.054Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 1644.5,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "4",
+      "fromAccountName": "Vodafone Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "KLFe-2hsu84",
+      "shiftId": "KLFe-2hsu84",
+      "id": "Y42lbnmVplo"
+    },
+    {
+      "createdAt": "2026-10-16T14:44:00.000Z",
+      "type": "Transfer",
+      "reason": "Other",
+      "amount": 5000,
+      "category": "Internal Transfer",
+      "fromAccountType": "safe",
+      "fromAccountId": "safe",
+      "fromAccountName": "Safe",
+      "toAccountType": "external",
+      "toAccountId": "owner-bank:23HPUbwPD3A",
+      "toAccountName": "CIB Bank — Mahfouz Elsayed •••• 9010",
+      "referenceType": "Other",
+      "id": "0YD_H8n_fiE"
+    },
+    {
+      "createdAt": "2026-10-17T06:34:51.263Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 85.5,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#7747-P",
+      "shiftId": "j5XjI83Qkik",
+      "id": "uqFhOKmnkJA"
+    },
+    {
+      "createdAt": "2026-10-17T06:34:59.934Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 507.3,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#7747-P",
+      "shiftId": "j5XjI83Qkik",
+      "id": "INzuEXAu3Q8"
+    },
+    {
+      "createdAt": "2026-10-17T06:35:11.510Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 183.54,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#7747-P",
+      "shiftId": "j5XjI83Qkik",
+      "id": "vw7Zpf2Xnq8"
+    },
+    {
+      "createdAt": "2026-10-17T06:35:21.174Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 131.1,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#7747-P",
+      "shiftId": "j5XjI83Qkik",
+      "id": "g9G2GNnLa1E"
+    },
+    {
+      "createdAt": "2026-10-17T06:37:39.086Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 62.7,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#4786-X",
+      "shiftId": "j5XjI83Qkik",
+      "id": "yayTW81Ly1g"
+    },
+    {
+      "createdAt": "2026-10-17T06:38:26.598Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 159.6,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#4786-X",
+      "shiftId": "j5XjI83Qkik",
+      "id": "BKprnTZ3sWY"
+    },
+    {
+      "createdAt": "2026-10-17T13:49:00.000Z",
+      "type": "CashOut",
+      "reason": "SupplierPayment",
+      "amount": 644.5,
+      "category": "Supplier Payment",
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "external",
+      "toAccountId": "external",
+      "toAccountName": "Azza Fahmy",
+      "referenceType": "SupplierTransaction",
+      "referenceId": "n3hDP7MFOaw",
+      "shiftId": "j5XjI83Qkik",
+      "supplierId": "Dok0Q2Y8x9Y",
+      "supplierName": "Azza Fahmy",
+      "id": "sxRd5cRugG8"
+    },
+    {
+      "createdAt": "2026-10-17T14:50:20.193Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 11,
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "j5XjI83Qkik",
+      "shiftId": "j5XjI83Qkik",
+      "id": "mOYuvGwqHDU"
+    },
+    {
+      "createdAt": "2026-10-17T14:50:20.193Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 183.54,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "4",
+      "fromAccountName": "Vodafone Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "j5XjI83Qkik",
+      "shiftId": "j5XjI83Qkik",
+      "id": "qYjjqo-4jQc"
+    },
+    {
+      "createdAt": "2026-10-17T14:50:20.193Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 290.7,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "j5XjI83Qkik",
+      "shiftId": "j5XjI83Qkik",
+      "id": "UuidqQvOPm0"
+    },
+    {
+      "createdAt": "2026-10-17T15:05:00.000Z",
+      "type": "CashIn",
+      "reason": "CustomerCollection",
+      "amount": 1000,
+      "category": "Customer Collection",
+      "fromAccountType": "external",
+      "fromAccountId": "external",
+      "fromAccountName": "Azza Ezzat Eldamaty",
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "CustomerTransaction",
+      "referenceId": "_45jM6EUO9w",
+      "shiftId": "ohvy2lQUlcA",
+      "customerId": "ZqwiPVb-DdA",
+      "customerName": "Azza Ezzat Eldamaty",
+      "id": "Z_758n-AviU"
+    },
+    {
+      "createdAt": "2026-10-17T17:14:10.669Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 137.94,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#8673-E",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "7-8Kfcm9JJE"
+    },
+    {
+      "createdAt": "2026-10-17T21:54:39.850Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 51.3,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#7649-U",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "0C_nhOF1DOo"
+    },
+    {
+      "createdAt": "2026-10-17T22:02:06.512Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 240.54,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#5747-H",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "ljyfescLnSI"
+    },
+    {
+      "createdAt": "2026-10-18T07:07:05.751Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 912,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "2",
+      "toAccountName": "Visa POS",
+      "referenceType": "Order",
+      "referenceId": "#4178-S",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "QvDstqMdwDg"
+    },
+    {
+      "createdAt": "2026-10-18T14:21:44.269Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 474.24,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "6",
+      "toAccountName": "Etisalat Cash",
+      "referenceType": "Order",
+      "referenceId": "#1061-G",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "oEY-rKNxyyU"
+    },
+    {
+      "createdAt": "2026-10-18T15:30:22.491Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 400.14,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#6043-P",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "COCD0fJ_Bl4"
+    },
+    {
+      "createdAt": "2026-10-18T15:32:32.036Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 1368,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#3476-K",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "eA1SBeEXhas"
+    },
+    {
+      "createdAt": "2026-10-18T15:36:51.416Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 250.8,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#7916-K",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "_yO5R_X2-oY"
+    },
+    {
+      "createdAt": "2026-10-18T15:37:04.647Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 285,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "6",
+      "toAccountName": "Etisalat Cash",
+      "referenceType": "Order",
+      "referenceId": "#5330-D",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "m3Nf1dNWWns"
+    },
+    {
+      "createdAt": "2026-10-18T15:37:43.776Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 137.94,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#8873-Y",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "gFj8p51diOc"
+    },
+    {
+      "createdAt": "2026-10-18T15:44:29.358Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 159.6,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#1547-X",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "_4q8N2wjzsI"
+    },
+    {
+      "createdAt": "2026-10-18T15:59:29.109Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 25.08,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#1188-R",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "zLBHDarnOT8"
+    },
+    {
+      "createdAt": "2026-10-18T16:03:58.102Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 627,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "2",
+      "toAccountName": "Visa POS",
+      "referenceType": "Order",
+      "referenceId": "#6711-U",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "xZhD4Z34tmI"
+    },
+    {
+      "createdAt": "2026-10-18T16:29:32.435Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 62.7,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#4988-E",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "CEgsByFpHQA"
+    },
+    {
+      "createdAt": "2026-10-18T16:31:01.241Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 250.8,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#8168-K",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "aPp_34H455s"
+    },
+    {
+      "createdAt": "2026-10-18T16:35:36.402Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 627,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#3482-T",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "c8M6dZA_LtI"
+    },
+    {
+      "createdAt": "2026-10-18T17:35:18.330Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 51.3,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#3549-L",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "I3jDeqGepVU"
+    },
+    {
+      "createdAt": "2026-10-18T17:46:02.099Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 410.4,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#5867-H",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "7fTPlRQuNbQ"
+    },
+    {
+      "createdAt": "2026-10-18T18:23:19.692Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 108.3,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#4171-E",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "qV9PFoXHS2U"
+    },
+    {
+      "createdAt": "2026-10-18T22:33:45.095Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 313.5,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "5",
+      "toAccountName": "Orange Cash",
+      "referenceType": "Order",
+      "referenceId": "#8022-P",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "cpPWTim6Q1g"
+    },
+    {
+      "createdAt": "2026-10-18T22:34:32.106Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 45.6,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "7",
+      "toAccountName": "Fawry",
+      "referenceType": "Order",
+      "referenceId": "#6566-D",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "e9_wmqGqwmA"
+    },
+    {
+      "createdAt": "2026-10-18T22:37:22.258Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 189.24,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "3",
+      "toAccountName": "InstaPay",
+      "referenceType": "Order",
+      "referenceId": "#8526-B",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "vYxbxPa0GhE"
+    },
+    {
+      "createdAt": "2026-10-18T22:37:43.490Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 2778.4,
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "ohvy2lQUlcA",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "HpbY25Dajlo"
+    },
+    {
+      "createdAt": "2026-10-18T22:37:43.490Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 1539,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "2",
+      "fromAccountName": "Visa POS",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "ohvy2lQUlcA",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "dvwowpB0q6I"
+    },
+    {
+      "createdAt": "2026-10-18T22:37:43.490Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 759.24,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "6",
+      "fromAccountName": "Etisalat Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "ohvy2lQUlcA",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "-0impZeK_14"
+    },
+    {
+      "createdAt": "2026-10-18T22:37:43.490Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 267.9,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "4",
+      "fromAccountName": "Vodafone Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "ohvy2lQUlcA",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "X8JUZsRJAw0"
+    },
+    {
+      "createdAt": "2026-10-18T22:37:43.490Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 313.5,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "5",
+      "fromAccountName": "Orange Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "ohvy2lQUlcA",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "dPKAadrxOok"
+    },
+    {
+      "createdAt": "2026-10-18T22:37:43.490Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 2424.78,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "ohvy2lQUlcA",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "qNCpFWA2M4w"
+    },
+    {
+      "createdAt": "2026-10-18T22:37:43.490Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 45.6,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "7",
+      "fromAccountName": "Fawry",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "ohvy2lQUlcA",
+      "shiftId": "ohvy2lQUlcA",
+      "id": "2uhmCsrbW_w"
+    },
+    {
+      "createdAt": "2026-10-18T22:38:45.202Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 1088.7,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "2",
+      "fromAccountName": "Visa POS",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "qMFhbYC6XEk",
+      "shiftId": "qMFhbYC6XEk",
+      "id": "6ff_p8Yy16Q"
+    },
+    {
+      "createdAt": "2026-10-18T22:38:45.202Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 313.5,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "3",
+      "fromAccountName": "InstaPay",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "qMFhbYC6XEk",
+      "shiftId": "qMFhbYC6XEk",
+      "id": "XSWhBmTc1to"
+    },
+    {
+      "createdAt": "2026-10-18T22:38:45.202Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 963.3,
+      "fromAccountType": "drawer",
+      "fromAccountId": "cash-drawer",
+      "fromAccountName": "Cash Drawer",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "qMFhbYC6XEk",
+      "shiftId": "qMFhbYC6XEk",
+      "id": "sycATKhUmfo"
+    },
+    {
+      "createdAt": "2026-10-18T22:38:45.202Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 571.14,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "7",
+      "fromAccountName": "Fawry",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "qMFhbYC6XEk",
+      "shiftId": "qMFhbYC6XEk",
+      "id": "ZChhtQ6AHRI"
+    },
+    {
+      "createdAt": "2026-10-18T22:38:45.202Z",
+      "type": "Transfer",
+      "reason": "ShiftHandover",
+      "amount": 297.54,
+      "fromAccountType": "paymentAccount",
+      "fromAccountId": "4",
+      "fromAccountName": "Vodafone Cash",
+      "toAccountType": "safe",
+      "toAccountId": "safe",
+      "toAccountName": "Safe",
+      "referenceType": "Shift",
+      "referenceId": "qMFhbYC6XEk",
+      "shiftId": "qMFhbYC6XEk",
+      "id": "7ibGViumqn8"
+    },
+    {
+      "createdAt": "2026-10-18T22:40:17.609Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 85.5,
+      "toAccountType": "drawer",
+      "toAccountId": "cash-drawer",
+      "toAccountName": "Cash Drawer",
+      "referenceType": "Order",
+      "referenceId": "#1291-Q",
+      "shiftId": "Vx73QmdIGfg",
+      "id": "Hf8NGnWHye4"
+    },
+    {
+      "createdAt": "2026-10-19T09:52:05.836Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 159.6,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "4",
+      "toAccountName": "Vodafone Cash",
+      "referenceType": "Order",
+      "referenceId": "#9699-G",
+      "shiftId": "Vx73QmdIGfg",
+      "id": "4-plxm-dyY8"
+    },
+    {
+      "createdAt": "2026-10-19T09:52:22.648Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 4959,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "2",
+      "toAccountName": "Visa POS",
+      "referenceType": "Order",
+      "referenceId": "#2636-J",
+      "shiftId": "Vx73QmdIGfg",
+      "id": "PcYuzNUlvFs"
+    },
+    {
+      "createdAt": "2026-10-19T09:53:18.978Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 250.8,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "6",
+      "toAccountName": "Etisalat Cash",
+      "referenceType": "Order",
+      "referenceId": "#9012-B",
+      "shiftId": "Vx73QmdIGfg",
+      "id": "RDNE4TjRHEk"
+    },
+    {
+      "createdAt": "2026-10-19T09:53:48.541Z",
+      "type": "CashIn",
+      "reason": "Sale",
+      "amount": 741,
+      "toAccountType": "paymentAccount",
+      "toAccountId": "5",
+      "toAccountName": "Orange Cash",
+      "referenceType": "Order",
+      "referenceId": "#9307-L",
+      "shiftId": "Vx73QmdIGfg",
+      "id": "ms9lfUuX3-4"
+    }
+  ],
+  "shiftHandovers": [
+    {
+      "shiftId": "-HxYj56oH8M",
+      "createdAt": "2026-10-02T05:08:54.457Z",
+      "totalAmount": 1873.02,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "note": "Shift handover",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 451.44
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 649.8
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 771.78
+        }
+      ],
+      "id": "7JRESQjwo0k"
+    },
+    {
+      "shiftId": "uPbLHbNFDBE",
+      "createdAt": "2026-10-02T06:42:30.749Z",
+      "totalAmount": 5087.82,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "note": "Shift handover",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 1090.98
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 189.24
+        },
+        {
+          "accountId": "7",
+          "accountName": "Fawry",
+          "amount": 541.5
+        },
+        {
+          "accountId": "6",
+          "accountName": "Etisalat Cash",
+          "amount": 2280
+        },
+        {
+          "accountId": "5",
+          "accountName": "Orange Cash",
+          "amount": 558.6
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 427.5
+        }
+      ],
+      "id": "wvC1uP-bMKk"
+    },
+    {
+      "shiftId": "uPbLHbNFDBE",
+      "createdAt": "2026-10-02T06:42:30.749Z",
+      "totalAmount": 5087.82,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "note": "Shift handover",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 1090.98
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 189.24
+        },
+        {
+          "accountId": "7",
+          "accountName": "Fawry",
+          "amount": 541.5
+        },
+        {
+          "accountId": "6",
+          "accountName": "Etisalat Cash",
+          "amount": 2280
+        },
+        {
+          "accountId": "5",
+          "accountName": "Orange Cash",
+          "amount": 558.6
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 427.5
+        }
+      ],
+      "id": "aWqP72GRGV4"
+    },
+    {
+      "shiftId": "T4zM8Wz7pNU",
+      "createdAt": "2026-10-02T07:23:06.885Z",
+      "totalAmount": 7918.44,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "note": "Shift handover",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 421.8
+        },
+        {
+          "accountId": "2",
+          "accountName": "Visa POS",
+          "amount": 877.8
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 912
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 155.04
+        },
+        {
+          "accountId": "5",
+          "accountName": "Orange Cash",
+          "amount": 159.6
+        },
+        {
+          "accountId": "6",
+          "accountName": "Etisalat Cash",
+          "amount": 433.2
+        },
+        {
+          "accountId": "7",
+          "accountName": "Fawry",
+          "amount": 4959
+        }
+      ],
+      "id": "8gW0fomKP2U"
+    },
+    {
+      "shiftId": "T4zM8Wz7pNU",
+      "createdAt": "2026-10-02T07:23:06.885Z",
+      "totalAmount": 7918.44,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "note": "Shift handover",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 421.8
+        },
+        {
+          "accountId": "2",
+          "accountName": "Visa POS",
+          "amount": 877.8
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 912
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 155.04
+        },
+        {
+          "accountId": "5",
+          "accountName": "Orange Cash",
+          "amount": 159.6
+        },
+        {
+          "accountId": "6",
+          "accountName": "Etisalat Cash",
+          "amount": 433.2
+        },
+        {
+          "accountId": "7",
+          "accountName": "Fawry",
+          "amount": 4959
+        }
+      ],
+      "id": "w_4JSDws58g"
+    },
+    {
+      "shiftId": "owcFGo9stu4",
+      "createdAt": "2026-10-04T21:29:06.178Z",
+      "totalAmount": 3084.84,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "note": "Shift handover",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 3084.84
+        }
+      ],
+      "id": "QgyEy2kzA_o"
+    },
+    {
+      "shiftId": "owcFGo9stu4",
+      "createdAt": "2026-10-04T21:29:06.178Z",
+      "totalAmount": 3084.84,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "note": "Shift handover",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 3084.84
+        }
+      ],
+      "id": "2l5wCgbm4ew"
+    },
+    {
+      "shiftId": "dkvvEsOHHxA",
+      "createdAt": "2026-10-04T22:30:15.911Z",
+      "totalAmount": 701.1,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "note": "Shift handover",
+      "breakdown": [
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 541.5
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 159.6
+        }
+      ],
+      "id": "y_w1b0AoU0c"
+    },
+    {
+      "shiftId": "ZVuOdEM9OQU",
+      "createdAt": "2026-10-04T22:32:07.795Z",
+      "totalAmount": 9065.28,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "note": "Shift handover",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 7485.24
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 1162.8
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 417.24
+        }
+      ],
+      "id": "osLsoA0X3Yo"
+    },
+    {
+      "shiftId": "Bn0A1bixucM",
+      "createdAt": "2026-10-05T00:32:20.989Z",
+      "totalAmount": 6680.4,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "note": "Shift handover | Opened by: Store Employee (3)",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 410.4
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 1311
+        },
+        {
+          "accountId": "2",
+          "accountName": "Visa POS",
+          "amount": 4959
+        }
+      ],
+      "id": "wfinSthVRcs"
+    },
+    {
+      "shiftId": "a8nlsflBZ3Q",
+      "createdAt": "2026-10-05T01:01:23.622Z",
+      "totalAmount": 1112.64,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "handedOverByEmployeeId": "3",
+      "handedOverByEmployeeName": "Store Employee",
+      "note": "Shift handover | Opened by: Store Owner (1) | Handed over by: Store Employee (3)",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 672.6
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 250.8
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 189.24
+        }
+      ],
+      "id": "XlnPLZqpVI0"
+    },
+    {
+      "shiftId": "UKzyks3FeA0",
+      "createdAt": "2026-10-05T18:00:38.297Z",
+      "totalAmount": 1476.3,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "handedOverByEmployeeId": "1",
+      "handedOverByEmployeeName": "Store Owner",
+      "note": "Shift handover | Opened by: Store Owner (1) | Handed over by: Store Owner (1)",
+      "breakdown": [
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 1476.3
+        }
+      ],
+      "id": "GI3NmTJBdiI"
+    },
+    {
+      "shiftId": "KLFe-2hsu84",
+      "createdAt": "2026-10-16T13:46:11.054Z",
+      "totalAmount": 5786.4,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "handedOverByEmployeeId": "1",
+      "handedOverByEmployeeName": "Store Owner",
+      "note": "Shift handover | Opened by: Store Owner (1) | Handed over by: Store Owner (1)",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 3221.9
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 920
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 1644.5
+        }
+      ],
+      "id": "c5t-VdJzy7c"
+    },
+    {
+      "shiftId": "j5XjI83Qkik",
+      "createdAt": "2026-10-17T14:50:20.193Z",
+      "totalAmount": 485.24,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "handedOverByEmployeeId": "1",
+      "handedOverByEmployeeName": "Store Owner",
+      "note": "Shift handover | Opened by: Store Owner (1) | Handed over by: Store Owner (1)",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 11
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 183.54
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 290.7
+        }
+      ],
+      "id": "LUNhXesEpYw"
+    },
+    {
+      "shiftId": "ohvy2lQUlcA",
+      "createdAt": "2026-10-18T22:37:43.490Z",
+      "totalAmount": 8128.42,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "handedOverByEmployeeId": "1",
+      "handedOverByEmployeeName": "Store Owner",
+      "note": "Shift handover | Opened by: Store Owner (1) | Handed over by: Store Owner (1)",
+      "breakdown": [
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 2778.4
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 2424.78
+        },
+        {
+          "accountId": "2",
+          "accountName": "Visa POS",
+          "amount": 1539
+        },
+        {
+          "accountId": "6",
+          "accountName": "Etisalat Cash",
+          "amount": 759.24
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 267.9
+        },
+        {
+          "accountId": "5",
+          "accountName": "Orange Cash",
+          "amount": 313.5
+        },
+        {
+          "accountId": "7",
+          "accountName": "Fawry",
+          "amount": 45.6
+        }
+      ],
+      "id": "hz_mTeQtB0Q"
+    },
+    {
+      "shiftId": "qMFhbYC6XEk",
+      "createdAt": "2026-10-18T22:38:45.202Z",
+      "totalAmount": 3234.18,
+      "destinationAccountId": "safe",
+      "destinationAccountName": "Safe",
+      "handedOverByEmployeeId": "1",
+      "handedOverByEmployeeName": "Store Owner",
+      "note": "Shift handover | Opened by: Store Owner (1) | Handed over by: Store Owner (1)",
+      "breakdown": [
+        {
+          "accountId": "2",
+          "accountName": "Visa POS",
+          "amount": 1088.7
+        },
+        {
+          "accountId": "4",
+          "accountName": "Vodafone Cash",
+          "amount": 297.54
+        },
+        {
+          "accountId": "3",
+          "accountName": "InstaPay",
+          "amount": 313.5
+        },
+        {
+          "accountId": "cash-drawer",
+          "accountName": "Cash Drawer",
+          "amount": 963.3
+        },
+        {
+          "accountId": "7",
+          "accountName": "Fawry",
+          "amount": 571.14
+        }
+      ],
+      "id": "oTmHKjjFLlI"
+    }
+  ],
+  "shifts": [
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Open",
+      "openingFloat": 1000,
+      "openedAt": "2026-10-02T02:37:20.959Z",
+      "id": "Y--qcm74cnE"
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Open",
+      "openingFloat": 0,
+      "openedAt": "2026-10-02T02:55:45.141Z",
+      "id": "9JbvYB83BiA"
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Open",
+      "openingFloat": 2000,
+      "openedAt": "2026-10-02T03:05:37.640Z",
+      "id": "vKjFRlrLs80"
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Open",
+      "openingFloat": 750,
+      "openedAt": "2026-10-02T03:05:59.491Z",
+      "id": "Vx73QmdIGfg"
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-02T05:06:23.200Z",
+      "id": "-HxYj56oH8M",
+      "closedAt": "2026-10-02T05:08:54.457Z",
+      "handoverId": "7JRESQjwo0k",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-02T06:29:38.124Z",
+      "id": "qMFhbYC6XEk",
+      "closedAt": "2026-10-18T22:38:45.202Z",
+      "handoverId": "oTmHKjjFLlI",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-02T06:37:44.427Z",
+      "id": "ohvy2lQUlcA",
+      "closedAt": "2026-10-18T22:37:43.490Z",
+      "handoverId": "hz_mTeQtB0Q",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-02T06:39:33.169Z",
+      "id": "uPbLHbNFDBE",
+      "closedAt": "2026-10-02T06:42:30.749Z",
+      "handoverId": "wvC1uP-bMKk",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-02T07:21:39.576Z",
+      "id": "T4zM8Wz7pNU",
+      "closedAt": "2026-10-02T07:23:06.885Z",
+      "handoverId": "8gW0fomKP2U",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-04T21:27:42.403Z",
+      "id": "owcFGo9stu4",
+      "closedAt": "2026-10-04T21:29:06.178Z",
+      "handoverId": "2l5wCgbm4ew",
+      "note": "Shift handed over to Safe"
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-04T22:28:08.562Z",
+      "id": "dkvvEsOHHxA",
+      "closedAt": "2026-10-04T22:30:15.911Z",
+      "handoverId": "y_w1b0AoU0c",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-04T22:30:43.727Z",
+      "id": "ZVuOdEM9OQU",
+      "closedAt": "2026-10-04T22:32:07.795Z",
+      "handoverId": "osLsoA0X3Yo",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-04T22:50:21.784Z",
+      "id": "j5XjI83Qkik",
+      "closedAt": "2026-10-17T14:50:20.193Z",
+      "handoverId": "LUNhXesEpYw",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-04T22:51:14.154Z",
+      "id": "KLFe-2hsu84",
+      "closedAt": "2026-10-16T13:46:11.054Z",
+      "handoverId": "c5t-VdJzy7c",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-04T22:53:27.989Z",
+      "id": "UKzyks3FeA0",
+      "closedAt": "2026-10-05T18:00:38.297Z",
+      "handoverId": "GI3NmTJBdiI",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "status": "Closed",
+      "openingFloat": 750,
+      "openedAt": "2026-10-04T23:39:37.869Z",
+      "id": "a8nlsflBZ3Q",
+      "closedAt": "2026-10-05T01:01:23.622Z",
+      "handoverId": "XlnPLZqpVI0",
+      "note": "Shift closed and handed over to Safe."
+    },
+    {
+      "employeeId": "3",
+      "employeeName": "Store Employee",
+      "status": "Closed",
+      "openingFloat": 1500,
+      "openedAt": "2026-10-05T00:02:57.405Z",
+      "id": "Bn0A1bixucM",
+      "closedAt": "2026-10-05T00:32:20.989Z",
+      "handoverId": "wfinSthVRcs",
+      "note": "Shift closed and handed over to Safe."
+    }
+  ],
+  "ownerBankAccounts": [
+    {
+      "bankName": "CIB Bank",
+      "accountName": "Mahfouz Elsayed",
+      "accountNumberLast4": "9010",
+      "isActive": true,
+      "id": "23HPUbwPD3A"
+    }
+  ],
+  "attendanceRecords": [
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "workDate": "2026-10-16",
+      "checkInAt": "2026-10-16T18:01:21.239Z",
+      "id": "dEXRTKr-68w",
+      "checkOutAt": "2026-10-16T20:02:02.983Z"
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "workDate": "2026-10-17",
+      "checkInAt": "2026-10-16T21:01:51.326Z",
+      "id": "6SEZyfVdNRI",
+      "checkOutAt": "2026-10-16T21:29:25.330Z"
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "workDate": "2026-10-17",
+      "checkInAt": "2026-10-16T21:29:54.937Z",
+      "id": "D6sey5jGSyo",
+      "checkOutAt": "2026-10-17T06:26:12.671Z"
+    },
+    {
+      "employeeId": "4cUzSLen0a0",
+      "employeeName": "Azza Ezzat",
+      "workDate": "2026-10-17",
+      "checkInAt": "2026-10-17T08:06:41.180Z",
+      "id": "9Fdx2nuXcaM",
+      "checkOutAt": "2026-10-18T08:05:56.815Z"
+    },
+    {
+      "employeeId": "3",
+      "employeeName": "Store Employee",
+      "workDate": "2026-10-17",
+      "checkInAt": "2026-10-17T08:06:47.268Z",
+      "id": "SD8Vz1BEPnw",
+      "checkOutAt": "2026-10-17T14:49:53.465Z"
+    },
+    {
+      "employeeId": "4cUzSLen0a0",
+      "employeeName": "Azza Ezzat",
+      "workDate": "2026-10-18",
+      "checkInAt": "2026-10-18T10:26:12.995Z",
+      "id": "fBAC4c2-Tvo",
+      "checkOutAt": "2026-10-18T18:31:45.906Z"
+    },
+    {
+      "employeeId": "3",
+      "employeeName": "Store Employee",
+      "workDate": "2026-10-18",
+      "checkInAt": "2026-10-18T10:26:15.450Z",
+      "id": "9ORydpceGYg",
+      "checkOutAt": "2026-10-18T21:25:05.237Z"
+    },
+    {
+      "employeeId": "1",
+      "employeeName": "Store Owner",
+      "workDate": "2026-10-18",
+      "checkInAt": "2026-10-18T10:26:17.978Z",
+      "id": "Fb5QQWaDOyA",
+      "checkOutAt": "2026-10-18T17:26:41.715Z"
+    },
+    {
+      "employeeId": "4cUzSLen0a0",
+      "employeeName": "Azza Ezzat",
+      "workDate": "2026-10-19",
+      "checkInAt": "2026-10-19T08:19:18.391Z",
+      "id": "F79lk5dlPzA",
+      "checkOutAt": "2026-10-19T20:12:59.907Z"
+    },
+    {
+      "employeeId": "3",
+      "employeeName": "Store Employee",
+      "workDate": "2026-10-19",
+      "checkInAt": "2026-10-19T08:19:23.159Z",
+      "id": "t5vtWlh1Kn4",
+      "checkOutAt": "2026-10-19T21:42:43.048Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

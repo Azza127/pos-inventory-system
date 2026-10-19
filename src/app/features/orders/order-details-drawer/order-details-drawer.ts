@@ -1,8 +1,10 @@
-import { Component, EventEmitter,  Input, OnChanges, Output, SimpleChanges, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderService } from '../../../core/services/order.service';
-import { Order, OrderItem } from '../../../core/models/order.model';
+import { Order, OrderItem} from '../../../core/models/order.model';
 import { Product } from '../../../core/models/product.model';
+import { PaymentAccount } from '../../../core/models/payment-account.model';
+import { PaymentAccountService } from '../../../core/services/payment-account.service';
 interface ResolvedOrderLine { item: OrderItem; product: Product | null;
 }
 
@@ -14,16 +16,32 @@ interface ResolvedOrderLine { item: OrderItem; product: Product | null;
   styleUrl: './order-details-drawer.css',
 })
 
-export class OrderDetailsDrawer implements OnChanges {
+export class OrderDetailsDrawer implements OnInit, OnChanges {
   @Input() order: Order | null = null;
   @Input() products: Product[] = [];
   @Input() currencySymbol = 'EGP';
   @Output() closed = new EventEmitter<void>();
   @Output() orderUpdated = new EventEmitter<Order>();
+  @Output() orderDeleted = new EventEmitter<string | number>();
 
   private readonly orderService = inject(OrderService);
+  private readonly paymentAccountService = inject(PaymentAccountService);
+
+  paymentAccounts: PaymentAccount[] = [];
   resolvedLines: ResolvedOrderLine[] = [];
   updatingStatus = false;
+
+  ngOnInit(): void {
+    this.paymentAccountService.getActivePaymentAccounts().subscribe({
+      next: accounts => {
+        this.paymentAccounts = accounts || [];
+      },
+      error: (err: unknown) => {
+        console.error('Failed to load payment accounts for order details:', err);
+        this.paymentAccounts = [];
+      }
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['order'] || changes['products']) {
@@ -53,37 +71,95 @@ export class OrderDetailsDrawer implements OnChanges {
     const raw = (this.order as any)?.tax;
     return typeof raw === 'number' ? raw : 0;
   }
-  get paymentMethod(): string {
-    return (this.order as any)?.paymentMethod || '—';
+private get selectedPaymentAccount(): PaymentAccount | undefined {
+  const accountId = (this.order as any)?.paymentAccountId;
+
+  if (accountId === undefined || accountId === null) {
+    return undefined;
   }
+
+  return this.paymentAccounts.find(
+    account => String(account.id) === String(accountId)
+  );
+}
+
+get paymentMethodImage(): string {
+  return this.selectedPaymentAccount?.image || '';
+}
+
+get paymentMethod(): string {
+  const accountName = this.selectedPaymentAccount?.name;
+
+  if (accountName) {
+    return accountName;
+  }
+
+  const savedMethod = String(
+    (this.order as any)?.paymentMethod || ''
+  ).trim();
+
+  if (savedMethod) {
+    return savedMethod;
+  }
+
+  const status = (this.order as any)?.paymentStatus;
+
+  if (status === 'OnAccount') {
+    return 'On Account';
+  }
+
+  if (status === 'Paid') {
+    return 'Paid';
+  }
+
+  return '—';
+}
+
   get canCancel(): boolean {
-    return !!this.order && this.order.status !== 'Cancelled' && this.order.status !== 'Completed';
+    return !!this.order &&
+      this.order.status === 'Pending' &&
+      this.order.id !== undefined &&
+      this.order.id !== null;
   }
 
   close(): void {
     this.closed.emit();
   }
 
-  cancelOrder(): void {
-    if (!this.order || !this.canCancel || this.updatingStatus) return;
-    const confirmed = confirm('Cancel this order? This cannot be undone.');
-
-    if (!confirmed) return;
-    const orderId = this.order.id;
-    this.updatingStatus = true;
-    this.orderService.updateOrderStatus(orderId as any, 'Cancelled').subscribe({
-      next: () => { const updated: Order = { ...this.order!, status: 'Cancelled' };
-        this.order = updated;
-        this.resolveLines();
-        this.updatingStatus = false;
-        this.orderUpdated.emit(updated);
-      },
-      error: (err: unknown) => {
-        console.error('Failed to cancel order:', err);
-        this.updatingStatus = false;
-      },
-    });
+cancelOrder(): void {
+  if (!this.order || !this.canCancel || this.updatingStatus) {
+    return;
   }
+
+  const orderId = this.order.id!;
+
+  const confirmed = confirm(
+    'Delete this pending invoice? It has not been sold, so it will be removed without marking it as Cancelled or changing stock.'
+  );
+
+  if (!confirmed) {
+    return;
+  }
+
+  this.updatingStatus = true;
+
+  this.orderService.deleteOrder(orderId).subscribe({
+    next: () => {
+      this.updatingStatus = false;
+
+      // Notify the parent Orders page to remove the deleted invoice.
+      this.orderDeleted.emit(orderId);
+
+      // Close the drawer after successful deletion.
+      this.close();
+    },
+
+    error: (err: unknown) => {
+      console.error('Failed to delete pending invoice:', err);
+      this.updatingStatus = false;
+    }
+  });
+}
 
   printReceipt(): void {
     window.print();

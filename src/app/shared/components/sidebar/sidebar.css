@@ -12,13 +12,10 @@
   padding: 24px 15px 18px;
   z-index: 1000;
   border-right: 1px solid #E5E7EB;
-
-  /* Allow the whole sidebar to scroll when its content
-     becomes taller than the viewport. */
+  /* Allow the whole sidebar to scroll when its content becomes taller than the viewport. */
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
-
   scrollbar-width: none;
 }
 
@@ -310,7 +307,6 @@
     padding: 10px 13px;
     flex-direction: row;
     align-items: center;
-
     /* Mobile uses horizontal navigation scrolling. */
     overflow-y: hidden;
     overflow-x: hidden;
@@ -383,3 +379,95 @@
     display: none;
   }
 }
+
+/* SIDEBAR LOGOUT*/
+   .bottom-navigation {
+    flex-shrink: 0;
+  }
+  
+  .bottom-navigation .sidebar-logout {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: 100%;
+    min-height: 44px;
+    margin-top: 5px;
+    padding: 0 13px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: #64748B;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+  
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+  
+  .bottom-navigation .sidebar-logout i {
+    width: 20px;
+    flex-shrink: 0;
+    font-size: 17px;
+    text-align: center;
+  }
+  
+  .bottom-navigation .sidebar-logout:hover {
+    background: #FEF2F2;
+    border-color: #FEE2E2;
+    color: #DC2626;
+  }
+  
+  .bottom-navigation .sidebar-logout:focus-visible {
+    outline: 2px solid #159F98;
+    outline-offset: 2px;
+  }
+  
+  /* Tablet and compact sidebar */
+  @media (max-width: 800px) {
+    .bottom-navigation .sidebar-logout {
+      justify-content: center;
+      min-height: 48px;
+      padding: 0;
+      border-color: transparent;
+    }
+  
+    .bottom-navigation .sidebar-logout span {
+      display: none;
+    }
+  
+    .bottom-navigation .sidebar-logout i {
+      font-size: 19px;
+    }
+  }
+  
+  /* Mobile: keep logout available in the horizontal sidebar */
+  @media (max-width: 600px) {
+    .bottom-navigation {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      padding: 0;
+      margin-left: 5px;
+    }
+  
+    /* Settings was already hidden in the mobile sidebar. */
+    .bottom-navigation > a {
+      display: none;
+    }
+  
+    .bottom-navigation .sidebar-logout {
+      width: 44px;
+      height: 44px;
+      min-height: 44px;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      border-radius: 8px;
+    }
+  }

@@ -1,0 +1,483 @@
+<div class="cash-movements-page">
+  <div class="page-header">
+    <div class="page-title-area">
+      <span class="eyebrow">CASH MANAGEMENT</span>
+      <h1>Cash Movements</h1>
+      <p>Track customer and supplier collections, payments, expenses, and transfers. POS sales are excluded.</p>
+    </div>
+
+    <div class="page-header-actions">
+      <div class="custom-dropdown header-period-dropdown" [class.open]="openDropdown === 'periodFilter'">
+        <button type="button" class="custom-dropdown-trigger period-trigger" (click)="toggleDropdown('periodFilter')" [attr.aria-expanded]="openDropdown === 'periodFilter'" aria-haspopup="listbox" aria-label="Filter the page by period" >
+          <i class="bi bi-calendar3 period-calendar-icon"></i>
+          <span>{{ getPeriodOptionLabel(periodFilter) }}</span>
+          <i class="bi bi-chevron-down dropdown-chevron"></i>
+        </button>
+        @if (openDropdown === 'periodFilter') {
+          <div class="custom-dropdown-menu" role="listbox" aria-label="Review period">
+            <button type="button" class="custom-dropdown-option" role="option" [class.selected]="periodFilter === 'daily'" [attr.aria-selected]="periodFilter === 'daily'" (click)="setPeriodFilter('daily')">Daily @if (periodFilter === 'daily') { <i class="bi bi-check2"></i> }</button>
+            <button type="button" class="custom-dropdown-option" role="option" [class.selected]="periodFilter === 'weekly'" [attr.aria-selected]="periodFilter === 'weekly'" (click)="setPeriodFilter('weekly')">Weekly @if (periodFilter === 'weekly') { <i class="bi bi-check2"></i> }</button>
+            <button type="button" class="custom-dropdown-option" role="option" [class.selected]="periodFilter === 'monthly'" [attr.aria-selected]="periodFilter === 'monthly'" (click)="setPeriodFilter('monthly')">Monthly @if (periodFilter === 'monthly') { <i class="bi bi-check2"></i> }</button>
+            <button type="button" class="custom-dropdown-option" role="option" [class.selected]="periodFilter === 'yearly'" [attr.aria-selected]="periodFilter === 'yearly'" (click)="setPeriodFilter('yearly')">Yearly @if (periodFilter === 'yearly') { <i class="bi bi-check2"></i> }</button>
+          </div>
+        }
+      </div>
+
+      <button type="button" class="primary-btn" (click)="openForm()">
+        <i class="bi bi-plus-lg"></i>
+        New Movement
+      </button>
+    </div>
+  </div>
+
+  <section class="movements-summary">
+    <div class="summary-item summary-in">
+      <span><i class="bi bi-arrow-down-left"></i> Cash In</span>
+      <strong>{{ totalMoneyIn | number:'1.2-2' }} <small>{{ currencySymbol }}</small></strong>
+      <small>For {{ periodFilterLabel.toLowerCase() }}</small>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-item summary-out">
+      <span><i class="bi bi-arrow-up-right"></i> Cash Out</span>
+      <strong>{{ totalMoneyOut | number:'1.2-2' }} <small>{{ currencySymbol }}</small></strong>
+      <small>For {{ periodFilterLabel.toLowerCase() }}</small>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-item summary-transfer">
+      <span><i class="bi bi-arrow-left-right"></i> Transfers</span>
+      <strong>{{ totalTransfers | number:'1.2-2' }} <small>{{ currencySymbol }}</small></strong>
+      <small>Tracked separately from income and expenses</small>
+    </div>
+  </section>
+
+  <section class="movements-card">
+    <div class="movements-toolbar">
+      <div class="search-box">
+        <i class="bi bi-search"></i>
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search category, account, note, or reference..." aria-label="Search cash movements" />
+        @if (searchTerm) {
+          <button type="button" class="clear-btn" (click)="searchTerm = ''" aria-label="Clear search">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        }
+      </div>
+
+      <div class="toolbar-filters">
+        <div class="custom-dropdown toolbar-dropdown" [class.open]="openDropdown === 'typeFilter'">
+          <button type="button" class="custom-dropdown-trigger" (click)="toggleDropdown('typeFilter')" [attr.aria-expanded]="openDropdown === 'typeFilter'" aria-haspopup="listbox" aria-label="Filter by movement type" >
+            <span>{{ getTypeFilterLabel(typeFilter) }}</span>
+            <i class="bi bi-chevron-down dropdown-chevron"></i>
+          </button>
+          @if (openDropdown === 'typeFilter') {
+            <div class="custom-dropdown-menu" role="listbox" aria-label="Movement type">
+              <button type="button" class="custom-dropdown-option" role="option" [class.selected]="typeFilter === 'all'" [attr.aria-selected]="typeFilter === 'all'" (click)="setTypeFilter('all')">All Types @if (typeFilter === 'all') { <i class="bi bi-check2"></i> }</button>
+              <button type="button" class="custom-dropdown-option" role="option" [class.selected]="typeFilter === 'CashIn'" [attr.aria-selected]="typeFilter === 'CashIn'" (click)="setTypeFilter('CashIn')">Cash In @if (typeFilter === 'CashIn') { <i class="bi bi-check2"></i> }</button>
+              <button type="button" class="custom-dropdown-option" role="option" [class.selected]="typeFilter === 'CashOut'" [attr.aria-selected]="typeFilter === 'CashOut'" (click)="setTypeFilter('CashOut')">Cash Out @if (typeFilter === 'CashOut') { <i class="bi bi-check2"></i> }</button>
+              <button type="button" class="custom-dropdown-option" role="option" [class.selected]="typeFilter === 'Transfer'" [attr.aria-selected]="typeFilter === 'Transfer'" (click)="setTypeFilter('Transfer')">Transfer @if (typeFilter === 'Transfer') { <i class="bi bi-check2"></i> }</button>
+            </div>
+          }
+        </div>
+
+        @if (searchTerm || typeFilter !== 'all' || periodFilter !== 'daily') {
+          <button type="button" class="text-btn" (click)="clearFilters()">Clear filters</button>
+        }
+      </div>
+    </div>
+
+    @if (loading) {
+      <div class="state-container">
+        <i class="bi bi-arrow-repeat loading-icon"></i>
+        <strong>Loading cash movements...</strong>
+      </div>
+    } @else if (loadError) {
+      <div class="state-container error-state">
+        <i class="bi bi-exclamation-circle"></i>
+        <strong>{{ loadError }}</strong>
+        <button type="button" class="secondary-btn" (click)="loadData()">Try again</button>
+      </div>
+    } @else if (filteredMovements.length === 0) {
+      <div class="state-container empty-state">
+        <span class="empty-state-icon"><i class="bi bi-arrow-left-right"></i></span>
+        <strong>No manual cash movements found</strong>
+        <p>Try changing the filters or record your first manual movement.</p>
+        <button type="button" class="secondary-btn" (click)="openForm()">Record a movement</button>
+      </div>
+    } @else {
+      <div class="table-wrapper">
+        <table class="movements-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Category / Reason</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Reference</th>
+              <th>Shift</th>
+              <th class="amount-heading">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (movement of filteredMovements; track movement.id) {
+              <tr>
+                <td class="date-cell">
+                  <strong>{{ movement.createdAt | date:'dd/MM/yyyy' }}</strong>
+                  <small>{{ movement.createdAt | date:'shortTime' }}</small>
+                </td>
+                <td>
+                  <span class="type-badge" [class.type-in]="movement.type === 'CashIn'" [class.type-out]="movement.type === 'CashOut'" [class.type-transfer]="movement.type === 'Transfer'">
+                    @if (movement.type === 'CashIn') {
+                      <i class="bi bi-arrow-down-left"></i>
+                    } @else if (movement.type === 'CashOut') {
+                      <i class="bi bi-arrow-up-right"></i>
+                    } @else {
+                      <i class="bi bi-arrow-left-right"></i>
+                    }
+                    {{ getMovementTypeLabel(movement.type) }}
+                  </span>
+                </td>
+                <td class="category-cell">
+                  <strong>{{ getMovementCategoryLabel(movement) }}</strong>
+                  @if (movement.customerName) {
+                    <small>Customer: {{ movement.customerName }}</small>
+                  }
+                  @if (movement.supplierName) {
+                    <small>Supplier: {{ movement.supplierName }}</small>
+                  }
+                  @if (movement.note) {
+                    <small class="note-text" [title]="movement.note">{{ movement.note }}</small>
+                  }
+                </td>
+                <td>{{ getMovementFromLabel(movement) }}</td>
+                <td>{{ getMovementToLabel(movement) }}</td>
+                <td class="reference-cell">
+                  <span>{{ movement.referenceId || '—' }}</span>
+                  @if (movement.referenceType && movement.referenceType !== 'Other') {
+                    <small>{{ movement.referenceType }}</small>
+                  }
+                </td>
+                <td>{{ movement.shiftId || '—' }}</td>
+                <td class="amount-cell" [class.amount-in]="movement.type === 'CashIn'" [class.amount-out]="movement.type === 'CashOut'">
+                  @if (movement.type === 'CashIn') { + } @else if (movement.type === 'CashOut') { − }
+                  {{ movement.amount | number:'1.2-2' }}
+                  <small>{{ currencySymbol }}</small>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footer">
+        <span>{{ filteredMovements.length }} movement{{ filteredMovements.length === 1 ? '' : 's' }}</span>
+        <span>Transfer values are tracked separately from cash in and cash out.</span>
+      </div>
+    }
+  </section>
+</div>
+
+@if (showForm) {
+  <div class="modal-overlay" (click)="closeForm()">
+    <section class="movement-modal" role="dialog" aria-modal="true" aria-labelledby="movementModalTitle" (click)="onModalContentClick($event)">
+      <div class="modal-header">
+        <div>
+          <span class="modal-eyebrow">CASH MANAGEMENT</span>
+          <h2 id="movementModalTitle">New Cash Movement</h2>
+          <p>Record the money movement and its account details.</p>
+        </div>
+        <button type="button" class="modal-close-btn" (click)="closeForm()" [disabled]="saving" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <form class="movement-form" (ngSubmit)="saveMovement()">
+        <div class="form-group">
+          <label>Movement Type <span>*</span></label>
+          <div class="movement-type-selector">
+            <button type="button" [class.active]="movementType === 'CashIn'" (click)="setMovementType('CashIn')" [disabled]="saving">
+              <i class="bi bi-arrow-down-left"></i><span>Cash In</span>
+            </button>
+            <button type="button" [class.active]="movementType === 'CashOut'" (click)="setMovementType('CashOut')" [disabled]="saving">
+              <i class="bi bi-arrow-up-right"></i><span>Cash Out</span>
+            </button>
+            <button type="button" [class.active]="movementType === 'Transfer'" (click)="setMovementType('Transfer')" [disabled]="saving">
+              <i class="bi bi-arrow-left-right"></i><span>Transfer</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          @if (movementType === 'CashIn') {
+            <div class="form-group full-width">
+              <label for="toAccount">Destination Account <span>*</span></label>
+              <div class="custom-dropdown form-dropdown" [class.open]="openDropdown === 'toAccount'">
+                <button type="button" id="toAccount" class="custom-dropdown-trigger" (click)="toggleDropdown('toAccount')" [disabled]="saving" [attr.aria-expanded]="openDropdown === 'toAccount'" aria-haspopup="listbox" aria-label="Select destination account">
+                  <span [class.placeholder]="!getAccountOptionLabel(selectedToAccountKey, '')">{{ getAccountOptionLabel(selectedToAccountKey, 'Select destination account') }}</span>
+                  <i class="bi bi-chevron-down dropdown-chevron"></i>
+                </button>
+                @if (openDropdown === 'toAccount') {
+                  <div class="custom-dropdown-menu account-dropdown-menu" role="listbox" aria-label="Destination accounts">
+                    @for (account of accountOptions; track account.key) {
+                      <button type="button" class="custom-dropdown-option account-dropdown-option" role="option" [class.selected]="selectedToAccountKey === account.key" [attr.aria-selected]="selectedToAccountKey === account.key" (click)="selectAccount('to', account.key)">
+                        <span class="dropdown-option-copy"><strong>{{ account.name }}</strong><small>{{ (account.type === 'drawer' || account.type === 'paymentAccount') ? 'Current shift (Opening Float excluded):' : 'Available:' }} {{ account.balance | number:'1.2-2' }} {{ currencySymbol }}</small></span>
+                        @if (selectedToAccountKey === account.key) { <i class="bi bi-check2"></i> }
+                      </button>
+                    }
+                  </div>
+                }
+              </div>
+            </div>
+          }
+
+          @if (movementType === 'CashOut') {
+            <div class="form-group full-width">
+              <label for="fromAccount">Source Account <span>*</span></label>
+              <div class="custom-dropdown form-dropdown" [class.open]="openDropdown === 'fromAccount'">
+                <button type="button" id="fromAccount" class="custom-dropdown-trigger" (click)="toggleDropdown('fromAccount')" [disabled]="saving" [attr.aria-expanded]="openDropdown === 'fromAccount'" aria-haspopup="listbox" aria-label="Select source account">
+                  <span [class.placeholder]="!getAccountOptionLabel(selectedFromAccountKey, '')">{{ getAccountOptionLabel(selectedFromAccountKey, 'Select source account') }}</span>
+                  <i class="bi bi-chevron-down dropdown-chevron"></i>
+                </button>
+                @if (openDropdown === 'fromAccount') {
+                  <div class="custom-dropdown-menu account-dropdown-menu" role="listbox" aria-label="Source accounts">
+                    @for (account of cashOutSourceOptions; track account.key) {
+                      <button type="button" class="custom-dropdown-option account-dropdown-option" role="option" [class.selected]="selectedFromAccountKey === account.key" [attr.aria-selected]="selectedFromAccountKey === account.key" (click)="selectAccount('from', account.key)">
+                        <span class="dropdown-option-copy"><strong>{{ account.name }}</strong><small>{{ account.type === 'drawer' ? 'Current shift (Opening Float excluded):' : 'Available:' }} {{ account.balance | number:'1.2-2' }} {{ currencySymbol }}</small></span>
+                        @if (selectedFromAccountKey === account.key) { <i class="bi bi-check2"></i> }
+                      </button>
+                    }
+                  </div>
+                }
+              </div>
+            </div>
+          }
+
+          @if (movementType === 'Transfer') {
+            <div class="form-group">
+              <label>Source Account</label>
+              <div class="fixed-account-card">
+                <span class="fixed-account-icon"><i class="bi bi-safe2"></i></span>
+                <span class="fixed-account-copy">
+                  <strong>Safe / Treasury</strong>
+                  <small>Available: {{ getSafeBalance() | number:'1.2-2' }} {{ currencySymbol }}</small>
+                </span>
+                <i class="bi bi-lock-fill fixed-account-lock" aria-hidden="true"></i>
+              </div>
+              <small class="field-hint">Transfers from this screen always leave the Safe.</small>
+            </div>
+
+            <div class="form-group">
+              <div class="bank-account-label-row">
+                <label for="transferBankAccount">Destination Bank Account <span>*</span></label>
+                <button type="button" class="text-btn bank-account-add-btn" (click)="openOwnerBankAccountForm()" [disabled]="saving">
+                  <i class="bi bi-plus-lg"></i> Add bank account
+                </button>
+              </div>
+              <div class="custom-dropdown form-dropdown drop-up" [class.open]="openDropdown === 'transferBankAccount'">
+                <button type="button" id="transferBankAccount" class="custom-dropdown-trigger" (click)="toggleDropdown('transferBankAccount')" [disabled]="saving || ownerBankAccounts.length === 0" [attr.aria-expanded]="openDropdown === 'transferBankAccount'" aria-haspopup="listbox" aria-label="Select destination bank account">
+                  <span [class.placeholder]="!selectedOwnerBankAccountId">{{ getSelectedTransferBankAccountLabel() }}</span>
+                  <i class="bi bi-chevron-down dropdown-chevron"></i>
+                </button>
+                @if (openDropdown === 'transferBankAccount') {
+                  <div class="custom-dropdown-menu account-dropdown-menu" role="listbox" aria-label="Owner bank accounts">
+                    @for (account of ownerBankAccounts; track account.id) {
+                      <button type="button" class="custom-dropdown-option account-dropdown-option" role="option" [class.selected]="selectedOwnerBankAccountId === account.id" [attr.aria-selected]="selectedOwnerBankAccountId === account.id" (click)="selectedOwnerBankAccountId = account.id; openDropdown = null; formError = ''">
+                        <span class="dropdown-option-copy"><strong>{{ getOwnerBankAccountDisplayName(account) }}</strong><small>Owner's external bank account</small></span>
+                        @if (selectedOwnerBankAccountId === account.id) { <i class="bi bi-check2"></i> }
+                      </button>
+                    }
+                  </div>
+                }
+              </div>
+              <small class="field-hint">Transfers leave Safe and go to an owner bank account. POS payment methods and Cash Drawer are not listed here.</small>
+            </div>
+          }
+
+          <div class="form-group">
+            <label for="movementReason">Category / Reason <span>*</span></label>
+            <div class="custom-dropdown form-dropdown" [class.open]="openDropdown === 'movementReason'">
+              <button type="button" id="movementReason" class="custom-dropdown-trigger" (click)="toggleDropdown('movementReason')" [disabled]="saving" [attr.aria-expanded]="openDropdown === 'movementReason'" aria-haspopup="listbox" aria-label="Select category or reason">
+                <span>{{ getReasonOptionLabel(selectedReason) }}</span>
+                <i class="bi bi-chevron-down dropdown-chevron"></i>
+              </button>
+              @if (openDropdown === 'movementReason') {
+                <div class="custom-dropdown-menu" role="listbox" aria-label="Category or reason">
+                  @for (option of reasonOptions; track option.value) {
+                    <button type="button" class="custom-dropdown-option" role="option" [class.selected]="selectedReason === option.value" [attr.aria-selected]="selectedReason === option.value" (click)="selectReason(option.value)">
+                      <span>{{ option.label }}</span>
+                      @if (selectedReason === option.value) { <i class="bi bi-check2"></i> }
+                    </button>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="movementAmount">Amount ({{ currencySymbol }}) <span>*</span></label>
+            <input id="movementAmount" name="movementAmount" type="number" [(ngModel)]="amount" min="0.01" step="0.01" required [disabled]="saving" placeholder="0.00" />
+          </div>
+
+          <div class="form-group">
+            <label for="movementDate">Date and Time <span>*</span></label>
+            <input id="movementDate" name="movementDate" type="datetime-local" [(ngModel)]="movementDateLocal" required [disabled]="saving" />
+          </div>
+
+          @if (movementType === 'CashIn' && selectedReason === 'CustomerCollection') {
+            <div class="form-group full-width">
+              <label for="movementCustomer">Customer <span>*</span></label>
+              <div class="custom-dropdown form-dropdown drop-up" [class.open]="openDropdown === 'movementCustomer'">
+                <button type="button" id="movementCustomer" class="custom-dropdown-trigger" (click)="toggleDropdown('movementCustomer')" [disabled]="saving" [attr.aria-expanded]="openDropdown === 'movementCustomer'" aria-haspopup="listbox" aria-label="Select customer">
+                  <span [class.placeholder]="!selectedCustomerId">{{ getCustomerOptionLabel(selectedCustomerId, 'Select customer') }}</span>
+                  <i class="bi bi-chevron-down dropdown-chevron"></i>
+                </button>
+                @if (openDropdown === 'movementCustomer') {
+                  <div class="custom-dropdown-menu account-dropdown-menu" role="listbox" aria-label="Customers">
+                    @for (customer of customers; track customer.id) {
+                      <button type="button" class="custom-dropdown-option account-dropdown-option" role="option" [class.selected]="selectedCustomerId === customer.id" [attr.aria-selected]="selectedCustomerId === customer.id" (click)="selectCustomer(customer.id)">
+                        <span class="dropdown-option-copy"><strong>{{ customer.name }}</strong><small>Balance: {{ customer.balance | number:'1.2-2' }} {{ currencySymbol }}</small></span>
+                        @if (selectedCustomerId === customer.id) { <i class="bi bi-check2"></i> }
+                      </button>
+                    }
+                    @if (customers.length === 0) { <div class="dropdown-empty">No customers available</div> }
+                  </div>
+                }
+              </div>
+              <small class="field-hint">The collection reduces the customer's outstanding balance.</small>
+            </div>
+          }
+
+          @if (movementType === 'CashOut' && selectedReason === 'SupplierPayment') {
+            <div class="form-group full-width">
+              <label for="movementSupplier">Supplier <span>*</span></label>
+              <div class="custom-dropdown form-dropdown drop-up" [class.open]="openDropdown === 'movementSupplier'">
+                <button type="button" id="movementSupplier" class="custom-dropdown-trigger" (click)="toggleDropdown('movementSupplier')" [disabled]="saving" [attr.aria-expanded]="openDropdown === 'movementSupplier'" aria-haspopup="listbox" aria-label="Select supplier">
+                  <span [class.placeholder]="!selectedSupplierId">{{ getSupplierOptionLabel(selectedSupplierId, 'Select supplier') }}</span>
+                  <i class="bi bi-chevron-down dropdown-chevron"></i>
+                </button>
+                @if (openDropdown === 'movementSupplier') {
+                  <div class="custom-dropdown-menu account-dropdown-menu" role="listbox" aria-label="Suppliers">
+                    @for (supplier of suppliers; track supplier.id) {
+                      <button type="button" class="custom-dropdown-option account-dropdown-option" role="option" [class.selected]="selectedSupplierId === supplier.id" [attr.aria-selected]="selectedSupplierId === supplier.id" (click)="selectSupplier(supplier.id)">
+                        <span class="dropdown-option-copy"><strong>{{ supplier.name }}</strong><small>Balance: {{ supplier.balance | number:'1.2-2' }} {{ currencySymbol }}</small></span>
+                        @if (selectedSupplierId === supplier.id) { <i class="bi bi-check2"></i> }
+                      </button>
+                    }
+                    @if (suppliers.length === 0) { <div class="dropdown-empty">No suppliers available</div> }
+                  </div>
+                }
+              </div>
+              <small class="field-hint">The payment reduces the supplier's outstanding balance.</small>
+            </div>
+          }
+
+          @if (movementType === 'CashIn' && selectedReason === 'SupplierRefund') {
+            <div class="form-group full-width">
+              <label for="refundSupplier">Supplier <span>*</span></label>
+              <div class="custom-dropdown form-dropdown drop-up" [class.open]="openDropdown === 'refundSupplier'">
+                <button type="button" id="refundSupplier" class="custom-dropdown-trigger" (click)="toggleDropdown('refundSupplier')" [disabled]="saving" [attr.aria-expanded]="openDropdown === 'refundSupplier'" aria-haspopup="listbox" aria-label="Select supplier">
+                  <span [class.placeholder]="!selectedSupplierId">{{ getSupplierOptionLabel(selectedSupplierId, 'Select supplier') }}</span>
+                  <i class="bi bi-chevron-down dropdown-chevron"></i>
+                </button>
+                @if (openDropdown === 'refundSupplier') {
+                  <div class="custom-dropdown-menu account-dropdown-menu" role="listbox" aria-label="Suppliers">
+                    @for (supplier of suppliers; track supplier.id) {
+                      <button type="button" class="custom-dropdown-option account-dropdown-option" role="option" [class.selected]="selectedSupplierId === supplier.id" [attr.aria-selected]="selectedSupplierId === supplier.id" (click)="selectSupplier(supplier.id)">
+                        <span class="dropdown-option-copy"><strong>{{ supplier.name }}</strong><small>Balance: {{ supplier.balance | number:'1.2-2' }} {{ currencySymbol }}</small></span>
+                        @if (selectedSupplierId === supplier.id) { <i class="bi bi-check2"></i> }
+                      </button>
+                    }
+                    @if (suppliers.length === 0) { <div class="dropdown-empty">No suppliers available</div> }
+                  </div>
+                }
+              </div>
+              <small class="field-hint">The refund is recorded in the supplier ledger and reduces the outstanding balance.</small>
+            </div>
+          }
+
+          @if (movementType === 'CashOut' && selectedReason === 'CustomerRefund') {
+            <div class="form-group full-width">
+              <label for="refundCustomer">Customer <span>*</span></label>
+              <div class="custom-dropdown form-dropdown drop-up" [class.open]="openDropdown === 'refundCustomer'">
+                <button type="button" id="refundCustomer" class="custom-dropdown-trigger" (click)="toggleDropdown('refundCustomer')" [disabled]="saving" [attr.aria-expanded]="openDropdown === 'refundCustomer'" aria-haspopup="listbox" aria-label="Select customer">
+                  <span [class.placeholder]="!selectedCustomerId">{{ getCustomerOptionLabel(selectedCustomerId, 'Select customer') }}</span>
+                  <i class="bi bi-chevron-down dropdown-chevron"></i>
+                </button>
+                @if (openDropdown === 'refundCustomer') {
+                  <div class="custom-dropdown-menu account-dropdown-menu" role="listbox" aria-label="Customers">
+                    @for (customer of customers; track customer.id) {
+                      <button type="button" class="custom-dropdown-option account-dropdown-option" role="option" [class.selected]="selectedCustomerId === customer.id" [attr.aria-selected]="selectedCustomerId === customer.id" (click)="selectCustomer(customer.id)">
+                        <span class="dropdown-option-copy"><strong>{{ customer.name }}</strong><small>Balance: {{ customer.balance | number:'1.2-2' }} {{ currencySymbol }}</small></span>
+                        @if (selectedCustomerId === customer.id) { <i class="bi bi-check2"></i> }
+                      </button>
+                    }
+                    @if (customers.length === 0) { <div class="dropdown-empty">No customers available</div> }
+                  </div>
+                }
+              </div>
+              <small class="field-hint">Records the cash refund against the customer without creating another sale or return.</small>
+            </div>
+          }
+
+          <div class="form-group full-width">
+            <label for="movementNote">Note <span class="optional-label">Optional</span></label>
+            <textarea id="movementNote" name="movementNote" rows="3" [(ngModel)]="note" maxlength="500" [disabled]="saving" placeholder="Add a note or explanation for this movement..."></textarea>
+          </div>
+        </div>
+
+        @if (formError) {
+          <div class="form-error"><i class="bi bi-exclamation-circle"></i><span>{{ formError }}</span></div>
+        }
+
+        <div class="form-footer">
+          <button type="button" class="secondary-btn" (click)="closeForm()" [disabled]="saving">Cancel</button>
+          <button type="submit" class="primary-btn" [disabled]="saving">
+            @if (saving) { <i class="bi bi-arrow-repeat loading-icon"></i> Saving... } @else { <i class="bi bi-check-lg"></i> Save Movement }
+          </button>
+        </div>
+      </form>
+    </section>
+  </div>
+}
+
+
+@if (showOwnerBankAccountForm) {
+  <div class="modal-overlay bank-account-modal-overlay" (click)="closeOwnerBankAccountForm()">
+    <section class="bank-account-modal" role="dialog" aria-modal="true" aria-labelledby="ownerBankAccountModalTitle" (click)="onModalContentClick($event)">
+      <div class="modal-header">
+        <div>
+          <span class="modal-eyebrow">OWNER BANK ACCOUNTS</span>
+          <h2 id="ownerBankAccountModalTitle">Add Bank Account</h2>
+          <p>This account is only for transfers from Safe. It will not appear as a POS payment method.</p>
+        </div>
+        <button type="button" class="modal-close-btn" (click)="closeOwnerBankAccountForm()" [disabled]="ownerBankAccountSaving" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <form class="bank-account-form" (ngSubmit)="saveOwnerBankAccount()">
+        <div class="form-group">
+          <label for="ownerBankName">Bank Name <span>*</span></label>
+          <input id="ownerBankName" name="ownerBankName" type="text" [(ngModel)]="newBankName" maxlength="80" required [disabled]="ownerBankAccountSaving" placeholder="e.g. CIB, Banque Misr, QNB" />
+        </div>
+        <div class="form-group">
+          <label for="ownerBankAccountName">Account Name / Label <span>*</span></label>
+          <input id="ownerBankAccountName" name="ownerBankAccountName" type="text" [(ngModel)]="newBankAccountName" maxlength="100" required [disabled]="ownerBankAccountSaving" placeholder="e.g. Owner Current Account" />
+        </div>
+        <div class="form-group">
+          <label for="ownerBankAccountLast4">Last 4 Digits <span class="optional-label">Optional</span></label>
+          <input id="ownerBankAccountLast4" name="ownerBankAccountLast4" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" [(ngModel)]="newBankAccountLast4" [disabled]="ownerBankAccountSaving" placeholder="Only the last 4 digits" />
+        </div>
+
+        @if (ownerBankAccountError) {
+          <div class="form-error"><i class="bi bi-exclamation-circle"></i><span>{{ ownerBankAccountError }}</span></div>
+        }
+
+        <div class="form-footer">
+          <button type="button" class="secondary-btn" (click)="closeOwnerBankAccountForm()" [disabled]="ownerBankAccountSaving">Cancel</button>
+          <button type="submit" class="primary-btn" [disabled]="ownerBankAccountSaving">
+            @if (ownerBankAccountSaving) { <i class="bi bi-arrow-repeat loading-icon"></i> Saving... } @else { <i class="bi bi-check-lg"></i> Save Bank Account }
+          </button>
+        </div>
+      </form>
+    </section>
+  </div>
+}

@@ -27,16 +27,17 @@
 }
 
 .eyebrow {
-  color: #159F9A;
-  font-size: 0.68rem;
+  color: #159C92;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.5px;
+  margin-bottom: 7px;
 }
 
 .page-title-area h1 {
   margin: 5px 0 4px;
   color: #14263D;
-  font-size: 1.55rem;
+  font-size: 27px;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -44,7 +45,7 @@
 .page-title-area p {
   margin: 0;
   color: #6F8094;
-  font-size: 0.82rem;
+  font-size: 13px;
 }
 
 /* NEW INVOICE BUTTON */
@@ -60,7 +61,7 @@
   background: #159F9A;
   color: #FFFFFF;
   font-family: inherit;
-  font-size: 0.76rem;
+  font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;

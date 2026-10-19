@@ -331,13 +331,39 @@
               </strong>
             </td>
 
-            <!-- Payment -->
-            <td>
-              <span class="order-payment" [class.cash]="getPaymentMethod(order).toLowerCase() === 'cash'" [class.payment-card]="getPaymentMethod(order).toLowerCase() === 'card'">
-                <i class="bi" [class.bi-cash-stack]="getPaymentMethod(order).toLowerCase() === 'cash'" [class.bi-credit-card]="getPaymentMethod(order).toLowerCase() === 'card'" ></i>
-                {{ getPaymentMethod(order) }}
-              </span>
-            </td>
+           <!-- Payment -->
+<td>
+  @if (order.paymentStatus === 'OnAccount') {
+    <span class="order-payment payment-other" title="On Account">
+      <i class="bi bi-person-badge"></i>
+      <span>On Account</span>
+    </span>
+  } @else if (getPaymentAccount(order); as account) {
+    <span
+      class="order-payment"
+      [ngClass]="'payment-' + account.type"
+      [title]="account.name">
+      @if (getPaymentImageUrl(account.image); as imageUrl) {
+        <img
+          class="payment-account-image"
+          [src]="imageUrl"
+          [alt]="account.name"
+          (error)="$any($event.target).style.display='none'" />
+      } @else {
+        <i class="bi" [ngClass]="getPaymentIconClass(account.type)"></i>
+      }
+      <span>{{ account.name }}</span>
+    </span>
+  } @else {
+    <span
+      class="order-payment"
+      [ngClass]="'payment-' + (getFallbackPaymentType(order) || 'other')"
+      [title]="getPaymentMethod(order)">
+      <i class="bi" [ngClass]="getPaymentIconClass(getFallbackPaymentType(order))"></i>
+      <span>{{ getPaymentMethod(order) }}</span>
+    </span>
+  }
+</td>
 
             <!-- Status -->
             <td>

@@ -32,21 +32,9 @@
     <div class="invoices-toolbar">
       <div class="toolbar-search-box">
         <i class="bi bi-search"></i>
-
-        <input
-          type="text"
-          [(ngModel)]="invoiceSearchTerm"
-          placeholder="Search by invoice number or supplier..."
-          autocomplete="off"
-        />
-
+        <input type="text" [(ngModel)]="invoiceSearchTerm" placeholder="Search by invoice number or supplier..." autocomplete="off" />
         @if (invoiceSearchTerm) {
-          <button
-            type="button"
-            class="toolbar-clear-btn"
-            (click)="invoiceSearchTerm = ''"
-            aria-label="Clear search"
-          >
+          <button type="button" class="toolbar-clear-btn" (click)="invoiceSearchTerm = ''" aria-label="Clear search" >
             <i class="bi bi-x"></i>
           </button>
         }
@@ -55,30 +43,16 @@
       <div class="toolbar-actions">
         <div class="toolbar-date-box">
           <i class="bi bi-calendar3"></i>
-
-          <input
-            type="date"
-            [(ngModel)]="invoiceDateFilter"
-            aria-label="Filter invoices by date"
-          />
+          <input type="date" [(ngModel)]="invoiceDateFilter" aria-label="Filter invoices by date" />
 
           @if (invoiceDateFilter) {
-            <button
-              type="button"
-              class="date-clear-btn"
-              (click)="invoiceDateFilter = ''"
-              aria-label="Clear date filter"
-            >
+            <button type="button" class="date-clear-btn" (click)="invoiceDateFilter = ''" aria-label="Clear date filter" >
               <i class="bi bi-x"></i>
             </button>
           }
         </div>
 
-        <button
-          type="button"
-          class="export-btn"
-          (click)="exportInvoices()"
-        >
+        <button type="button" class="export-btn" (click)="exportInvoices()" >
           <i class="bi bi-download"></i>
           Export
         </button>
@@ -103,9 +77,7 @@
 
         <tbody>
           @for (invoice of filteredInvoices; track invoice.id) {
-            <tr
-              [class.invoice-row-cancelled]="isInvoiceFullyReturned(invoice)"
-            >
+            <tr [class.invoice-row-cancelled]="isInvoiceFullyReturned(invoice)" >
               <td>
                 <div class="invoice-info">
                   <div class="invoice-icon">
@@ -162,21 +134,11 @@
 
               <td class="actions-cell">
                 <div class="invoice-actions">
-                  <button
-                    type="button"
-                    class="action-btn edit"
-                    title="Edit invoice"
-                    (click)="editInvoice(invoice)"
-                  >
+                  <button type="button" class="action-btn edit" title="Edit invoice" (click)="editInvoice(invoice)" >
                     <i class="bi bi-pencil"></i>
                   </button>
 
-                  <button
-                    type="button"
-                    class="action-btn delete"
-                    title="Delete invoice"
-                    (click)="deleteInvoice(invoice)"
-                  >
+                  <button type="button" class="action-btn delete" title="Delete invoice" (click)="deleteInvoice(invoice)" >
                     <i class="bi bi-trash3"></i>
                   </button>
                 </div>
@@ -196,19 +158,11 @@
                   <p> Try changing your search or date filter. </p>
 
                   @if (invoiceSearchTerm || invoiceDateFilter) {
-                    <button
-                      type="button"
-                      class="empty-action-btn"
-                      (click)="clearInvoiceFilters()"
-                    >
+                    <button type="button" class="empty-action-btn" (click)="clearInvoiceFilters()" >
                       Clear Filters
                     </button>
                   } @else {
-                    <button
-                      type="button"
-                      class="empty-action-btn"
-                      (click)="showNewInvoiceForm()"
-                    >
+                    <button type="button" class="empty-action-btn" (click)="showNewInvoiceForm()" >
                       <i class="bi bi-plus-lg"></i>
                       New Purchase Invoice
                     </button>
@@ -240,11 +194,7 @@
           </h2>
         </div>
 
-        <button
-          type="button"
-          class="close-btn"
-          (click)="cancelInvoiceForm()"
-        >
+        <button type="button" class="close-btn" (click)="cancelInvoiceForm()" >
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -273,34 +223,18 @@
             </label>
 
             <div class="supplier-dropdown">
-              <button
-                type="button"
-                class="supplier-dropdown-button"
-                [class.has-value]="newInvoice.supplierId"
-                [class.open]="isSupplierDropdownOpen"
-                [disabled]="!!editingInvoiceId"
-                (click)="toggleSupplierDropdown()"
-              >
+              <button type="button" class="supplier-dropdown-button" [class.has-value]="newInvoice.supplierId" [class.open]="isSupplierDropdownOpen" [disabled]="!!editingInvoiceId" (click)="toggleSupplierDropdown()" >
                 <span [class.placeholder]="!newInvoice.supplierId">
                   {{ getSelectedSupplierLabel() }}
                 </span>
-
-                <span
-                  class="supplier-dropdown-arrow"
-                  [class.open]="isSupplierDropdownOpen"
-                ></span>
+                <span class="supplier-dropdown-arrow" [class.open]="isSupplierDropdownOpen"></span>
               </button>
 
               @if (isSupplierDropdownOpen) {
                 <div class="supplier-dropdown-menu">
                   @if (suppliers.length > 0) {
                     @for (supplier of suppliers; track supplier.id) {
-                      <button
-                        type="button"
-                        class="supplier-dropdown-option"
-                        [class.selected]="isSelectedSupplier(supplier)"
-                        (click)="selectSupplier(supplier)"
-                      >
+                      <button type="button" class="supplier-dropdown-option" [class.selected]="isSelectedSupplier(supplier)" (click)="selectSupplier(supplier)" >
                         <span class="supplier-option-icon">
                           <i class="bi bi-building"></i>
                         </span>
@@ -333,11 +267,7 @@
               Invoice Number <span>*</span>
             </label>
 
-            <input
-              type="text"
-              [(ngModel)]="newInvoice.invoiceNumber"
-              placeholder="e.g. INV-2026-001"
-            />
+            <input type="text" [(ngModel)]="newInvoice.invoiceNumber" placeholder="e.g. INV-2026-001" />
           </div>
 
           <!-- Date -->
@@ -345,11 +275,7 @@
             <label>
               Invoice Date <span>*</span>
             </label>
-
-            <input
-              type="date"
-              [(ngModel)]="newInvoice.invoiceDate"
-            />
+            <input type="date" [(ngModel)]="newInvoice.invoiceDate" />
           </div>
 
           <!-- Warehouse -->
@@ -357,12 +283,7 @@
             <label>
               Warehouse
             </label>
-
-            <input
-              type="text"
-              [(ngModel)]="newInvoice.warehouseId"
-              placeholder="e.g. Main Warehouse"
-            />
+            <input type="text" [(ngModel)]="newInvoice.warehouseId" placeholder="e.g. Main Warehouse" />
           </div>
 
           <!-- PAYMENT STATUS + PAYMENT ACCOUNT : CREATE ONLY -->
@@ -373,22 +294,12 @@
               </label>
 
               <div class="payment-status-switch">
-                <button
-                  type="button"
-                  class="payment-status-btn"
-                  [class.active]="newInvoice.paymentStatus === 'Paid'"
-                  (click)="onPaymentStatusChange('Paid')"
-                >
+                <button type="button" class="payment-status-btn" [class.active]="newInvoice.paymentStatus === 'Paid'" (click)="onPaymentStatusChange('Paid')" >
                   <i class="bi bi-check-circle"></i>
                   <span>Paid</span>
                 </button>
 
-                <button
-                  type="button"
-                  class="payment-status-btn"
-                  [class.active]="newInvoice.paymentStatus === 'OnAccount'"
-                  (click)="onPaymentStatusChange('OnAccount')"
-                >
+                <button type="button" class="payment-status-btn" [class.active]="newInvoice.paymentStatus === 'OnAccount'" (click)="onPaymentStatusChange('OnAccount')" >
                   <i class="bi bi-clock-history"></i>
                   <span>On Account</span>
                 </button>
@@ -404,20 +315,10 @@
                 <div class="payment-account-options">
                   @if (paymentAccounts.length > 0) {
                     @for (account of paymentAccounts; track account.id) {
-                      <button
-                      type="button"
-                      class="payment-account-card"
-                      [class.selected]="isSelectedPaymentAccount(account)"
-                      (click)="selectPaymentAccount(account)"
-                      [attr.aria-label]="account.name"
-                      [title]="account.name"
-                    >
+                      <button type="button" class="payment-account-card" [class.selected]="isSelectedPaymentAccount(account)" (click)="selectPaymentAccount(account)" [attr.aria-label]="account.name" [title]="account.name" >
                       <div class="payment-account-card-image">
                         @if (account.image) {
-                          <img
-                            [src]="account.image"
-                            [alt]="account.name"
-                          />
+                          <img [src]="account.image" [alt]="account.name" />
                         } @else {
                           <i class="bi bi-wallet2"></i>
                         }
@@ -441,12 +342,7 @@
           <!-- Notes -->
           <div class="form-group full">
             <label> Notes </label>
-
-            <textarea
-              [(ngModel)]="newInvoice.notes"
-              rows="2"
-              placeholder="Add notes about this purchase..."
-            ></textarea>
+            <textarea [(ngModel)]="newInvoice.notes" rows="2" placeholder="Add notes about this purchase..." ></textarea>
           </div>
         </div>
 
@@ -468,22 +364,10 @@
             <div class="product-search">
               <div class="product-search-input">
                 <i class="bi bi-upc-scan"></i>
-
-                <input
-                  type="text"
-                  [(ngModel)]="productSearchTerm"
-                  (ngModelChange)="searchProducts($event)"
-                  (keydown.enter)="scanProductByCode(productSearchTerm)"
-                  placeholder="Search or scan product SKU..."
-                  autocomplete="off"
-                />
-
+                <input type="text" [(ngModel)]="productSearchTerm" (ngModelChange)="searchProducts($event)" 
+                (keydown.enter)="scanProductByCode(productSearchTerm)" placeholder="Search or scan product SKU..." autocomplete="off" />
                 @if (productSearchTerm) {
-                  <button
-                    type="button"
-                    class="clear-search-btn"
-                    (click)="clearProductSearch()"
-                  >
+                  <button type="button" class="clear-search-btn"(click)="clearProductSearch()" >
                     <i class="bi bi-x"></i>
                   </button>
                 }
@@ -492,17 +376,10 @@
               @if (showProductResults) {
                 <div class="product-results">
                   @for (product of productSearchResults; track product.id) {
-                    <button
-                      type="button"
-                      class="product-result"
-                      (click)="selectProduct(product)"
-                    >
+                    <button type="button" class="product-result" (click)="selectProduct(product)" >
                       <div class="result-image">
                         @if (product.image) {
-                          <img
-                            [src]="product.image"
-                            [alt]="product.name"
-                          />
+                          <img [src]="product.image" [alt]="product.name" />
                         } @else {
                           <i class="bi bi-box-seam"></i>
                         }
@@ -540,11 +417,7 @@
                   </div>
                 </div>
 
-                <button
-                  type="button"
-                  class="quick-add-product-btn"
-                  (click)="openQuickAddProduct()"
-                >
+                <button type="button" class="quick-add-product-btn" (click)="openQuickAddProduct()">
                   <i class="bi bi-plus-lg"></i>
                   Add Product
                 </button>
@@ -580,70 +453,32 @@
                       </td>
 
                       <td>
-                        <input
-                          class="table-input quantity-input"
-                          type="number"
-                          min="1"
-                          [(ngModel)]="item.quantity"
-                          (ngModelChange)="updateItem(item)"
-                          [disabled]="!!editingInvoiceId"
-                        />
+                        <input class="table-input quantity-input" type="number" min="1" [(ngModel)]="item.quantity" (ngModelChange)="updateItem(item)" [disabled]="!!editingInvoiceId" />
                       </td>
 
                       <td>
-                        <input
-                          class="table-input"
-                          type="date"
-                          [(ngModel)]="item.expiryDate"
-                          [disabled]="!!editingInvoiceId"
-                        />
+                        <input class="table-input" type="date" [(ngModel)]="item.expiryDate" [disabled]="!!editingInvoiceId" />
                       </td>
 
                       <td>
                         <div class="price-input">
                           <span>{{ currencySymbol }}</span>
 
-                          <input
-                            class="table-input"
-                            type="number"
-                            min="0"
-                            step="0.01"
-                            [(ngModel)]="item.purchasePrice"
-                            (ngModelChange)="updateItem(item)"
-                            [disabled]="!!editingInvoiceId"
-                          />
+                          <input class="table-input" type="number" min="0" step="0.01" [(ngModel)]="item.purchasePrice" (ngModelChange)="updateItem(item)" [disabled]="!!editingInvoiceId" />
                         </div>
                       </td>
 
                       <td>
                         <div class="price-input">
                           <span>{{ currencySymbol }}</span>
-
-                          <input
-                            class="table-input"
-                            type="number"
-                            min="0"
-                            step="0.01"
-                            [(ngModel)]="item.sellingPrice"
-                            (ngModelChange)="updateItem(item)"
-                            [disabled]="!!editingInvoiceId"
-                          />
+                          <input class="table-input" type="number" min="0" step="0.01" [(ngModel)]="item.sellingPrice" (ngModelChange)="updateItem(item)" [disabled]="!!editingInvoiceId" />
                         </div>
                       </td>
 
                       <td>
                         <div class="tax-input">
                           <span>%</span>
-
-                          <input
-                            class="table-input"
-                            type="number"
-                            min="0"
-                            step="0.01"
-                            [(ngModel)]="item.taxRate"
-                            (ngModelChange)="updateItem(item)"
-                            [disabled]="!!editingInvoiceId"
-                          />
+                          <input class="table-input" type="number" min="0" step="0.01" [(ngModel)]="item.taxRate" (ngModelChange)="updateItem(item)" [disabled]="!!editingInvoiceId" />
                         </div>
                       </td>
 
@@ -654,13 +489,7 @@
                       </td>
 
                       <td>
-                        <button
-                          type="button"
-                          class="remove-item-btn"
-                          title="Remove product"
-                          (click)="removeInvoiceItem(item.id)"
-                          [disabled]="!!editingInvoiceId"
-                        >
+                        <button type="button" class="remove-item-btn" title="Remove product" (click)="removeInvoiceItem(item.id)" [disabled]="!!editingInvoiceId" >
                           <i class="bi bi-trash3"></i>
                         </button>
                       </td>
@@ -727,26 +556,12 @@
 
       <!-- MODAL FOOTER -->
       <div class="modal-footer">
-        <button
-          type="button"
-          class="cancel-btn"
-          (click)="cancelInvoiceForm()"
-        >
+        <button type="button" class="cancel-btn" (click)="cancelInvoiceForm()" >
           Cancel
         </button>
 
-        <button
-          type="button"
-          class="save-btn"
-          [disabled]="!isInvoiceValid()"
-          (click)="saveInvoice()"
-        >
-          <i
-            class="bi"
-            [class.bi-check-lg]="editingInvoiceId"
-            [class.bi-receipt]="!editingInvoiceId"
-          ></i>
-
+        <button type="button" class="save-btn" [disabled]="!isInvoiceValid()" (click)="saveInvoice()" >
+          <i class="bi" [class.bi-check-lg]="editingInvoiceId" [class.bi-receipt]="!editingInvoiceId" ></i>
           {{ editingInvoiceId ? 'Save Changes' : 'Save Purchase Invoice' }}
         </button>
       </div>
@@ -769,11 +584,7 @@
           </p>
         </div>
 
-        <button
-          type="button"
-          class="quick-product-close"
-          (click)="closeQuickAddProduct()"
-        >
+        <button type="button" class="quick-product-close" (click)="closeQuickAddProduct()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -783,20 +594,12 @@
         <div class="quick-product-grid">
           <div class="quick-form-group full">
             <label> Product Name <span>*</span> </label>
-            <input
-              type="text"
-              [(ngModel)]="quickProduct.name"
-              placeholder="e.g. Premium Coffee"
-            />
+            <input type="text" [(ngModel)]="quickProduct.name" placeholder="e.g. Premium Coffee" />
           </div>
 
           <div class="quick-form-group">
             <label> SKU <span>*</span> </label>
-            <input
-              type="text"
-              [(ngModel)]="quickProduct.sku"
-              placeholder="e.g. CF-001"
-            />
+            <input type="text" [(ngModel)]="quickProduct.sku" placeholder="e.g. CF-001" />
           </div>
 
           <div class="quick-form-group">
@@ -814,51 +617,27 @@
 
           <div class="quick-form-group">
             <label> Minimum Stock </label>
-            <input
-              type="number"
-              min="0"
-              [(ngModel)]="quickProduct.minStock"
-              placeholder="0"
-            />
+            <input type="number" min="0" [(ngModel)]="quickProduct.minStock" placeholder="0" />
           </div>
 
           <div class="quick-form-group">
             <label> Maximum Stock </label>
-            <input
-              type="number"
-              min="1"
-              [(ngModel)]="quickProduct.maxStock"
-              placeholder="0"
-            />
+            <input type="number" min="1" [(ngModel)]="quickProduct.maxStock" placeholder="0" />
           </div>
 
           <div class="quick-form-group full">
             <label> Selling Price <span>*</span> </label>
-            <input
-              type="number"
-              min="0"
-              step="0.01"
-              [(ngModel)]="quickProduct.price"
-              placeholder="0.00"
-            />
+            <input type="number" min="0" step="0.01" [(ngModel)]="quickProduct.price" placeholder="0.00" />
           </div>
 
           <div class="quick-form-group full">
             <label> Image URL </label>
-            <input
-              type="text"
-              [(ngModel)]="quickProduct.image"
-              placeholder="https://..."
-            />
+            <input type="text" [(ngModel)]="quickProduct.image" placeholder="https://..." />
           </div>
 
           <div class="quick-form-group full">
             <label> Description </label>
-            <textarea
-              [(ngModel)]="quickProduct.description"
-              rows="3"
-              placeholder="Add a short description..."
-            ></textarea>
+            <textarea [(ngModel)]="quickProduct.description" rows="3" placeholder="Add a short description..." ></textarea>
           </div>
         </div>
 
@@ -874,20 +653,11 @@
 
       <!-- FOOTER -->
       <div class="quick-product-footer">
-        <button
-          type="button"
-          class="quick-product-cancel"
-          (click)="closeQuickAddProduct()"
-        >
+        <button type="button" class="quick-product-cancel" (click)="closeQuickAddProduct()" >
           Cancel
         </button>
 
-        <button
-          type="button"
-          class="quick-product-save"
-          [disabled]="!isQuickProductValid()"
-          (click)="saveQuickProduct()"
-        >
+        <button type="button" class="quick-product-save" [disabled]="!isQuickProductValid()" (click)="saveQuickProduct()" >
           <i class="bi bi-plus-lg"></i>
           Add Product
         </button>

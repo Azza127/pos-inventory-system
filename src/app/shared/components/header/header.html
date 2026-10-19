@@ -1,8 +1,10 @@
 <header class="header">
+  <!-- Store name and online status -->
   <div class="header-context">
     <span class="context-title">
-      <strong *ngIf="settings"> {{ settings.storeName }} </strong>
+      <strong *ngIf="settings">{{ settings.storeName }}</strong>
     </span>
+
     <span class="context-divider"></span>
     <span class="online-status">
       <span class="status-dot"></span>
@@ -10,22 +12,29 @@
     </span>
   </div>
 
+  <!-- Right side: Language and user profile -->
   <div class="user-area">
-    <div class="user-info">
-      <div class="avatar">
-        {{ userName.charAt(0).toUpperCase() }}
-      </div>
+    <button type="button" class="language-btn" aria-label="Change language" title="Change language">
+      <i class="bi bi-translate"></i>
+    </button>
+    <span class="header-divider" aria-hidden="true"></span>
 
-      <div class="user-details">
-        <strong> {{ userName }} </strong>
-        <span> {{ userRole }} </span>
+    <!-- User Profile Menu -->
+    <div class="user-profile-menu">
+      <button type="button" class="avatar profile-avatar"(click)="toggleUserMenu()" [attr.aria-expanded]="showUserMenu" aria-label="Open user profile" title="User profile">
+        {{ userName.charAt(0).toUpperCase() }}
+      </button>
+
+      <div class="user-dropdown" *ngIf="showUserMenu" role="dialog" aria-label="User profile details">
+        <div class="user-dropdown-label">SIGNED IN AS</div>
+          <strong class="user-dropdown-name">
+            {{ userName }}
+          </strong>
+
+          <span class="user-dropdown-role">
+            {{ userRole }}
+          </span>
       </div>
     </div>
-
-    <div class="header-divider"></div>
-    <button type="button" class="logout-btn" (click)="logout()">
-      <i class="bi bi-box-arrow-right"></i>
-      <span>Logout</span>
-    </button>
   </div>
 </header>

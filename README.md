@@ -1,135 +1,149 @@
-# Moasher POS & Inventory Management System
-[![Angular](https://img.shields.io/badge/Angular-21.2.0-DD0031?logo=angular\&logoColor=white)](https://angular.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-3178C6?logo=typescript\&logoColor=white)](https://www.typescriptlang.org/)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.8-7952B3?logo=bootstrap\&logoColor=white)](https://getbootstrap.com/)
-[![Chart.js](https://img.shields.io/badge/Chart.js-4.5.1-FF6384?logo=chart.js\&logoColor=white)](https://www.chartjs.org/)
-[![JSON Server](https://img.shields.io/badge/JSON_Server-1.0.0--beta.15-000000?logo=json\&logoColor=white)](https://github.com/typicode/json-server)
+# Moasher POS & Inventory Management System (مُـؤشِّــر)
 
-Moasher is a Point of Sale (POS) and Inventory Management System built with Angular. It provides a simple interface for managing products, categories, sales, purchase invoices, orders, returns, reports, team members, and store settings.
+[![Angular](https://img.shields.io/badge/Angular-21.2.0-DD0031?logo=angular&logoColor=white)](https://angular.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.8-7952B3?logo=bootstrap&logoColor=white)](https://getbootstrap.com/) [![Chart.js](https://img.shields.io/badge/Chart.js-4.5.1-FF6384?logo=chart.js&logoColor=white)](https://www.chartjs.org/) [![ExcelJS](https://img.shields.io/badge/ExcelJS-4.4.0-217346?logo=microsoft-excel&logoColor=white)](https://github.com/exceljs/exceljs) [![JSON Server](https://img.shields.io/badge/JSON_Server-1.0.0--beta.15-000000?logo=json&logoColor=white)](https://github.com/typicode/json-server)
+
+Moasher is a Point of Sale (POS), Inventory, and Cash Treasury Management System built with Angular. It helps manage products, categories, sales, purchase invoices, returns, customer and supplier accounts, cash movements, employee shifts, and reports.
 
 ## Features
 
 ### Authentication
-* Login and password reset
-* Role-based access control
-* Protected routes
+- Login and password reset
+- Role-based access control
+- Protected routes
 
 ### Inventory
-* Product management
-* Category management
-* Stock tracking
-* Product search and filtering
-* Low stock and out-of-stock status
+- Product and category management
+- Stock tracking and low-stock indicators
+- Product search and filtering
+- Protection for products used in historical transactions
 
 ### Point of Sale
-* Product search and category filtering
-* Shopping cart
-* Cash and card payments
-* Order checkout
-* Printable receipts
+- Product search by name, SKU, or barcode
+- Shopping cart with multiple invoice tabs
+- Cash/payment-account and on-account sales
+- Employee shift handling
+- Printable receipts
 
 ### Orders & Returns
-* Order management and details
-* Order status filtering
-* Sales returns
-* Purchase returns
+- View and filter orders by status, date, and search term
+- Order details and Excel export
+- Sales returns and purchase returns
 
 ### Purchase Invoices
-* Create and manage purchase invoices
-* Supplier and invoice information
-* Automatic inventory updates
-* Search and filtering
-* CSV export
+- Create and manage supplier purchase invoices
+- Update stock quantities and purchase costs
+- Paid and on-account invoices
+- Search and filter invoices
+- Excel export
+
+### Customers, Suppliers & Accounts
+- Customer and supplier management
+- Track customer receivables and supplier payables
+- Customer and supplier account statements
+- Record collections and supplier payments
+
+### Cash Movements & Treasury
+- Record cash in, cash out, and account transfers
+- Track payment accounts
+- Close employee shifts and record handovers to the safe
+- View safe balance and movement history
 
 ### Reports
-* Sales overview and analytics
-* Sales charts
-* Product and category statistics
-* CSV/PDF export
+- Sales overview and average order value
+- Sales charts and category statistics
+- Top-selling products and sales trends
+- Inventory valuation and profit margin indicators
 
-### Team & Store Settings
-* Team member management
-* Role management
-* Store information
-* Tax and currency settings
+### Team, Attendance & Store Settings
+- Manage employees and roles
+- Employee check-in and check-out tracking
+- Store information, currency, tax, and payment account settings
 
 ## User Roles
-| Role         | Access                                             |
-| ------------ | -------------------------------------------------- |
-| **Employee** | POS, sales, and inventory viewing                  |
-| **Manager**  | Inventory, purchases, reports, and team management |
-| **Owner**    | Full access, including store settings              |
+
+| Role | Access |
+|---|---|
+| **Employee** | POS, orders, inventory viewing, customer and supplier information, cash movements, and personal attendance |
+| **Manager** | Inventory and categories, purchase invoices, returns, reports, treasury, and employee management within assigned permissions |
+| **Owner** | Full system access, including team management and store settings |
 
 ## Tech Stack
-* Angular 21
-* TypeScript
-* Bootstrap 5
-* RxJS
-* Chart.js
-* JSON Server
 
-## Project Structure
-```text
-src/
-└── app/
-    ├── core/
-    │   ├── guards/
-    │   ├── models/
-    │   └── services/
-    ├── features/
-    │   ├── dashboard/
-    │   ├── products/
-    │   ├── categories/
-    │   ├── pos/
-    │   ├── orders/
-    │   ├── returns/
-    │   ├── purchase-invoices/
-    │   ├── reports/
-    │   └── team-members/
-    └── shared/
-```
+- Angular 21
+- TypeScript 5.9
+- Bootstrap 5
+- RxJS
+- Chart.js
+- ExcelJS
+- JSON Server
 
 ## Getting Started
 
-### Prerequisites
-* Node.js
-* npm
-* Angular CLI
-
 ### Installation
+
 ```bash
-git clone https://github.com/Azza127/Moasher-POS.git
-cd Moasher-POS
 npm install
 ```
 
-### Run the Project
-Start JSON Server:
+### Start JSON Server
+
+Open a terminal and run:
 
 ```bash
-npx json-server db.json
+npx json-server db.json --port 3000
 ```
 
-Then, in another terminal:
+### Start Angular
+
+In a second terminal, run:
 
 ```bash
 npm start
 ```
 
-Open the application at:
+Then open `http://localhost:4200` in your browser.
+
+## Project Structure
 
 ```text
-http://localhost:4200
+src/app/
+├── core/
+│   ├── guards/        # Authentication and role guards
+│   ├── models/        # TypeScript data models
+│   ├── services/      # API and application services
+│   └── utils/         # Shared utility functions
+├── features/
+│   ├── accounts/      # Customer and supplier statements
+│   ├── attendance/    # Employee attendance
+│   ├── auth-settings/ # Login, password reset, users, and store settings
+│   ├── cash-movements/# Cash in, cash out, and transfers
+│   ├── categories/    # Product categories
+│   ├── customer/      # Customer management
+│   ├── dashboard/     # Dashboard and business overview
+│   ├── orders/        # Orders and Excel export
+│   ├── pos/           # Point of Sale
+│   ├── products/      # Products and inventory
+│   ├── purchase-invoices/ # Purchase invoices and stock intake
+│   ├── reports/       # Reports and analytics
+│   ├── returns/       # Sales and purchase returns
+│   ├── supplier/      # Supplier management
+│   └── treasury/      # Safe balances and shift handovers
+└── shared/
+    └── components/   # Header, sidebar, and popup components
+
+angular.json           # Angular CLI configuration
+db.json                # JSON Server data
+package.json           # Dependencies and npm scripts
 ```
 
-## Future Improvements
-* Backend and database integration
-* Real authentication
-* Real-time updates
-* More advanced reporting
+## Build & Test
+
+```bash
+npm run build
+npm test
+```
 
 ## Author
-**Azza Ezzat**
 
-Software Developer focused on Frontend Development and UI/UX Design.
-
+- **Author:** Azza Ezzat
+- **Repository:** [Moasher-POS](https://github.com/Azza127/Moasher-POS)

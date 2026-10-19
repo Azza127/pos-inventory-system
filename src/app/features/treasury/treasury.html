@@ -1,0 +1,304 @@
+<div class="treasury-page">
+  <!-- PAGE HEADER -->
+  <div class="treasury-header">
+    <div>
+      <span class="page-eyebrow"> CASH MANAGEMENT </span>
+      <h1> Treasury </h1>
+      <p> Monitor treasury balance, shift handovers, and financial movements. </p>
+    </div>
+  </div>
+
+  <!-- TREASURY SUMMARY-->
+  <section class="treasury-summary" [class.period-active]="fromDate || toDate" >
+    <!-- CURRENT TREASURY BALANCE -->
+    <div class="summary-item">
+      <span> Current Treasury Balance </span>
+      <strong class="main-balance">
+        {{ treasuryBalance | number:'1.2-2' }}
+        {{ currencySymbol }}
+      </strong>
+    </div>
+
+    <div class="summary-divider"></div>
+    <!-- TOTAL MONEY IN -->
+    <div class="summary-item">
+      <span> Total Money In </span>
+      <strong>
+        {{ totalMoneyIn | number:'1.2-2' }}
+        {{ currencySymbol }}
+      </strong>
+    </div>
+
+    <div class="summary-divider"></div>
+    <!-- TOTAL MONEY OUT -->
+    <div class="summary-item">
+      <span> Total Money Out </span>
+      <strong>
+        {{ totalMoneyOut | number:'1.2-2' }}
+        {{ currencySymbol }}
+      </strong>
+    </div>
+
+    <!-- PERIOD VALUES -->
+    @if (fromDate || toDate) {
+      <div class="summary-divider"></div>
+      <!-- PERIOD OPENING -->
+      <div class="summary-item">
+        <span> Period Opening </span>
+        <strong>
+          {{ periodOpeningBalance | number:'1.2-2' }}
+          {{ currencySymbol }}
+        </strong>
+      </div>
+
+      <div class="summary-divider"></div>
+      <!-- PERIOD MONEY IN -->
+      <div class="summary-item">
+        <span>  Period Money In </span>
+        <strong>
+          {{ periodMoneyIn | number:'1.2-2' }}
+          {{ currencySymbol }}
+        </strong>
+      </div>
+
+      <div class="summary-divider"></div>
+      <!-- PERIOD CLOSING -->
+      <div class="summary-item">
+        <span> Period Closing </span>
+        <strong class="main-balance">
+          {{ periodClosingBalance | number:'1.2-2' }}
+          {{ currencySymbol }}
+        </strong>
+      </div>
+    }
+  </section>
+
+  <!-- HANDOVERS TABLE -->
+  <section class="treasury-container">
+    <!-- TOOLBAR -->
+    <div class="treasury-toolbar">
+      <!-- SEARCH -->
+      <div class="search-wrapper">
+        <i class="bi bi-search"></i>
+        <input type="text" [value]="searchTerm" (input)=" searchTerm = $any($event.target).value; applyFilters() " placeholder="Search employee or shift..." autocomplete="off" />
+        @if (searchTerm) {
+          <button type="button" class="clear-btn" aria-label="Clear search" (click)=" searchTerm = ''; applyFilters() " >
+            <i class="bi bi-x"></i>
+          </button>
+        }
+      </div>
+
+      <!-- FROM -->
+      <div class="date-filter">
+        <label> From </label>
+        <div class="date-input-wrapper">
+          <input type="date" [value]="fromDate" (change)=" fromDate = $any($event.target).value;  applyFilters()  " />
+          @if (fromDate) {
+            <button type="button" class="date-clear-btn" aria-label="Clear from date" (click)=" fromDate = ''; applyFilters() " >
+              <i class="bi bi-x"></i>
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- TO -->
+      <div class="date-filter">
+        <label>To </label>
+        <div class="date-input-wrapper">
+          <input type="date" [value]="toDate" (change)=" toDate = $any($event.target).value; applyFilters() " />
+          @if (toDate) {
+            <button type="button" class="date-clear-btn" aria-label="Clear to date" (click)=" toDate = ''; applyFilters() " >
+              <i class="bi bi-x"></i>
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- LOADING -->
+    @if (loading) {
+      <div class="treasury-state">
+        <i class="bi bi-arrow-repeat loading-icon"></i>
+        <span> Loading treasury... </span>
+      </div>
+    }
+
+    <!-- ERROR -->
+    @else if (errorMessage) {
+      <div class="treasury-state error-state">
+        <i class="bi bi-exclamation-circle"></i>
+        <span> {{ errorMessage }} </span>
+        <button type="button" class="retry-btn" (click)="loadTreasury()" >
+          Retry
+        </button>
+      </div>
+    }
+
+    <!-- TABLE -->
+    @else {
+      <div class="treasury-table-wrapper">
+        <table class="treasury-table">
+          <thead>
+            <tr>
+              <th class="col-date"> DATE </th>
+              <th class="col-transaction"> TRANSACTION </th>
+              <th class="col-shift"> SHIFT / REF </th>
+              <th class="col-employee"> OPENED BY / FROM </th>
+              <th class="col-handover-by"> HANDOVER BY / DETAILS </th>
+              <th class="col-amount"> AMOUNT </th>
+              <th class="col-destination"> DESTINATION </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (row of tableRows; track row.id) {
+              @if (row.kind === 'handover') {
+                <!-- ONE ROW = ONE AGGREGATED SHIFT HANDOVER -->
+                <tr
+                  class="treasury-row"
+                  [class.selected-row]="isHandoverSelected(row.handover)"
+                  (click)="toggleHandover(row.handover)"
+                >
+                  <td class="date-cell">
+                    <strong>{{ row.handover.createdAt | date:'dd/MM/yyyy' }}</strong>
+                    <span>{{ row.handover.createdAt | date:'hh:mm a' }}</span>
+                  </td>
+
+                  <td class="transaction-cell">
+                    <span class="transaction-icon">
+                      <i class="bi bi-arrow-left-right"></i>
+                    </span>
+                    <div class="transaction-copy">
+                      <strong>Shift Handover</strong>
+                      <span>Shift funds transferred to Treasury</span>
+                    </div>
+                  </td>
+
+                  <td class="shift-cell">#{{ row.handover.shiftId }}</td>
+                  <td class="employee-cell">{{ getEmployeeName(row.handover.shiftId) }}</td>
+                  <td class="handover-by-cell">{{ getHandoverEmployeeName(row.handover) }}</td>
+                  <td class="amount-cell">
+                    {{ row.handover.totalAmount | number:'1.2-2' }}
+                    {{ currencySymbol }}
+                  </td>
+                  <td class="destination-cell">
+                    <span class="destination-badge" [title]="row.handover.destinationAccountName">
+                      <i class="bi bi-safe2"></i>
+                      <span class="destination-name">{{ getDestinationBankName(row.handover.destinationAccountName) }}</span>
+                    </span>
+                  </td>
+                </tr>
+
+                @if (isHandoverSelected(row.handover)) {
+                  <tr class="handover-details-row">
+                    <td colspan="7">
+                      <div class="handover-details">
+                        <div class="details-header">
+                          <div>
+                            <strong>Shift Handover Breakdown</strong>
+                          </div>
+                          <button type="button" class="details-close-btn" aria-label="Close breakdown" (click)="selectedHandover = null; $event.stopPropagation()">
+                            <i class="bi bi-x"></i>
+                          </button>
+                        </div>
+
+                        <div class="breakdown-list">
+                          @for (account of row.handover.breakdown; track account.accountId) {
+                            <div class="breakdown-item">
+                              <span>{{ account.accountName }}</span>
+                              <strong>
+                                {{ account.amount | number:'1.2-2' }}
+                                {{ currencySymbol }}
+                              </strong>
+                            </div>
+                          }
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                }
+
+              } @else {
+
+                <!-- DIRECT CASH MOVEMENT THAT AFFECTS SAFE / TREASURY -->
+                <tr class="treasury-row movement-row">
+                  <td class="date-cell">
+                    <strong>{{ row.movement.createdAt | date:'dd/MM/yyyy' }}</strong>
+                    <span>{{ row.movement.createdAt | date:'hh:mm a' }}</span>
+                  </td>
+
+                  <td class="transaction-cell">
+                    <span
+                      class="transaction-icon"
+                      [class.movement-in-icon]="row.movement.type === 'CashIn'"
+                      [class.movement-out-icon]="row.movement.type === 'CashOut'"
+                      [class.movement-transfer-icon]="row.movement.type === 'Transfer'"
+                    >
+                      <i
+                        class="bi"
+                        [class.bi-arrow-down-left]="row.movement.type === 'CashIn'"
+                        [class.bi-arrow-up-right]="row.movement.type === 'CashOut'"
+                        [class.bi-arrow-left-right]="row.movement.type === 'Transfer'"
+                      ></i>
+                    </span>
+                    <div class="transaction-copy">
+                      <strong>{{ getMovementTypeLabel(row.movement.type) }}</strong>
+                      <span>{{ row.movement.category || row.movement.reason }}</span>
+                    </div>
+                  </td>
+
+                  <td class="shift-cell">
+                    {{ row.movement.referenceId || '—' }}
+                  </td>
+
+                  <td class="employee-cell">
+                    {{ row.movement.fromAccountName || '—' }}
+                  </td>
+
+                  <td class="handover-by-cell">
+                    {{ row.movement.note || row.movement.customerName || row.movement.supplierName || '—' }}
+                  </td>
+
+                  <td class="amount-cell">
+                    <span class="movement-amount" [class.money-in]="getTreasuryMovementSign(row.movement) > 0" [class.money-out]="getTreasuryMovementSign(row.movement) < 0" >
+                      @if (getTreasuryMovementSign(row.movement) > 0) {
+                        +
+                      } @else if (getTreasuryMovementSign(row.movement) < 0) { − }
+                      {{ row.movement.amount | number:'1.2-2' }}
+                      {{ currencySymbol }}
+                    </span>
+                  </td>
+
+                  <td class="destination-cell">
+                    @if (row.movement.toAccountName) {
+                      <span class="destination-badge" [title]="row.movement.toAccountName" >
+                        <i class="bi bi-safe2"></i>
+                        <span class="destination-name">{{ getDestinationBankName(row.movement.toAccountName) }}</span>
+                      </span>
+                    } @else {
+                      —
+                    }
+                  </td>
+                </tr>
+              }
+            }
+
+            @if (tableRows.length === 0) {
+              <tr>
+                <td colspan="7" class="empty-cell">
+                  <div class="empty-state">
+                    <div class="empty-icon">
+                      <i class="bi bi-safe"></i>
+                    </div>
+                    <strong>No treasury transactions found</strong>
+                    <span>No transactions match the current filters.</span>
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </section>
+</div>

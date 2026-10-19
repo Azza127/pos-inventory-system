@@ -152,7 +152,9 @@ import { ReturnTransaction, ReturnType } from '../../core/models/return.model';
     get filteredReferences():
       ReturnReference[] {
       const term = this.searchTerm.trim().toLowerCase();
-      const source = this.returnType === 'sale' ? this.orders : this.purchaseInvoices;
+      const source = this.returnType === 'sale'
+      ? this.orders.filter(order => order.status === 'Completed')
+      : this.purchaseInvoices;
       return source
 
         /* FILTER */
@@ -518,12 +520,27 @@ import { ReturnTransaction, ReturnType } from '../../core/models/return.model';
       }
   
     /* SELECT REFERENCE */
-      selectReference( reference: Order | PurchaseInvoice ): void {
-        this.selectedReference = { ...reference,  referenceNumber: this.getReferenceNumber(reference), date: this.getReferenceCreatedAt(reference), itemCount: this.getReferenceItemCount(reference) };
-        this.returnReason = '';
-        this.showReasonInput = false;
-        this.loadReturnableItems(reference);
+    selectReference(reference: Order | PurchaseInvoice): void {
+      if (this.returnType === 'sale' && (reference as Order).status !== 'Completed') {
+        this.popupService.showAlert(
+          'Only completed sales can be returned.',
+          'warning',
+          'Invalid Return'
+        );
+        return;
       }
+    
+      this.selectedReference = {
+        ...reference,
+        referenceNumber: this.getReferenceNumber(reference),
+        date: this.getReferenceCreatedAt(reference),
+        itemCount: this.getReferenceItemCount(reference)
+      };
+    
+      this.returnReason = '';
+      this.showReasonInput = false;
+      this.loadReturnableItems(reference);
+    }
   
     /* LOAD RETURNABLE ITEMS */
     private loadReturnableItems( reference: Order | PurchaseInvoice): void {
@@ -629,14 +646,12 @@ import { ReturnTransaction, ReturnType } from '../../core/models/return.model';
   
     /* RETURN ITEMS SELECTED? */
     get hasSelectedReturnItems(): boolean {
-      return this.selectedItems
-        .some( item => item.returnQuantity > 0 );
+      return this.selectedItems .some( item => item.returnQuantity > 0 );
     }
   
     /* RETURN TOTAL */
     get returnTotal(): number {
-      return this.selectedItems
-        .reduce(( total, item ) => total + ( item.returnQuantity * item.unitPrice ), 0 );
+      return this.selectedItems .reduce(( total, item ) => total + ( item.returnQuantity * item.unitPrice ), 0 );
     }
   
     /* SELECTED ITEMS COUNT */
@@ -648,7 +663,6 @@ import { ReturnTransaction, ReturnType } from '../../core/models/return.model';
     validateReturnQuantity(item: ReturnableItem): void {
       this.setReturnQuantity(item, item.returnQuantity);
     }
-
 
     /* CLOSE SELECTED INVOICE */
     clearSelectedReference(): void {
@@ -670,9 +684,7 @@ confirmReturn(): void {
     /*  Validate selected items- */
     if (!this.hasSelectedReturnItems) {
       this.popupService.showAlert(
-        'Please select at least one item to return.',
-        'warning',
-        'No Items Selected'
+        'Please select at least one item to return.', 'warning', 'No Items Selected'
       );
       return;
     }
@@ -706,12 +718,17 @@ confirmReturn(): void {
           this.processReturn( isFullReturn );
         }
       );
-  
   }
 
   /* PROCESS RETURN */
 private processReturn( isFullReturn: boolean ): void {
     if (!this.selectedReference) {
+      return;
+    }
+
+    if (
+      this.returnType === 'sale' && (this.selectedReference as Order).status !== 'Completed' ) {
+      this.popupService.showAlert( 'Only completed sales can be returned.', 'warning', 'Invalid Return' );
       return;
     }
   
@@ -748,9 +765,7 @@ private processReturn( isFullReturn: boolean ): void {
     if (!createReturn) {
       console.error( 'ReturnService does not expose createReturn/addReturn.' );
       this.popupService.showAlert(
-        'The return could not be saved because the return service method is missing.',
-        'error',
-        'Save Failed'
+        'The return could not be saved because the return service method is missing.', 'error', 'Save Failed'
       );
       return;
     }
@@ -761,18 +776,47 @@ private processReturn( isFullReturn: boolean ): void {
   
     /* Save return */
     createReturn( returnTransaction ).subscribe({next: () => {
-        const stockUpdates = items.map(item => {
-              const product = this.getProductById( String(item.productId));
-              if (!product) {
-                console.error( `Product ${item.productId} was not found.` );
-                return null;
-              }
-  
-              const currentStock = Number( product.stock ?? 0);
-              const stockDelta = this.returnType === 'sale' ? item.quantity : -item.quantity;
-              const updatedProduct: Product = { ...product, stock: Math.max( 0, currentStock + stockDelta )};
-              return this.productService.updateProduct( product.id, updatedProduct);
-            }).filter( request => request !== null );
+      const stockUpdates = items.map(item => {
+        const product = this.getProductById( String(item.productId));
+        if (!product) {
+          console.error( `Product ${item.productId} was not found.` );
+          return null;
+        }
+
+        const currentStock = Math.max( 0, Number(product.stock ?? 0) );
+        const quantity = Number(item.quantity ?? 0);
+        const stockDelta = this.returnType === 'sale' ? quantity : -quantity;
+        const newStock = Math.max( 0, currentStock + stockDelta );
+    
+        let nextCostPrice = product.costPrice;
+    
+        // Sales returns re-enter inventory at the cost
+        // saved on the original order item.
+        if (this.returnType === 'sale') {
+          const returnedUnitCost = Number(item.costPrice);
+          const currentAverageCost = Number(product.costPrice ?? 0);
+          const hasValidReturnedCost = item.costPrice !== undefined && Number.isFinite(returnedUnitCost) && returnedUnitCost > 0;
+    
+          const hasValidCurrentCost = Number.isFinite(currentAverageCost) && currentAverageCost > 0;
+          if (hasValidReturnedCost && newStock > 0) {
+            if (currentStock === 0) {
+              nextCostPrice = returnedUnitCost;
+            } else if (hasValidCurrentCost) {
+              nextCostPrice = Number(
+                (( currentStock * currentAverageCost + quantity * returnedUnitCost ) / newStock ).toFixed(6)
+              );
+            }
+          }
+        }
+    
+        // A purchase return removes quantity from the pooled
+        // inventory at its current average carrying cost;
+        // therefore the remaining unit average stays unchanged.
+        // The original purchase price remains saved on the return.
+        const updatedProduct: Product = { ...product,  stock: newStock, costPrice: nextCostPrice };
+        return this.productService.updateProduct( product.id, updatedProduct );
+      })
+      .filter(request => request !== null);    
   
         /* No stock updates*/
         if (stockUpdates.length === 0) {
@@ -792,9 +836,7 @@ private processReturn( isFullReturn: boolean ): void {
           error: (error: unknown) => { console.error( 'Return saved but inventory update failed:', error);
             this.isLoading = false;
             this.popupService.showAlert(
-              'The return was saved, but inventory stock could not be updated.',
-              'error',
-              'Inventory Update Failed'
+              'The return was saved, but inventory stock could not be updated.', 'error', 'Inventory Update Failed'
             );
             this.cdr.markForCheck();
           }
@@ -822,15 +864,11 @@ private processReturn( isFullReturn: boolean ): void {
     // Order.id is optional in the model,
     // so make sure it exists before updating.
     if (order.id === undefined) {
-      console.error(
-        'Cannot cancel returned order: order id is missing.'
-      );
+      console.error('Cannot cancel returned order: order id is missing.');
   
       this.isLoading = false;
       this.popupService.showAlert(
-        'The return was completed, but the order could not be cancelled because its ID is missing.',
-        'error',
-        'Order Update Failed'
+        'The return was completed, but the order could not be cancelled because its ID is missing.', 'error', 'Order Update Failed'
       );
       this.cdr.markForCheck();
       return;
@@ -840,16 +878,12 @@ private processReturn( isFullReturn: boolean ): void {
     /* Mark order as Cancelled */
     this.orderService
       .updateOrderStatus( order.id,'Cancelled' )
-      .subscribe({ next: () => {
-          this.finishReturnSuccess();
-        },
+      .subscribe({ next: () => { this.finishReturnSuccess(); },
         error: (error: unknown) => {
           console.error('Return completed but order status update failed:', error );
           this.isLoading = false;
           this.popupService.showAlert(
-            'The return was completed, but the order could not be marked as cancelled.',
-            'error',
-            'Order Update Failed'
+            'The return was completed, but the order could not be marked as cancelled.', 'error', 'Order Update Failed'
           );
           this.cdr.markForCheck();
         }
@@ -860,9 +894,7 @@ private processReturn( isFullReturn: boolean ): void {
       this.isLoading = false;
       this.showReasonInput = false;
       this.popupService.showAlert(
-        'Return saved and inventory updated successfully.',
-        'success',
-        'Return Completed'
+        'Return saved and inventory updated successfully.', 'success', 'Return Completed'
       );
 
       this.clearSelectedReference();
@@ -873,9 +905,7 @@ private processReturn( isFullReturn: boolean ): void {
         const referenceId = String(reference.id);
         const relevantReturns = this.returns.filter( returnTransaction => returnTransaction.type === this.returnType &&
           String( returnTransaction.referenceId) === referenceId && returnTransaction.status === 'completed');
-        if (
-          !reference.items || reference.items.length === 0
-        ) {
+        if ( !reference.items || reference.items.length === 0 ) {
           return false;
         }
       
@@ -886,8 +916,7 @@ private processReturn( isFullReturn: boolean ): void {
                 const returnedItem = returnTransaction.items.find( item => String(item.productId) === String(originalItem.productId));
                   return ( sum + Number( returnedItem?.quantity || 0 ) ); }, 0);
             return (
-              returnedQuantity >=
-              originalQuantity
+              returnedQuantity >= originalQuantity
             );
           }
         );

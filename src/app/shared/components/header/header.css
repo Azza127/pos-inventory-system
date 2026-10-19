@@ -111,34 +111,26 @@
   background: #E5E7EB;
 }
 
-/* Logout */
-.logout-btn {
-  min-height: 38px;
-  padding: 0 12px;
+/* Language */
+.language-btn {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
   border: 1px solid #D9E1E0;
   border-radius: 8px;
   background: #FFFFFF;
-  color: #6B7280;
+  color: #16877D;
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  font-weight: 600;
+  justify-content: center;
+  font-size: 18px;
   cursor: pointer;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.logout-btn i {
-  font-size: 15px;
-}
-
-.logout-btn:hover {
+.language-btn:hover {
   background: #EAF7F5;
   border-color: #A9DCD6;
-  color: #16877D;
 }
 
 /* Tablet */
@@ -196,5 +188,193 @@
 
   .logout-btn span {
     display: none;
+  }
+
+  .language-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/*   HEADER — REFINED PROFILE GROUP */
+   .user-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+  }
+  
+  .language-btn {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E3E7E7;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #64748B;
+    font-size: 15px;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+  
+  .language-btn:hover {
+    background: #EAF7F5;
+    border-color: #A9DCD6;
+    color: #159F9A;
+  }
+  
+  /* Subtle separator between utility and identity */
+  .header-divider {
+    width: 1px;
+    height: 28px;
+    flex: 0 0 1px;
+    background: #E5E7EB;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    border-radius: 10px;
+    background: #159F9A;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  
+  .user-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    min-width: 0;
+  }
+  
+  .user-details strong {
+    color: #1F2937;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+  
+  .user-details span {
+    color: #6B7280;
+    font-size: 11px;
+    line-height: 1.3;
+    text-transform: capitalize;
+  }
+  
+  /* Compact mobile header */
+  @media (max-width: 600px) {
+    .header-divider {
+      display: none;
+    }
+  
+    .user-area {
+      gap: 10px;
+    }
+  }
+
+  /*  USER AVATAR & PROFILE DROPDOWN */
+.user-profile-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.profile-avatar:hover {
+  background: #168F87;
+  box-shadow: 0 0 0 3px rgba(21, 159, 154, 0.12);
+}
+
+.profile-avatar:focus-visible {
+  outline: 2px solid #159F9A;
+  outline-offset: 3px;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 2000;
+  width: 220px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  animation: profile-dropdown-in 0.16s ease-out;
+}
+
+.user-dropdown-label {
+  margin-bottom: 3px;
+  color: #94A3B8;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.user-dropdown-name {
+  color: #1F2937;
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.user-dropdown-role {
+  align-self: flex-start;
+  padding: 4px 9px;
+  margin-top: 2px;
+  border-radius: 6px;
+  background: #E8F5F4;
+  color: #16877D;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+@keyframes profile-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

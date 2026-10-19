@@ -15,7 +15,7 @@
   .returns-page-title h1 {
     margin: 5px 0 4px;
     color: #14263D;
-    font-size: 1.55rem;
+    font-size: 27px;
     font-weight: 700;
     line-height: 1.2;
   }
@@ -23,7 +23,7 @@
   .returns-page-title p {
     margin: 0;
     color: #6F8094;
-    font-size: 0.82rem;
+    font-size: 13px;
   }
   
   /* RETURN TYPE SWITCHER */
@@ -39,7 +39,7 @@
   }
   
   .return-type-option {
-    height: 36px;
+    height: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -50,7 +50,7 @@
     background: transparent;
     color: #6F8094;
     font-family: inherit;
-    font-size: 0.74rem;
+    font-size: 12px;
     font-weight: 600;
     white-space: nowrap;
     cursor: pointer;

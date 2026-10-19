@@ -3,9 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { StoreSettingsService, CurrencyOption } from '../../../core/services/store-settings.service';
 import { StoreSettings } from '../../../core/models/store-settings.model';
 import { PaymentAccountService } from '../../../core/services/payment-account.service';
-import {
-  PaymentAccount,
-  PaymentAccountType
+import { PaymentAccount, PaymentAccountType
 } from '../../../core/models/payment-account.model';
 import { PopupService } from '../../../core/services/popup.service';
 
@@ -24,7 +22,8 @@ export class SettingsComponent implements OnInit {
     phone: '',
     address: '',
     currency: 'EGP',
-    taxRate: 14
+    taxRate: 14,
+    openingFloat: 1000
   };
 
   originalSettings: StoreSettings = {
@@ -200,6 +199,28 @@ export class SettingsComponent implements OnInit {
         delete this.fieldErrors[field];
       }
     }
+
+    if (field === 'openingFloat') {
+      if (
+        value === '' ||
+        value === null ||
+        value === undefined
+      ) {
+        this.fieldErrors[field] = 'required';
+        return;
+      }
+    
+      const openingFloat = Number(value);
+    
+      if (
+        Number.isNaN(openingFloat) ||
+        openingFloat < 0
+      ) {
+        this.fieldErrors[field] = 'invalid';
+      } else {
+        delete this.fieldErrors[field];
+      }
+    }
   }
 
   validateAll(): boolean {
@@ -208,8 +229,11 @@ export class SettingsComponent implements OnInit {
     this.validateField('address');
     this.validateField('currency');
     this.validateField('taxRate');
-    return Object.keys( this.fieldErrors).length === 0;
+    this.validateField('openingFloat');
+  
+    return Object.keys(this.fieldErrors).length === 0;
   }
+
   isFieldInvalid(field: string): boolean {
     return !!this.fieldErrors[field];
   }
@@ -289,15 +313,10 @@ export class SettingsComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-    // =========================================================
   // PAYMENT ACCOUNTS
-  // =========================================================
-
   paymentAccounts: PaymentAccount[] = [];
-
   showPaymentAccountModal = false;
   editingPaymentAccountId: string | null = null;
-
   paymentAccountForm = {
     name: '',
     type: 'cash' as PaymentAccountType,
@@ -306,47 +325,25 @@ export class SettingsComponent implements OnInit {
     isActive: true
   };
 
-    // =========================================================
   // LOAD PAYMENT ACCOUNTS
-  // =========================================================
-
   loadPaymentAccounts(): void {
-
     this.paymentAccountService
       .getPaymentAccounts()
       .subscribe({
         next: (accounts) => {
-
           this.paymentAccounts = accounts;
-
           this.cdr.detectChanges();
         },
-
         error: (error) => {
-
-          console.error(
-            'Error loading payment accounts:',
-            error
-          );
-
-          this.showError(
-            'Failed to load payment accounts.'
-          );
+          console.error( 'Error loading payment accounts:', error );
+          this.showError( 'Failed to load payment accounts.');
         }
       });
   }
 
-
-  // =========================================================
   // PAYMENT ACCOUNT TYPE LABEL
-  // =========================================================
-
-  getPaymentAccountTypeLabel(
-    type: PaymentAccountType
-  ): string {
-
+  getPaymentAccountTypeLabel( type: PaymentAccountType ): string {
     switch (type) {
-
       case 'cash':
         return 'Cash';
 
@@ -364,15 +361,9 @@ export class SettingsComponent implements OnInit {
     }
   }
 
-
-  // =========================================================
   // OPEN ADD MODAL
-  // =========================================================
-
   openAddPaymentAccountModal(): void {
-
     this.editingPaymentAccountId = null;
-
     this.paymentAccountForm = {
       name: '',
       type: 'cash',
@@ -380,23 +371,13 @@ export class SettingsComponent implements OnInit {
       image: '',
       isActive: true
     };
-
     this.showPaymentAccountModal = true;
-
     this.cdr.detectChanges();
   }
 
-
-  // =========================================================
   // OPEN EDIT MODAL
-  // =========================================================
-
-  openEditPaymentAccountModal(
-    account: PaymentAccount
-  ): void {
-
+  openEditPaymentAccountModal( account: PaymentAccount ): void {
     this.editingPaymentAccountId = account.id;
-
     this.paymentAccountForm = {
       name: account.name,
       type: account.type,
@@ -404,44 +385,25 @@ export class SettingsComponent implements OnInit {
       image: account.image || '',
       isActive: account.isActive
     };
-
     this.showPaymentAccountModal = true;
-
     this.cdr.detectChanges();
   }
 
-
-  // =========================================================
   // CLOSE MODAL
-  // =========================================================
-
   closePaymentAccountModal(): void {
-
     this.showPaymentAccountModal = false;
     this.editingPaymentAccountId = null;
-
     this.cdr.detectChanges();
   }
 
-
-  // =========================================================
   // SAVE PAYMENT ACCOUNT
-  // =========================================================
-
   savePaymentAccount(): void {
-
-    const name =
-      this.paymentAccountForm.name.trim();
-
-    const description =
-      this.paymentAccountForm.description.trim();
-
+    const name = this.paymentAccountForm.name.trim();
+    const description = this.paymentAccountForm.description.trim();
     if (!name) {
-
       this.showError(
         'Payment account name is required.'
       );
-
       return;
     }
 
@@ -453,19 +415,14 @@ export class SettingsComponent implements OnInit {
       isActive: this.paymentAccountForm.isActive
     };
 
-
     // EDIT
     if (this.editingPaymentAccountId) {
-
       this.paymentAccountService
         .updatePaymentAccount(
           this.editingPaymentAccountId,
           accountData
         )
-        .subscribe({
-
-          next: (updatedAccount) => {
-
+        .subscribe({ next: (updatedAccount) => {
             this.paymentAccounts =
               this.paymentAccounts.map(
                 account =>
@@ -473,96 +430,56 @@ export class SettingsComponent implements OnInit {
                     ? updatedAccount
                     : account
               );
-
             this.closePaymentAccountModal();
-
-            this.showSuccess(
-              'Payment account updated successfully.'
-            );
-
+            this.showSuccess('Payment account updated successfully.' );
             this.cdr.detectChanges();
           },
-
           error: (error) => {
-
-            console.error(
-              'Error updating payment account:',
-              error
-            );
-
-            this.showError(
-              'Failed to update payment account.'
-            );
+            console.error( 'Error updating payment account:', error);
+            this.showError('Failed to update payment account.');
           }
         });
-
       return;
     }
-
 
     // ADD
     this.paymentAccountService
       .addPaymentAccount(accountData)
       .subscribe({
-
         next: (createdAccount) => {
-
-          this.paymentAccounts = [
-            ...this.paymentAccounts,
-            createdAccount
-          ];
-
+          this.paymentAccounts = [  ...this.paymentAccounts,  createdAccount ];
           this.closePaymentAccountModal();
-
-          this.showSuccess(
-            'Payment account added successfully.'
-          );
-
+          this.showSuccess('Payment account added successfully.');
           this.cdr.detectChanges();
         },
-
         error: (error) => {
-
-          console.error(
-            'Error adding payment account:',
-            error
-          );
-
-          this.showError(
-            'Failed to add payment account.'
-          );
+          console.error('Error adding payment account:', error);
+          this.showError('Failed to add payment account.');
         }
       });
   }
 
   onPaymentAccountImageSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-  
     if (!input.files || input.files.length === 0) {
       return;
     }
   
     const file = input.files[0];
-  
     // Validate file type
-    const allowedTypes = [
-      'image/png',
-      'image/jpeg',
-      'image/webp'
+    const allowedTypes = [ 'image/png', 'image/jpeg', 'image/webp'
     ];
-  
     if (!allowedTypes.includes(file.type)) {
       this.showError(
         'Please select a PNG, JPG or WebP image.'
       );
-  
+
       input.value = '';
       return;
     }
   
     // Limit image size to 200 KB
     const maxSize = 200 * 1024;
-  
     if (file.size > maxSize) {
       this.showError(
         'Image size must not exceed 200 KB.'
@@ -573,32 +490,21 @@ export class SettingsComponent implements OnInit {
     }
   
     const reader = new FileReader();
-  
     reader.onload = () => {
-  
-      this.paymentAccountForm.image =
-        reader.result as string;
-  
+      this.paymentAccountForm.image = reader.result as string;
       this.cdr.detectChanges();
     };
   
     reader.onerror = () => {
-  
       this.showError(
         'Failed to read the selected image.'
       );
-  
       input.value = '';
     };
-  
     reader.readAsDataURL(file);
   }
 
-
-  // =========================================================
   // TOGGLE ACTIVE STATUS
-  // =========================================================
-
   togglePaymentAccountStatus(
     account: PaymentAccount
   ): void {
@@ -612,61 +518,26 @@ export class SettingsComponent implements OnInit {
     };
 
     this.paymentAccountService
-      .updatePaymentAccount(
-        account.id,
-        updatedAccount
-      )
+      .updatePaymentAccount( account.id, updatedAccount)
       .subscribe({
-
         next: (updatedAccount) => {
-
-          this.paymentAccounts =
-            this.paymentAccounts.map(
-              item =>
-                item.id === updatedAccount.id
-                  ? updatedAccount
-                  : item
-            );
-
+          this.paymentAccounts = this.paymentAccounts.map( item =>item.id === updatedAccount.id ? updatedAccount : item);
           this.showSuccess(
-            updatedAccount.isActive
-              ? 'Payment account activated.'
-              : 'Payment account deactivated.'
+            updatedAccount.isActive ? 'Payment account activated.' : 'Payment account deactivated.'
           );
-
           this.cdr.detectChanges();
         },
-
         error: (error) => {
-
-          console.error(
-            'Error updating payment account status:',
-            error
-          );
-
-          this.showError(
-            'Failed to update payment account status.'
-          );
+          console.error( 'Error updating payment account status:',  error );
+          this.showError( 'Failed to update payment account status.' );
         }
       });
   }
 
-
-  // =========================================================
   // DELETE PAYMENT ACCOUNT
-  // =========================================================
-
-  deletePaymentAccount(
-    account: PaymentAccount
-  ): void {
-
-    this.popupService
-      .showConfirm(
-        `Are you sure you want to delete "${account.name}"?`,
-        'Delete Payment Account'
-      )
+  deletePaymentAccount( account: PaymentAccount ): void {
+    this.popupService .showConfirm( `Are you sure you want to delete "${account.name}"?`, 'Delete Payment Account' )
       .subscribe((confirmed: boolean) => {
-
         if (!confirmed) {
           return;
         }
@@ -674,33 +545,13 @@ export class SettingsComponent implements OnInit {
         this.paymentAccountService
           .deletePaymentAccount(account.id)
           .subscribe({
-
             next: () => {
-
-              this.paymentAccounts =
-                this.paymentAccounts.filter(
-                  item =>
-                    item.id !== account.id
-                );
-
-              this.popupService.showAlert(
-                'Payment account deleted successfully.',
-                'success'
-              );
-
+              this.paymentAccounts = this.paymentAccounts.filter( item => item.id !== account.id );
+              this.popupService.showAlert( 'Payment account deleted successfully.', 'success' );
               this.cdr.detectChanges();
             },
-
-            error: (error) => {
-
-              console.error(
-                'Error deleting payment account:',
-                error
-              );
-
-              this.popupService.showAlert(
-                'Failed to delete payment account.',
-                'error'
+            error: (error) => { console.error( 'Error deleting payment account:', error );
+              this.popupService.showAlert( 'Failed to delete payment account.','error'
               );
             }
           });
@@ -708,20 +559,15 @@ export class SettingsComponent implements OnInit {
   }
 
   paymentAccountTypeDropdownOpen = false;
-
 togglePaymentAccountTypeDropdown(): void {
-  this.paymentAccountTypeDropdownOpen =
-    !this.paymentAccountTypeDropdownOpen;
+  this.paymentAccountTypeDropdownOpen = !this.paymentAccountTypeDropdownOpen;
 }
 
 selectPaymentAccountType(
   type: PaymentAccountType
 ): void {
-
   this.paymentAccountForm.type = type;
-
   this.paymentAccountTypeDropdownOpen = false;
-
   this.cdr.detectChanges();
 }
 }

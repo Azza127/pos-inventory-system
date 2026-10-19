@@ -5,4 +5,5 @@ export interface StoreSettings {
   address: string;
   currency: string;
   taxRate: number;
+  openingFloat: number;
 }

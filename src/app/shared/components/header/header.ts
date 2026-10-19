@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 import { PopupService } from '../../../core/services/popup.service';
 import { StoreSettingsService } from '../../../core/services/store-settings.service';
 import { StoreSettings } from '../../../core/models/store-settings.model';
@@ -14,9 +13,7 @@ import { StoreSettings } from '../../../core/models/store-settings.model';
   styleUrl: './header.css'
 })
 export class HeaderComponent implements OnInit {
-
   settings: StoreSettings | null = null;
-
   userName = 'Store Owner';
   userRole = 'Owner';
 
@@ -37,7 +34,6 @@ export class HeaderComponent implements OnInit {
         if (!settings) {
           return;
         }
-
         this.settings = settings;
       },
       error: (error) => {
@@ -51,20 +47,14 @@ export class HeaderComponent implements OnInit {
 
   private loadCurrentUser(): void {
     const user = localStorage.getItem('currentUser');
-
     if (!user) {
       return;
     }
 
     try {
       const currentUser = JSON.parse(user);
-
-      this.userName =
-        currentUser.name || 'Store Owner';
-
-      this.userRole =
-        currentUser.role || 'Owner';
-
+      this.userName = currentUser.name || 'Store Owner';
+      this.userRole = currentUser.role || 'Owner';
     } catch (error) {
       console.error(
         'Failed to parse current user:',
@@ -73,23 +63,22 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  logout(): void {
-    this.popupService
-      .showConfirm(
-        'Are you sure you want to logout?',
-        'logout'
-      )
-      .subscribe({
-        next: (confirmed) => {
-          if (!confirmed) {
-            return;
-          }
+  // User profile dropdown
+showUserMenu = false;
+toggleUserMenu(): void {
+  this.showUserMenu = !this.showUserMenu;
+}
 
-          localStorage.removeItem('currentUser');
-          localStorage.removeItem('isLoggedIn');
-
-          window.location.href = '/login';
-        }
-      });
+@HostListener('document:click', ['$event'])
+onDocumentClick(event: MouseEvent): void {
+  const target = event.target as HTMLElement | null;
+  if (!target?.closest('.user-profile-menu')) {
+    this.showUserMenu = false;
   }
+}
+
+@HostListener('document:keydown.escape')
+onEscapeKey(): void {
+  this.showUserMenu = false;
+}
 }

@@ -29,22 +29,19 @@
   }
   
   .page-eyebrow {
-    display: block;
-    margin-bottom: 7px;
     color: #159C92;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 7px;
   }
   
   .page-header h1 {
     margin: 0 0 7px;
     color: #15191C;
-    font-size: 30px;
+    font-size: 27px;
     font-weight: 750;
     line-height: 1.15;
-    letter-spacing: -0.02em;
   }
   
   .page-header p {
@@ -56,51 +53,34 @@
   
   /* ADD CATEGORY BUTTON */
   .add-category-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    height: 42px;
+    min-height: 40px;
     padding: 0 18px;
-    border: 1px solid #159C92;
-    border-radius: 9px;
+    border: none;
+    border-radius: 8px;
     background: #159C92;
     color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-family: inherit;
     font-size: 12px;
     font-weight: 700;
     cursor: pointer;
-    white-space: nowrap;
-    box-shadow: 0 3px 8px rgba(21, 156, 146, 0.14);
+    box-shadow: 0 5px 13px rgba(21, 156, 146, 0.18);
     transition:
       background 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease,
-      transform 0.15s ease;
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .add-category-btn i {
+    font-size: 12px;
   }
   
   .add-category-btn:hover {
     background: #087F78;
-    border-color: #087F78;
-    box-shadow: 0 6px 14px rgba(8, 127, 120, 0.20);
     transform: translateY(-1px);
-  }
-  
-  .add-category-btn:active {
-    transform: translateY(0);
-  }
-  
-  .add-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1;
+    box-shadow: 0 7px 17px rgba(8, 127, 120, 0.23);
   }
   
   /* CATEGORIES CARD */

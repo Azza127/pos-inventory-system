@@ -42,7 +42,6 @@
   border-top: 1px solid #E1E5E8;
 }
 
-
 /* Section Header */
 .section-header {
   margin-bottom: 22px;
@@ -131,7 +130,7 @@
 }
 
 /* Custom Currency Dropdown */
-   .custom-dropdown {
+  .custom-dropdown {
     position: relative;
     width: 100%;
   }
@@ -170,7 +169,7 @@
     border-color: #C85C55 !important;
     box-shadow: 0 0 0 2px rgba(200, 92, 85, 0.08) !important;
   }
-   
+
   .custom-dropdown-button.error-input:focus {
     border-color: #C85C55 !important;
     box-shadow: 0 0 0 3px rgba(200, 92, 85, 0.10) !important;
@@ -200,7 +199,7 @@
   }
   
   /* Dropdown Menu */
-     .custom-dropdown-menu {
+    .custom-dropdown-menu {
       position: absolute;
       top: calc(100% + 6px);
       left: 0;
@@ -448,7 +447,6 @@
   color: #6F8094;
 }
 
-
 /* Toast Close */
 .toast-close {
   width: 25px;
@@ -471,11 +469,8 @@
   color: #11847F;
 }
 
-/* =========================================================
-   PAYMENT ACCOUNTS
-   ========================================================= */
-
-   .payment-accounts-header {
+/* PAYMENT ACCOUNTS */
+  .payment-accounts-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -509,9 +504,7 @@
     font-size: 13px;
   }
   
-  
   /* Payment Accounts List */
-  
   .payment-accounts-list {
     display: flex;
     flex-direction: column;
@@ -535,7 +528,6 @@
     border-color: #B8DAD8;
     box-shadow: 0 4px 12px rgba(20, 38, 61, 0.05);
   }
-  
   
   /* Account Icon */
   .payment-account-icon {
@@ -570,10 +562,7 @@
     border: none;
   }
   
-  /* =========================================================
-   PAYMENT ACCOUNT IMAGE
-   ========================================================= */
-
+  /* PAYMENT ACCOUNT IMAGE */
    .payment-account-icon img {
     width: 42px;
     height: 42px;
@@ -582,20 +571,14 @@
     border-radius: 0;
   }
 
-/* =========================================================
-   PAYMENT ACCOUNT IMAGE UPLOAD
-   ========================================================= */
-
+/* PAYMENT ACCOUNT IMAGE UPLOAD */
    .payment-account-image-upload {
     display: flex;
     align-items: center;
     gap: 16px;
-  
     padding: 14px;
-  
     border: 1px solid #E1E5E8;
     border-radius: 12px;
-  
     background: #FFFFFF;
   }
   
@@ -603,17 +586,13 @@
     width: 64px;
     height: 64px;
     flex: 0 0 64px;
-  
     display: flex;
     align-items: center;
     justify-content: center;
-  
     border: 1px solid #E1E5E8;
     border-radius: 12px;
-  
     background: #F6F4EE;
     overflow: hidden;
-  
     color: #6F8094;
     font-size: 24px;
   }
@@ -621,9 +600,7 @@
   .payment-account-image-preview img {
     width: 100%;
     height: 100%;
-  
     display: block;
-  
     object-fit: contain;
     border-radius: 11px;
   }
@@ -639,20 +616,14 @@
     display: inline-flex;
     align-items: center;
     gap: 7px;
-  
     padding: 9px 14px;
-  
     border: 1px solid #159F9A;
     border-radius: 8px;
-  
     background: #E8F5F4;
     color: #11847F;
-  
     font-size: 13px;
     font-weight: 600;
-  
     cursor: pointer;
-  
     transition:
       background-color 0.2s ease,
       border-color 0.2s ease,
@@ -671,7 +642,6 @@
   }
   
   /* Account Info */
-  
   .payment-account-info {
     min-width: 0;
     flex: 1;
@@ -706,9 +676,7 @@
     text-overflow: ellipsis;
   }
   
-  
   /* Status */
-  
   .account-status {
     display: inline-flex;
     align-items: center;
@@ -729,9 +697,7 @@
     color: #6F8094;
   }
   
-  
   /* Account Actions */
-  
   .payment-account-actions {
     display: flex;
     align-items: center;
@@ -768,9 +734,7 @@
     font-size: 20px;
   }
   
-  
-  /* Empty State */
-  
+  /* Empty State */ 
   .payment-accounts-empty {
     min-height: 150px;
     display: flex;
@@ -808,11 +772,7 @@
     font-size: 11px;
   }
   
-  
-  /* =========================================================
-     PAYMENT ACCOUNT MODAL
-     ========================================================= */
-  
+  /* PAYMENT ACCOUNT MODAL */
   .modal-overlay {
     position: fixed;
     inset: 0;
@@ -848,9 +808,7 @@
     }
   }
   
-  
   /* Modal Header */
-  
   .modal-header {
     display: flex;
     align-items: flex-start;
@@ -894,7 +852,6 @@
   
   
   /* Modal Body */
-  
   .modal-body {
     display: flex;
     flex-direction: column;
@@ -943,9 +900,7 @@
     font-weight: 600;
   }
   
-  
   /* Modal Dropdown */
-  
   .modal-body .custom-dropdown {
     position: relative;
   }
@@ -954,9 +909,7 @@
     height: 42px;
   }
   
-  
   /* Account Status */
-  
   .payment-account-status-field {
     display: flex;
     align-items: center;
@@ -984,9 +937,7 @@
     font-size: 10px;
   }
   
-  
   /* Toggle */
-  
   .status-toggle {
     position: relative;
     width: 42px;
@@ -1020,9 +971,7 @@
     transform: translateX(18px);
   }
   
-  
   /* Modal Actions */
-  
   .modal-actions {
     display: flex;
     align-items: center;
@@ -1100,11 +1049,9 @@
   .form-group.full-width {
     grid-column: auto;
   }
-
 }
 
 @media (max-width: 650px) {
-  
   .payment-accounts-header {
     flex-direction: column;
   }

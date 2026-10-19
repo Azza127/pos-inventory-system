@@ -10,6 +10,8 @@ import { Product } from '../../core/models/product.model';
 import { Order } from '../../core/models/order.model';
 import { ReturnTransaction } from '../../core/models/return.model';
 import { StatsUtil } from '../../core/utils/stats.util';
+import { PaymentAccount, PaymentAccountType } from '../../core/models/payment-account.model';
+import { PaymentAccountService } from '../../core/services/payment-account.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,6 +28,7 @@ export class Dashboard implements OnInit {
   private orderService = inject(OrderService);
   private returnService = inject(ReturnService);
   private storeSettingsService = inject(StoreSettingsService);
+  private paymentAccountService = inject(PaymentAccountService);
 
   /* DATA */
   products = signal<Product[]>([]);
@@ -35,6 +38,7 @@ export class Dashboard implements OnInit {
   currencySymbol = signal('EGP');
   period = signal< 'daily' | 'weekly' | 'monthly' | 'yearly' >('daily');
   showPeriodDropdown = false;
+  paymentAccounts = signal<PaymentAccount[]>([]);
 
   /* PERIOD HELPERS */
   private getPeriodStart(): Date {
@@ -177,9 +181,74 @@ export class Dashboard implements OnInit {
     return ( order.items || []).reduce(( total, item ) => total + ( Number( item.quantity ) || 0 ),0 );
   }
 
-  getPaymentMethod( order: Order): string {
-    return ((order as any).paymentMethod ||'Cash');
+  private loadPaymentAccounts(): void {
+    // Load inactive accounts too, so historic orders still resolve to their payment method.
+    this.paymentAccountService.getPaymentAccounts().subscribe({
+      next: (accounts) => {
+        this.paymentAccounts.set(
+          (accounts || []).map(account => ({ ...account, id: String(account.id) }))
+        );
+      },
+      error: (error) => {
+        console.error('Failed to load payment accounts for dashboard:', error);
+      }
+    });
   }
+  
+  getPaymentAccount(order: Order): PaymentAccount | undefined {
+    const id = order.paymentAccountId;
+    if (id === undefined || id === null || id === '') {
+      return undefined;
+    }
+  
+    return this.paymentAccounts().find(account => String(account.id) === String(id));
+  }
+  
+  getPaymentMethod(order: Order): string {
+    if (order.paymentStatus === 'OnAccount') {
+      return 'On Account';
+    }
+  
+    const account = this.getPaymentAccount(order);
+    const storedName = String((order as any).paymentAccountName || '').trim();
+  
+    return account?.name || storedName || (order.paymentAccountId ? `Account ${order.paymentAccountId}` : '—');
+  }
+  
+  getPaymentImageUrl(imagePath: string | undefined): string {
+    const path = String(imagePath || '').trim();
+    if (!path) return '';
+  
+    // Values like "payment-accounts/cash.svg" are served from the app's public root.
+    if (/^(https?:|data:|\/)/i.test(path)) {
+      return path;
+    }
+  
+    return `/${path}`;
+  }
+  
+  getPaymentIconClass(type: PaymentAccountType | undefined): string {
+    switch (type) {
+      case 'cash': return 'bi-cash-stack';
+      case 'card': return 'bi-credit-card';
+      case 'bank': return 'bi-bank';
+      case 'wallet': return 'bi-wallet2';
+      default: return 'bi-wallet2';
+    }
+  }
+  
+  getFallbackPaymentType(order: Order): PaymentAccountType | undefined {
+    const account = this.getPaymentAccount(order);
+    if (account) return account.type;
+  
+    const label = this.getPaymentMethod(order).toLowerCase();
+    if (label.includes('cash drawer') || label === 'cash' || label.includes('drawer')) return 'cash';
+    if (label.includes('visa') || label.includes('card')) return 'card';
+    if (label.includes('instapay') || label.includes('bank')) return 'bank';
+    if (label.includes('vodafone') || label.includes('orange cash') || label.includes('etisalat') || label.includes('wallet')) return 'wallet';
+    return undefined;
+  }
+  
 
   /* SALES TREND */
   chartData = computed(() => {
@@ -486,21 +555,21 @@ export class Dashboard implements OnInit {
   /* INIT */
   ngOnInit(): void {
     this.loadStoreSettings();
-
-    forkJoin({ 
-      products: this.productService .getProducts(),
-      orders: this.orderService .getOrders(),
-      returns: this.returnService .getReturns()
-    })
-
-    .subscribe({
+    this.loadPaymentAccounts();
+  
+    forkJoin({
+      products: this.productService.getProducts(),
+      orders: this.orderService.getOrders(),
+      returns: this.returnService.getReturns()
+    }).subscribe({
       next: ({ products, orders, returns }) => {
-        this.products.set( products || [] );
-        this.orders.set( orders || [] );
-        this.returns.set( returns || [] );
-        this.loading.set( false );
+        this.products.set(products || []);
+        this.orders.set(orders || []);
+        this.returns.set(returns || []);
+        this.loading.set(false);
       },
-      error: (error) => { console.error( 'Failed to load dashboard data:', error );
+      error: (error) => {
+        console.error('Failed to load dashboard data:', error);
         this.loading.set(false);
       }
     });

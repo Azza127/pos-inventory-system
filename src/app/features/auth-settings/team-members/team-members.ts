@@ -21,6 +21,7 @@ export class TeamMembers implements OnInit {
   showModal = false;
   isEditMode = false;
   selectedUserId: string | null = null;
+  openDropdown: 'role' | 'status' | null = null;
   userForm = { username: '', password: '', name: '', role: 'Employee' as User['role'],status: 'Active' as User['status']};
 
     ngOnInit(): void {
@@ -33,6 +34,24 @@ export class TeamMembers implements OnInit {
       }
     }
     this.loadUsers();
+  }
+
+  toggleDropdown(dropdown: 'role' | 'status'): void {
+    this.openDropdown = this.openDropdown === dropdown ? null : dropdown;
+  }
+  
+  selectRole(role: User['role']): void {
+    if (role !== 'Employee' && this.getCurrentRole() !== 'Owner') {
+      return;
+    }
+  
+    this.userForm.role = role;
+    this.openDropdown = null;
+  }
+  
+  selectStatus(status: User['status']): void {
+    this.userForm.status = status;
+    this.openDropdown = null;
   }
 
   showAlert(message: string, type: 'info' | 'success' | 'warning' | 'error' = 'warning', title?: string): void {
@@ -98,8 +117,7 @@ export class TeamMembers implements OnInit {
   }
 
   getNameError(): string {
-    const name =
-      this.userForm.name.trim();
+    const name = this.userForm.name.trim();
     if (!name) {
       return '';
     }
@@ -112,8 +130,7 @@ export class TeamMembers implements OnInit {
   }
 
   getUsernameError(): string {
-    const username =
-      this.userForm.username.trim();
+    const username = this.userForm.username.trim();
     if (!username) {
       return '';
     }
@@ -153,6 +170,7 @@ export class TeamMembers implements OnInit {
     this.isEditMode = false;
     this.selectedUserId = null;
     this.userForm = {  username: '',  password: '',  name: '', role: 'Employee', status: 'Active'};
+    this.openDropdown = null;
     this.showModal = true;
   }
 
@@ -164,6 +182,7 @@ export class TeamMembers implements OnInit {
     this.isEditMode = true;
     this.selectedUserId = user.id;
     this.userForm = { username: user.username, password: user.password, name: user.name, role: user.role, status: user.status };
+    this.openDropdown = null;
     this.showModal = true;
   }
 

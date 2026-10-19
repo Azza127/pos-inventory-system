@@ -35,7 +35,7 @@
 .page-title-area h1 {
   margin: 0;
   color: #15191C;
-  font-size: 30px;
+  font-size: 27px;
   font-weight: 700;
   letter-spacing: -0.7px;
 }
@@ -43,12 +43,12 @@
 .page-title-area p {
   margin: 7px 0 0;
   color: #737A7D;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /*  Add Product Button */
 .add-product-btn {
-  min-height: 44px;
+  min-height: 40px;
   padding: 0 18px;
   border: none;
   border-radius: 8px;
@@ -57,7 +57,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 5px 13px rgba(21, 156, 146, 0.18);
@@ -68,7 +68,7 @@
 }
 
 .add-product-btn i {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .add-product-btn:hover {
@@ -78,7 +78,7 @@
 }
 
 .manage-category-btn {
-  min-height: 44px;
+  min-height: 40px;
   padding: 0 16px;
   border: 1px solid #E3E7E7;
   border-radius: 8px;
@@ -88,7 +88,7 @@
   align-items: center;
   gap: 8px;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   transition:
@@ -99,7 +99,7 @@
 }
 
 .manage-category-btn i {
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .manage-category-btn:hover {
@@ -110,7 +110,7 @@
 }
 
 .purchase-invoice-btn {
-  min-height: 44px;
+  min-height: 40px;
   padding: 0 16px;
   border: 1px solid #E3E7E7;
   border-radius: 8px;
@@ -120,7 +120,7 @@
   align-items: center;
   gap: 8px;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   transition:
@@ -131,7 +131,7 @@
 }
 
 .purchase-invoice-btn i {
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .purchase-invoice-btn:hover {

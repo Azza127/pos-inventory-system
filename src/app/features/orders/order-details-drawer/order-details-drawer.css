@@ -40,7 +40,7 @@
   
   .drawer-header-title h2 {
     margin: 0;
-    font-size: 1.15rem;
+    font-size: 27px;
     font-weight: 700;
     color: #111827;
   }
@@ -273,3 +273,376 @@
   
   .status-danger { background: #fee2e2; color: #dc2626; }
   .status-danger .dot { background: #dc2626; }
+
+  .drawer-panel {
+    width: 390px;
+    max-width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -8px 0 24px rgba(15, 23, 42, 0.12);
+    animation: slide-in 0.2s ease-out;
+  }
+  
+  .drawer-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1rem 1.1rem 0.85rem;
+    border-bottom: 1px solid #f1f2f4;
+  }
+  
+  .drawer-header-title {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+  }
+  
+  .drawer-header-title h2 {
+    margin: 0;
+    font-size: 23px;
+    font-weight: 700;
+    color: #111827;
+    overflow-wrap: anywhere;
+  }
+  
+  .drawer-body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 0.9rem 1.1rem;
+  }
+  
+  .drawer-section {
+    margin-bottom: 1.2rem;
+  }
+  
+  .order-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid #f6f7f8;
+  }
+  
+  .line-thumb {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border-radius: 9px;
+    overflow: hidden;
+    background: #f5f7fb;
+    border: 1px solid #eef0f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9aa3b2;
+    font-size: 1.1rem;
+  }
+  
+  .line-name {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #111827;
+    overflow-wrap: anywhere;
+  }
+  
+  .line-meta {
+    font-size: 0.74rem;
+    color: #9aa3b2;
+    margin-top: 2px;
+    overflow-wrap: anywhere;
+  }
+  
+  .unit-price {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .drawer-footer {
+    display: flex;
+    gap: 8px;
+    padding: 0.85rem 1.1rem;
+    border-top: 1px solid #f1f2f4;
+  }
+  
+  .btn-secondary,
+  .btn-danger {
+    flex: 1;
+    min-width: 0;
+    min-height: 40px;
+    height: auto;
+    padding: 0.6rem 0.45rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .payment-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid #eef0f3;
+    border-radius: 10px;
+    background: #f9fafb;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .payment-method-icon {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid #e5ebeb;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #159f9a;
+  }
+  
+  .payment-method-icon img {
+    width: 100%;
+    height: 100%;
+    padding: 4px;
+    object-fit: contain;
+  }
+  
+  .payment-method-icon i {
+    font-size: 1.1rem;
+  }
+  
+  .payment-method-name {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /*ORDER DETAILS DRAWER — COMPACT DESIGN */
+.drawer-panel {
+  width: 350px;
+  max-width: calc(100vw - 16px);
+  height: calc(100vh - 16px);
+  margin: 8px 8px 8px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: -6px 4px 24px rgba(15, 23, 42, 0.14);
+}
+
+/* Header */
+.drawer-header {
+  padding: 0.9rem 1rem 0.75rem;
+  gap: 8px;
+}
+
+.drawer-header-title {
+  gap: 6px;
+}
+
+.drawer-header-title h2 {
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.drawer-close {
+  width: 30px;
+  height: 30px;
+  flex-basis: 30px;
+}
+
+/* Drawer content */
+.drawer-body {
+  padding: 0.8rem 1rem;
+  min-height: 0;
+}
+
+.drawer-section {
+  margin-bottom: 1rem;
+}
+
+.section-label {
+  margin-bottom: 0.6rem;
+  font-size: 0.68rem;
+}
+
+/* Products */
+.order-line {
+  gap: 8px;
+  padding: 0.6rem 0;
+}
+
+.line-thumb {
+  width: 40px;
+  height: 40px;
+  flex-basis: 40px;
+  border-radius: 8px;
+}
+
+.line-name {
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.line-meta {
+  font-size: 0.70rem;
+}
+
+.unit-price {
+  font-size: 0.78rem;
+}
+
+.qty {
+  font-size: 0.70rem;
+}
+
+/* Payment */
+.payment-row {
+  gap: 8px;
+  padding: 0.6rem 0.75rem;
+  border-radius: 9px;
+  font-size: 0.82rem;
+}
+
+.payment-method-icon {
+  width: 32px;
+  height: 32px;
+  flex-basis: 32px;
+  border-radius: 7px;
+}
+
+/* Summary */
+.summary-section {
+  padding-top: 0.8rem;
+}
+
+.summary-row {
+  padding: 0.3rem 0;
+  font-size: 0.80rem;
+}
+
+.summary-section .summary-row.total {
+  margin-top: 0.35rem;
+  padding-top: 0.65rem;
+  font-size: 0.92rem;
+  border-top: 1px solid #e5eeee;
+}
+
+/* Total amount — Primary Teal */
+.summary-section .summary-row.total span:last-child {
+  color: #159F9A;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+/* Footer buttons */
+.drawer-footer {
+  gap: 7px;
+  padding: 0.75rem 1rem;
+}
+
+.btn-secondary,
+.btn-danger {
+  min-height: 38px;
+  padding: 0.5rem 0.35rem;
+  font-size: 0.73rem;
+  border-radius: 8px;
+  gap: 5px;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .drawer-panel {
+    width: 340px;
+    max-width: calc(100vw - 16px);
+  }
+
+  .drawer-header-title h2 {
+    font-size: 19px;
+  }
+
+  .drawer-body {
+    padding: 0.75rem 0.85rem;
+  }
+
+  .drawer-footer {
+    padding: 0.7rem 0.85rem;
+  }
+}
+
+/* COMPACT CLOSE BUTTON*/
+  .drawer-close {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border: 1px solid #E3E7E7;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #737A7D;
+    font-size: 19px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:
+      background 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease;
+  }
+  
+  .drawer-close:hover {
+    background: #F0F9F8;
+    border-color: #B8E3E0;
+    color: #159F9A;
+  }
+  
+  .drawer-close:focus-visible {
+    outline: 2px solid #159F9A;
+    outline-offset: 2px;
+  }
+  
+  /* LIGHT, SUBTLE SCROLLBAR */
+  .drawer-body {
+    scrollbar-width: thin;
+    scrollbar-color: #D9E1E1 transparent;
+    overscroll-behavior: contain;
+  }
+  
+  .drawer-body::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .drawer-body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .drawer-body::-webkit-scrollbar-thumb {
+    background: #D9E1E1;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    transition: background 0.2s ease;
+  }
+  
+  .drawer-body::-webkit-scrollbar-thumb:hover {
+    background: #AFCFCD;
+  }
+  
+  .drawer-body::-webkit-scrollbar-corner {
+    background: transparent;
+  }

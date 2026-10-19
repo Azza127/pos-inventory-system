@@ -37,60 +37,76 @@
         </tr>
       } @else {
         @for (order of pagedOrders; track trackByOrderId($index, order)) {
-          <tr class="order-row" (click)="select(order)" >
-            <!-- TICKET -->
+          <tr class="order-row" (click)="select(order)">
             <td class="fw-semibold">
               {{ ticketNumber(order) }}
             </td>
 
-            <!-- DATE + TIME -->
             <td>
               {{ order.createdAt | date:'medium' }}
             </td>
 
-            <!-- ITEMS -->
             <td>
               {{ itemCount(order) }}
               item{{ itemCount(order) === 1 ? '' : 's' }}
             </td>
 
-            <!-- TOTAL -->
             <td class="fw-semibold">
               {{ order.total | number:'1.2-2' }}
               {{ currencySymbol }}
             </td>
 
-            <!-- PAYMENT -->
+            <!-- PAYMENT ACCOUNT: resolve saved account ID to its current name and image. -->
             <td>
-              @if (paymentMethod(order).toLowerCase() === 'cash') {
-                <span class="payment-badge payment-cash">
-                  <i class="bi bi-cash-stack"></i>
-                  <span>Cash</span>
+              @if (order.paymentStatus === 'OnAccount') {
+                <span class="payment-badge payment-other" title="On Account">
+                  <i class="bi bi-person-badge"></i>
+                  <span>On Account</span>
                 </span>
-              } @else if (paymentMethod(order).toLowerCase() === 'card') {
-                <span class="payment-badge payment-card">
-                  <i class="bi bi-credit-card"></i>
-                  <span>Card</span>
+              } @else if (getPaymentAccount(order); as account) {
+                <span
+                  class="payment-badge"
+                  [ngClass]="'payment-' + account.type"
+                  [title]="account.name">
+                  @if (getPaymentImageUrl(account.image); as imageUrl) {
+                    <img
+                      class="payment-account-image"
+                      [src]="imageUrl"
+                      [alt]="account.name"
+                      (error)="$any($event.target).style.display='none'" />
+                  } @else {
+                    <i class="bi" [ngClass]="getPaymentIconClass(account.type)"></i>
+                  }
+                  <span>{{ account.name }}</span>
                 </span>
               } @else {
-                <span class="payment-badge payment-other">
-                  <i class="bi bi-wallet2"></i>
+                <span
+                  class="payment-badge"
+                  [ngClass]="'payment-' + (getFallbackPaymentType(order) || 'other')"
+                  [title]="paymentMethod(order)">
+                  <i class="bi" [ngClass]="getPaymentIconClass(getFallbackPaymentType(order))"></i>
                   <span>{{ paymentMethod(order) }}</span>
                 </span>
               }
             </td>
 
-            <!-- STATUS -->
             <td>
-              <span class="status-badge" [class.status-success]="order.status === 'Completed'" [class.status-warning]="order.status === 'Pending'" [class.status-danger]="order.status === 'Cancelled'" >
+              <span
+                class="status-badge"
+                [class.status-success]="order.status === 'Completed'"
+                [class.status-warning]="order.status === 'Pending'"
+                [class.status-danger]="order.status === 'Cancelled'">
                 <span class="dot"></span>
                 {{ order.status }}
               </span>
             </td>
 
-            <!-- ACTION -->
             <td class="text-center">
-              <button type="button" class="row-action-btn" (click)="$event.stopPropagation(); select(order)" aria-label="View order">
+              <button
+                type="button"
+                class="row-action-btn"
+                (click)="$event.stopPropagation(); select(order)"
+                aria-label="View order">
                 <i class="bi bi-eye"></i>
               </button>
             </td>

@@ -49,9 +49,22 @@
   
           <section class="drawer-section">
             <h3 class="section-label">Payment</h3>
+          
             <div class="payment-row">
-              <i class="bi bi-cash-coin"></i>
-              <span>{{ paymentMethod }}</span>
+              <span class="payment-method-icon">
+                @if (paymentMethodImage; as image) {
+                  <img
+                    [src]="image"
+                    [alt]="paymentMethod"
+                  >
+                } @else {
+                  <i class="bi bi-cash-coin"></i>
+                }
+              </span>
+          
+              <span class="payment-method-name">
+                {{ paymentMethod }}
+              </span>
             </div>
           </section>
   
@@ -77,9 +90,13 @@
             <i class="bi bi-printer"></i> Print Receipt
           </button>
   
-          <button type="button" class="btn-danger" [disabled]="!canCancel || updatingStatus" (click)="cancelOrder()" >
-            {{ updatingStatus ? 'Cancelling...' : 'Cancel Order' }}
-          </button>
+          <button
+          type="button"
+          class="btn-danger"
+          [disabled]="!canCancel || updatingStatus"
+          (click)="cancelOrder()">
+          {{ updatingStatus ? 'Deleting...' : 'Delete Pending Invoice' }}
+        </button>
         </div>
       </div>
     </div>

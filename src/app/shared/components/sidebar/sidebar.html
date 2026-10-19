@@ -1,5 +1,4 @@
 <aside class="sidebar">
-
   <!-- Brand -->
   <div class="brand">
     <div class="brand-header">
@@ -56,6 +55,18 @@
       <i class="bi bi-journal-text"></i>
       <span>Accounts</span>
     </a>
+
+    @if (userRole === 'Manager' || userRole === 'Owner') {
+      <a routerLink="/treasury" routerLinkActive="active">
+        <i class="bi bi-safe2"></i>
+        <span>Treasury</span>
+      </a>
+    }
+
+    <a routerLink="/cash-movements" routerLinkActive="active">
+    <i class="bi bi-arrow-left-right"></i>
+    <span>Cash Movements</span>
+  </a>
     
     <a routerLink="/orders" routerLinkActive="active">
       <i class="bi bi-receipt"></i>
@@ -82,8 +93,12 @@
           <span>Users</span>
         </a>
       }
-  </nav>
 
+      <a routerLink="/attendance" routerLinkActive="active">
+        <i class="bi bi-calendar-check"></i>
+        <span>Attendance</span>
+      </a>
+  </nav>
 
   <!-- New Sale -->
   <div class="new-sale">
@@ -93,20 +108,18 @@
     </a>
   </div>
 
-  <!-- Bottom Navigation -->
-  <div class="bottom-navigation">
+<!-- Bottom Navigation -->
+<div class="bottom-navigation">
+  @if (userRole === 'Owner') {
+    <a routerLink="/store-settings" routerLinkActive="active">
+      <i class="bi bi-gear"></i>
+      <span>Settings</span>
+    </a>
+  }
 
-    <!-- <a>
-      <i class="bi bi-question-circle"></i>
-      <span>Help Center</span>
-    </a> -->
-
-    <!-- <a routerLink="/store-settings" routerLinkActive="active" *ngIf="userRole === 'Owner' || userRole === 'Manager'"> -->
-      @if (userRole === 'Owner') {
-        <a routerLink="/store-settings" routerLinkActive="active">
-          <i class="bi bi-gear"></i>
-          <span>Settings</span>
-        </a>
-      }
-  </div>
+  <button type="button" class="sidebar-logout" (click)="logout()">
+    <i class="bi bi-box-arrow-right"></i>
+    <span>Logout</span>
+  </button>
+</div>
 </aside>

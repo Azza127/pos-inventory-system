@@ -17,7 +17,7 @@
 
   <div class="panel orders-panel orders-card">
     <app-order-filters [searchTerm]="searchTerm" [dateFilter]="dateFilter" (searchTermChange)="onSearchChange($event)" 
-      (dateFilterChange)="onDateChange($event)"(exportClick)="exportCsv()"></app-order-filters>
+      (dateFilterChange)="onDateChange($event)"(exportClick)="exportExcel()"></app-order-filters>
     <app-order-table [orders]="filteredOrders" [loading]="loading" (orderSelect)="selectOrder($event)"></app-order-table>
   </div>
   

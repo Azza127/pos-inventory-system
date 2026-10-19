@@ -16,6 +16,9 @@ import { Orders } from './features/orders/orders';
 import { Returns } from './features/returns/returns';
 import { authGuard } from './core/guards/auth-guard';
 import { roleGuard } from './core/guards/role.guard';
+import { Treasury } from './features/treasury/treasury';
+import { CashMovements } from './features/cash-movements/cash-movements';
+import { Attendance } from './features/attendance/attendance';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -25,14 +28,7 @@ export const routes: Routes = [
   { path: 'products', component: Products, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
   { path: 'categories', component: Categories, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
   { path: 'customers', component: Customer, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
-  {
-    path: 'suppliers',
-    component: Supplier,
-    canActivate: [authGuard, roleGuard],
-    data: {
-      roles: ['Employee', 'Manager', 'Owner']
-    }
-  },
+  { path: 'suppliers', component: Supplier, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] }},
   { path: 'inventory', component: Products, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
   { path: 'pos', component: PosComponent, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] } },
   { path: 'orders', component: Orders, canActivate: [authGuard, roleGuard], data: { roles: ['Employee','Manager', 'Owner'] } },
@@ -42,11 +38,9 @@ export const routes: Routes = [
   { path: 'reports', component: Reports, canActivate: [authGuard, roleGuard], data: { roles: ['Manager', 'Owner'] } },
   { path: 'team-members', component: TeamMembers, canActivate: [authGuard, roleGuard], data: { roles: ['Manager', 'Owner'] } },
   { path: 'store-settings', component: SettingsComponent, canActivate: [authGuard, roleGuard], data: { roles: ['Owner'] } },
-  {
-    path: 'accounts',
-    component: Accounts,
-    canActivate: [authGuard, roleGuard],
-    data: { roles: ['Employee', 'Manager', 'Owner'] }
-  },
+  { path: 'accounts', component: Accounts, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] }},
+  { path: 'treasury', component: Treasury, canActivate: [authGuard, roleGuard], data: { roles: ['Manager', 'Owner'] }},
+  { path: 'cash-movements', component: CashMovements, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner']}},
+  { path: 'attendance', component: Attendance, canActivate: [authGuard, roleGuard], data: { roles: ['Employee', 'Manager', 'Owner'] }},
   { path: '**', redirectTo: 'login' },
 ];
